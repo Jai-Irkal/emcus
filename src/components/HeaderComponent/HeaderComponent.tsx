@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import icon from "@/public/header/emcus-icon.png";
 import Image from "next/image";
+import { ThemeColours } from "@/src/theme";
 
 type HeaderProps = {
     active: string; // example: "HOME", "Blog", "Careers"
@@ -13,21 +14,41 @@ const HeaderComponent = ({ active }: HeaderProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const [resourcesOpen, setResourcesOpen] = useState(false);
     const [companyOpen, setCompanyOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    React.useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 50);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
         <>
             {/* HEADER */}
-            <div className="bg-white w-full h-[90px] fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6">
+            <div
+                className={`bg-white w-full fixed top-0 left-0 right-0 z-50 
+  flex items-center justify-between px-4 md:px-6 lg:px-10 shadow-sm
+  transition-all duration-300
+  ${isScrolled ? "h-[60px] md:h-[70px]" : "h-[80px] md:h-[90px]"}`}
+            >
 
                 {/* Logo */}
                 <Image
                     src={icon}
                     alt="Emcus Logo"
-                    className="w-[180px] md:w-[240px] lg:ml-6"
+                    className={`transition-all duration-300 
+${isScrolled
+                            ? "w-[100px] md:w-[120px] lg:w-[140px]"
+                            : "w-[130px] md:w-[160px] lg:w-[180px]"
+                        }`}
+                    priority
                 />
 
-                {/* Desktop Menu */}
-                <div className="hidden md:flex gap-0 h-full">
+                {/* Desktop / Tablet Menu */}
+                <div className="hidden lg:flex items-center h-full">
                     <NavButton title="HOME" active={active} />
                     <NavButton title="WHAT WE DO" active={active} />
                     <NavButton title="HOW WE WORK" active={active} />
@@ -35,13 +56,13 @@ const HeaderComponent = ({ active }: HeaderProps) => {
 
                     <DesktopDropdown
                         title="RESOURCES"
-                        items={["Blog"]}
+                        items={["BLOG"]}
                         active={active}
                     />
 
                     <DesktopDropdown
                         title="COMPANY"
-                        items={["About Us", "Careers", "Contact Us"]}
+                        items={["ABOUT US", "CAREERS", "CONTACT US"]}
                         active={active}
                     />
                 </div>
@@ -49,42 +70,56 @@ const HeaderComponent = ({ active }: HeaderProps) => {
                 {/* Hamburger */}
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="md:hidden flex flex-col gap-1"
+                    className="lg:hidden flex flex-col justify-center items-center w-8 h-8 relative"
                 >
-                    <span className={`w-6 h-[2px] bg-black transition-all ${isOpen ? "rotate-45 translate-y-2" : ""}`} />
-                    <span className={`w-6 h-[2px] bg-black transition-all ${isOpen ? "opacity-0" : ""}`} />
-                    <span className={`w-6 h-[2px] bg-black transition-all ${isOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+                    <span className={`absolute w-6 h-[2px] bg-black transition-all duration-300 
+            ${isOpen ? "rotate-45" : "-translate-y-2"}`} />
+                    <span className={`absolute w-6 h-[2px] bg-black transition-all duration-300 
+            ${isOpen ? "opacity-0" : ""}`} />
+                    <span className={`absolute w-6 h-[2px] bg-black transition-all duration-300 
+            ${isOpen ? "-rotate-45" : "translate-y-2"}`} />
                 </button>
             </div>
 
             {/* Mobile Menu */}
             <div
-                className={`md:hidden fixed top-[90px] left-0 w-full bg-white shadow-lg transition-all duration-300 overflow-hidden z-40
-        ${isOpen ? "max-h-[600px] py-4" : "max-h-0"}`}
+                className={`lg:hidden fixed top-[80px] left-1/2 -translate-x-1/2
+  w-full bg-white z-40 shadow-xl
+  transition-all duration-300 ease-in-out
+  ${isOpen
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 -translate-y-4 pointer-events-none"
+                    }`}
             >
-                <MobileItem title="HOME" active={active}/>
-                <MobileItem title="WHAT WE DO" active={active}/>
-                <MobileItem title="HOW WE WORK" active={active}/>
-                <MobileItem title="OUR TEAM" active={active}/>
+                <div className="flex flex-col py-4">
+                    <MobileItem title="HOME" active={active} />
+                    <MobileItem title="WHAT WE DO" active={active} />
+                    <MobileItem title="HOW WE WORK" active={active} />
+                    <MobileItem title="OUR TEAM" active={active} />
 
-                {/* Resources Dropdown */}
-                <MobileDropdown
-                    title="RESOURCES"
-                    isOpen={resourcesOpen}
-                    toggle={() => setResourcesOpen(!resourcesOpen)}
-                    items={["Blog"]}
-                    active={active}
-                />
+                    <MobileDropdown
+                        title="RESOURCES"
+                        isOpen={resourcesOpen}
+                        toggle={() => setResourcesOpen(!resourcesOpen)}
+                        items={["BLOG"]}
+                        active={active}
+                    />
 
-                {/* Company Dropdown */}
-                <MobileDropdown
-                    title="COMPANY"
-                    isOpen={companyOpen}
-                    toggle={() => setCompanyOpen(!companyOpen)}
-                    items={["About Us", "Careers", "Contact Us"]}
-                    active={active}
-                />
+                    <MobileDropdown
+                        title="COMPANY"
+                        isOpen={companyOpen}
+                        toggle={() => setCompanyOpen(!companyOpen)}
+                        items={["ABOUT US", "CAREERS", "CONTACT US"]}
+                        active={active}
+                    />
+                </div>
             </div>
+            {isOpen && (
+                <div
+                    className="fixed inset-0 bg-black/20 z-30 lg:hidden"
+                    onClick={() => setIsOpen(false)}
+                />
+            )}
         </>
     );
 };
@@ -101,15 +136,16 @@ const NavButton = ({
     active: string;
 }) => (
     <button
-        className={`h-full px-4 flex items-center font-bold text-[14px] transition-colors
-    ${active === title
-                ? "bg-[#FF0000] text-white"
-                : "text-[#322986] hover:bg-[#FF0000] hover:text-white"
+        className={`h-full px-8 lg:px-9 2xl:px-10 flex items-center font-bold text-[15px] transition-colors
+        ${active === title
+                ? "bg-[#d94536] text-white"
+                : "text-[#322986] hover:bg-[#d94536] hover:text-white hover:cursor-pointer"
             }`}
     >
         {title}
     </button>
 );
+
 
 
 const DesktopDropdown = ({
@@ -127,11 +163,12 @@ const DesktopDropdown = ({
         <div className="relative group h-full">
             <button
                 className={`h-full px-4 flex items-center font-bold text-[14px] gap-1 transition-colors
-        ${isParentActive
-                        ? "bg-[#FF0000] text-white"
-                        : "text-[#322986] group-hover:bg-[#FF0000] group-hover:text-white"
+    ${isParentActive
+                        ? "bg-[#d94536] text-white"
+                        : "text-[#322986] group-hover:bg-[#d94536] group-hover:text-white hover:cursor-pointer"
                     }`}
             >
+
                 {title}
                 <Chevron />
             </button>
@@ -143,11 +180,12 @@ const DesktopDropdown = ({
                     <button
                         key={item}
                         className={`w-full text-left px-4 py-2 font-bold text-[14px] transition-colors
-            ${active === item
-                                ? "bg-[#FF0000] text-white"
-                                : "text-[#322986] hover:bg-[#FF0000] hover:text-white"
+    ${active === item
+                                ? "bg-[#d94536] text-white"
+                                : "text-[#322986] hover:bg-[#d94536] hover:text-white hover:cursor-pointer"
                             }`}
                     >
+
                         {item}
                     </button>
                 ))}
@@ -169,10 +207,11 @@ const MobileItem = ({
     <button
         className={`block w-full text-left px-6 py-3 font-bold text-[14px] transition-colors
     ${active === title
-                ? "bg-[#FF0000] text-white"
-                : "text-[#322986] hover:bg-[#FF0000] hover:text-white"
+                ? "bg-[#d94536] text-white"
+                : "text-[#322986] hover:bg-[#d94536] hover:text-white"
             }`}
     >
+
         {title}
     </button>
 );
@@ -198,11 +237,12 @@ const MobileDropdown = ({
             <button
                 onClick={toggle}
                 className={`w-full flex justify-between items-center px-6 py-3 font-bold text-[14px] transition-colors
-        ${isParentActive
-                        ? "bg-[#FF0000] text-white"
-                        : "text-[#322986] hover:bg-[#FF0000] hover:text-white"
+    ${isParentActive
+                        ? "bg-[#d94536] text-white"
+                        : "text-[#322986] hover:bg-[#d94536] hover:text-white"
                     }`}
             >
+
                 {title}
                 <Chevron rotate={isOpen} />
             </button>
@@ -215,11 +255,12 @@ const MobileDropdown = ({
                     <button
                         key={item}
                         className={`block w-full text-left pl-10 pr-6 py-2 font-bold text-[14px] transition-colors
-            ${active === item
-                                ? "bg-[#FF0000] text-white"
-                                : "text-[#322986] hover:bg-[#FF0000] hover:text-white"
+                            ${active === item
+                                ? "bg-[#d94536] text-white"
+                                : "text-[#322986] hover:bg-[#d94536] hover:text-white"
                             }`}
                     >
+
                         {item}
                     </button>
                 ))}
@@ -233,10 +274,10 @@ const MobileDropdown = ({
 
 const Chevron = ({ rotate = false }: { rotate?: boolean }) => (
     <svg
-        className={`w-3 h-3 transition-transform duration-200 ${rotate ? "rotate-180" : ""
+        className={`w-3 h-3 transition-transform duration-200 text-[#322986] ${rotate ? "rotate-180" : ""
             }`}
         viewBox="0 0 20 20"
-        fill="currentColor"
+        fill="#322986"
     >
         <path d="M5 7l5 6 5-6H5z" />
     </svg>
