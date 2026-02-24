@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import icon from "@/public/header/emcus-icon.png";
 import Image from "next/image";
-import { ThemeColours } from "@/src/theme";
 
 type HeaderProps = {
     active: string; // example: "HOME", "Blog", "Careers"
