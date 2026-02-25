@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export const Card = ({ item }) => (
+export const Card = ({ item }:any) => (
   <div className="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300">
     <div className="bg-[#d94536] text-white px-6 py-5 flex items-center gap-4">
       <Image
@@ -22,7 +22,7 @@ export const Card = ({ item }) => (
               : "space-y-2"
           }`}
         >
-          {item.data.map((point, index) => (
+          {item.data.map((point:any, index:any) => (
             <li key={index} className="text-[15px] leading-relaxed">
               {point}
             </li>

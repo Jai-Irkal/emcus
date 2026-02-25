@@ -1,18 +1,10 @@
 import HeaderComponent from "@/src/components/HeaderComponent/HeaderComponent";
 import HomeBanner from "@/public/banners/home-banner.jpeg"
-import TextBanner from "@/src/components/HomeComponents/TextBanner";
 import Image from "next/image";
-import { FIRE_SAFETY_DEVELOPMENT_PORTFOLIO } from "@/src/data/portfolio.data";
-import { CORE_FOCUS } from "@/src/data/core-focus.data";
-import { CORE_SERVICES } from "@/src/data/core-services.data";
-import { WHY_EMCUS } from "@/src/data/why-emcus.data";
 import FooterComponent from "@/src/components/FooterComponent/FooterComponent";
-import { EXPERIENCE_AND_EXPERTISE } from "@/src/data/experience-and-expertise.data";
-import { Card } from "@/src/components/cards/Card";
-import { EXPERTISE_DOMAINS } from "@/src/data/expertise-domains.data";
 import { TECHNOLOGY_SKILLSET } from "@/src/data/technology-skillset.data";
 
-export default function Home() {
+export default function HowWeWork() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex min-h-screen w-full flex-col bg-white dark:bg-black pt-[80px] md:pt-[90px]">

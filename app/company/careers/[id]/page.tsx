@@ -1,37 +1,108 @@
-import HomeBanner from "@/public/banners/home-banner.jpeg"
-import TextBanner from "@/src/components/HomeComponents/TextBanner";
-import Image from "next/image";
+import { notFound } from "next/navigation";
+import HeaderComponent from "@/src/components/HeaderComponent/HeaderComponent";
+import FooterComponent from "@/src/components/FooterComponent/FooterComponent";
+import { OPEN_ROLES } from "@/src/data/careers.data";
 
-export default function Home() {
+interface Props {
+  params: Promise<{ id: string }>;
+}
+
+export default async function JobDetails({ params }: Props) {
+  const { id } = await params;
+
+  const job = OPEN_ROLES.find(
+    (role) => role.id === Number(id)
+  );
+
+  if (!job) return notFound();
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full flex-col items-center justify-between pt-22 bg-white dark:bg-black sm:items-start">
-        {/* <HeaderComponent active="HOME" /> */}
-        <div className="relative w-full h-[600px]">
-          <Image
-            src={HomeBanner}
-            alt="Home Banner"
-            fill
-            priority
-            className="object-cover"
-          />
+    <div className="flex min-h-screen flex-col bg-zinc-50">
+      <HeaderComponent active="CAREERS" />
 
-          <div className="absolute inset-0 bg-black/30"></div>
+      <main className="flex-1 pt-[100px] pb-16 px-6">
+        <div className="max-w-6xl mx-auto">
 
-          {/* Overlay Content */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
-            <h1 className="text-white text-4xl font-bold">
-              UNIQUE SOLUTIONS FOR UNIQUE YOU
+          {/* Title Section */}
+          <div className="mb-10 mt-5">
+            <h1 className="text-2xl md:text-4xl font-bold text-[#322986]">
+              {job.role}
             </h1>
+            <p className="text-gray-600 mt-3 text-lg">
+              {job.location}
+            </p>
+          </div>
 
-            <span className="text-white text-lg mt-4 max-w-3xl">
-              We at EMCUS understand that every requirement is unique, and we tailor our solutions to your specific needs.
-            </span>
+          {/* Grid Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+            {/* LEFT SIDE (2/3) */}
+            <div className="lg:col-span-2 space-y-10">
+
+              {/* Job Overview */}
+              <div className="bg-white rounded-xl shadow-md p-6">
+                <h2 className="text-xl font-bold mb-4 text-[#322986]">
+                  Job Overview
+                </h2>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-700">
+                  <p><strong>Domain:</strong> {job.preferredDomain}</p>
+                  <p><strong>Reports To:</strong> {job.reportsTo}</p>
+                  <p><strong>Experience:</strong> {job.experienceRequired} Years</p>
+                  <p><strong>Education:</strong> {job.eduacation}</p>
+                </div>
+              </div>
+
+              {/* Responsibilities */}
+              <div className="bg-white rounded-xl shadow-md p-6">
+                <h2 className="text-xl font-bold mb-4 text-[#322986]">
+                  Responsibilities
+                </h2>
+                <ul className="list-disc list-outside pl-5 space-y-2 text-gray-700">
+                  {job.responsibilities.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Skills */}
+              <div className="bg-white rounded-xl shadow-md p-6">
+                <h2 className="text-xl font-bold mb-4 text-[#322986]">
+                  Required Skills
+                </h2>
+                <ul className="list-disc list-outside pl-5 space-y-2 text-gray-700">
+                  {job.skills.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+
+            </div>
+
+            {/* RIGHT SIDE (1/3) */}
+            <div className="lg:sticky lg:top-28 h-fit">
+              <div className="bg-white rounded-xl shadow-md p-6 space-y-4">
+                <h3 className="text-lg font-bold text-[#322986]">
+                  Apply for this position
+                </h3>
+
+                <button className="w-full py-3 bg-[#d94536] text-white rounded-md font-semibold hover:opacity-90 transition">
+                  Apply Now
+                </button>
+
+                <a
+                  href="mailto:career@emcus.co.in"
+                  className="block text-center text-[#322986] font-semibold"
+                >
+                  Email Resume
+                </a>
+              </div>
+            </div>
+
           </div>
         </div>
-        <TextBanner text="EMCUS Technology Solutions is a software-focused company that offers you first-class firmware and software development, and testing services in the fire & safety domain."/>
-        <h1 className="text-[30px] font-bold text-center w-full lg:mt-20">OUR FIRE & SAFETY SOFTWARE DEVELOPMENT PORTFOLIO</h1>
       </main>
+      <FooterComponent />
     </div>
   );
 }

@@ -5,7 +5,7 @@ import FooterComponent from "@/src/components/FooterComponent/FooterComponent";
 import Vignesh from "@/public/about-us/vignesh.png";
 import LinkedinIcon from "@/public/footer-assets/linkedin.svg";
 
-export default function Home() {
+export default function AboutUs() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex min-h-screen w-full flex-col bg-white dark:bg-black pt-[80px] md:pt-[90px]">

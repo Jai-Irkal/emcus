@@ -2,7 +2,7 @@ import HomeBanner from "@/public/banners/home-banner.jpeg"
 import TextBanner from "@/src/components/HomeComponents/TextBanner";
 import Image from "next/image";
 
-export default function Home() {
+export default function Blogs() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex min-h-screen w-full flex-col items-center justify-between pt-22 bg-white dark:bg-black sm:items-start">
