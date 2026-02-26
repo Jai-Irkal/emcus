@@ -3,12 +3,32 @@
 import React, { useState } from "react";
 import icon from "@/public/header/emcus-icon.png";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { NAVIGATION } from "@/lib/navigation";
 
 type HeaderProps = {
     active: string; // example: "HOME", "Blog", "Careers"
 };
 
 const HeaderComponent = ({ active }: HeaderProps) => {
+
+    const router = useRouter();
+
+    const routes: Record<string, string> = {
+        HOME: "/",
+        "WHAT WE DO": "/what-we-do",
+        "HOW WE WORK": "/how-we-work",
+        "OUR TEAM": "/our-team",
+        BLOG: "/resources/blog",
+        "ABOUT US": "/company/about-us",
+        CAREERS: "/company/careers",
+        "CONTACT US": "/company/contact-us",
+    };
+
+    const handleNavigation = (path: string) => {
+        router.push(path);
+        setIsOpen(false);
+    };
 
     const [isOpen, setIsOpen] = useState(false);
     const [resourcesOpen, setResourcesOpen] = useState(false);
@@ -48,22 +68,29 @@ ${isScrolled
 
                 {/* Desktop / Tablet Menu */}
                 <div className="hidden lg:flex items-center h-full">
-                    <NavButton title="HOME" active={active} />
-                    <NavButton title="WHAT WE DO" active={active} />
-                    <NavButton title="HOW WE WORK" active={active} />
-                    <NavButton title="OUR TEAM" active={active} />
+                    {NAVIGATION.map((group) => {
+                        if (group.title === "MAIN") {
+                            return group.items.map((item) => (
+                                <NavButton
+                                    key={item.label}
+                                    label={item.label}
+                                    path={item.path}
+                                    active={active}
+                                    onNavigate={handleNavigation}
+                                />
+                            ));
+                        }
 
-                    <DesktopDropdown
-                        title="RESOURCES"
-                        items={["BLOG"]}
-                        active={active}
-                    />
-
-                    <DesktopDropdown
-                        title="COMPANY"
-                        items={["ABOUT US", "CAREERS", "CONTACT US"]}
-                        active={active}
-                    />
+                        return (
+                            <DesktopDropdown
+                                key={group.title}
+                                title={group.title}
+                                items={group.items}
+                                active={active}
+                                onNavigate={handleNavigation}
+                            />
+                        );
+                    })}
                 </div>
 
                 {/* Hamburger */}
@@ -91,10 +118,10 @@ ${isScrolled
                     }`}
             >
                 <div className="flex flex-col py-4">
-                    <MobileItem title="HOME" active={active} />
-                    <MobileItem title="WHAT WE DO" active={active} />
-                    <MobileItem title="HOW WE WORK" active={active} />
-                    <MobileItem title="OUR TEAM" active={active} />
+                    <MobileItem title="HOME" active={active} onNavigate={handleNavigation} />
+                    <MobileItem title="WHAT WE DO" active={active} onNavigate={handleNavigation} />
+                    <MobileItem title="HOW WE WORK" active={active} onNavigate={handleNavigation} />
+                    <MobileItem title="OUR TEAM" active={active} onNavigate={handleNavigation} />
 
                     <MobileDropdown
                         title="RESOURCES"
@@ -102,6 +129,7 @@ ${isScrolled
                         toggle={() => setResourcesOpen(!resourcesOpen)}
                         items={["BLOG"]}
                         active={active}
+                        onNavigate={handleNavigation}
                     />
 
                     <MobileDropdown
@@ -110,6 +138,7 @@ ${isScrolled
                         toggle={() => setCompanyOpen(!companyOpen)}
                         items={["ABOUT US", "CAREERS", "CONTACT US"]}
                         active={active}
+                        onNavigate={handleNavigation}
                     />
                 </div>
             </div>
@@ -128,20 +157,26 @@ export default HeaderComponent;
 /* ---------------- Desktop Components ---------------- */
 
 const NavButton = ({
-    title,
+    label,
+    path,
     active,
+    onNavigate,
 }: {
-    title: string;
+    label: string;
+    path: string;
     active: string;
+    onNavigate: (path: string) => void;
 }) => (
     <button
+        onClick={() => onNavigate(path)}
         className={`h-full px-8 lg:px-9 2xl:px-10 flex items-center font-bold text-[15px] transition-colors
-        ${active === title
+        ${
+            active === label
                 ? "bg-[#d94536] text-white"
-                : "text-[#322986] hover:bg-[#d94536] hover:text-white hover:cursor-pointer"
-            }`}
+                : "text-[#322986] hover:bg-[#d94536] hover:text-white"
+        }`}
     >
-        {title}
+        {label}
     </button>
 );
 
@@ -151,41 +186,44 @@ const DesktopDropdown = ({
     title,
     items,
     active,
+    onNavigate,
 }: {
     title: string;
-    items: string[];
+    items: { label: string; path: string }[];
     active: string;
+    onNavigate: (path: string) => void;
 }) => {
-    const isParentActive = items.includes(active);
+    const isParentActive = items.some(i => i.label === active);
 
     return (
         <div className="relative group h-full">
             <button
                 className={`h-full px-4 flex items-center font-bold text-[14px] gap-1 transition-colors
-    ${isParentActive
+                ${
+                    isParentActive
                         ? "bg-[#d94536] text-white"
-                        : "text-[#322986] group-hover:bg-[#d94536] group-hover:text-white hover:cursor-pointer"
-                    }`}
+                        : "text-[#322986] group-hover:bg-[#d94536] group-hover:text-white"
+                }`}
             >
-
                 {title}
                 <Chevron />
             </button>
 
             <div className="absolute left-0 top-full w-48 bg-white shadow-lg opacity-0 invisible 
-        group-hover:opacity-100 group-hover:visible 
-        transition-all duration-200 z-50">
+                group-hover:opacity-100 group-hover:visible 
+                transition-all duration-200 z-50">
                 {items.map((item) => (
                     <button
-                        key={item}
+                        key={item.label}
+                        onClick={() => onNavigate(item.path)}
                         className={`w-full text-left px-4 py-2 font-bold text-[14px] transition-colors
-    ${active === item
+                        ${
+                            active === item.label
                                 ? "bg-[#d94536] text-white"
-                                : "text-[#322986] hover:bg-[#d94536] hover:text-white hover:cursor-pointer"
-                            }`}
+                                : "text-[#322986] hover:bg-[#d94536] hover:text-white"
+                        }`}
                     >
-
-                        {item}
+                        {item.label}
                     </button>
                 ))}
             </div>
@@ -199,18 +237,20 @@ const DesktopDropdown = ({
 const MobileItem = ({
     title,
     active,
+    onNavigate,
 }: {
     title: string;
     active: string;
+    onNavigate: (key: string) => void;
 }) => (
     <button
+        onClick={() => onNavigate(title)}
         className={`block w-full text-left px-6 py-3 font-bold text-[14px] transition-colors
-    ${active === title
+        ${active === title
                 ? "bg-[#d94536] text-white"
                 : "text-[#322986] hover:bg-[#d94536] hover:text-white"
             }`}
     >
-
         {title}
     </button>
 );
@@ -222,12 +262,14 @@ const MobileDropdown = ({
     isOpen,
     toggle,
     active,
+    onNavigate,
 }: {
     title: string;
     items: string[];
     isOpen: boolean;
     toggle: () => void;
     active: string;
+    onNavigate: (key: string) => void;
 }) => {
     const isParentActive = items.includes(active);
 
@@ -236,12 +278,11 @@ const MobileDropdown = ({
             <button
                 onClick={toggle}
                 className={`w-full flex justify-between items-center px-6 py-3 font-bold text-[14px] transition-colors
-    ${isParentActive
+                ${isParentActive
                         ? "bg-[#d94536] text-white"
                         : "text-[#322986] hover:bg-[#d94536] hover:text-white"
                     }`}
             >
-
                 {title}
                 <Chevron rotate={isOpen} />
             </button>
@@ -253,13 +294,13 @@ const MobileDropdown = ({
                 {items.map((item) => (
                     <button
                         key={item}
+                        onClick={() => onNavigate(item)}
                         className={`block w-full text-left pl-10 pr-6 py-2 font-bold text-[14px] transition-colors
-                            ${active === item
+                        ${active === item
                                 ? "bg-[#d94536] text-white"
                                 : "text-[#322986] hover:bg-[#d94536] hover:text-white"
                             }`}
                     >
-
                         {item}
                     </button>
                 ))}

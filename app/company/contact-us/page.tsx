@@ -144,9 +144,7 @@ export default function Home() {
                       className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#322986]"
                     />
                   </div>
-
                 </div>
-
                 {/* Work Email */}
                 <div className="flex flex-col gap-1">
                   <label
@@ -163,7 +161,6 @@ export default function Home() {
                     className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#322986]"
                   />
                 </div>
-
                 {/* Subject */}
                 <div className="flex flex-col gap-1">
                   <label
@@ -180,7 +177,6 @@ export default function Home() {
                     className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#322986]"
                   />
                 </div>
-
                 {/* Message */}
                 <div className="flex flex-col gap-1">
                   <label
@@ -197,7 +193,6 @@ export default function Home() {
                     className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#322986]"
                   ></textarea>
                 </div>
-
                 {/* Submit Button */}
                 <button
                   type="submit"
@@ -205,10 +200,8 @@ export default function Home() {
                 >
                   Send Message
                 </button>
-
               </form>
             </div>
-
           </div>
         </div>
         <FooterComponent />

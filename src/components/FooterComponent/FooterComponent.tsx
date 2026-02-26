@@ -6,9 +6,18 @@ import pin from "@/public/footer-assets/pin-icon.svg";
 import phoneIcon from "@/public/footer-assets/phone.svg";
 import mailIcon from "@/public/footer-assets/mail.svg";
 import linkedinIcon from "@/public/footer-assets/linkedin.svg";
+import { NAVIGATION } from "@/lib/navigation";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const FooterComponent = () => {
+
+    const router = useRouter();
+
+    const handleNavigation = (path: string) => {
+        router.push(path);
+    };
+
     return (
         <footer className="bg-[#322986] text-white py-16 px-6">
 
@@ -36,20 +45,23 @@ const FooterComponent = () => {
                     </div>
                 </div>
 
-                {/* MIDDLE — LINKS */}
-                {/* MIDDLE — LINKS */}
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-6 text-sm">
 
-                    {/* Quick Links */}
+                    {/* Quick Links (MAIN) */}
                     <div>
                         <h3 className="font-bold mb-4 text-[16px] text-[#4590ca]">
                             Quick Links
                         </h3>
                         <ul className="space-y-2">
-                            <li>HOME</li>
-                            <li>WHAT WE DO</li>
-                            <li>HOW WE WORK</li>
-                            <li>OUR TEAM</li>
+                            {NAVIGATION.find(g => g.title === "MAIN")?.items.map((item) => (
+                                <li
+                                    key={item.label}
+                                    onClick={() => handleNavigation(item.path)}
+                                    className="cursor-pointer hover:text-[#4590ca] transition-colors"
+                                >
+                                    {item.label}
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
@@ -59,7 +71,15 @@ const FooterComponent = () => {
                             Resources
                         </h3>
                         <ul className="space-y-2">
-                            <li>BLOG</li>
+                            {NAVIGATION.find(g => g.title === "RESOURCES")?.items.map((item) => (
+                                <li
+                                    key={item.label}
+                                    onClick={() => handleNavigation(item.path)}
+                                    className="cursor-pointer hover:text-[#4590ca] transition-colors"
+                                >
+                                    {item.label}
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
@@ -69,9 +89,15 @@ const FooterComponent = () => {
                             Company
                         </h3>
                         <ul className="space-y-2">
-                            <li>ABOUT US</li>
-                            <li>CAREERS</li>
-                            <li>CONTACT US</li>
+                            {NAVIGATION.find(g => g.title === "COMPANY")?.items.map((item) => (
+                                <li
+                                    key={item.label}
+                                    onClick={() => handleNavigation(item.path)}
+                                    className="cursor-pointer hover:text-[#4590ca] transition-colors"
+                                >
+                                    {item.label}
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
