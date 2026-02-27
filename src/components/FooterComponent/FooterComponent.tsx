@@ -19,7 +19,7 @@ const FooterComponent = () => {
     };
 
     return (
-        <footer className="bg-[#322986] text-white py-16 px-6">
+        <footer className="bg-[#29abe2] text-white py-16 px-6">
 
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-12 items-start">
 
@@ -49,7 +49,7 @@ const FooterComponent = () => {
 
                     {/* Quick Links (MAIN) */}
                     <div>
-                        <h3 className="font-bold mb-4 text-[16px] text-[#4590ca]">
+                        <h3 className="font-bold mb-4 text-[16px] text-white">
                             Quick Links
                         </h3>
                         <ul className="space-y-2">
@@ -57,7 +57,7 @@ const FooterComponent = () => {
                                 <li
                                     key={item.label}
                                     onClick={() => handleNavigation(item.path)}
-                                    className="cursor-pointer hover:text-[#4590ca] transition-colors"
+                                    className="cursor-pointer"
                                 >
                                     {item.label}
                                 </li>
@@ -67,7 +67,7 @@ const FooterComponent = () => {
 
                     {/* Resources */}
                     <div>
-                        <h3 className="font-bold mb-4 text-[16px] text-[#4590ca]">
+                        <h3 className="font-bold mb-4 text-[16px] text-white">
                             Resources
                         </h3>
                         <ul className="space-y-2">
@@ -75,7 +75,7 @@ const FooterComponent = () => {
                                 <li
                                     key={item.label}
                                     onClick={() => handleNavigation(item.path)}
-                                    className="cursor-pointer hover:text-[#4590ca] transition-colors"
+                                    className="cursor-pointer"
                                 >
                                     {item.label}
                                 </li>
@@ -85,7 +85,7 @@ const FooterComponent = () => {
 
                     {/* Company */}
                     <div className="col-span-2 md:col-span-1">
-                        <h3 className="font-bold mb-4 text-[16px] text-[#4590ca]">
+                        <h3 className="font-bold mb-4 text-[16px] text-white">
                             Company
                         </h3>
                         <ul className="space-y-2">
@@ -93,7 +93,7 @@ const FooterComponent = () => {
                                 <li
                                     key={item.label}
                                     onClick={() => handleNavigation(item.path)}
-                                    className="cursor-pointer hover:text-[#4590ca] transition-colors"
+                                    className="cursor-pointer"
                                 >
                                     {item.label}
                                 </li>
@@ -105,7 +105,7 @@ const FooterComponent = () => {
 
                 {/* RIGHT — CONTACT */}
                 <div className="text-md">
-                    <h3 className="font-bold mb-4 text-[16px] text-[#4590ca]">
+                    <h3 className="font-bold mb-4 text-[16px] text-white">
                         Contact
                     </h3>
 
