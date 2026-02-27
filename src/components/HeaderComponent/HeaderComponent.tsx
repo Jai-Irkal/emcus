@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { NAVIGATION } from "@/lib/navigation";
 
 type HeaderProps = {
-    active: string; // example: "HOME", "Blog", "Careers"
+    active: string;
 };
 
 const HeaderComponent = ({ active }: HeaderProps) => {
@@ -49,17 +49,15 @@ const HeaderComponent = ({ active }: HeaderProps) => {
             {/* HEADER */}
             <div
                 className={`bg-white w-full fixed top-0 left-0 right-0 z-50 
-  flex items-center justify-between px-4 md:px-6 lg:px-10 shadow-sm
-  transition-all duration-300
-  ${isScrolled ? "h-[60px] md:h-[70px]" : "h-[80px] md:h-[90px]"}`}
+    flex items-center justify-between px-4 md:px-6 lg:px-10 shadow-sm
+    transition-all duration-300
+    ${isScrolled ? "h-[60px] md:h-[70px]" : "h-[80px] md:h-[90px]"}`}
             >
-
-                {/* Logo */}
                 <Image
                     src={icon}
                     alt="Emcus Logo"
                     className={`transition-all duration-300 
-${isScrolled
+                        ${isScrolled
                             ? "w-[100px] md:w-[120px] lg:w-[140px]"
                             : "w-[130px] md:w-[160px] lg:w-[180px]"
                         }`}
@@ -172,8 +170,8 @@ const NavButton = ({
         className={`h-full px-8 lg:px-9 2xl:px-10 flex items-center font-bold text-[15px] transition-colors
         ${
             active === label
-                ? "bg-[#d94536] text-white"
-                : "text-[#322986] hover:bg-[#d94536] hover:text-white"
+                ? "bg-[#29abe2] text-white"
+                : "text-[#0071bc] hover:bg-[#29abe2] hover:text-white"
         }`}
     >
         {label}
@@ -201,8 +199,8 @@ const DesktopDropdown = ({
                 className={`h-full px-4 flex items-center font-bold text-[14px] gap-1 transition-colors
                 ${
                     isParentActive
-                        ? "bg-[#d94536] text-white"
-                        : "text-[#322986] group-hover:bg-[#d94536] group-hover:text-white"
+                        ? "bg-[#29abe2] text-white"
+                        : "text-[#0071bc] group-hover:bg-[#29abe2] group-hover:text-white"
                 }`}
             >
                 {title}
@@ -219,8 +217,8 @@ const DesktopDropdown = ({
                         className={`w-full text-left px-4 py-2 font-bold text-[14px] transition-colors
                         ${
                             active === item.label
-                                ? "bg-[#d94536] text-white"
-                                : "text-[#322986] hover:bg-[#d94536] hover:text-white"
+                                ? "bg-[#29abe2] text-white"
+                                : "text-[#0071bc] hover:bg-[#29abe2] hover:text-white"
                         }`}
                     >
                         {item.label}
@@ -247,8 +245,8 @@ const MobileItem = ({
         onClick={() => onNavigate(title)}
         className={`block w-full text-left px-6 py-3 font-bold text-[14px] transition-colors
         ${active === title
-                ? "bg-[#d94536] text-white"
-                : "text-[#322986] hover:bg-[#d94536] hover:text-white"
+                ? "bg-[#29abe2] text-white"
+                : "text-[#0071bc] hover:bg-[#29abe2] hover:text-white"
             }`}
     >
         {title}
@@ -279,8 +277,8 @@ const MobileDropdown = ({
                 onClick={toggle}
                 className={`w-full flex justify-between items-center px-6 py-3 font-bold text-[14px] transition-colors
                 ${isParentActive
-                        ? "bg-[#d94536] text-white"
-                        : "text-[#322986] hover:bg-[#d94536] hover:text-white"
+                        ? "bg-[#29abe2] text-white"
+                        : "text-[#0071bc] hover:bg-[#29abe2] hover:text-white"
                     }`}
             >
                 {title}
@@ -297,8 +295,8 @@ const MobileDropdown = ({
                         onClick={() => onNavigate(item)}
                         className={`block w-full text-left pl-10 pr-6 py-2 font-bold text-[14px] transition-colors
                         ${active === item
-                                ? "bg-[#d94536] text-white"
-                                : "text-[#322986] hover:bg-[#d94536] hover:text-white"
+                                ? "bg-[#29abe2] text-white"
+                                : "text-[#0071bc] hover:bg-[#29abe2] hover:text-white"
                             }`}
                     >
                         {item}
@@ -317,7 +315,7 @@ const Chevron = ({ rotate = false }: { rotate?: boolean }) => (
         className={`w-3 h-3 transition-transform duration-200 text-[#322986] ${rotate ? "rotate-180" : ""
             }`}
         viewBox="0 0 20 20"
-        fill="#322986"
+        fill="#0071bc"
     >
         <path d="M5 7l5 6 5-6H5z" />
     </svg>

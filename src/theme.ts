@@ -1,4 +1,5 @@
 export const ThemeColours = {
-    primaryRed: "#d94536",
-    purpleSecondary:"#322986"
+    darkBlue: "#0071bc",
+    lightBlue:"#29abe2",
+    text:"#444444"
 }
