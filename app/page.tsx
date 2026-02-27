@@ -1,10 +1,8 @@
 import HeaderComponent from "../src/components/HeaderComponent/HeaderComponent";
-import HomeBanner from "@/public/banners/home-banner.jpeg"
+import Banner from "@/public/banners/home/home-banner.webp"
 import TextBanner from "@/src/components/HomeComponents/TextBanner";
 import Image from "next/image";
-import { FIRE_SAFETY_DEVELOPMENT_PORTFOLIO } from "@/src/data/portfolio.data";
-import { CORE_FOCUS } from "@/src/data/core-focus.data";
-import { CORE_SERVICES } from "@/src/data/core-services.data";
+import { RETAIL_PORTFOLIO } from "@/src/data/portfolio.data";
 import { WHY_EMCUS } from "@/src/data/why-emcus.data";
 import FooterComponent from "@/src/components/FooterComponent/FooterComponent";
 
@@ -15,193 +13,98 @@ export default function Home() {
         <HeaderComponent active="HOME" />
         <div className="relative w-full h-[300px] lg:h-[600px] 2xl:h-[600px] 2xl:bottom-0">
           <Image
-            src={HomeBanner}
+            src={Banner}
             alt="Home Banner"
             fill
             priority
             className="object-cover"
           />
 
-          <div className="absolute inset-0 bg-black/30"></div>
-
           {/* Overlay Content */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
-            <h1 className="text-white text-xl xl:text-4xl lg:text-4xl lg:font-medium font-normal xl:font-bold xl:px-0 px-4 lg:-mt-20">
-              UNIQUE <span className="font-bold">SOLUTIONS</span> FOR UNIQUE <span className="font-bold">YOU</span>
+          <div className="absolute inset-0 flex flex-col justify-center 
+                items-start text-left 
+                px-4 sm:px-6 lg:px-28 
+                z-10 w-full max-w-[90%] sm:max-w-[600px] lg:max-w-[800px]">
+
+            <h1 className="text-[#0071bc] 
+                 text-lg sm:text-2xl md:text-3xl lg:text-4xl 2xl:text-[45px] 
+                 font-bold 
+                 leading-snug">
+              UNIQUE SOLUTIONS FOR A UNIQUE YOU
             </h1>
 
-            <span className="text-white xl:text-lg lg:text-[22px] lg:mt-6 lg:px-30 mt-4 max-w-3xl xl:px-0 px-6">
-              We at EMCUS understand that every requirement is unique, and we tailor our solutions to your specific needs.
+            <span className="text-[#444444] 
+                   text-sm sm:text-base md:text-lg lg:text-[22px] 
+                   mt-3 sm:mt-4 lg:mt-6 
+                   leading-relaxed">
+              We at EMCUS understand that every requirement is unique,
+              and we tailor our solutions to your specific needs.
             </span>
+
           </div>
         </div>
-        <TextBanner text="EMCUS Technology Solutions is a software-focused company that offers you first-class firmware and software development, and testing services in the fire & safety domain." />
-        <h1 className="text-[25px] xl:text-[30px] text-[#d94536] font-bold text-center w-full mt-10 lg:-mt-10 leading-none">OUR FIRE & SAFETY SOFTWARE DEVELOPMENT PORTFOLIO</h1>
+        <TextBanner text="EMCUS Scanning & Mobility is a software-focused company specializing in top-tier software development tailored for the retail RFID industry." />
+        <h1 className="text-[25px] xl:text-[30px] text-[#0071bc] lg:px-140 font-bold text-center w-full mt-15 lg:mt-20 leading-none">OUR RETAIL RFID AND LOSS PREVENTION SOFTWARE DEVELOPMENT PORTFOLIO</h1>
         {/* Portfolio Grid */}
-        <div className="w-full max-w-6xl mx-auto mt-6 px-6 grid grid-cols-1 md:grid-cols-6 gap-6">
-
-          {FIRE_SAFETY_DEVELOPMENT_PORTFOLIO.map((item, index) => {
-
-            const colSpanClass =
-              index < 2 ? "md:col-span-3" : "md:col-span-2";
+        <div className="w-full mt-10 space-y-16">
+          {RETAIL_PORTFOLIO.map((item, index) => {
+            const isEven = index % 2 !== 0;
 
             return (
-              <div
-                key={item.id}
-                className={`${colSpanClass} bg-gray-100 rounded-lg overflow-hidden flex hover:shadow-lg transition duration-300`}
-              >
+              <div key={item.id} className="w-full">
 
-                {/* Image Section */}
-                <div className="bg-[#d94536] flex items-center justify-center p-6 w-1/3">
-                  <Image
-                    src={item.imgSrc}
-                    alt="Portfolio Item"
-                    className="w-20 object-contain"
-                  />
-                </div>
+                {/* ✅ Title at Top Center */}
+                <h1 className="text-center text-[#444444] text-2xl lg:text-3xl font-bold mb-6">
+                  {item.title}
+                </h1>
 
-                {/* Text Section */}
-                <div className="bg-[#322986] flex flex-col justify-center p-6 w-2/3 hover:bg-[#d94536]">
+                {/* Content Row */}
+                <div
+                  className={`w-full flex flex-col lg:flex-row 
+            ${isEven ? "lg:flex-row-reverse" : ""} 
+            min-h-[400px]`}
+                >
+                  {/* Image Section */}
+                  <div className="w-full lg:w-2/3 h-[300px] lg:h-auto">
+                    <Image
+                      src={item.imgSrc}
+                      alt={item.title}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
 
-                  {item.data.length > 1 ? (
-                    <ul className="list-disc pl-5 space-y-2 marker:text-white">
-                      {item.data.map((text, i) => (
-                        <li
-                          key={i}
-                          className="text-[14px] font-normal text-white text-left"
-                        >
-                          {text}
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p className="text-[14px] font-normal text-white text-left">
-                      {item.data[0]}
-                    </p>
-                  )}
+                  {/* Text Section */}
+                  <div className="w-full lg:w-1/3 bg-[#F1F1F1] flex flex-col justify-center p-8">
+                    {/* <h3 className="text-[#444444] text-xl font-bold mb-6">
+                      {item.title}
+                    </h3> */}
 
+                    {item.data.length > 1 ? (
+                      <ul className="list-disc pl-5 space-y-3 marker:text-[#444444]">
+                        {item.data.map((text, i) => (
+                          <li key={i} className="text-[#444444] text-[16px]">
+                            {text}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-white text-[16px]">
+                        {item.data[0]}
+                      </p>
+                    )}
+                    <span className="text-[#444444] text-[14px] mt-4 block">{item.details}</span>
+
+                    <button className="bg-[#29abe2] text-white font-semibold w-[130px] rounded-md py-2 mt-8 hover:bg-[#29abe2] transition">
+                      Read More
+                    </button>
+                  </div>
                 </div>
               </div>
             );
           })}
         </div>
-        <h1 className="text-[30px] text-[#d94536] font-bold text-center w-full mt-20">OUR CORE FOCUS</h1>
-        {CORE_FOCUS.map((item, index) => {
-
-          const colSpanClass =
-            index < 2 ? "md:col-span-3" : "md:col-span-2";
-
-          return (
-            <div
-              key={item.id}
-              className={`${colSpanClass} h-auto lg:h-[600px] bg-gray-100 rounded-lg overflow-hidden flex flex-col lg:flex-row hover:shadow-lg transition duration-300`}
-            >
-
-              {/* Image Section */}
-              <div className="bg-[#d94536] flex items-center justify-center xl:w-2/3">
-                <Image
-                  src={item.imgSrc}
-                  alt="Portfolio Item"
-                  className="object-cover w-full h-full"
-                />
-              </div>
-
-              {/* Text Section */}
-              <div className="bg-[#322986] flex flex-col justify-center p-6 xl:w-1/3">
-
-                {item.data.length > 1 ? (
-                  <ul className="list-disc pl-5 space-y-2 marker:text-white">
-                    {item.data.map((text, i) => (
-                      <li
-                        key={i}
-                        className="lg:text-[16px] text-[18px] font-normal text-white text-left"
-                      >
-                        {text}
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p className="text-[14px] font-normal text-white text-left">
-                    {item.data[0]}
-                  </p>
-                )}
-                <button className="bg-white w-[120px] rounded-md py-2 mt-10">
-                  Read More
-                </button>
-              </div>
-            </div>
-          );
-        })}
-        <h1 className="text-[30px] text-[#d94536] font-bold text-center w-full mt-20">OUR CORE SERVICES</h1>
-        {CORE_SERVICES.map((item, index) => {
-
-          const colSpanClass =
-            index < 2 ? "md:col-span-3" : "md:col-span-2";
-
-          return (
-            <div
-              key={item.id}
-              className={`${colSpanClass} h-auto lg:h-[600px] bg-gray-100 rounded-lg overflow-hidden flex flex-col lg:flex-row hover:shadow-lg transition duration-300`}
-            >
-
-              {/* Text Section */}
-              <div className="bg-[#322986] flex flex-col p-6 w-full lg:w-2/3 h-full">
-
-                {/* Content wrapper */}
-                <div className="flex-1 flex flex-col justify-center items-center lg:ml-10">
-
-                  {item.data.length > 1 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 max-w-4xl w-full">
-                      {Array.from({ length: 2 }).map((_, colIndex) => {
-                        const start = colIndex * 10;
-                        const end = start + 10;
-                        const columnItems = item.data.slice(start, end);
-
-                        return (
-                          <ul
-                            key={colIndex}
-                            className="list-disc space-y-2 marker:text-white"
-                          >
-                            {columnItems.map((text, i) => (
-                              <li
-                                key={i}
-                                className="lg:text-[16px] text-[18px] font-normal text-white text-left"
-                              >
-                                {text}
-                              </li>
-                            ))}
-                          </ul>
-                        );
-                      })}
-                    </div>
-                  ) : (
-                    <p className="text-[14px] font-normal text-white text-center">
-                      {item.data[0]}
-                    </p>
-                  )}
-
-                </div>
-
-                {/* Button */}
-                <button className="bg-white w-[120px] rounded-md py-2 self-start mt-6 lg:-mt-10 2xl:ml-40 lg:ml-5">
-        Read More
-      </button>
-
-              </div>
-
-              {/* Image Section */}
-              <div className="bg-[#d94536] flex items-center justify-center w-full lg:w-1/3">
-                <Image
-                  src={item.imgSrc}
-                  alt="Portfolio Item"
-                  className="object-cover w-full h-[250px] sm:h-[300px] lg:h-full relative"
-                />
-              </div>
-            </div>
-          );
-        })}
         <div className="2xl:py-30 lg:py-15">
-          <h1 className="text-[30px] text-[#d94536] font-bold text-center w-full">WHY EMCUS?</h1>
+          <h1 className="text-[30px] text-[#0071bc] font-bold text-center w-full">WHY EMCUS?</h1>
           <div className="flex flex-col md:flex-row justify-center py-16 gap-10 md:ml-10 ">
 
             {WHY_EMCUS.map((item) => {
