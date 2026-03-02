@@ -4,8 +4,8 @@ import Image from "next/image";
 
 export default function OurTeam() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full flex-col items-center justify-between pt-22 bg-white dark:bg-black sm:items-start">
+    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans">
+      <main className="flex min-h-screen w-full flex-col items-center justify-between pt-22 bg-white sm:items-start">
         {/* <HeaderComponent active="HOME" /> */}
         <div className="relative w-full h-[600px]">
           <Image

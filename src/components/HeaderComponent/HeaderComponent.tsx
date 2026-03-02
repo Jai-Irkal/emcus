@@ -115,9 +115,9 @@ const HeaderComponent = ({ active }: HeaderProps) => {
                     }`}
             >
                 <div className="flex flex-col py-4">
-                    <MobileItem title="HOME" active={active} onNavigate={handleNavigation} />
-                    <MobileItem title="WHAT WE DO" active={active} onNavigate={handleNavigation} />
-                    <MobileItem title="HOW WE WORK" active={active} onNavigate={handleNavigation} />
+                    <MobileItem title="HOME" active={active} onNavigate={(label) => handleNavigation(routes[label])} />
+                    <MobileItem title="WHAT WE DO" active={active} onNavigate={(label) => handleNavigation(routes[label])} />
+                    <MobileItem title="HOW WE WORK" active={active} onNavigate={(label) => handleNavigation(routes[label])} />
 
                     <MobileDropdown
                         title="RESOURCES"
@@ -125,7 +125,7 @@ const HeaderComponent = ({ active }: HeaderProps) => {
                         toggle={() => setResourcesOpen(!resourcesOpen)}
                         items={["BLOG"]}
                         active={active}
-                        onNavigate={handleNavigation}
+                        onNavigate={(label) => handleNavigation(routes[label])}
                     />
 
                     <MobileDropdown
@@ -134,7 +134,7 @@ const HeaderComponent = ({ active }: HeaderProps) => {
                         toggle={() => setCompanyOpen(!companyOpen)}
                         items={["ABOUT US", "CAREERS", "CONTACT US"]}
                         active={active}
-                        onNavigate={handleNavigation}
+                        onNavigate={(label) => handleNavigation(routes[label])}
                     />
                 </div>
             </div>
