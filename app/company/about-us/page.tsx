@@ -1,9 +1,9 @@
 import HeaderComponent from "@/src/components/HeaderComponent/HeaderComponent";
-import HomeBanner from "@/public/banners/home-banner.jpeg"
+import HomeBanner from "@/public/about-us/AboutUs.webp"
 import Image from "next/image";
 import FooterComponent from "@/src/components/FooterComponent/FooterComponent";
 import Vignesh from "@/public/about-us/vignesh.png";
-import LinkedinIcon from "@/public/footer-assets/linkedin.svg";
+import LinkedinIcon from "@/public/about-us/icon_LinkedIn.webp";
 
 export default function AboutUs() {
   return (
@@ -34,7 +34,7 @@ export default function AboutUs() {
             </span>
           </div>
         </div>
-        <h1 className="text-[25px] text-[#d94536] font-bold text-center w-full mt-30">LEADERSHIP</h1>
+        <h1 className="text-[25px] text-[#0071bc] font-bold text-center w-full mt-30">LEADERSHIP</h1>
         <div className="w-full h-85 2xl:h-65 flex justify-center py-5 mb-30">
           <div className="w-90 2xl:w-140 rounded-xl shadow-2xl grid grid-cols-3 gap-2">
             <div className="col-span-1 p-4 rounded-lg">
@@ -47,7 +47,7 @@ export default function AboutUs() {
                 <Image
                   src={LinkedinIcon}
                   alt="LinkedIn"
-                  className="w-8 h-8 object-contain relative top-4"
+                  className="w-6 h-6 object-contain relative top-4"
                 />
               </div>
             </div>
@@ -55,8 +55,8 @@ export default function AboutUs() {
             {/* 2/3 Column */}
             <div className="relative flex flex-col col-span-2 p-4 rounded-lg 2xl:right-20">
               <div className="flex lg:flex-col 2xl:flex-row 2xl:gap-1">
-                <span className="text-[24px] font-bold text-[#322986]">VIGNESH</span>
-                <span className="text-[24px] font-bold text-[#322986]">MOHAN</span>
+                <span className="text-[24px] font-bold text-[#444444]">VIGNESH</span>
+                <span className="text-[24px] font-bold text-[#444444]">MOHAN</span>
               </div>
               <span>Director</span>
               <span className="mt-5">

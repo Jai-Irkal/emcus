@@ -122,25 +122,29 @@ const FooterComponent = () => {
                         </li>
 
                         {/* Email */}
-                        <li className="flex items-center gap-3">
-                            <Image
-                                src={mailIcon}
-                                alt="Email"
-                                className="w-8 h-6 object-contain"
-                            />
-                            <span>info@emcus.com</span>
+                        <li>
+                            <a href="mailto:info@emcus.com" className="flex items-center gap-3 hover:underline">
+                                <Image
+                                    src={mailIcon}
+                                    alt="Email"
+                                    className="w-8 h-6 object-contain"
+                                />
+                                <span>info@emcus.com</span>
+                            </a>
                         </li>
 
                         {/* LinkedIn */}
                         <li className="flex items-center gap-3">
-                            <Image
-                                src={linkedinIcon}
-                                alt="LinkedIn"
-                                className="w-8 h-8 object-contain"
-                            />
-                            <span className="hover:underline cursor-pointer">
-                                LinkedIn
-                            </span>
+                            <a href="https://www.linkedin.com/in/vignesh-mohan-329416105/" target="_blank" rel="noopener noreferrer">
+                                <Image
+                                    src={linkedinIcon}
+                                    alt="LinkedIn"
+                                    className="w-6 h-6 ml-1 object-contain"
+                                />
+                                <span className="hover:underline cursor-pointer">
+                                    LinkedIn
+                                </span>
+                            </a>
                         </li>
 
                     </ul>

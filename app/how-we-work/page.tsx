@@ -1,5 +1,5 @@
 import HeaderComponent from "@/src/components/HeaderComponent/HeaderComponent";
-import HomeBanner from "@/public/banners/home-banner.jpeg"
+import HomeBanner from "@/public/banners/how-we-work/how-we-work.webp"
 import Image from "next/image";
 import FooterComponent from "@/src/components/FooterComponent/FooterComponent";
 import { TECHNOLOGY_SKILLSET } from "@/src/data/technology-skillset.data";
@@ -31,9 +31,9 @@ export default function HowWeWork() {
             </span>
           </div>
         </div>
-        <h1 className="text-[25px] text-[#d94536] font-bold text-center w-full mt-10">OUR POSITIONING</h1>
+        <h1 className="text-[25px] text-[#0071bc] font-bold text-center w-full mt-10">OUR POSITIONING</h1>
         <div className="lg:py-8 lg:px-20">
-          <div className="flex flex-col md:flex-row justify-center items-stretch gap-6">
+          <div className="flex flex-col md:flex-row justify-center items-stretch gap-6  2xl:px-80">
             <div className="w-full rounded-2xl border-[#E2E2E2] border-1 py-19.5 shadow-2xl">
               <h1 className="text-center text-[28px] font-bold text-[#444444]">CLIENT FOCUS</h1>
               <div className="mt-4 relative left-10">

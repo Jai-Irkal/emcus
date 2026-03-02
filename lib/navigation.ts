@@ -15,7 +15,6 @@ export const NAVIGATION: NavGroup[] = [
             { label: "HOME", path: "/" },
             { label: "WHAT WE DO", path: "/what-we-do" },
             { label: "HOW WE WORK", path: "/how-we-work" },
-            { label: "OUR TEAM", path: "/our-team" },
         ],
     },
     {

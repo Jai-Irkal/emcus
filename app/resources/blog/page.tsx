@@ -5,6 +5,7 @@ import FooterComponent from "@/src/components/FooterComponent/FooterComponent";
 import HeaderComponent from "@/src/components/HeaderComponent/HeaderComponent";
 import { BLOGS } from "@/src/data/blog.data";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Blogs() {
   const [selectedCategory, setSelectedCategory] = useState<string>("Fire Panels");
@@ -34,13 +35,6 @@ export default function Blogs() {
 
           {/* LEFT COLUMN */}
           <div className="lg:col-span-2">
-
-            <h1 className="text-3xl font-bold text-[#322986] mb-8">
-              {selectedCategory === "All"
-                ? "Latest Blogs"
-                : selectedCategory}
-            </h1>
-
             {filteredBlogs.length === 0 ? (
               <p className="text-gray-500">No blogs found.</p>
             ) : (
@@ -63,7 +57,7 @@ export default function Blogs() {
                         {blog.date}
                       </p>
 
-                      <h2 className="text-lg font-bold text-[#322986]">
+                      <h2 className="text-lg font-bold text-[#0071bc]">
                         {blog.title}
                       </h2>
 
@@ -71,9 +65,12 @@ export default function Blogs() {
                         {blog.description}
                       </p>
 
-                      <button className="text-[#d94536] font-semibold hover:underline">
+                      <Link
+                        href={`/resources/blog/${blog.id}`}
+                        className="text-[#444444] font-semibold hover:underline"
+                      >
                         Read More →
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 ))}
@@ -86,19 +83,19 @@ export default function Blogs() {
 
             {/* Search Bar (UI only for now) */}
             <div className="bg-white p-6">
-              <h3 className="text-lg font-bold text-[#322986] mb-4">
+              <h3 className="text-lg font-bold text-[#0071bc] mb-4">
                 Search
               </h3>
               <input
                 type="text"
                 placeholder="Search blogs..."
-                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#322986]"
+                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0071bc]"
               />
             </div>
 
             {/* Featured Posts */}
-            <div className="bg-white p-4">
-              <h3 className="text-lg font-bold text-[#322986] mb-4">
+            <div className="bg-white p-4 -mt-8 ml-2">
+              <h3 className="text-lg font-bold text-[#0071bc] mb-4">
                 Featured Posts
               </h3>
 
@@ -119,37 +116,14 @@ export default function Blogs() {
                     </div>
 
                     {/* Title */}
-                    <h4 className="text-md font-semibold text-gray-800 group-hover:text-[#322986] transition">
+                    <h4 className="text-md font-semibold text-gray-800 group-hover:text-[#0071bc] transition">
                       {blog.title}
                     </h4>
                   </div>
                 ))}
               </div>
             </div>
-
-            {/* Categories */}
-            <div className="bg-white p-6">
-              <h3 className="text-lg font-bold text-[#322986] mb-4">
-                Categories
-              </h3>
-
-              <ul className="space-y-2">
-                {categories.map((category) => (
-                  <li
-                    key={category}
-                    onClick={() => setSelectedCategory(category)}
-                    className={`cursor-pointer ${selectedCategory === category
-                      ? "text-[#322986] font-semibold"
-                      : "text-gray-700"
-                      } hover:text-[#322986]`}
-                  >
-                    • {category}
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
-
         </div>
 
         <FooterComponent />

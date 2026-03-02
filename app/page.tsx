@@ -1,4 +1,6 @@
+"use client";
 import HeaderComponent from "../src/components/HeaderComponent/HeaderComponent";
+import { useRouter } from "next/navigation";
 import Banner from "@/public/banners/home/home-banner.webp"
 import TextBanner from "@/src/components/HomeComponents/TextBanner";
 import Image from "next/image";
@@ -7,6 +9,8 @@ import { WHY_EMCUS } from "@/src/data/why-emcus.data";
 import FooterComponent from "@/src/components/FooterComponent/FooterComponent";
 
 export default function Home() {
+  const router = useRouter();
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex min-h-screen w-full flex-col bg-white dark:bg-black pt-[80px] md:pt-[90px]">
@@ -44,7 +48,7 @@ export default function Home() {
           </div>
         </div>
         <TextBanner text="EMCUS Scanning & Mobility is a software-focused company specializing in top-tier software development tailored for the retail RFID industry." />
-        <h1 className="text-[25px] xl:text-[30px] text-[#0071bc] lg:px-140 font-bold text-center w-full mt-15 lg:mt-20 leading-none">OUR RETAIL RFID AND LOSS PREVENTION SOFTWARE DEVELOPMENT PORTFOLIO</h1>
+        <h1 className="text-[25px] xl:text-[30px] text-[#0071bc] lg:px-80 font-bold text-center w-full mt-15 lg:mt-20 leading-none">OUR RETAIL RFID AND LOSS PREVENTION SOFTWARE DEVELOPMENT PORTFOLIO</h1>
         {/* Portfolio Grid */}
         <div className="w-full mt-10 space-y-16">
           {RETAIL_PORTFOLIO.map((item, index) => {
@@ -94,7 +98,7 @@ export default function Home() {
                     )}
                     <span className="text-[#444444] text-[14px] mt-4 block">{item.details}</span>
 
-                    <button className="bg-[#29abe2] text-white font-semibold w-[130px] rounded-md py-2 mt-8 hover:bg-[#29abe2] transition">
+                    <button onClick={() => router.push('/what-we-do')} className="hover:cursor-pointer bg-[#29abe2] text-white font-semibold w-[130px] rounded-md py-2 mt-8 hover:bg-[#29abe2] transition">
                       Read More
                     </button>
                   </div>

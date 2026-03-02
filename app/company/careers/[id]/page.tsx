@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import HeaderComponent from "@/src/components/HeaderComponent/HeaderComponent";
 import FooterComponent from "@/src/components/FooterComponent/FooterComponent";
+import ApplyModal from "@/src/components/ApplyModal/ApplyModal";
 import { OPEN_ROLES } from "@/src/data/careers.data";
 
 interface Props {
@@ -25,7 +26,7 @@ export default async function JobDetails({ params }: Props) {
 
           {/* Title Section */}
           <div className="mb-10 mt-5">
-            <h1 className="text-2xl md:text-4xl font-bold text-[#322986]">
+            <h1 className="text-2xl md:text-4xl font-bold text-[#0071bc]">
               {job.role}
             </h1>
             <p className="text-gray-600 mt-3 text-lg">
@@ -41,7 +42,7 @@ export default async function JobDetails({ params }: Props) {
 
               {/* Job Overview */}
               <div className="bg-white rounded-xl shadow-md p-6">
-                <h2 className="text-xl font-bold mb-4 text-[#322986]">
+                <h2 className="text-xl font-bold mb-4 text-[#0071bc]">
                   Job Overview
                 </h2>
 
@@ -55,7 +56,7 @@ export default async function JobDetails({ params }: Props) {
 
               {/* Responsibilities */}
               <div className="bg-white rounded-xl shadow-md p-6">
-                <h2 className="text-xl font-bold mb-4 text-[#322986]">
+                <h2 className="text-xl font-bold mb-4 text-[#0071bc]">
                   Responsibilities
                 </h2>
                 <ul className="list-disc list-outside pl-5 space-y-2 text-gray-700">
@@ -67,7 +68,7 @@ export default async function JobDetails({ params }: Props) {
 
               {/* Skills */}
               <div className="bg-white rounded-xl shadow-md p-6">
-                <h2 className="text-xl font-bold mb-4 text-[#322986]">
+                <h2 className="text-xl font-bold mb-4 text-[#0071bc]">
                   Required Skills
                 </h2>
                 <ul className="list-disc list-outside pl-5 space-y-2 text-gray-700">
@@ -80,19 +81,17 @@ export default async function JobDetails({ params }: Props) {
             </div>
 
             {/* RIGHT SIDE (1/3) */}
-            <div className="lg:sticky lg:top-28 h-fit">
+                <div className="lg:sticky lg:top-28 h-fit">
               <div className="bg-white rounded-xl shadow-md p-6 space-y-4">
-                <h3 className="text-lg font-bold text-[#322986]">
+                <h3 className="text-lg font-bold text-[#0071bc]">
                   Apply for this position
                 </h3>
 
-                <button className="w-full py-3 bg-[#d94536] text-white rounded-md font-semibold hover:opacity-90 transition">
-                  Apply Now
-                </button>
+                <ApplyModal role={job.role} />
 
                 <a
                   href="mailto:career@emcus.co.in"
-                  className="block text-center text-[#322986] font-semibold"
+                  className="block text-center text-[#29abe2] font-semibold"
                 >
                   Email Resume
                 </a>

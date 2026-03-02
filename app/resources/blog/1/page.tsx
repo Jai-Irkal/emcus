@@ -30,12 +30,12 @@ export default function BlogOne() {
           <div className="lg:col-span-2 space-y-8">
 
             {/* Title */}
-            <h1 className="text-3xl font-bold text-[#322986] uppercase">
+            <h1 className="text-3xl font-bold text-[#0071bc] uppercase">
               {blog.title}
             </h1>
 
             {/* Image */}
-            <div className="relative w-full h-106 rounded-xl overflow-hidden">
+            <div className="relative w-full h-126 rounded-xl overflow-hidden">
               <Image
                 src={blog.image}
                 alt={blog.title}
@@ -51,7 +51,7 @@ export default function BlogOne() {
                 {/* LinkedIn */}
                 <a
                   href="#"
-                  className="w-8 h-8 flex items-center justify-center rounded-full border-2 border-[#322986] text-[#322986] hover:bg-[#322986] hover:text-white transition"
+                  className="w-8 h-8 flex items-center justify-center rounded-full border-2 border-[#0071bc] text-[#0071bc] hover:bg-[#0071bc] hover:text-white transition"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +66,7 @@ export default function BlogOne() {
                 {/* Facebook */}
                 <a
                   href="#"
-                  className="w-8 h-8 flex items-center justify-center rounded-full border-2 border-[#322986] text-[#322986] hover:bg-[#322986] hover:text-white transition"
+                  className="w-8 h-8 flex items-center justify-center rounded-full border-2 border-[#0071bc] text-[#0071bc] hover:bg-[#0071bc] hover:text-white transition"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +81,7 @@ export default function BlogOne() {
                 {/* Twitter */}
                 <a
                   href="#"
-                  className="w-8 h-8 flex items-center justify-center rounded-full border-2 border-[#322986] text-[#322986] hover:bg-[#322986] hover:text-white transition"
+                  className="w-8 h-8 flex items-center justify-center rounded-full border-2 border-[#0071bc] text-[#0071bc] hover:bg-[#0071bc] hover:text-white transition"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -98,71 +98,54 @@ export default function BlogOne() {
             <div className="space-y-6 text-gray-700 leading-relaxed">
 
               <p>
-                Cross zoning in a fire alarm panel is a strategy used to enhance reliability and reduce false alarms in fire detection systems. It involves dividing an area or building into multiple zones and installing fire detectors from different zones in a cross-wired or cross-connected manner.
+                Cycle counting is a labor-intensive task in both retail and back-office operations, essential for keeping inventory records accurate and up to date. While mobile RFID readers are commonly used for this process, they often yield incomplete or inaccurate data.
+              </p>
+              <p>
+                A more effective alternative is the deployment of fixed RFID readers at strategic locations—such as shelves and store or warehouse exits—to capture real-time updates on product movement. Unlike handheld devices, fixed RFID readers continuously scan for RAIN RFID-tagged items without the need for manual intervention. This enables automated, real-time inventory tracking, giving retailers precise visibility into product quantities and locations at any moment.
+              </p>
+
+              <p>
+                By leveraging antennas that read passive RFID tags, fixed readers can collect data continuously and transmit it to inventory management platforms, ensuring timely updates and synchronization of inventory records.
               </p>
 
               {/* Subheading 1 */}
-              <h2 className="text-2xl font-bold text-[#322986]">
-                How Cross Zoning Typically Works
+              <h2 className="text-2xl font-bold text-[#0071bc]">
+                Key benefits of using fixed RFID readers 
               </h2>
 
               <div className="space-y-4">
 
                 <div>
-                  <h3 className="font-semibold">1. Zone Division</h3>
+                  <h3 className="font-semibold">1. Reduced Labour Costs</h3>
                   <p>
-                    The area or building is divided into two or more separate zones. Each zone may represent a distinct area or floor within a building or specific types of spaces (e.g., offices, corridors, storage areas).
+                    Automation eliminates the need for manual scanning, leading to significant cost savings.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="font-semibold">2. Detector Placement</h3>
+                  <h3 className="font-semibold">2. Enhanced Accuracy</h3>
                   <p>
-                    Fire detectors (e.g., smoke detectors, heat detectors) are installed in each zone. However, instead of having detectors from one zone wired directly to that zone’s dedicated input on the fire alarm panel, they are also connected to inputs in other zones.
+                    Strategically placed and calibrated readers and antennas improve the precision of inventory tracking.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="font-semibold">3. Cross-Wiring</h3>
+                  <h3 className="font-semibold">3. Real-time or scheduled updates</h3>
                   <p>
-                    Detectors from different zones are cross-wired or interconnected, meaning they share connections with detectors from other zones. This configuration enables the fire alarm panel to receive signals from multiple detectors when a fire condition is detected.
+                    Inventory status can be refreshed instantly or at predefined intervals for better visibility.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="font-semibold">4. Verification</h3>
+                  <h3 className="font-semibold">4. Optimized inventory management</h3>
                   <p>
-                    When a fire alarm is triggered, the fire alarm panel receives signals from multiple detectors in different zones. Before activating the full alarm, the system may require confirmation of the alarm signal from detectors in at least one other zone. This verification process helps reduce false alarms caused by a single detector.
+                    Supports just-in-time replenishment, reduces stockouts, and improves overall supply chain efficiency.
                   </p>
                 </div>
-
-              </div>
-
-              {/* Subheading 2 */}
-              <h2 className="text-2xl font-bold text-[#322986]">
-                Benefits of Cross Zoning
-              </h2>
-
-              <div className="space-y-4">
-
                 <div>
-                  <h3 className="font-semibold">1. Enhanced Reliability</h3>
+                  <h3 className="font-semibold">5. Improved shrinkage detection</h3>
                   <p>
-                    Cross zoning increases the chances of detecting a genuine fire event, as it requires multiple detectors to activate before a full alarm is triggered. This redundancy helps in minimizing the risk of missed alarms.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="font-semibold">2. Reduced False Alarms</h3>
-                  <p>
-                    By requiring confirmation from detectors in other zones, nuisance alarms caused by non-fire-related events (e.g., cooking smoke, dust) can be reduced.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="font-semibold">3. Early Warning</h3>
-                  <p>
-                    Cross zoning can provide early warning in situations where the fire is in its early stages, but the smoke or heat hasn’t spread to activate detectors in other zones.
+                    Enables faster identification of inventory loss or theft by monitoring product movement continuously.
                   </p>
                 </div>
 
@@ -170,28 +153,15 @@ export default function BlogOne() {
 
               {/* Ending Paragraph */}
               <p className="italic font-bold">
-                It is essential to design and implement cross zoning carefully to ensure it aligns with local fire safety regulations and the specific requirements of the building or area being protected. Properly engineered cross zoning systems can significantly improve the effectiveness of fire detection and response, enhancing overall life safety.
+                With help of partners like EMCUS Retail and UHF RFID OEM one can build custom use cases and deploy seamlessly into customers sites.
               </p>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-3 pt-6">
-                <span className="font-semibold text-gray-700">Tags: </span>
-                {blog.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-4 py-1 text-sm border border-[#322986] text-[#322986] rounded-full"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
               <div className="flex items-center gap-4">
                 <span className="font-semibold text-gray-700">Share:</span>
 
                 {/* LinkedIn */}
                 <a
                   href="#"
-                  className="w-8 h-8 flex items-center justify-center rounded-full border-2 border-[#322986] text-[#322986] hover:bg-[#322986] hover:text-white transition"
+                  className="w-8 h-8 flex items-center justify-center rounded-full border-2 border-[#0071bc] text-[#0071bc] hover:bg-[#0071bc] hover:text-white transition"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -206,7 +176,7 @@ export default function BlogOne() {
                 {/* Facebook */}
                 <a
                   href="#"
-                  className="w-8 h-8 flex items-center justify-center rounded-full border-2 border-[#322986] text-[#322986] hover:bg-[#322986] hover:text-white transition"
+                  className="w-8 h-8 flex items-center justify-center rounded-full border-2 border-[#0071bc] text-[#0071bc] hover:bg-[#0071bc] hover:text-white transition"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -221,7 +191,7 @@ export default function BlogOne() {
                 {/* Twitter */}
                 <a
                   href="#"
-                  className="w-8 h-8 flex items-center justify-center rounded-full border-2 border-[#322986] text-[#322986] hover:bg-[#322986] hover:text-white transition"
+                  className="w-8 h-8 flex items-center justify-center rounded-full border-2 border-[#0071bc] text-[#0071bc] hover:bg-[#0071bc] hover:text-white transition"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -240,7 +210,7 @@ export default function BlogOne() {
           {/* RIGHT COLUMN (Empty for now – can reuse sidebar later) */}
           <div>
             <div className="bg-white p-6">
-              <h3 className="text-lg font-bold text-[#322986] mb-4">
+              <h3 className="text-lg font-bold text-[#0071bc] mb-4">
                 Search
               </h3>
               <input
@@ -252,7 +222,7 @@ export default function BlogOne() {
 
             {/* Featured Posts */}
             <div className="bg-white p-4">
-              <h3 className="text-lg font-bold text-[#322986] mb-4">
+              <h3 className="text-lg font-bold text-[#0071bc] mb-4">
                 Featured Posts
               </h3>
 
@@ -273,38 +243,14 @@ export default function BlogOne() {
                     </div>
 
                     {/* Title */}
-                    <h4 className="text-md font-semibold text-gray-800 group-hover:text-[#322986] transition">
+                    <h4 className="text-md font-semibold text-gray-800 group-hover:text-[#0071bc] transition">
                       {blog.title}
                     </h4>
                   </div>
                 ))}
               </div>
             </div>
-
-            {/* Categories */}
-            <div className="bg-white p-6">
-              <h3 className="text-lg font-bold text-[#322986] mb-4">
-                Categories
-              </h3>
-
-              <ul className="space-y-2">
-                {categories.map((category) => (
-                  <li
-                    key={category}
-                    onClick={() => setSelectedCategory(category)}
-                    className={`cursor-pointer ${selectedCategory === category
-                      ? "text-[#322986] font-semibold"
-                      : "text-gray-700"
-                      } hover:text-[#322986]`}
-                  >
-                    • {category}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
           </div>
-
         </div>
 
         <FooterComponent />

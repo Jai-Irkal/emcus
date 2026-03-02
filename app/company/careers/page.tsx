@@ -1,5 +1,5 @@
 import HeaderComponent from "@/src/components/HeaderComponent/HeaderComponent";
-import HomeBanner from "@/public/banners/home-banner.jpeg"
+import HomeBanner from "@/public/banners/careers/CareersListing.webp"
 import Image from "next/image";
 import FooterComponent from "@/src/components/FooterComponent/FooterComponent";
 import { OPEN_ROLES } from "@/src/data/careers.data";
@@ -32,7 +32,7 @@ export default function Careers() {
             </span>
           </div>
         </div>
-        <h1 className="text-[25px] text-[#d94536] font-bold text-center w-full mt-20">JOIN US</h1>
+        <h1 className="text-[25px] text-[#0071bc] font-bold text-center w-full mt-20">JOIN US</h1>
         <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 py-10 mb-5 px-6">
           {OPEN_ROLES.map((item) => (
             <CareerCard item={item} key={item.id} />
@@ -47,7 +47,7 @@ export default function Careers() {
             Alternatively, you can email your resume to{" "}
             <a
               href="mailto:career@emcus.co.in"
-              className="text-[#d94536] break-all"
+              className="text-[#0071bc] break-all"
             >
               career@emcus.co.in
             </a>

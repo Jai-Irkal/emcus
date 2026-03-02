@@ -1,10 +1,10 @@
-import HomeBanner from "@/public/banners/home-banner.jpeg"
+import HomeBanner from "@/public/banners/contact-us/ContactUs.webp"
 import Image from "next/image";
 import FooterComponent from "@/src/components/FooterComponent/FooterComponent";
 import HeaderComponent from "@/src/components/HeaderComponent/HeaderComponent";
-import PhoneIcon from "@/public/footer-assets/phone.svg";
-import EmailIcon from "@/public/footer-assets/mail.svg";
-import LinkedinIcon from "@/public/footer-assets/linkedin.svg";
+import PhoneIcon from "@/public/contact-us-assets/icon_Telephone.webp";
+import EmailIcon from "@/public/contact-us-assets/icon_Email.webp";
+import LinkedinIcon from "@/public/contact-us-assets/icon_LinkedIn_1.webp";
 
 export default function Home() {
   return (
@@ -69,13 +69,13 @@ export default function Home() {
 
               {/* Contact Info */}
               <div className="space-y-2 text-gray-700">
-                <h1 className="text-[25px] text-[#d94536] font-bold w-full mt-0">CONNECT WITH US</h1>
+                <h1 className="text-[25px] text-[#0071bc] font-bold w-full mt-0">CONNECT WITH US</h1>
                 <div className="flex items-center gap-3">
                   <Image src={PhoneIcon} alt="Email" width={20} height={30} className="ml-1.5" />
                   <a
                     href="https://www.linkedin.com"
                     target="_blank"
-                    className="hover:text-[#d94536]"
+                    className="hover:text-[#0071bc]"
                   >
                     +91 70226 16214
                   </a>
@@ -86,7 +86,7 @@ export default function Home() {
                   <a
                     href="https://www.linkedin.com"
                     target="_blank"
-                    className="hover:text-[#d94536]"
+                    className="hover:text-[#0071bc]"
                   >
                     info@emcus.co.in
                   </a>
@@ -97,7 +97,7 @@ export default function Home() {
                   <a
                     href="https://www.linkedin.com"
                     target="_blank"
-                    className="hover:text-[#d94536]"
+                    className="hover:text-[#0071bc]"
                   >
                     LinkedIn
                   </a>
@@ -196,7 +196,7 @@ export default function Home() {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full py-3 bg-[#322986] text-white font-semibold rounded-md hover:opacity-90 transition"
+                  className="w-full py-3 bg-[#29abe2] text-white font-semibold rounded-md hover:opacity-90 transition"
                 >
                   Send Message
                 </button>

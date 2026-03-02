@@ -18,7 +18,6 @@ const HeaderComponent = ({ active }: HeaderProps) => {
         HOME: "/",
         "WHAT WE DO": "/what-we-do",
         "HOW WE WORK": "/how-we-work",
-        "OUR TEAM": "/our-team",
         BLOG: "/resources/blog",
         "ABOUT US": "/company/about-us",
         CAREERS: "/company/careers",
@@ -119,7 +118,6 @@ const HeaderComponent = ({ active }: HeaderProps) => {
                     <MobileItem title="HOME" active={active} onNavigate={handleNavigation} />
                     <MobileItem title="WHAT WE DO" active={active} onNavigate={handleNavigation} />
                     <MobileItem title="HOW WE WORK" active={active} onNavigate={handleNavigation} />
-                    <MobileItem title="OUR TEAM" active={active} onNavigate={handleNavigation} />
 
                     <MobileDropdown
                         title="RESOURCES"
@@ -167,7 +165,7 @@ const NavButton = ({
 }) => (
     <button
         onClick={() => onNavigate(path)}
-        className={`h-full px-8 lg:px-9 2xl:px-10 flex items-center font-bold text-[15px] transition-colors
+        className={`h-full px-8 lg:px-9 2xl:px-10 flex items-center font-bold text-[15px] transition-colors hover:cursor-pointer 
         ${
             active === label
                 ? "bg-[#29abe2] text-white"
@@ -196,7 +194,7 @@ const DesktopDropdown = ({
     return (
         <div className="relative group h-full">
             <button
-                className={`h-full px-4 flex items-center font-bold text-[14px] gap-1 transition-colors
+                className={`h-full px-4 flex items-center font-bold text-[14px] gap-1 transition-colors hover:cursor-pointer
                 ${
                     isParentActive
                         ? "bg-[#29abe2] text-white"
@@ -214,7 +212,7 @@ const DesktopDropdown = ({
                     <button
                         key={item.label}
                         onClick={() => onNavigate(item.path)}
-                        className={`w-full text-left px-4 py-2 font-bold text-[14px] transition-colors
+                        className={`w-full text-left px-4 py-2 font-bold text-[14px] transition-colors hover:cursor-pointer
                         ${
                             active === item.label
                                 ? "bg-[#29abe2] text-white"
