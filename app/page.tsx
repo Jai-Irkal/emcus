@@ -31,7 +31,7 @@ export default function Home() {
                 z-10 w-full max-w-[90%] sm:max-w-[600px] lg:max-w-[800px]">
 
             <h1 className="text-[#0071bc] 
-                 text-lg sm:text-2xl md:text-3xl lg:text-4xl 2xl:text-[45px] 
+                 text-lg sm:text-[28px] md:text-3xl lg:text-4xl 2xl:text-[45px] 
                  font-bold 
                  leading-snug">
               UNIQUE SOLUTIONS FOR A UNIQUE YOU

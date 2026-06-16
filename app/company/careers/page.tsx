@@ -27,7 +27,7 @@ export default function Careers() {
             <h1 className="text-white text-xl xl:text-4xl lg:text-4xl lg:font-medium font-normal xl:font-bold xl:px-0 px-4 lg:-mt-20 lg:px-20">
               <span className="font-medium">BE</span><span className="font-bold"> PART</span><span className="font-medium">OF</span><span className="font-bold"> SOMETHING BIG!</span>
             </h1>
-            <span className="text-white xl:text-lg lg:text-[16px] lg:mt-6 lg:px-2 mt-4 w-205 xl:px-0 px-6">
+            <span className="text-white xl:text-lg lg:text-[16px] lg:mt-6 lg:px-2 mt-4 w-205 xl:px-0 px-60 sm:text-sm">
               EMCUS Technology Solutions takes great pride in creating positive changes and stimulating dynamic growth to businesses. We are technology-agnostic and leverage our experience, expertise, and state-of-the-art infrastructure to provide high-quality, rapid time-to-market solutions.
             </span>
           </div>

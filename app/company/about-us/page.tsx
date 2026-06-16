@@ -26,7 +26,7 @@ export default function AboutUs() {
             <h1 className="text-white text-xl xl:text-4xl lg:text-4xl lg:font-medium font-normal xl:font-bold xl:px-0 px-4 lg:-mt-20 lg:px-20">
               <span className="font-medium">WE ARE</span><span className="font-bold"> EMCUS</span>
             </h1>
-            <span className="text-white xl:text-lg lg:text-[16px] lg:mt-6 lg:px-10 mt-4 w-200 xl:px-0 px-6">
+            <span className="text-white xl:text-lg lg:text-[16px] lg:mt-6 lg:px-10 mt-4 w-200 xl:px-0 px-58 text-sm">
               At EMCUS, we act as your dedicated support, collaborating closely with your R&D teams, eliminating concerns about the next steps in the development process. Consider us your reliable extended team, always available to address questions and provide assistance.
             </span>
             <span className="font-bold text-white text-lg">
@@ -44,11 +44,13 @@ export default function AboutUs() {
                   alt="icon"
                   className="w-full h-full object-cover"
                 />
-                <Image
-                  src={LinkedinIcon}
-                  alt="LinkedIn"
-                  className="w-6 h-6 object-contain relative top-4"
-                />
+                <a href="https://www.linkedin.com/in/vignesh-mohan-329416105/" target="_blank" rel="noopener noreferrer" className="mt-1">
+                  <Image
+                    src={LinkedinIcon}
+                    alt="LinkedIn"
+                    className="w-6 h-6 object-contain relative top-4"
+                  />
+                </a>
               </div>
             </div>
 
