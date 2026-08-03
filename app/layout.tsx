@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import HeaderComponent from "../src/components/HeaderComponent/HeaderComponent";
 
@@ -7,6 +7,11 @@ const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
+
+const jakartaSans = Plus_Jakarta_Sans({
+  subsets:["latin"],
+  variable: "--font-jakarta-sans"
+})
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -26,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${jakartaSans.variable} ${jakartaSans.variable} antialiased`}
       >
         {children}
       </body>

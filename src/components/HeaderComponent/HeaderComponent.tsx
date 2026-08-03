@@ -5,6 +5,7 @@ import icon from "@/public/header/emcus-icon.png";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { NAVIGATION } from "@/lib/navigation";
+import ISOComponent from "../ISOComponent/ISOComponent";
 
 type HeaderProps = {
     active: string; // example: "HOME", "Blog", "Careers"
@@ -67,7 +68,7 @@ ${isScrolled
                 />
 
                 {/* Desktop / Tablet Menu */}
-                <div className="hidden lg:flex items-center h-full">
+                <div className="hidden gap-1 lg:flex items-center h-full">
                     {NAVIGATION.map((group) => {
                         if (group.title === "MAIN") {
                             return group.items.map((item) => (
@@ -92,6 +93,7 @@ ${isScrolled
                         );
                     })}
                 </div>
+                <ISOComponent/>
 
                 {/* Hamburger */}
                 <button
@@ -169,11 +171,11 @@ const NavButton = ({
 }) => (
     <button
         onClick={() => onNavigate(path)}
-        className={`h-full px-8 lg:px-9 2xl:px-10 flex items-center font-bold text-[15px] transition-colors
+        className={`h-[40px] rounded-md px-8 lg:px-[12px] 2xl:px-10 flex items-center text-[12px] transition-colors
         ${
             active === label
                 ? "bg-[#d94536] text-white"
-                : "text-[#322986] hover:bg-[#d94536] hover:text-white"
+                : "text-[#000000] hover:bg-[#d94536] hover:text-white"
         }`}
     >
         {label}
@@ -198,15 +200,18 @@ const DesktopDropdown = ({
     return (
         <div className="relative group h-full">
             <button
-                className={`h-full px-4 flex items-center font-bold text-[14px] gap-1 transition-colors
+                className={`h-full flex items-center text-[12px] transition-colors`}
+            >
+                <div className={`flex items-center gap-1 px-8 lg:px-[12px] h-[40px] rounded-md
                 ${
                     isParentActive
-                        ? "bg-[#d94536] text-white"
-                        : "text-[#322986] group-hover:bg-[#d94536] group-hover:text-white"
-                }`}
-            >
-                {title}
+                        ? "bg-[#d94536] text-[#000000]"
+                        : "text-[#000000] group-hover:bg-[#d94536] group-hover:text-white"
+                }
+                    `}>
+                    <p>{title}</p>
                 <Chevron />
+                </div>
             </button>
 
             <div className="absolute left-0 top-full w-48 bg-white shadow-lg opacity-0 invisible 
