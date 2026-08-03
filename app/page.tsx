@@ -3,11 +3,12 @@ import HomeBanner from "@/public/banners/home-banner.jpeg"
 import TextBanner from "@/src/components/HomeComponents/TextBanner";
 import Image from "next/image";
 import { FIRE_SAFETY_DEVELOPMENT_PORTFOLIO } from "@/src/data/portfolio.data";
-import { CORE_FOCUS } from "@/src/data/core-focus.data";
 import { CORE_SERVICES } from "@/src/data/core-services.data";
 import { WHY_EMCUS } from "@/src/data/why-emcus.data";
 import FooterComponent from "@/src/components/FooterComponent/FooterComponent";
 import PortfolioComponent from "@/src/components/PortfolioComponent/PortfolioComponent";
+import CoreServiceBanner from "@/public/core-services/core-services-img.svg"
+import CoreServicesCard from "@/src/components/cards/CoreServicesCard";
 
 export default function Home() {
   return (
@@ -51,87 +52,47 @@ export default function Home() {
             </div>
           ))}
         </div>
-        
+
         <h1 className="text-[30px] text-[#d94536] font-bold text-center w-full mt-20">CORE SERVICES</h1>
-        {CORE_SERVICES.map((item, index) => {
-
-          const colSpanClass =
-            index < 2 ? "md:col-span-3" : "md:col-span-2";
-
-          return (
-            <div
-              key={item.id}
-              className={`${colSpanClass} h-auto lg:h-[600px] bg-gray-100 rounded-lg overflow-hidden flex flex-col lg:flex-row hover:shadow-lg transition duration-300`}
-            >
-
-              {/* Text Section */}
-              <div className="bg-[#322986] flex flex-col p-6 w-full lg:w-2/3 h-full">
-
-                {/* Content wrapper */}
-                <div className="flex-1 flex flex-col justify-center items-center lg:ml-10">
-
-                  {item.data.length > 1 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 max-w-4xl w-full">
-                      {Array.from({ length: 2 }).map((_, colIndex) => {
-                        const start = colIndex * 10;
-                        const end = start + 10;
-                        const columnItems = item.data.slice(start, end);
-
-                        return (
-                          <ul
-                            key={colIndex}
-                            className="list-disc space-y-2 marker:text-white"
-                          >
-                            {columnItems.map((text, i) => (
-                              <li
-                                key={i}
-                                className="lg:text-[16px] text-[18px] font-normal text-white text-left"
-                              >
-                                {text}
-                              </li>
-                            ))}
-                          </ul>
-                        );
-                      })}
-                    </div>
-                  ) : (
-                    <p className="text-[14px] font-normal text-white text-center">
-                      {item.data[0]}
-                    </p>
-                  )}
-
-                </div>
-
-                {/* Button */}
-                <button className="bg-white w-[120px] rounded-md py-2 self-start mt-6 lg:-mt-10 2xl:ml-40 lg:ml-5">
-                  Read More
-                </button>
-
-              </div>
-
-              {/* Image Section */}
-              <div className="bg-[#d94536] flex items-center justify-center w-full lg:w-1/3">
-                <Image
-                  src={item.imgSrc}
-                  alt="Portfolio Item"
-                  className="object-cover w-full h-[250px] sm:h-[300px] lg:h-full relative"
-                />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:mt-10 lg:px-4 h-[600px]">
+          {/* Left Column - Scrollable */}
+          <div className="flex items-center">
+            <div className="overflow-y-auto max-h-[400px] pr-2 hide-scrollbar py-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {CORE_SERVICES.map((item) => (
+                  <div
+                    key={item.id}
+                    className="bg-gray-100 rounded-lg overflow-hidden shadow-lg transition duration-300"
+                  >
+                    <CoreServicesCard coreServiceItem={item} />
+                  </div>
+                ))}
               </div>
             </div>
-          );
-        })}
-        <div className="2xl:py-30 lg:py-15">
+          </div>
+
+          {/* Right Column - Fixed */}
+          <div className="h-full">
+            <Image
+              src={CoreServiceBanner}
+              alt="Core Service Banner"
+              className="w-full h-full object-cover rounded-lg"
+            />
+          </div>
+        </div>
+
+        <div className="mt-20">
           <h1 className="text-[30px] text-[#d94536] font-bold text-center w-full">WHY EMCUS?</h1>
-          <div className="flex flex-col md:flex-row justify-center py-16 gap-10 md:ml-10 ">
+          <div className="flex flex-col md:flex-row justify-center gap-0 mt-10">
 
             {WHY_EMCUS.map((item) => {
               return (
-                <div key={item.id} className="lg:px-7 md:px-24 text-center md:text-left">
-                  <h2 className="text-[20px] font-bold text-center">
+                <div key={item.id} className={`${item.id % 2 !== 0 ? 'bg-[#E4312D]' : 'bg-[#0B2C71]'} text-center md:text-left px-8 py-10 flex-1`}>
+                  <h2 className="text-[20px] font-bold text-center text-white">
                     {item.title}
                   </h2>
 
-                  <p className="text-[18px] mt-6">
+                  <p className="text-[18px] mt-6 text-white">
                     {item.description}
                   </p>
                 </div>

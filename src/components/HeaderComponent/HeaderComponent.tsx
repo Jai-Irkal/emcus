@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import icon from "@/public/header/emcus-icon.png";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { NAVIGATION } from "@/lib/navigation";
+import { NAVIGATION, NavItem } from "@/lib/navigation";
 import ISOComponent from "../ISOComponent/ISOComponent";
 
 type HeaderProps = {
@@ -71,15 +71,29 @@ ${isScrolled
                 <div className="hidden gap-1 lg:flex items-center h-full">
                     {NAVIGATION.map((group) => {
                         if (group.title === "MAIN") {
-                            return group.items.map((item) => (
-                                <NavButton
-                                    key={item.label}
-                                    label={item.label}
-                                    path={item.path}
-                                    active={active}
-                                    onNavigate={handleNavigation}
-                                />
-                            ));
+                            return group.items.map((item) => {
+                                if (item.children) {
+                                    return (
+                                        <DesktopDropdown
+                                            key={item.label}
+                                            title={item.label}
+                                            items={item.children}
+                                            active={active}
+                                            onNavigate={handleNavigation}
+                                        />
+                                    );
+                                }
+
+                                return (
+                                    <NavButton
+                                        key={item.label}
+                                        label={item.label}
+                                        path={item.path!}
+                                        active={active}
+                                        onNavigate={handleNavigation}
+                                    />
+                                );
+                            });
                         }
 
                         return (
@@ -93,7 +107,7 @@ ${isScrolled
                         );
                     })}
                 </div>
-                <ISOComponent/>
+                <ISOComponent />
 
                 {/* Hamburger */}
                 <button
@@ -172,11 +186,10 @@ const NavButton = ({
     <button
         onClick={() => onNavigate(path)}
         className={`h-[40px] rounded-md px-8 lg:px-[12px] 2xl:px-10 flex items-center text-[12px] transition-colors
-        ${
-            active === label
+        ${active === label
                 ? "bg-[#d94536] text-white"
                 : "text-[#000000] hover:bg-[#d94536] hover:text-white"
-        }`}
+            }`}
     >
         {label}
     </button>
@@ -191,7 +204,7 @@ const DesktopDropdown = ({
     onNavigate,
 }: {
     title: string;
-    items: { label: string; path: string }[];
+    items: NavItem[];
     active: string;
     onNavigate: (path: string) => void;
 }) => {
@@ -203,14 +216,13 @@ const DesktopDropdown = ({
                 className={`h-full flex items-center text-[12px] transition-colors`}
             >
                 <div className={`flex items-center gap-1 px-8 lg:px-[12px] h-[40px] rounded-md
-                ${
-                    isParentActive
+                ${isParentActive
                         ? "bg-[#d94536] text-[#000000]"
                         : "text-[#000000] group-hover:bg-[#d94536] group-hover:text-white"
-                }
+                    }
                     `}>
                     <p>{title}</p>
-                <Chevron />
+                    <Chevron />
                 </div>
             </button>
 
@@ -220,13 +232,12 @@ const DesktopDropdown = ({
                 {items.map((item) => (
                     <button
                         key={item.label}
-                        onClick={() => onNavigate(item.path)}
+                        onClick={() => onNavigate(item.path!)}
                         className={`w-full text-left px-4 py-2 font-bold text-[14px] transition-colors
-                        ${
-                            active === item.label
+                        ${active === item.label
                                 ? "bg-[#d94536] text-white"
                                 : "text-[#322986] hover:bg-[#d94536] hover:text-white"
-                        }`}
+                            }`}
                     >
                         {item.label}
                     </button>

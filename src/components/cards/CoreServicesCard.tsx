@@ -1,0 +1,33 @@
+import React from 'react'
+import { PortfolioItem } from '@/src/data/portfolio.data'
+import Image from 'next/image'
+import ArrowBullet from '@/public/portfolio-assets/arrow-bullet.svg'
+import { CoreService } from '@/src/data/core-services.data'
+
+const CoreServicesCard = ({ coreServiceItem }: { coreServiceItem: CoreService }) => {
+    return (
+        <div className="bg-white w-full h-full rounded-lg overflow-hidden flex flex-col pt-2 pb-6 border-gray-100 border-[1px]">
+            <div className="h-[60px] w-full flex items-center px-6">
+                <Image
+                    src={coreServiceItem.imgSrc}
+                    alt={coreServiceItem.title}
+                    className="h-[35px] w-auto"
+                />
+                <h2 className="text-[#E4312D] text-[15px] font-bold">{coreServiceItem.title}</h2>
+            </div>
+            <div className="p-4 py-0">
+                <ul>
+                    {coreServiceItem.data.map((item, index) => (
+                        
+                        <li key={index} className="text-[12px] font-normal text-black text-left py-1">
+                            <Image src={ArrowBullet} alt="Arrow" className="inline-block h-4" />
+                            {item}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
+    )
+}
+
+export default CoreServicesCard

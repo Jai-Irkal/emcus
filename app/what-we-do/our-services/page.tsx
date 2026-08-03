@@ -33,76 +33,8 @@ export default function WhatWeDo() {
             </span>
           </div>
         </div>
-        <h1 className="text-[25px] xl:text-[30px] text-[#d94536] font-bold text-center w-full mt-20 lg:mt-10 leading-none">OUR CORE FOCUS</h1>
-        {/* Portfolio Grid */}
-        <div className="p-6 flex justify-center">
-          <ul className="list-disc list-inside space-y-2">
-            <li>Customized Engineering Services</li>
-            <li>End-to-End Product Development</li>
-            <li>Domain-Specific Product Design Development</li>
-            <li>Empowered and Dedicated R&D Teams</li>
-            <li>Focus on Regulatory Standards</li>
-            <li>Time-Boxed with High Quality</li>
-          </ul>
-        </div>
-        <h1 className="text-[25px] text-[#d94536] font-bold text-center w-full mt-10">OUR CORE SERVICES</h1>
-        <div className="p-8 flex justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-18">
-
-            {/* Column 1 */}
-            <ul className="list-disc list-inside space-y-2">
-              <li>R&D (Small to Large Scale Projects)</li>
-              <li>Enhancement Projects</li>
-              <li>Obsolescence Projects</li>
-              <li>Platform Upgradation</li>
-              <li>Porting Projects</li>
-              <li>Code Re-Factoring</li>
-              <li>Support Product Maintenance</li>
-            </ul>
-
-            {/* Column 2 */}
-            <ul className="list-disc list-inside space-y-2">
-              <li>Field Issue Fixes</li>
-              <li>Regulatory Standards Software</li>
-              <li>Hardware and Software Prototypes</li>
-              <li>IoT and Cloud Projects</li>
-              <li>Smart Utility and Troubleshooting Apps</li>
-              <li>Production Floor Apps (Software and Firmware)</li>
-            </ul>
-
-            {/* Column 3 */}
-            <ul className="list-disc list-inside space-y-2">
-              <li>Embedded Product Test Automation</li>
-              <li>Software Automation Testing</li>
-              <li>Manual Testing</li>
-              <li>Test Suite Creation</li>
-              <li>iOS and Android Apps</li>
-              <li>Desktop Applications</li>
-              <li>User Research and User Experience</li>
-            </ul>
-          </div>
-        </div>
-        <h1 className="text-[25px] text-[#d94536] font-bold text-center w-full mt-10">OUR EXPERIENCE & EXPERTISE</h1>
-        <div className="py-8">
-          <div className="max-w-7xl mx-auto px-6">
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-              {/* LEFT COLUMN */}
-              <div className="space-y-3">
-                {EXPERIENCE_AND_EXPERTISE.slice(0, 5).map((item) => (
-                  <Card key={item.id} item={item} />
-                ))}
-              </div>
-
-              {/* RIGHT COLUMN */}
-              <div className="space-y-8">
-                {EXPERIENCE_AND_EXPERTISE.slice(5).map((item) => (
-                  <Card key={item.id} item={item} />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+        
+        
         <div className="2xl:py-30 lg:py-15">
           <div className="flex flex-col py-16 gap-20">
 
