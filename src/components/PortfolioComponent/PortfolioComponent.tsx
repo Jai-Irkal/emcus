@@ -1,7 +1,7 @@
 import React from 'react'
 import { PortfolioItem } from '@/src/data/portfolio.data'
 import Image from 'next/image'
-import ArrowBullet from '@/public/portfolio-assets/arrow-bullet.svg'
+import ArrowBullet from '@/public/common/arrow-bullet.svg'
 
 const PortfolioComponent = ({ portfolioItem }: { portfolioItem: PortfolioItem }) => {
     return (

@@ -1,7 +1,7 @@
 import React from 'react'
 import { PortfolioItem } from '@/src/data/portfolio.data'
 import Image from 'next/image'
-import ArrowBullet from '@/public/portfolio-assets/arrow-bullet.svg'
+import ArrowBullet from '@/public/common/arrow-bullet.svg'
 import { CoreService } from '@/src/data/core-services.data'
 
 const CoreServicesCard = ({ coreServiceItem }: { coreServiceItem: CoreService }) => {

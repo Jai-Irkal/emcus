@@ -2,9 +2,8 @@ import HeaderComponent from "@/src/components/HeaderComponent/HeaderComponent";
 import HomeBanner from "@/public/banners/home-banner.jpeg"
 import Image from "next/image";
 import FooterComponent from "@/src/components/FooterComponent/FooterComponent";
-import { EXPERIENCE_AND_EXPERTISE } from "@/src/data/experience-and-expertise.data";
-import { Card } from "@/src/components/cards/Card";
-import { EXPERTISE_DOMAINS } from "@/src/data/expertise-domains.data";
+import { OUR_SERVICES } from "@/src/data/our-services.data";
+import OurServiceComponent from "@/src/components/OurServiceComponent/OurServiceComponent";
 
 export default function WhatWeDo() {
   return (
@@ -35,49 +34,12 @@ export default function WhatWeDo() {
         </div>
         
         
-        <div className="2xl:py-30 lg:py-15">
-          <div className="flex flex-col py-16 gap-20">
+        <div className="2xl:py-30 lg:pt-16 lg:pb-0">
+          <div className="flex flex-col gap-20">
 
-            {EXPERTISE_DOMAINS.map((item) => {
-
-              const isEven = item.id % 2 === 0;
-
+            {OUR_SERVICES.map((item) => {
               return (
-                <div key={item.id} className="max-w-7xl mx-auto px-6">
-
-                  {/* Title */}
-                  <h1 className="text-[30px] text-[#d94536] font-bold text-center mb-10">
-                    {item.title}
-                  </h1>
-
-                  {/* Image + Description */}
-                  <div
-                    className={`flex flex-col md:flex-row items-center gap-6 ${isEven ? "md:flex-row-reverse" : ""
-                      }`}
-                  >
-                    {/* Image */}
-                    <div className="w-full md:w-1/2 flex justify-center">
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full max-w-md h-auto object-contain"
-                      />
-                    </div>
-                    {/* Description */}
-                    <div className={`w-full md:w-1/2 ${isEven? 'relative lg:left-15':'lg:mr-12'}`}>
-                      <p className="text-[18px] leading-relaxed text-center md:text-left">
-                        {item.description}
-                      </p>
-                      {
-                        item?.moreDescription && (
-                          <p className="text-[18px] leading-relaxed text-center md:text-left">
-                            {item.moreDescription}
-                          </p>
-                        )
-                      }
-                    </div>
-                  </div>
-                </div>
+                <OurServiceComponent key={item.id} serviceItem={item} />
               );
             })}
 
