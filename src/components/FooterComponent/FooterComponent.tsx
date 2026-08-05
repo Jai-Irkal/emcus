@@ -56,7 +56,7 @@ const FooterComponent = () => {
                             {NAVIGATION.find(g => g.title === "MAIN")?.items.map((item) => (
                                 <li
                                     key={item.label}
-                                    onClick={() => handleNavigation(item.path)}
+                                    onClick={() => handleNavigation(item.path || '')}
                                     className="cursor-pointer hover:text-[#4590ca] transition-colors"
                                 >
                                     {item.label}
@@ -74,7 +74,7 @@ const FooterComponent = () => {
                             {NAVIGATION.find(g => g.title === "RESOURCES")?.items.map((item) => (
                                 <li
                                     key={item.label}
-                                    onClick={() => handleNavigation(item.path)}
+                                    onClick={() => handleNavigation(item.path || '')}
                                     className="cursor-pointer hover:text-[#4590ca] transition-colors"
                                 >
                                     {item.label}
@@ -92,7 +92,7 @@ const FooterComponent = () => {
                             {NAVIGATION.find(g => g.title === "COMPANY")?.items.map((item) => (
                                 <li
                                     key={item.label}
-                                    onClick={() => handleNavigation(item.path)}
+                                    onClick={() => handleNavigation(item.path || '')}
                                     className="cursor-pointer hover:text-[#4590ca] transition-colors"
                                 >
                                     {item.label}

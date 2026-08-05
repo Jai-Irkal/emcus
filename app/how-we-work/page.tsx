@@ -3,8 +3,27 @@ import HomeBanner from "@/public/banners/home-banner.jpeg"
 import Image from "next/image";
 import FooterComponent from "@/src/components/FooterComponent/FooterComponent";
 import { TECHNOLOGY_SKILLSET } from "@/src/data/technology-skillset.data";
+import ClientFocus from "@/public/how-we-work/our-positioning/ClientFocus.svg"
+import Star from "@/public/how-we-work/our-positioning/Star.svg";
+import BlueArrowBullet from "@/public/common/blue-arrow-bullet.svg"
+import RedArrow from "@/public/common/arrow-bullet.svg"
+import { EngagementLifeCycle } from "@/src/data/lifecycle.data";
+import EngagementLifeCycleComponent from "@/src/components/EngagementLifeCycleComponent/EngagementLifeCycleComponent";
+import LifeCycleArrow from "@/public/how-we-work/EngagementLifeCycle/EngagementLifecycleArrow.svg";
+import { PRODUCT_DEVELOPMENT_LIFECYCLE } from "@/src/data/product-development-lifecycle.data";
+import HegxagonComponent from "@/src/components/HexagonComponent/HegxagonComponent";
+import ProductDevelopmentLifeCycleComponent from "@/src/components/ProductDevelopmentLifeCycleComponent/ProductDevelopmentLifeCycleComponent";
 
 export default function HowWeWork() {
+
+  const allSteps = PRODUCT_DEVELOPMENT_LIFECYCLE.flatMap((section) =>
+    section.Steps.map((step) => ({
+      ...step,
+      section: section.section,
+      sectionId: section.id,
+    }))
+  );
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex min-h-screen w-full flex-col bg-white dark:bg-black pt-[80px] md:pt-[90px]">
@@ -34,81 +53,121 @@ export default function HowWeWork() {
         <h1 className="text-[25px] text-[#d94536] font-bold text-center w-full mt-10">OUR POSITIONING</h1>
         <div className="lg:py-8 lg:px-20">
           <div className="flex flex-col md:flex-row justify-center items-stretch gap-6">
-            <div className="w-full rounded-2xl border-[#E2E2E2] border-1 py-19.5 shadow-2xl">
-              <h1 className="text-center text-[28px] font-bold text-[#444444]">CLIENT FOCUS</h1>
-              <div className="mt-4 relative left-10">
-                <ul className="list-disc list-outside space-y-2 lg:px-13 pr-10 text-[18px]">
-                  <li>To excel in the delivery of software services in customer's ecosystem</li>
-                  <li>Simple team structure with strong commitment to customer service</li>
-                  <li>Solid understanding of business processes, trends and best practices in the industry</li>
-                  <li>Hassle-free project execution, less trouble with process</li>
+            <div className="w-full rounded-2xl border-[#E2E2E2] bg-[#D8E0F7] border-1 py-6 px-6 shadow-l">
+              <div className="flex items-center gap-4">
+                <div className="lg:w-[70px] lg:h-[58px] bg-[#243481] rounded-xl flex items-center justify-center">
+                  <Image
+                    src={ClientFocus}
+                    alt="Client Focus"
+                    className="w-10 h-10 object-contain"
+                  />
+                </div>
+                <h1 className="text-center text-[28px] font-bold text-[#444444]">Client Focus</h1>
+              </div>
+              <div className="mt-4 relative">
+                <ul className=" space-y-2 text-[18px]">
+                  <div className="flex">
+                    <div>
+                      <Image
+                        src={BlueArrowBullet} alt={""} />
+                    </div>
+                    <li>Embed seamlessly into your customer's ecosystem and toolchain.</li>
+                  </div>
+                  <div className="flex">
+                    <div>
+                      <Image
+                        src={BlueArrowBullet} alt={""} />
+                    </div>
+                    <li>Lean team structure with a single-thread of accountability.</li>
+                  </div>
+                  <div className="flex">
+                    <div>
+                      <Image
+                        src={BlueArrowBullet} alt={""} />
+                    </div>
+                    <li>Deep domain literacy in fire & safety, IoT and regulated industries.</li>
+                  </div>
+                  <div className="flex">
+                    <div>
+                      <Image
+                        src={BlueArrowBullet} alt={""} />
+                    </div>
+                    <li>Hassle-free engagement — predictable cadence, fewer surprises.</li>
+                  </div>
                 </ul>
               </div>
             </div>
-            <div className="w-full rounded-2xl border-[#E2E2E2] border-1 py-15 shadow-2xl">
-              <h1 className="text-center text-[28px] font-bold text-[#444444]">TECHNICAL EXCELLENCE</h1>
-              <div className="mt-4 relative left-10">
-                <ul className="list-disc list-outside space-y-2 lg:px-13 pr-10 text-[18px]">
-                  <li>Full-time teams dedicated to development and testing</li>
-                  <li>Emphasis on product and domain knowledge</li>
-                  <li>Disciplined processes and cutting-edge methodologies</li>
-                  <li>Attention to technical details to provide robust solutions</li>
-                  <li>Staying ahead of market demands with continuous improvement</li>
+            <div className="w-full rounded-2xl border-[#E2E2E2] bg-[#FFE7E3] border-1 py-6 px-6 shadow-l">
+              <div className="flex items-center gap-4">
+                <div className="lg:w-[70px] lg:h-[58px] bg-[#E4312D] rounded-xl flex items-center justify-center">
+                  <Image
+                    src={Star}
+                    alt="Client Focus"
+                    className="w-10 h-10 object-contain"
+                  />
+                </div>
+                <h1 className="text-center text-[28px] font-bold text-[#444444]">Technical Excellence</h1>
+              </div>
+              <div className="mt-4 relative">
+                <ul className=" space-y-2 text-[18px]">
+                  <div className="flex">
+                    <div>
+                      <Image
+                        src={RedArrow} alt={""} />
+                    </div>
+                    <li>Cross-disciplinary expertise: firmware, cloud, mobile and QA.</li>
+                  </div>
+                  <div className="flex">
+                    <div>
+                      <Image
+                        src={RedArrow} alt={""} />
+                    </div>
+                    <li>Disciplined processes paired with modern tooling.</li>
+                  </div>
+                  <div className="flex">
+                    <div>
+                      <Image
+                        src={RedArrow} alt={""} />
+                    </div>
+                    <li>Attention to the small details that make systems robust.</li>
+                  </div>
+                  <div className="flex">
+                    <div>
+                      <Image
+                        src={RedArrow} alt={""} />
+                    </div>
+                    <li>Continuous improvement as a first-class engineering habit.</li>
+                  </div>
                 </ul>
               </div>
             </div>
           </div>
         </div>
-        <div className="2xl:py-30 lg:py-15">
-          <div className="flex flex-col py-16 gap-20">
-
-            {TECHNOLOGY_SKILLSET.map((item) => {
-
-              const isEven = item.id % 2 === 0;
-
+        <h1 className="text-[25px] text-[#d94536] font-bold text-center w-full mt-10">ENGAGEMENT LIFECYCLE</h1>
+        <div className="2xl:py-30 lg:py-15 px-10 flex flex-col gap-0">
+          {
+            EngagementLifeCycle.map((item, index) => {
               return (
-                <div key={item.id} className="max-w-7xl mx-auto px-6 py-16">
-
-                  <div
-                    className={`flex flex-col md:flex-row items-start gap-12 ${isEven ? "md:flex-row-reverse" : ""
-                      }`}
-                  >
-
-                    {/* Image */}
-                    <div className="w-full md:w-1/2 self-start">
+                <div key={item.id} className="flex flex-col">
+                  <EngagementLifeCycleComponent item={item} />
+                  {
+                    item.id < 4 && (
                       <Image
-                        src={item.img}
-                        alt={item.title}
-                        className="w-200 h-auto object-contain"
-                      />
-                    </div>
-
-                    {/* Content */}
-                    <div className={`w-full md:w-1/2 self-start ${isEven? "mt-0" : "-mt-"}`}>
-                      <h1 className="text-[22px] font-bold text-[#444444] mb-6 text-center">
-                        {item.title}
-                      </h1>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
-                        <ul className="list-disc list-outside pl-5 space-y-2 text-[16px]">
-                          {item.skills1.map((skill, index) => (
-                            <li key={index}>{skill}</li>
-                          ))}
-                        </ul>
-
-                        <ul className="list-disc list-outside pl-5 space-y-2 text-[16px]">
-                          {item.skills2.map((skill, index) => (
-                            <li key={index}>{skill}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-
-                  </div>
+                        src={LifeCycleArrow} alt={""} className="z-10 lg:-mt-2 lg:ml-11" />
+                    )
+                  }
                 </div>
-              );
-            })}
-          </div>
+              )
+            })
+          }
+        </div>
+        <h1 className="text-[25px] text-[#d94536] font-bold text-center w-full py-10">OUR PRODUCT DEVELOPMENT LIFECYCLE</h1>
+        <div className="flex flex-col items-center gap-0">
+          {PRODUCT_DEVELOPMENT_LIFECYCLE.map((item) =>
+            <div key={item.id} className={`w-full items-center flex flex-col ${item.id % 2 == 0 ? "bg-[#E6E6E6]" : "bg-[#F2F2F2]"} py-12`}>
+              <ProductDevelopmentLifeCycleComponent section={item} />
+            </div>
+          )}
         </div>
         <FooterComponent />
       </main>

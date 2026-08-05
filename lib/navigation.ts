@@ -28,7 +28,6 @@ export const NAVIGATION: NavGroup[] = [
         ],
       },
       { label: "HOW WE WORK", path: "/how-we-work" },
-      { label: "OUR TEAM", path: "/our-team" },
     ],
   },
   {
