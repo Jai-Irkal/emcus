@@ -3,6 +3,7 @@ export const OPEN_ROLES = [
         id:1,
         role:"Software Quality Engineer",
         location: "Bengaluru, India",
+        role_type:"Full Time",
         preferredDomain: "Fire Safety",
         reportsTo:"Engineering Manager",
         experienceRequired:"4-5",
@@ -31,6 +32,7 @@ export const OPEN_ROLES = [
     {
         id:2,
         role:"Lead Firmware Engineer",
+        role_type:"Full Time",
         location: "Bengaluru, India",
         preferredDomain: "Fire Safety",
         reportsTo:"Engineering Manager",
@@ -60,6 +62,7 @@ export const OPEN_ROLES = [
     {
         id:3,
         role:"Firmware Engineer",
+        role_type:"Full Time",
         location: "Bengaluru, India",
         preferredDomain: "Fire Safety",
         reportsTo:"Engineering Manager",
