@@ -1,9 +1,12 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import FooterComponent from "@/src/components/FooterComponent/FooterComponent";
 import HeaderComponent from "@/src/components/HeaderComponent/HeaderComponent";
 import { BLOGS } from "@/src/data/blog.data";
+import SearchIcon from "@/public/blogs/search.svg";
+import LeftArrow from "@/public/blogs/left-cheveron.svg";
+import RightArrow from "@/public/blogs/right-cheveron.svg";
 import Image from "next/image";
 
 export default function Blogs() {
@@ -12,34 +15,91 @@ export default function Blogs() {
   // Extract unique categories
   const categories = useMemo(() => {
     const allCategories = BLOGS.flatMap((blog) => blog.categories);
-    return [...Array.from(new Set(allCategories))];
+    return ["All", ...Array.from(new Set(allCategories))];
   }, []);
 
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scrollLeft = () => {
+    scrollRef.current?.scrollBy({
+      left: -250,
+      behavior: "smooth",
+    });
+  };
+
+  const scrollRight = () => {
+    scrollRef.current?.scrollBy({
+      left: 250,
+      behavior: "smooth",
+    });
+  };
+
   // Filter blogs
-  const filteredBlogs =
-    selectedCategory === "Fire Panels"
-      ? BLOGS.filter((blog) =>
-        blog.categories.includes(selectedCategory)
-      )
-      : BLOGS.filter((blog) =>
-        blog.categories.includes(selectedCategory)
-      );
+  const filteredBlogs = useMemo(() => {
+    if (selectedCategory === "All") {
+      return BLOGS;
+    }
+
+    return BLOGS.filter((blog) =>
+      blog.categories.includes(selectedCategory)
+    );
+  }, [selectedCategory]);
 
   return (
     <div className="flex min-h-screen bg-zinc-50">
       <main className="w-full pt-24 bg-white">
         <HeaderComponent active="BLOG" />
 
-        <div className="max-w-7xl mx-auto px-6 mt-5 grid grid-cols-1 lg:grid-cols-3 gap-12 py-20">
+        <div className="flex items-center justify-between gap-6 px-8 py-4">
+          {/* Categories */}
+          <div className="flex items-center gap-3">
+            <button
+              onClick={scrollLeft}
+              className="shrink-0"
+            >
+              <Image src={LeftArrow} alt="Previous" />
+            </button>
 
+            <div
+              ref={scrollRef}
+              className="flex items-center gap-3 overflow-hidden flex-1 w-[670px]"
+            >
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`shrink-0 rounded-2xl border px-5 py-2 text-xl font-medium transition-all ${selectedCategory === category
+                    ? "bg-[#E34334] border-[#E34334] text-white"
+                    : "border-[#A8B3D1] text-[#5F6F91] hover:border-[#322986] hover:text-[#322986]"
+                    }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+
+            <button
+              onClick={scrollRight}
+              className="shrink-0"
+            >
+              <Image src={RightArrow} alt="Next" />
+            </button>
+          </div>
+
+          {/* Search */}
+          <div className="flex h-12 w-[320px] items-center rounded-xl border border-[#A8B3D1] px-4">
+            <Image src={SearchIcon} alt="Search" className="mr-3 h-5 w-5" />
+
+            <input
+              type="text"
+              placeholder="Search for Blogs"
+              className="w-full bg-transparent text-lg text-[#5F6F91] outline-none placeholder:text-[#5F6F91]"
+            />
+          </div>
+        </div>
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-12 py-6">
           {/* LEFT COLUMN */}
           <div className="lg:col-span-2">
-
-            <h1 className="text-3xl font-bold text-[#322986] mb-8">
-              {selectedCategory === "All"
-                ? "Latest Blogs"
-                : selectedCategory}
-            </h1>
 
             {filteredBlogs.length === 0 ? (
               <p className="text-gray-500">No blogs found.</p>
@@ -82,20 +142,7 @@ export default function Blogs() {
           </div>
 
           {/* RIGHT SIDEBAR */}
-          <div className="space-y-10">
-
-            {/* Search Bar (UI only for now) */}
-            <div className="bg-white p-6">
-              <h3 className="text-lg font-bold text-[#322986] mb-4">
-                Search
-              </h3>
-              <input
-                type="text"
-                placeholder="Search blogs..."
-                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#322986]"
-              />
-            </div>
-
+          <div className="space-y-8">
             {/* Featured Posts */}
             <div className="bg-white p-4">
               <h3 className="text-lg font-bold text-[#322986] mb-4">
@@ -125,28 +172,6 @@ export default function Blogs() {
                   </div>
                 ))}
               </div>
-            </div>
-
-            {/* Categories */}
-            <div className="bg-white p-6">
-              <h3 className="text-lg font-bold text-[#322986] mb-4">
-                Categories
-              </h3>
-
-              <ul className="space-y-2">
-                {categories.map((category) => (
-                  <li
-                    key={category}
-                    onClick={() => setSelectedCategory(category)}
-                    className={`cursor-pointer ${selectedCategory === category
-                      ? "text-[#322986] font-semibold"
-                      : "text-gray-700"
-                      } hover:text-[#322986]`}
-                  >
-                    • {category}
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
 

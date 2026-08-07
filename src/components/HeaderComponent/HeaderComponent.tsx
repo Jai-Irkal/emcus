@@ -135,7 +135,14 @@ ${isScrolled
             >
                 <div className="flex flex-col py-4">
                     <MobileItem title="HOME" active={active} onNavigate={handleNavigation} />
-                    <MobileItem title="WHAT WE DO" active={active} onNavigate={handleNavigation} />
+                    <MobileDropdown
+                        title="WHAT WE DO"
+                        isOpen={resourcesOpen}
+                        toggle={() => setResourcesOpen(!resourcesOpen)}
+                        items={["SERVICES", "TECHNOLOGY EXPERTISE"]}
+                        active={active}
+                        onNavigate={handleNavigation}
+                    />
                     <MobileItem title="HOW WE WORK" active={active} onNavigate={handleNavigation} />
                     <MobileItem title="OUR TEAM" active={active} onNavigate={handleNavigation} />
 
@@ -208,7 +215,8 @@ const DesktopDropdown = ({
     active: string;
     onNavigate: (path: string) => void;
 }) => {
-    const isParentActive = items.some(i => i.label === active);
+    const isParentActive =
+  title === active || items.some((i) => i.label === active);
 
     return (
         <div className="relative group h-full">
@@ -217,7 +225,7 @@ const DesktopDropdown = ({
             >
                 <div className={`flex items-center gap-1 px-8 lg:px-[12px] h-[40px] rounded-md
                 ${isParentActive
-                        ? "bg-[#d94536] text-[#000000]"
+                        ? "bg-[#d94536] text-[#ffffff]"
                         : "text-[#000000] group-hover:bg-[#d94536] group-hover:text-white"
                     }
                     `}>
@@ -236,7 +244,7 @@ const DesktopDropdown = ({
                         className={`w-full text-left px-4 py-2 font-bold text-[14px] transition-colors
                         ${active === item.label
                                 ? "bg-[#d94536] text-white"
-                                : "text-[#322986] hover:bg-[#d94536] hover:text-white"
+                                : "text-black hover:bg-[#d94536] hover:text-white"
                             }`}
                     >
                         {item.label}
@@ -310,7 +318,7 @@ const MobileDropdown = ({
                 {items.map((item) => (
                     <button
                         key={item}
-                        onClick={() => onNavigate(item)}
+                        onClick={() => onNavigate(item.toLowerCase())}
                         className={`block w-full text-left pl-10 pr-6 py-2 font-bold text-[14px] transition-colors
                         ${active === item
                                 ? "bg-[#d94536] text-white"
