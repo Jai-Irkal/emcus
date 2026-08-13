@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useRef } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import FooterComponent from "@/src/components/FooterComponent/FooterComponent";
 import HeaderComponent from "@/src/components/HeaderComponent/HeaderComponent";
 import { BLOGS } from "@/src/data/blog.data";
@@ -16,7 +16,7 @@ export default function Blogs() {
 
   const router = useRouter();
   const [selectedCategory, setSelectedCategory] =
-    useState<string>("Fire Panels");
+    useState<string>("All");
 
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -43,6 +43,31 @@ export default function Blogs() {
       behavior: "smooth",
     });
   };
+
+  const [commentCounts, setCommentCounts] = useState<
+    Record<number, number>
+  >({});
+
+  useEffect(() => {
+    const fetchCommentCounts = async () => {
+      try {
+        const response = await fetch("/api/blogs");
+        const data = await response.json();
+
+        const counts: Record<number, number> = {};
+
+        data.forEach((item: any) => {
+          counts[item.blog_id] = Number(item.comment_count);
+        });
+
+        setCommentCounts(counts);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchCommentCounts();
+  }, []);
 
   // Filter blogs by category + search
   const filteredBlogs = useMemo(() => {
@@ -233,7 +258,12 @@ export default function Blogs() {
                                   alt=""
                                   className="h-3.5 w-3.5"
                                 />
-                                <span>1 comments</span>
+                                <span>
+                                  {commentCounts[blog.id] || 0}{" "}
+                                  {(commentCounts[blog.id] || 0) === 1
+                                    ? "comment"
+                                    : "comments"}
+                                </span>
                               </div>
 
                             </div>
