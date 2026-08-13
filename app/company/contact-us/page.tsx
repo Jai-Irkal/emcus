@@ -270,30 +270,13 @@ export default function Home() {
                         ">
 
                             {/* Phone */}
-                            <div className="
-                                flex
-                                min-h-[90px]
-                                items-center
-                                justify-start
-                                gap-3
-                                rounded-[24px]
-                                bg-white
-                                px-4
-                                py-4
-                                shadow-[0_8px_24px_rgba(0,0,0,0.12)]
-                            ">
-                                <div className="
-                                    flex
-                                    h-11
-                                    w-11
-                                    shrink-0
-                                    items-center
-                                    justify-center
-                                    rounded-lg
-                                    border-2
-                                    border-[#E4312D]
-                                    bg-[#FFF5F5]
-                                ">
+                            <a
+                                href="tel:+917022616214"
+                                className="flex min-h-[90px] items-center justify-start gap-3 rounded-[24px] bg-white px-4 py-4 shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-1"
+                            >
+                                <div
+                                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border-2 border-[#E4312D] bg-[#FFF5F5]"
+                                >
                                     <Image
                                         src={TelephoneIcon}
                                         alt="Telephone"
@@ -301,41 +284,21 @@ export default function Home() {
                                     />
                                 </div>
 
-                                <span className="
-                                    break-all
-                                    text-sm
-                                    font-medium
-                                    text-[#1A1A1A]
-                                ">
+                                <span
+                                    className="break-all text-sm font-medium text-[#1A1A1A]"
+                                >
                                     +91 70226 16214
                                 </span>
-                            </div>
+                            </a>
 
                             {/* Email */}
-                            <div className="
-                                flex
-                                min-h-[90px]
-                                items-center
-                                justify-start
-                                gap-3
-                                rounded-[24px]
-                                bg-white
-                                px-4
-                                py-4
-                                shadow-[0_8px_24px_rgba(0,0,0,0.12)]
-                            ">
-                                <div className="
-                                    flex
-                                    h-11
-                                    w-11
-                                    shrink-0
-                                    items-center
-                                    justify-center
-                                    rounded-lg
-                                    border-2
-                                    border-[#5C1BAB]
-                                    bg-[#F6EEFF]
-                                ">
+                            <a
+                                href="mailto:info@emcus.co.in"
+                                className="flex min-h-[90px] items-center justify-start gap-3 rounded-[24px] bg-white px-4 py-4 shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-1"
+                            >
+                                <div
+                                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border-2 border-[#5C1BAB] bg-[#F6EEFF]"
+                                >
                                     <Image
                                         src={MailIcon}
                                         alt="Email"
@@ -343,43 +306,23 @@ export default function Home() {
                                     />
                                 </div>
 
-                                <span className="
-                                    break-all
-                                    text-sm
-                                    font-medium
-                                    text-[#1A1A1A]
-                                ">
+                                <span
+                                    className="break-all text-sm font-medium text-[#1A1A1A]"
+                                >
                                     info@emcus.co.in
                                 </span>
-                            </div>
+                            </a>
 
                             {/* Address */}
-                            <div className="
-                                flex
-                                min-h-[90px]
-                                items-center
-                                justify-start
-                                gap-3
-                                rounded-[24px]
-                                bg-white
-                                px-4
-                                py-4
-                                shadow-[0_8px_24px_rgba(0,0,0,0.12)]
-                                sm:col-span-2
-                                lg:col-span-1
-                            ">
-                                <div className="
-                                    flex
-                                    h-11
-                                    w-11
-                                    shrink-0
-                                    items-center
-                                    justify-center
-                                    rounded-lg
-                                    border-2
-                                    border-[#077A3D]
-                                    bg-[#E1FAE4]
-                                ">
+                            <a
+                                href="https://maps.app.goo.gl/E2YRgug32vX9vqeM7"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex min-h-[90px] items-center justify-start gap-3 rounded-[24px] bg-white px-4 py-4 shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-1 sm:col-span-2 lg:col-span-1"
+                            >
+                                <div
+                                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border-2 border-[#077A3D] bg-[#E1FAE4]"
+                                >
                                     <Image
                                         src={PinIcon}
                                         alt="Location"
@@ -387,45 +330,26 @@ export default function Home() {
                                     />
                                 </div>
 
-                                <span className="
-                                    text-sm
-                                    font-medium
-                                    leading-5
-                                    text-[#1A1A1A]
-                                ">
+                                <span
+                                    className="text-sm font-medium leading-5 text-[#1A1A1A]"
+                                >
                                     Novel MSR Park, 93/9, Varthur Main Road,
                                     Munnekolalu, Marathalli, Bengaluru 560037,
                                     India
                                 </span>
-                            </div>
+                            </a>
 
                             {/* LinkedIn */}
-                            <div className="
-                                flex
-                                min-h-[90px]
-                                flex-col
-                                items-center
-                                justify-center
-                                gap-2
-                                rounded-[24px]
-                                bg-white
-                                px-4
-                                py-4
-                                shadow-[0_8px_24px_rgba(0,0,0,0.12)]
-                            ">
+                            <a
+                                href="https://www.linkedin.com/company/emcustechnologysolutions/posts/?feedView=all"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex min-h-[90px] flex-col items-center justify-center gap-2 rounded-[24px] bg-white px-4 py-4 shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-1"
+                            >
                                 <div className="flex items-center gap-3">
-                                    <div className="
-                                        flex
-                                        h-11
-                                        w-11
-                                        shrink-0
-                                        items-center
-                                        justify-center
-                                        rounded-lg
-                                        border-2
-                                        border-[#0093D5]
-                                        bg-[#E1F5FE]
-                                    ">
+                                    <div
+                                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border-2 border-[#0093D5] bg-[#E1F5FE]"
+                                    >
                                         <Image
                                             src={Linkedin}
                                             alt="LinkedIn"
@@ -433,11 +357,9 @@ export default function Home() {
                                         />
                                     </div>
 
-                                    <span className="
-                                        text-sm
-                                        font-medium
-                                        text-[#64748B]
-                                    ">
+                                    <span
+                                        className="text-sm font-medium text-[#64748B]"
+                                    >
                                         Linkedin
                                     </span>
                                 </div>
@@ -445,7 +367,7 @@ export default function Home() {
                                 <p className="text-sm font-medium">
                                     Connect With Us
                                 </p>
-                            </div>
+                            </a>
 
                         </div>
                     </div>
