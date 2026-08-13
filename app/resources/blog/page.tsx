@@ -8,6 +8,8 @@ import SearchIcon from "@/public/blogs/search.svg";
 import LeftArrow from "@/public/blogs/left-cheveron.svg";
 import RightArrow from "@/public/blogs/right-cheveron.svg";
 import Image from "next/image";
+import CalendarIcon from "@/public/common/calendar-icon.svg"
+import CommentIcon from "@/public/common/notes-icon.svg"
 import { useRouter } from "next/navigation";
 
 export default function Blogs() {
@@ -214,12 +216,26 @@ export default function Blogs() {
                           {/* Date + Comments */}
                           <div className="flex items-center gap-3 text-[11px] text-[#222] mb-3">
                             <div className="flex items-center gap-1">
-                              <span>▣</span>
+                              <div className="flex items-center gap-1">
+                                <Image
+                                  src={CalendarIcon}
+                                  alt=""
+                                  className="h-3.5 w-3.5"
+                                />
+                                <span>{blog.date}</span>
+                              </div>
                               <span>{blog.date}</span>
                             </div>
 
                             <div className="flex items-center gap-1">
-                              <span>▱</span>
+                              <div className="flex items-center gap-1">
+                                <Image
+                                  src={CommentIcon}
+                                  alt=""
+                                  className="h-3.5 w-3.5"
+                                />
+                                <span>{blog.date}</span>
+                              </div>
                               <span>1 comments</span>
                             </div>
                           </div>
