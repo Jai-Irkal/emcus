@@ -47,6 +47,7 @@ export default function Home() {
           <div
             className="
             flex items-center ml-3 px-2
+            lg:ml-8
             order-2 lg:order-1
             opacity-0
             animate-fade-in-from-left
@@ -67,24 +68,25 @@ export default function Home() {
           </div>
 
           {/* Right Column - Fixed */}
+          {/* Right Column - Fixed */}
           <div
             className="
-            hidden lg:block h-full
-            order-1 lg:order-2
-            opacity-0
-            animate-fade-in-from-right
-        "
+    hidden lg:flex lg:justify-end h-full
+    order-1 lg:order-2
+    opacity-0
+    animate-fade-in-from-right
+  "
           >
             <Image
               src={CoreServiceBanner}
               alt="Core Service Banner"
-              className="w-full h-full object-cover rounded-2xl lg:rounded-lg"
+              className="w-[90%] h-[90%] object-right rounded-2xl lg:rounded-lg ml-auto"
             />
           </div>
 
         </div>
 
-        <div className="lg:mt-35 mt-10 2xl:mt-110">
+        <div className="lg:mt-10 mt-10 2xl:mt-110">
           <h1 className="text-[30px] text-[#d94536] font-bold text-center w-full">WHY EMCUS?</h1>
           <div className="flex flex-col md:flex-row justify-center gap-0 mt-10">
 
