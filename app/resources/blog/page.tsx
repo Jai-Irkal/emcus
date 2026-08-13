@@ -224,7 +224,6 @@ export default function Blogs() {
                                 />
                                 <span>{blog.date}</span>
                               </div>
-                              <span>{blog.date}</span>
                             </div>
 
                             <div className="flex items-center gap-1">
@@ -234,9 +233,9 @@ export default function Blogs() {
                                   alt=""
                                   className="h-3.5 w-3.5"
                                 />
-                                <span>{blog.date}</span>
+                                <span>1 comments</span>
                               </div>
-                              <span>1 comments</span>
+
                             </div>
                           </div>
 
