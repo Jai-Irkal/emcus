@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import HeaderComponent from "@/src/components/HeaderComponent/HeaderComponent";
 import Banner from "@/public/banners/HowWeWorkBanner.svg"
 import Image from "next/image";
@@ -163,7 +164,7 @@ export default function HowWeWork() {
           }
         </div>
         <h1 className="text-[25px] text-[#d94536] font-bold text-center w-full py-10">OUR PRODUCT DEVELOPMENT LIFECYCLE</h1>
-        <div className="relative flex flex-col items-center gap-0">
+        <div className="relative grid w-full grid-cols-1 lg:grid-cols-[150px_1fr]">
           <div
             aria-hidden
             className="
@@ -171,8 +172,8 @@ export default function HowWeWork() {
               absolute
               z-[1]
               left-[36px]
-              lg:left-152.5
-              lg:-translate-x-1/2
+              lg:left-[calc(150px+38.125rem)]
+              lg:-translate-x-19
               top-[calc(3rem+50px)]
               bottom-[calc(3rem+50px)]
               w-px
@@ -182,11 +183,22 @@ export default function HowWeWork() {
             "
           />
 
-          {PRODUCT_DEVELOPMENT_LIFECYCLE.map((item) =>
-            <div key={item.id} className={`w-full items-center flex flex-col ${item.id % 2 == 0 ? "bg-[#E6E6E6]" : "bg-[#F2F2F2]"} py-12`}>
-              <ProductDevelopmentLifeCycleComponent section={item} />
-            </div>
-          )}
+          {PRODUCT_DEVELOPMENT_LIFECYCLE.map((item) => (
+            <Fragment key={item.id}>
+              <div className="hidden items-center justify-center bg-[#E4312D] px-1 lg:flex">
+                <span className="-rotate-90 translate-x-8 whitespace-nowrap text-[11px] font-bold tracking-wider text-white uppercase lg:text-sm">
+                  {item.section}
+                </span>
+              </div>
+
+              <div
+                className={`flex w-full flex-col items-center py-12 ${item.id % 2 === 0 ? "bg-[#E6E6E6]" : "bg-[#F2F2F2]"
+                  }`}
+              >
+                <ProductDevelopmentLifeCycleComponent section={item} />
+              </div>
+            </Fragment>
+          ))}
         </div>
         <FooterComponent />
       </main>
