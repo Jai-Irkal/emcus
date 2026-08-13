@@ -669,7 +669,7 @@ export default function Home() {
 
                         </div>
 
-                        <div className="contact-form-card w-full p-5 sm:p-6 lg:p-6 xl:p-8">
+                        <div className="contact-form-card w-full p-5 sm:p-6 lg:p-6 xl:p-8 -mt-7">
                             <form className="space-y-5" onSubmit={handleSubmit}>
 
                                 {/* Name */}
