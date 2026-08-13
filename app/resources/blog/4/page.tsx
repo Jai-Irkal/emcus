@@ -4,7 +4,7 @@ import { BLOGS } from "@/src/data/blog.data";
 import HeaderComponent from "@/src/components/HeaderComponent/HeaderComponent";
 import FooterComponent from "@/src/components/FooterComponent/FooterComponent";
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import BackIcon from "@/public/common/back-arrow-icon.svg";
 import LinkedinIcon from "@/public/blogs/linkedin-icon.svg";
@@ -56,6 +56,51 @@ export default function BlogFour() {
             "_blank",
             "width=600,height=500,noopener,noreferrer"
         );
+    };
+
+    const [comments, setComments] = useState<any[]>([]);
+
+    const [commentForm, setCommentForm] = useState({
+        name: "",
+        email: "",
+        comment: "",
+    });
+
+    useEffect(() => {
+        fetchComments();
+    }, []);
+
+    const fetchComments = async () => {
+        const response = await fetch("/api/blogs/3/comments");
+
+        const data = await response.json();
+
+        setComments(data);
+    };
+
+    const handleSubmitComment = async () => {
+        const response = await fetch(
+            "/api/blogs/3/comments",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(commentForm),
+            }
+        );
+
+        if (!response.ok) {
+            return;
+        }
+
+        setCommentForm({
+            name: "",
+            email: "",
+            comment: "",
+        });
+
+        fetchComments();
     };
 
     return (
@@ -270,6 +315,13 @@ export default function BlogFour() {
                                     {/* Comment */}
                                     <div>
                                         <textarea
+                                        value={commentForm.comment}
+                                            onChange={(e) =>
+                                                setCommentForm({
+                                                    ...commentForm,
+                                                    comment: e.target.value,
+                                                })
+                                            }
                                             placeholder="Type your comment here *"
                                             className="w-full h-[195px] resize-none rounded-[3px] border border-[#64748B] bg-[#F7F8F9] px-2 py-2 text-[12px] text-[#64748B] placeholder:text-[#6B7280] focus:outline-none focus:border-[#322986]"
                                         />
@@ -298,6 +350,13 @@ export default function BlogFour() {
                                         <input
                                             type="text"
                                             placeholder="Enter Name"
+                                            value={commentForm.name}
+                                            onChange={(e) =>
+                                                setCommentForm({
+                                                    ...commentForm,
+                                                    name: e.target.value,
+                                                })
+                                            }
                                             className="w-full h-[30px] rounded-[2px] bg-[#F7F8F9] border border-[#64748B] px-2 text-[14px] mb-2 focus:outline-none focus:border-[#322986]"
                                         />
 
@@ -312,6 +371,13 @@ export default function BlogFour() {
                                         <input
                                             type="email"
                                             placeholder="Enter Your Email"
+                                            value={commentForm.email}
+                                            onChange={(e) =>
+                                                setCommentForm({
+                                                    ...commentForm,
+                                                    email: e.target.value,
+                                                })
+                                            }
                                             className="w-full h-[30px] rounded-[2px] bg-[#F7F8F9] border border-[#64748B] px-2 text-[14px] mb-2 focus:outline-none focus:border-[#322986]"
                                         />
 
@@ -332,6 +398,7 @@ export default function BlogFour() {
                                         {/* Submit */}
                                         <button
                                             type="button"
+                                            onClick={handleSubmitComment}
                                             className="w-full h-[30px] rounded-[8px] bg-[#322986] text-white text-[16px] font-medium hover:bg-[#292270] transition-colors"
                                         >
                                             Post a Comment
