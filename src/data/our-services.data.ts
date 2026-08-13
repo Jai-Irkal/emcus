@@ -8,11 +8,22 @@ import AutomationTestingServicesImg from "@/public/our-services/Automation.svg";
 import ConnectivityIoTEngineeringServicesImg from "@/public/our-services/ConnectivityServices.svg";
 import UIUXDesignServicesImg from "@/public/our-services/UXServices.svg";
 import MechanicalIndustrialDesignServicesImg from "@/public/our-services/MechIDServices.svg";
+import HardwareDesignServicesMoblieImg from "@/public/our-services/mobile-imgs/HardwareDesignServices_Mobile.svg";
+import EmbeddedFirmwareServicesMoblieImg from "@/public/our-services/mobile-imgs/EmbeddedFirmware_Mobile.svg";
+import SoftwareDevelopmentServicesMoblieImg from "@/public/our-services/mobile-imgs/SoftwareDevelopmentServices_Mobile.svg";
+import MechanicalDesignServicesMoblieImg from "@/public/our-services/mobile-imgs/MechanicalDesignServices_Mobile.svg";
+import VerificationValidationServicesMoblieImg from "@/public/our-services/mobile-imgs/VerificationServices_Mobile.svg";
+import CertificationSupportMoblieImg from "@/public/our-services/mobile-imgs/CertificationSupport_Mobile.svg";
+import AutomationTestingServicesMoblieImg from "@/public/our-services/mobile-imgs/AutomationTestingServices_Mobile.svg";
+import ConnectivityIoTEngineeringServicesMoblieImg from "@/public/our-services/mobile-imgs/ConnectivityServices_Mobile.svg";
+import UIUXDesignServicesMoblieImg from "@/public/our-services/mobile-imgs/UIServices_Mobile.svg";
+import MechanicalIndustrialDesignServicesMoblieImg from "@/public/our-services/mobile-imgs/MechIDServices_Mobile.svg";
 
 export type ServiceItem = {
     id: number;
     title: string;
     image: string;
+    mobileImage:string;
     leftItems: string[];
     rightItems: string[];
 };
@@ -22,6 +33,7 @@ export const OUR_SERVICES: ServiceItem[] = [
         id:1,
         title:"HARDWARE DESIGN SERVICES",
         image: HardwareDesignServicesImg,
+        mobileImage:HardwareDesignServicesMoblieImg,
         leftItems: [
             "System Architecture & Product Design",
             "Power Electronics Design",
@@ -45,6 +57,7 @@ export const OUR_SERVICES: ServiceItem[] = [
         id:2,
         title:"EMBEDDED FIRMWARE SERVICES",
         image: EmbeddedFirmwareServicesImg,
+        mobileImage:EmbeddedFirmwareServicesMoblieImg,
         leftItems: [
             "BSP & Device Driver Development",
             "RTOS/Bare-Metal Firmware Development",
@@ -66,6 +79,7 @@ export const OUR_SERVICES: ServiceItem[] = [
         id:3,
         title:"SOFTWARE DEVELOPMENT SERVICES (MOBILE/WEB/DESKTOP/CLOUD)",
         image: SoftwareDevelopmentServicesImg,
+        mobileImage:SoftwareDevelopmentServicesMoblieImg,
         leftItems: [
             "BSP & Device Driver Development",
             "RTOS/Bare-Metal Firmware Development",
@@ -87,6 +101,7 @@ export const OUR_SERVICES: ServiceItem[] = [
         id:4,
         title:"MECHANICAL DESIGN SERVICES",
         image: MechanicalDesignServicesImg,
+        mobileImage:MechanicalDesignServicesMoblieImg,
         leftItems: [
             "Product Enclosure Design",
             "3D CAD Modeling",
@@ -108,6 +123,7 @@ export const OUR_SERVICES: ServiceItem[] = [
         id:5,
         title:"VERIFICATION & VALIDATION SERVICES (V&V)",
         image: VerificationValidationServicesImg,
+        mobileImage:VerificationValidationServicesMoblieImg,
         leftItems: [
             "Requirement-Based Testing",
             "Design Verification",
@@ -130,6 +146,7 @@ export const OUR_SERVICES: ServiceItem[] = [
         id:6,
         title:"CERTIFICATION SUPPORT/ STANDARDS EXPERTISE",
         image: CertificationSupportImg,
+        mobileImage:CertificationSupportMoblieImg,
         leftItems: [
             "UL864",
             "ULC-S527",
@@ -145,6 +162,7 @@ export const OUR_SERVICES: ServiceItem[] = [
         id:7,
         title:"AUTOMATION TESTING SERVICES",
         image: AutomationTestingServicesImg,
+        mobileImage:AutomationTestingServicesMoblieImg,
         leftItems: [
             "Test Automation Framework Development",
             "Automated Regression Testing",
@@ -164,6 +182,7 @@ export const OUR_SERVICES: ServiceItem[] = [
         id:8,
         title:"CONNECTIVITY & IoT ENGINEERING SERVICES",
         image: ConnectivityIoTEngineeringServicesImg,
+        mobileImage:ConnectivityIoTEngineeringServicesMoblieImg,
         leftItems: [
             "IoT Gateway Development",
             "Edge Computing Solutions",
@@ -185,6 +204,7 @@ export const OUR_SERVICES: ServiceItem[] = [
         id:9,
         title:"UI/UX DESIGN SERVICES (MOBILE/WEB/DESKTOP/EMBEDDED UI)",
         image: UIUXDesignServicesImg,
+        mobileImage:UIUXDesignServicesMoblieImg,
         leftItems: [
             "User Experience Research",
             "User Interface Design",
@@ -205,6 +225,7 @@ export const OUR_SERVICES: ServiceItem[] = [
         id:10,
         title:"MECHANICAL INDUSTRIAL DESIGN (ID) SERVICES",
         image: MechanicalIndustrialDesignServicesImg,
+        mobileImage:MechanicalIndustrialDesignServicesMoblieImg,
         leftItems: [
             "Product Styling",
             "Concept Development",

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import icon from "@/public/header/emcus-icon.png";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { NAVIGATION, NavItem } from "@/lib/navigation";
 import ISOComponent from "../ISOComponent/ISOComponent";
 
@@ -14,10 +14,13 @@ type HeaderProps = {
 const HeaderComponent = ({ active }: HeaderProps) => {
 
     const router = useRouter();
+    const pathname = usePathname();
 
     const routes: Record<string, string> = {
         HOME: "/",
-        "WHAT WE DO": "/what-we-do",
+        "WHAT WE DO": "/what-we-do/our-services",
+        SERVICES: "/what-we-do/our-services",
+        TECHNOLOGYEXPOERTISE: "/what-we-do/technology-expertise",
         "HOW WE WORK": "/how-we-work",
         "OUR TEAM": "/our-team",
         BLOG: "/resources/blog",
@@ -32,6 +35,7 @@ const HeaderComponent = ({ active }: HeaderProps) => {
     };
 
     const [isOpen, setIsOpen] = useState(false);
+    const [whatWeDoOpen, setWhatWeDoOpen] = useState(false);
     const [resourcesOpen, setResourcesOpen] = useState(false);
     const [companyOpen, setCompanyOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
@@ -68,7 +72,7 @@ ${isScrolled
                 />
 
                 {/* Desktop / Tablet Menu */}
-                <div className="hidden gap-1 lg:flex items-center h-full">
+                <div className="hidden gap-1 lg:flex items-center h-full lg:ml-22">
                     {NAVIGATION.map((group) => {
                         if (group.title === "MAIN") {
                             return group.items.map((item) => {
@@ -134,35 +138,55 @@ ${isScrolled
                     }`}
             >
                 <div className="flex flex-col py-4">
-                    <MobileItem title="HOME" active={active} onNavigate={handleNavigation} />
-                    <MobileDropdown
-                        title="WHAT WE DO"
-                        isOpen={resourcesOpen}
-                        toggle={() => setResourcesOpen(!resourcesOpen)}
-                        items={["SERVICES", "TECHNOLOGY EXPERTISE"]}
-                        active={active}
-                        onNavigate={handleNavigation}
-                    />
-                    <MobileItem title="HOW WE WORK" active={active} onNavigate={handleNavigation} />
-                    <MobileItem title="OUR TEAM" active={active} onNavigate={handleNavigation} />
+                    {NAVIGATION.map((group) => {
+                        if (group.title === "MAIN") {
+                            return group.items.map((item) => {
+                                if (item.children) {
+                                    return (
+                                        <MobileDropdown
+                                            key={item.label}
+                                            title={item.label}
+                                            items={item.children}
+                                            active={active}
+                                            isOpen={whatWeDoOpen}
+                                            toggle={() => setWhatWeDoOpen((v) => !v)}
+                                            onNavigate={handleNavigation}
+                                        />
+                                    );
+                                }
 
-                    <MobileDropdown
-                        title="RESOURCES"
-                        isOpen={resourcesOpen}
-                        toggle={() => setResourcesOpen(!resourcesOpen)}
-                        items={["BLOG"]}
-                        active={active}
-                        onNavigate={handleNavigation}
-                    />
+                                return (
+                                    <MobileItem
+                                        key={item.label}
+                                        title={item.label}
+                                        path={item.path!}
+                                        active={active}
+                                        onNavigate={handleNavigation}
+                                    />
+                                );
+                            });
+                        }
 
-                    <MobileDropdown
-                        title="COMPANY"
-                        isOpen={companyOpen}
-                        toggle={() => setCompanyOpen(!companyOpen)}
-                        items={["ABOUT US", "CAREERS", "CONTACT US"]}
-                        active={active}
-                        onNavigate={handleNavigation}
-                    />
+                        return (
+                            <MobileDropdown
+                                key={group.title}
+                                title={group.title}
+                                items={group.items}
+                                active={active}
+                                isOpen={
+                                    group.title === "RESOURCES"
+                                        ? resourcesOpen
+                                        : companyOpen
+                                }
+                                toggle={() =>
+                                    group.title === "RESOURCES"
+                                        ? setResourcesOpen((v) => !v)
+                                        : setCompanyOpen((v) => !v)
+                                }
+                                onNavigate={handleNavigation}
+                            />
+                        );
+                    })}
                 </div>
             </div>
             {isOpen && (
@@ -192,7 +216,7 @@ const NavButton = ({
 }) => (
     <button
         onClick={() => onNavigate(path)}
-        className={`h-[40px] rounded-md px-8 lg:px-[12px] 2xl:px-10 flex items-center text-[12px] transition-colors
+        className={`h-[40px] rounded-md px-8 lg:px-[12px] 2xl:px-4 flex items-center text-[12px] transition-colors
         ${active === label
                 ? "bg-[#d94536] text-white"
                 : "text-[#000000] hover:bg-[#d94536] hover:text-white"
@@ -215,8 +239,16 @@ const DesktopDropdown = ({
     active: string;
     onNavigate: (path: string) => void;
 }) => {
+
+    const pathname = usePathname();
+    
     const isParentActive =
-  title === active || items.some((i) => i.label === active);
+    title === active ||
+    items.some(
+        (item) =>
+            item.label === active ||
+            item.path === pathname
+    );
 
     return (
         <div className="relative group h-full">
@@ -230,19 +262,19 @@ const DesktopDropdown = ({
                     }
                     `}>
                     <p>{title}</p>
-                    <Chevron />
+                    <Chevron active={isParentActive}/>
                 </div>
             </button>
 
-            <div className="absolute left-0 top-full w-48 bg-white shadow-lg opacity-0 invisible 
+            <div className="absolute left-0 top-full w-38 bg-white shadow-lg opacity-0 invisible 
                 group-hover:opacity-100 group-hover:visible 
-                transition-all duration-200 z-50">
+                transition-all duration-200 z-50 rounded-lg">
                 {items.map((item) => (
                     <button
                         key={item.label}
                         onClick={() => onNavigate(item.path!)}
-                        className={`w-full text-left px-4 py-2 font-bold text-[14px] transition-colors
-                        ${active === item.label
+                        className={`w-full text-left px-4 py-2 text-[14px] transition-colors rounded-lg
+                        ${active === item.label || item.path === pathname
                                 ? "bg-[#d94536] text-white"
                                 : "text-black hover:bg-[#d94536] hover:text-white"
                             }`}
@@ -259,89 +291,103 @@ const DesktopDropdown = ({
 /* ---------------- Mobile Components ---------------- */
 
 const MobileItem = ({
-    title,
-    active,
-    onNavigate,
+  title,
+  path,
+  active,
+  onNavigate,
 }: {
-    title: string;
-    active: string;
-    onNavigate: (key: string) => void;
+  title: string;
+  path: string;
+  active: string;
+  onNavigate: (path: string) => void;
 }) => (
-    <button
-        onClick={() => onNavigate(title)}
-        className={`block w-full text-left px-6 py-3 font-bold text-[14px] transition-colors
-        ${active === title
-                ? "bg-[#d94536] text-white"
-                : "text-[#322986] hover:bg-[#d94536] hover:text-white"
-            }`}
-    >
-        {title}
-    </button>
+  <button
+    onClick={() => onNavigate(path)}
+    className={`block w-full text-left px-6 py-3 font-bold text-[14px]
+      ${
+        active === title
+          ? "bg-[#d94536] text-white"
+          : "text-black hover:bg-[#d94536] hover:text-white"
+      }`}
+  >
+    {title}
+  </button>
 );
 
 
 const MobileDropdown = ({
-    title,
-    items,
-    isOpen,
-    toggle,
-    active,
-    onNavigate,
+  title,
+  items,
+  isOpen,
+  toggle,
+  active,
+  onNavigate,
 }: {
-    title: string;
-    items: string[];
-    isOpen: boolean;
-    toggle: () => void;
-    active: string;
-    onNavigate: (key: string) => void;
+  title: string;
+  items: NavItem[];
+  isOpen: boolean;
+  toggle: () => void;
+  active: string;
+  onNavigate: (path: string) => void;
 }) => {
-    const isParentActive = items.includes(active);
+  const isParentActive =
+    title === active || items.some((item) => item.label === active);
 
-    return (
-        <div>
-            <button
-                onClick={toggle}
-                className={`w-full flex justify-between items-center px-6 py-3 font-bold text-[14px] transition-colors
-                ${isParentActive
-                        ? "bg-[#d94536] text-white"
-                        : "text-[#322986] hover:bg-[#d94536] hover:text-white"
-                    }`}
-            >
-                {title}
-                <Chevron rotate={isOpen} />
-            </button>
+  return (
+    <div>
+      <button
+        onClick={toggle}
+        className={`w-full flex justify-between items-center px-6 py-3 font-bold text-[14px]
+          ${
+            isParentActive
+              ? "bg-[#d94536] text-white"
+              : "text-black hover:bg-[#d94536] hover:text-white"
+          }`}
+      >
+        {title}
+        <Chevron rotate={isOpen} />
+      </button>
 
-            <div
-                className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-40" : "max-h-0"
-                    }`}
-            >
-                {items.map((item) => (
-                    <button
-                        key={item}
-                        onClick={() => onNavigate(item.toLowerCase())}
-                        className={`block w-full text-left pl-10 pr-6 py-2 font-bold text-[14px] transition-colors
-                        ${active === item
-                                ? "bg-[#d94536] text-white"
-                                : "text-[#322986] hover:bg-[#d94536] hover:text-white"
-                            }`}
-                    >
-                        {item}
-                    </button>
-                ))}
-            </div>
-        </div>
-    );
+      <div
+        className={`overflow-hidden transition-all duration-300 ${
+          isOpen ? "max-h-60" : "max-h-0"
+        }`}
+      >
+        {items.map((item) => (
+          <button
+            key={item.label}
+            onClick={() => onNavigate(item.path!)}
+            className={`block w-full text-left pl-10 pr-6 py-2 text-[14px]
+              ${
+                active === item.label
+                  ? "bg-[#d94536] text-white"
+                  : "text-black font-semibold hover:bg-[#d94536] hover:text-white"
+              }`}
+          >
+            {item.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 
 /* ---------------- Chevron ---------------- */
 
-const Chevron = ({ rotate = false }: { rotate?: boolean }) => (
+const Chevron = ({
+    rotate = false,
+    active = false,
+}: {
+    rotate?: boolean;
+    active?: boolean;
+}) => (
     <svg
-        className={`w-3 h-3 transition-transform duration-200 text-[#322986] ${rotate ? "rotate-180" : ""
-            }`}
+        className={`w-3 h-3 transition-transform duration-200 ${
+            rotate ? "rotate-180" : ""
+        }`}
         viewBox="0 0 20 20"
-        fill="#322986"
+        fill={active ? "#ffffff" : "#322986"}
     >
         <path d="M5 7l5 6 5-6H5z" />
     </svg>

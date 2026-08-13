@@ -28,13 +28,14 @@ export default function Careers() {
             <h1 className="text-white text-xl xl:text-4xl lg:text-4xl lg:font-medium font-normal xl:font-bold xl:px-0 px-4 lg:-mt-20 lg:px-20">
               <span className="font-bold">BE PART OF SOMETHING BIG!</span>
             </h1>
-            <span className="text-white xl:text-lg lg:text-[16px] lg:mt-6 lg:px-2 mt-4 w-205 xl:px-0 px-6">
+            <span className="text-white xl:text-lg lg:text-[16px] lg:mt-6 lg:px-2 mt-4 lg:w-205 xl:px-0 px-2 text-[12px]">
               EMCUS Technology Solutions takes great pride in creating positive changes and stimulating dynamic growth to businesses. We are technology-agnostic and leverage our experience, expertise, and state-of-the-art infrastructure to provide high-quality, rapid time-to-market solutions.
             </span>
           </div>
         </div>
         <h1 className="text-[25px] text-[#d94536] font-bold text-center w-full mt-10">JOIN US</h1>
         <h2 className="px-8 font-bold">Open Positions ({OPEN_ROLES.length})</h2>
+        <h2 className="px-8 font-bold">Engineering</h2>
         <div className="w-full flex flex-col gap-0 py-5 px-6">
           {OPEN_ROLES.map((item, index) => (
             <div key={item.id}>

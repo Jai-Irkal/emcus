@@ -1,5 +1,4 @@
 import HeaderComponent from "../src/components/HeaderComponent/HeaderComponent";
-import HomeBanner from "@/public/banners/home-banner.jpeg"
 import TextBanner from "@/src/components/HomeComponents/TextBanner";
 import Image from "next/image";
 import { FIRE_SAFETY_DEVELOPMENT_PORTFOLIO } from "@/src/data/portfolio.data";
@@ -10,6 +9,7 @@ import PortfolioComponent from "@/src/components/PortfolioComponent/PortfolioCom
 import CoreServiceBanner from "@/public/core-services/core-services-img.svg"
 import CoreServicesCard from "@/src/components/cards/CoreServicesCard";
 import CarouselComponent from "@/src/components/Carousel/CarouselComponent";
+import ScrollFadeIn from "@/src/animated-components/ScrollFadeIn/ScrollFadeIn";
 
 export default function Home() {
   return (
@@ -18,27 +18,40 @@ export default function Home() {
         <HeaderComponent active="HOME" />
         <div className="relative w-full h-[300px] lg:h-[600px] 2xl:h-[600px] 2xl:bottom-0">
           {/* Replace this Image component with Slider Component */}
-          <CarouselComponent/>
+          <CarouselComponent />
         </div>
         <TextBanner text="EMCUS Technology Solutions is a specialized fire safety engineering partner for OEMs, delivering end-to-end design and development of fire & safety systems." />
         <h1 className="text-[25px] xl:text-[30px] text-[#d94536] font-bold text-center w-full mt-10 lg:-mt-10 leading-none">FIRE & SAFETY PORTFOLIO</h1>
         <h1 className="text-[25px] xl:text-[30px] text-[#000000] font-bold text-center w-full leading-none lg:mt-2">Design & Development</h1>
         {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:mt-10 lg:px-4">
-          {FIRE_SAFETY_DEVELOPMENT_PORTFOLIO.map((item) => (
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:mt-10 lg:px-4 py-6 px-4">
+          {FIRE_SAFETY_DEVELOPMENT_PORTFOLIO.map((item, index) => (
             <div
               key={item.id}
-              className="bg-gray-100 rounded-lg overflow-hidden shadow-lg transition duration-300"
+              className="bg-gray-100 rounded-lg overflow-hidden shadow-lg
+                       opacity-0 animate-fade-in-up-portfolio-component"
+              style={{
+                animationDelay: `${index * 250}ms`,
+                animationFillMode: "forwards",
+              }}
             >
               <PortfolioComponent portfolioItem={item} />
             </div>
           ))}
         </div>
 
-        <h1 className="text-[30px] text-[#d94536] font-bold text-center w-full mt-20">CORE SERVICES</h1>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:mt-10 lg:px-4 h-[600px]">
+        <h1 className="text-[30px] text-[#d94536] font-bold text-center w-full mt-10">CORE SERVICES</h1>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:mt-10 lg:px-4 lg:h-[600px]">
+
           {/* Left Column - Scrollable */}
-          <div className="flex items-center">
+          <div
+            className="
+            flex items-center ml-3 px-2
+            order-2 lg:order-1
+            opacity-0
+            animate-fade-in-from-left
+        "
+          >
             <div className="overflow-y-auto max-h-[400px] pr-2 hide-scrollbar py-6">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {CORE_SERVICES.map((item) => (
@@ -54,16 +67,24 @@ export default function Home() {
           </div>
 
           {/* Right Column - Fixed */}
-          <div className="h-full">
+          <div
+            className="
+            hidden lg:block h-full
+            order-1 lg:order-2
+            opacity-0
+            animate-fade-in-from-right
+        "
+          >
             <Image
               src={CoreServiceBanner}
               alt="Core Service Banner"
-              className="w-full h-full object-cover rounded-lg"
+              className="w-full h-full object-cover rounded-2xl lg:rounded-lg"
             />
           </div>
+
         </div>
 
-        <div className="mt-20">
+        <div className="lg:mt-35 mt-10 2xl:mt-110">
           <h1 className="text-[30px] text-[#d94536] font-bold text-center w-full">WHY EMCUS?</h1>
           <div className="flex flex-col md:flex-row justify-center gap-0 mt-10">
 

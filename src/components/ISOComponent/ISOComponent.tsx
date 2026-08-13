@@ -4,24 +4,24 @@ import icon from "@/public/iso-icon/ISO.svg";
 
 const ISOComponent = () => {
   return (
-    <section className="flex items-center gap-3 py-8">
-      {/* Vertical Line */}
-      <div className="h-10 w-[1px] bg-[#000000]" />
+    <section className="flex items-center justify-end lg:justify-start lg:gap-3 py-8 mr-4">
+      {/* Vertical Line - Desktop only */}
+      <div className="hidden lg:block h-10 w-[1px] bg-[#000000]" />
 
-      {/* Text */}
-      <div className="flex-1">
+      {/* Text - Desktop only */}
+      <div className="hidden lg:flex items-center">
         <p className="text-[#000000] text-[8px]">
           AN ISO9001:2015 CERTIFIED COMPANY
         </p>
       </div>
 
-      {/* Image */}
+      {/* ISO Icon */}
       <Image
-        src={icon} // Update with your image path
+        src={icon}
         alt="ISO Certification"
         width={38}
         height={10}
-        className="object-contain"
+        className="object-contain ml-30 lg:ml-0"
       />
     </section>
   );

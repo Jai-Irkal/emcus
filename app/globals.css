@@ -73,10 +73,11 @@ body {
   padding: 0 16px;
   font-size: 16px;
   color: #374151;
+  background-color: #FBFBFB;
 }
 
 .phone-input input::placeholder {
-  color: #9ca3af;
+  color: #64748B;
 }
 
 @keyframes carouselText {
@@ -93,4 +94,52 @@ body {
 
 .animate-carouselText {
   animation: carouselText .8s ease forwards;
+}
+
+@keyframes fade-in-up-portfolio-component {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up-portfolio-component {
+    animation: fade-in-up-portfolio-component 0.6s ease-out forwards;
+}
+
+@keyframes fade-in-from-left {
+    from {
+        opacity: 0;
+        transform: translateX(-80px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fade-in-from-right {
+    from {
+        opacity: 0;
+        transform: translateX(80px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-fade-in-from-left {
+    animation: fade-in-from-left 4s ease-out forwards;
+}
+
+.animate-fade-in-from-right {
+    animation: fade-in-from-right 4s ease-out forwards;
 }

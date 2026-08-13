@@ -1,5 +1,5 @@
 import HeaderComponent from "@/src/components/HeaderComponent/HeaderComponent";
-import HomeBanner from "@/public/banners/home-banner.jpeg"
+import Banner from "@/public/banners/HowWeWorkBanner.svg"
 import Image from "next/image";
 import FooterComponent from "@/src/components/FooterComponent/FooterComponent";
 import { TECHNOLOGY_SKILLSET } from "@/src/data/technology-skillset.data";
@@ -30,8 +30,8 @@ export default function HowWeWork() {
         <HeaderComponent active="HOW WE WORK" />
         <div className="relative w-full h-[300px] lg:h-[600px] 2xl:h-[600px] 2xl:bottom-0">
           <Image
-            src={HomeBanner}
-            alt="Home Banner"
+            src={Banner}
+            alt="Banner"
             fill
             priority
             className="object-cover"
@@ -45,14 +45,14 @@ export default function HowWeWork() {
               CLIENT<span className="font-bold"> FOCUS</span> AND TECHNICAL<span className="font-bold"> EXCELLENCE</span>
             </h1>
 
-            <span className="text-white xl:text-lg lg:text-[16px] lg:mt-6 lg:px-10 mt-4 max-w-3xl xl:px-0 px-6">
+            <span className="text-white lg:text-[18px] lg:mt-6 lg:px-10 mt-4 max-w-3xl xl:px-0 px-6 text-[12px]">
               We adapt our processes to match yours, ensuring a seamless project experience. We execute projects using Agile, Waterfall, V-Model, and SAFe methodologies.
             </span>
           </div>
         </div>
         <h1 className="text-[25px] text-[#d94536] font-bold text-center w-full mt-10">OUR POSITIONING</h1>
-        <div className="lg:py-8 lg:px-20">
-          <div className="flex flex-col md:flex-row justify-center items-stretch gap-6">
+        <div className="py-8 lg:py-8 lg:px-20">
+          <div className="flex flex-col md:flex-row justify-center items-stretch gap-6 px-4 lg:px-0">
             <div className="w-full rounded-2xl border-[#E2E2E2] bg-[#D8E0F7] border-1 py-6 px-6 shadow-l">
               <div className="flex items-center gap-4">
                 <div className="lg:w-[70px] lg:h-[58px] bg-[#243481] rounded-xl flex items-center justify-center">
@@ -62,7 +62,7 @@ export default function HowWeWork() {
                     className="w-10 h-10 object-contain"
                   />
                 </div>
-                <h1 className="text-center text-[28px] font-bold text-[#444444]">Client Focus</h1>
+                <h1 className="text-center text-[24px] lg:text-[28px] font-bold text-[#444444]">Client Focus</h1>
               </div>
               <div className="mt-4 relative">
                 <ul className=" space-y-2 text-[18px]">
@@ -71,28 +71,28 @@ export default function HowWeWork() {
                       <Image
                         src={BlueArrowBullet} alt={""} />
                     </div>
-                    <li>Embed seamlessly into your customer's ecosystem and toolchain.</li>
+                    <li className="-mt-1 lg:mt-0 text-[15px] lg:text-[18px]">Embed seamlessly into your customer's ecosystem and toolchain.</li>
                   </div>
                   <div className="flex">
                     <div>
                       <Image
                         src={BlueArrowBullet} alt={""} />
                     </div>
-                    <li>Lean team structure with a single-thread of accountability.</li>
+                    <li className="-mt-1 text-[15px] lg:mt-0">Lean team structure with a single-thread of accountability.</li>
                   </div>
                   <div className="flex">
                     <div>
                       <Image
                         src={BlueArrowBullet} alt={""} />
                     </div>
-                    <li>Deep domain literacy in fire & safety, IoT and regulated industries.</li>
+                    <li className="-mt-1 text-[15px] lg:mt-0">Deep domain literacy in fire & safety, IoT and regulated industries.</li>
                   </div>
                   <div className="flex">
                     <div>
                       <Image
                         src={BlueArrowBullet} alt={""} />
                     </div>
-                    <li>Hassle-free engagement — predictable cadence, fewer surprises.</li>
+                    <li className="-mt-1 text-[15px] lg:mt-0">Hassle-free engagement — predictable cadence, fewer surprises.</li>
                   </div>
                 </ul>
               </div>
@@ -106,7 +106,7 @@ export default function HowWeWork() {
                     className="w-10 h-10 object-contain"
                   />
                 </div>
-                <h1 className="text-center text-[28px] font-bold text-[#444444]">Technical Excellence</h1>
+                <h1 className="text-center text-[22px] lg:text-[28px] font-bold text-[#444444]">Technical Excellence</h1>
               </div>
               <div className="mt-4 relative">
                 <ul className=" space-y-2 text-[18px]">
@@ -115,28 +115,28 @@ export default function HowWeWork() {
                       <Image
                         src={RedArrow} alt={""} />
                     </div>
-                    <li>Cross-disciplinary expertise: firmware, cloud, mobile and QA.</li>
+                    <li className="-mt-1 text-[15px] lg:mt-0">Cross-disciplinary expertise: firmware, cloud, mobile and QA.</li>
                   </div>
                   <div className="flex">
                     <div>
                       <Image
                         src={RedArrow} alt={""} />
                     </div>
-                    <li>Disciplined processes paired with modern tooling.</li>
+                    <li className="-mt-1 text-[15px] lg:mt-0">Disciplined processes paired with modern tooling.</li>
                   </div>
                   <div className="flex">
                     <div>
                       <Image
                         src={RedArrow} alt={""} />
                     </div>
-                    <li>Attention to the small details that make systems robust.</li>
+                    <li className="-mt-1 text-[15px] lg:mt-0">Attention to the small details that make systems robust.</li>
                   </div>
                   <div className="flex">
                     <div>
                       <Image
                         src={RedArrow} alt={""} />
                     </div>
-                    <li>Continuous improvement as a first-class engineering habit.</li>
+                    <li className="-mt-1 text-[15px] lg:mt-0">Continuous improvement as a first-class engineering habit.</li>
                   </div>
                 </ul>
               </div>
@@ -144,18 +144,19 @@ export default function HowWeWork() {
           </div>
         </div>
         <h1 className="text-[25px] text-[#d94536] font-bold text-center w-full mt-10">ENGAGEMENT LIFECYCLE</h1>
-        <div className="2xl:py-30 lg:py-15 px-10 flex flex-col gap-0">
+        <div className="2xl:py-30 lg:py-15 py-10 lg:px-20 px-4 flex flex-col gap-0">
           {
             EngagementLifeCycle.map((item, index) => {
               return (
                 <div key={item.id} className="flex flex-col">
                   <EngagementLifeCycleComponent item={item} />
-                  {
-                    item.id < 4 && (
-                      <Image
-                        src={LifeCycleArrow} alt={""} className="z-10 lg:-mt-2 lg:ml-11" />
-                    )
-                  }
+                  {item.id < 4 && (
+                    <Image
+                      src={LifeCycleArrow}
+                      alt=""
+                      className="block mx-auto z-10 lg:-mt-2 lg:ml-11 lg:mx-0"
+                    />
+                  )}
                 </div>
               )
             })

@@ -15,7 +15,7 @@ export const CareerCard = ({ item }: any) => {
                         <p className="text-gray-600 ">
                             {item.location}
                         </p>
-                        <div className="bg-[#64748B] h-2 w-2 rounded-full"/>
+                        <div className="bg-[#64748B] h-2 w-2 rounded-full" />
                         <p className="text-gray-600 ">
                             {item.role_type}
                         </p>
@@ -30,9 +30,11 @@ export const CareerCard = ({ item }: any) => {
                             Details
                         </button>
                     </Link>
-                    <button className="px-4 py-2 bg-[#8AB23E] text-white font-semibold rounded-md hover:opacity-90 transition cursor-pointer">
-                        APPLY
-                    </button>
+                    <Link href={`/company/careers/${item.id}?tab=applications`}>
+                        <button className="px-4 py-2 bg-[#8AB23E] text-white font-semibold rounded-md hover:opacity-90 transition cursor-pointer">
+                            APPLY
+                        </button>
+                    </Link>
                 </div>
 
             </div>

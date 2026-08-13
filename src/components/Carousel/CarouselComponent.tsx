@@ -42,8 +42,7 @@ export default function CarouselComponent() {
     const item = Carousel[active];
 
     return (
-        <section className="relative w-full h-[650px] overflow-hidden">
-
+        <section className="relative w-full h-[500px] md:h-[600px] lg:h-[650px] overflow-hidden">
             {/* Background */}
             <Image
                 src={item.image}
@@ -53,54 +52,90 @@ export default function CarouselComponent() {
                 className="object-cover transition-all duration-700"
             />
 
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-black/45" />
-
             {/* Content */}
             <div className="absolute inset-0 flex items-center justify-center lg:-mt-32">
 
                 {/* Left Button */}
                 <button
                     onClick={prevSlide}
-                    className="absolute left-6 z-30 w-16 h-16 rounded-full bg-[#b33020] hover:bg-[#962516] transition flex items-center justify-center border border-white/50"
+                    className="hidden md:flex absolute left-4 lg:left-6 z-30 
+               w-12 h-12 lg:w-16 lg:h-16 
+               rounded-full bg-[#b33020] hover:bg-[#962516] 
+               transition items-center justify-center 
+               border border-white/50"
                 >
                     <Image
                         src={LeftArrow}
-                        alt=""
-                        className="w-7 h-7"
+                        alt="Previous"
+                        className="w-5 h-5 lg:w-7 lg:h-7"
                     />
                 </button>
 
-                {/* Center Content */}
-
+                {/* Text */}
                 <div
                     key={item.id}
-                    className="max-w-5xl px-12 text-center animate-carouselText"
+                    className="w-full max-w-6xl px-6 sm:px-8 md:px-12 lg:px-20 text-center animate-carouselText"
                 >
-                    <h1 className="text-white font-bold uppercase text-[44px]">
+                    <h1 className="text-white font-bold uppercase leading-tight text-2xl sm:text-3xl md:text-4xl lg:text-[44px]">
                         {item.title}
                     </h1>
 
-                    <div className="w-full h-px bg-white/40 my-5" />
+                    <div className="w-full max-w-4xl mx-auto h-px bg-white/40 my-4 lg:my-5" />
 
-                    <p className={`text-white font-normal text-[34px] leading-tight ${item.id == 1 ? "px-32" : "px-32"} `}>
+                    <p
+                        className={`mx-auto text-white font-normal leading-snug
+          text-base sm:text-lg md:text-2xl lg:text-[34px]
+          ${item.id === 1
+                                ? "max-w-xs sm:max-w-lg md:max-w-3xl lg:max-w-4xl"
+                                : "max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl"
+                            }`}
+                    >
                         {item.description}
                     </p>
                 </div>
 
                 {/* Right Button */}
-
                 <button
                     onClick={nextSlide}
-                    className="absolute right-6 z-30 w-16 h-16 rounded-full bg-[#b33020] hover:bg-[#962516] transition flex items-center justify-center border border-white/50"
+                    className="hidden md:flex absolute right-4 lg:right-6 z-30 
+               w-12 h-12 lg:w-16 lg:h-16 
+               rounded-full bg-[#b33020] hover:bg-[#962516] 
+               transition items-center justify-center 
+               border border-white/50"
                 >
                     <Image
                         src={RightArrow}
-                        alt=""
-                        className="w-7 h-7"
+                        alt="Next"
+                        className="w-5 h-5 lg:w-7 lg:h-7"
+                    />
+                </button>
+            </div>
+            <div className="absolute top-90 left-0 right-0 z-30 flex md:hidden justify-center gap-4">
+                <button
+                    onClick={prevSlide}
+                    className="w-10 h-10 rounded-full bg-[#b33020] hover:bg-[#962516]
+                   transition flex items-center justify-center
+                   border border-white/50"
+                >
+                    <Image
+                        src={LeftArrow}
+                        alt="Previous"
+                        className="w-5 h-5"
                     />
                 </button>
 
+                <button
+                    onClick={nextSlide}
+                    className="w-10 h-10 rounded-full bg-[#b33020] hover:bg-[#962516]
+                   transition flex items-center justify-center
+                   border border-white/50"
+                >
+                    <Image
+                        src={RightArrow}
+                        alt="Next"
+                        className="w-5 h-5"
+                    />
+                </button>
             </div>
         </section>
     );
