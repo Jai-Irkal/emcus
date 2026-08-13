@@ -25,7 +25,7 @@ const ProductDevelopmentLifeCycleComponent = ({
                     `}
                 >
                     {/* Hexagon */}
-                    <div className="shrink-0">
+                    <div className="relative z-[2] shrink-0">
                         <HegxagonComponent num={item.id} />
                     </div>
 

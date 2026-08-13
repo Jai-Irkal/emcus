@@ -52,8 +52,10 @@ export default function CarouselComponent() {
                 className="object-cover transition-all duration-700"
             />
 
+            <div className="absolute inset-0 bg-black/40" />
+
             {/* Content */}
-            <div className="absolute inset-0 flex items-center justify-center lg:-mt-32">
+            <div className="absolute inset-0 flex items-center justify-center lg:-mt-12 -mt-32">
 
                 {/* Left Button */}
                 <button

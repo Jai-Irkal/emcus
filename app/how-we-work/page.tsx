@@ -163,7 +163,25 @@ export default function HowWeWork() {
           }
         </div>
         <h1 className="text-[25px] text-[#d94536] font-bold text-center w-full py-10">OUR PRODUCT DEVELOPMENT LIFECYCLE</h1>
-        <div className="flex flex-col items-center gap-0">
+        <div className="relative flex flex-col items-center gap-0">
+          <div
+            aria-hidden
+            className="
+              pointer-events-none
+              absolute
+              z-[1]
+              left-[36px]
+              lg:left-152.5
+              lg:-translate-x-1/2
+              top-[calc(3rem+50px)]
+              bottom-[calc(3rem+50px)]
+              w-px
+              border-l-2
+              border-dashed
+              border-[#666666]
+            "
+          />
+
           {PRODUCT_DEVELOPMENT_LIFECYCLE.map((item) =>
             <div key={item.id} className={`w-full items-center flex flex-col ${item.id % 2 == 0 ? "bg-[#E6E6E6]" : "bg-[#F2F2F2]"} py-12`}>
               <ProductDevelopmentLifeCycleComponent section={item} />
