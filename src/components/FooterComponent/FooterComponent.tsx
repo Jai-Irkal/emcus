@@ -53,13 +53,38 @@ const FooterComponent = () => {
                             Quick Links
                         </h3>
                         <ul className="space-y-2">
-                            {NAVIGATION.find(g => g.title === "MAIN")?.items.map((item) => (
-                                <li
-                                    key={item.label}
-                                    onClick={() => handleNavigation(item.path || '')}
-                                    className="cursor-pointer hover:text-[#4590ca] transition-colors"
-                                >
-                                    {item.label}
+                            {NAVIGATION.find((g) => g.title === "MAIN")?.items.map((item) => (
+                                <li key={item.label}>
+                                    {item.children ? (
+                                        <div>
+                                            <p className="mb-2 font-medium">
+                                                {item.label}
+                                            </p>
+
+                                            <ul className="ml-4 space-y-2">
+                                                {item.children.map((child) => (
+                                                    <li
+                                                        key={child.label}
+                                                        onClick={() =>
+                                                            handleNavigation(child.path || "")
+                                                        }
+                                                        className="cursor-pointer hover:text-[#4590ca] transition-colors"
+                                                    >
+                                                        {child.label}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    ) : (
+                                        <span
+                                            onClick={() =>
+                                                handleNavigation(item.path || "")
+                                            }
+                                            className="cursor-pointer hover:text-[#4590ca] transition-colors"
+                                        >
+                                            {item.label}
+                                        </span>
+                                    )}
                                 </li>
                             ))}
                         </ul>
