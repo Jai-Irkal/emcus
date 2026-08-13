@@ -6,20 +6,20 @@ import { CoreService } from '@/src/data/core-services.data'
 
 const CoreServicesCard = ({ coreServiceItem }: { coreServiceItem: CoreService }) => {
     return (
-        <div className="bg-white w-full h-full rounded-lg overflow-hidden flex flex-col pt-2 pb-6 border-gray-100 border-[1px]">
-            <div className="h-[60px] w-full flex items-center px-6">
+        <div className="bg-white w-full h-full min-h-[220px] rounded-lg overflow-hidden flex flex-col pt-3 pb-6 border-gray-100 border-[1px]">
+            <div className="h-[72px] w-full flex items-center gap-3 px-6">
                 <Image
                     src={coreServiceItem.imgSrc}
                     alt={coreServiceItem.title}
-                    className="h-[35px] w-auto"
+                    className="h-[42px] w-auto"
                 />
-                <h2 className="text-[#E4312D] text-[15px] font-bold">{coreServiceItem.title}</h2>
+                <h2 className="text-[#E4312D] text-[17px] font-bold">{coreServiceItem.title}</h2>
             </div>
-            <div className="p-4 py-0">
+            <div className="px-6 py-0">
                 <ul>
                     {coreServiceItem.data.map((item, index) => (
                         
-                        <li key={index} className="text-[12px] font-normal text-black text-left py-1">
+                        <li key={index} className="text-[14px] font-normal text-black text-left py-1.5">
                             <Image src={ArrowBullet} alt="Arrow" className="inline-block h-4" />
                             {item}
                         </li>

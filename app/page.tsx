@@ -41,24 +41,24 @@ export default function Home() {
         </div>
 
         <h1 className="text-[30px] text-[#d94536] font-bold text-center w-full mt-10">CORE SERVICES</h1>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:mt-10 lg:px-4 lg:h-[600px]">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-6 lg:mt-10 lg:px-4 lg:min-h-[720px]">
 
           {/* Left Column - Scrollable */}
           <div
             className="
-            flex items-center ml-3 px-2
+            flex items-center w-full ml-3 px-2
             lg:ml-8
             order-2 lg:order-1
             opacity-0
             animate-fade-in-from-left
         "
           >
-            <div className="overflow-y-auto max-h-[400px] pr-2 hide-scrollbar py-6">
+            <div className="w-full overflow-y-auto max-h-[620px] pr-2 hide-scrollbar py-0 xl:-mt-4">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {CORE_SERVICES.map((item) => (
                   <div
                     key={item.id}
-                    className="bg-gray-100 rounded-lg overflow-hidden shadow-lg transition duration-300"
+                    className="min-h-[220px] bg-gray-100 rounded-lg overflow-hidden shadow-lg transition duration-300"
                   >
                     <CoreServicesCard coreServiceItem={item} />
                   </div>
