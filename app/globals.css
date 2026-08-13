@@ -2,6 +2,7 @@
 @import "react-phone-number-input/style.css";
 
 :root {
+  color-scheme: light;
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -15,6 +16,7 @@
 
 html, body {
   overflow-x: hidden;
+  background-color: #ffffff !important;
 }
 
 body {
