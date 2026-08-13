@@ -6,7 +6,7 @@ import HeaderComponent from "@/src/components/HeaderComponent/HeaderComponent";
 import FooterComponent from "@/src/components/FooterComponent/FooterComponent";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import BackIcon from "@/public/common/back-arrow-icon.svg";
 import LinkedinIcon from "@/public/blogs/linkedin-icon.svg";
@@ -25,6 +25,26 @@ export default function BlogTwo() {
     }, []);
 
     if (!blog) return null;
+
+    const [comments, setComments] = useState<any[]>([]);
+
+    const [commentForm, setCommentForm] = useState({
+        name: "",
+        email: "",
+        comment: "",
+    });
+
+    useEffect(() => {
+        fetchComments();
+    }, []);
+
+    const fetchComments = async () => {
+        const response = await fetch("/api/blogs/2/comments");
+
+        const data = await response.json();
+
+        setComments(data);
+    };
 
     const handleShare = (
         platform: "x" | "facebook" | "linkedin"
@@ -61,20 +81,37 @@ export default function BlogTwo() {
         );
     };
 
+    const handleSubmitComment = async () => {
+        const response = await fetch(
+            "/api/blogs/2/comments",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(commentForm),
+            }
+        );
+
+        if (!response.ok) {
+            return;
+        }
+
+        setCommentForm({
+            name: "",
+            email: "",
+            comment: "",
+        });
+
+        fetchComments();
+    };
+
     return (
         <div className="min-h-screen bg-[#f5f5f5]">
             <main className="w-full pt-24 bg-white">
                 <HeaderComponent active="BLOG" />
 
-                {/* =========================================================
-                    BLOG PAGE
-                ========================================================= */}
-
                 <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
-
-                    {/* =======================================================
-                        BLOG ARTICLE
-                    ======================================================= */}
 
                     <article className="w-full">
 
@@ -114,10 +151,6 @@ export default function BlogTwo() {
                                 className="object-cover"
                             />
                         </div>
-
-                        {/* =====================================================
-                            ARTICLE CONTENT
-                        ===================================================== */}
 
                         <div
                             className="
@@ -266,10 +299,6 @@ export default function BlogTwo() {
                                 </div>
                             </div>
 
-                            {/* =================================================
-                                LEAVE A REPLY
-                            ================================================= */}
-
                             <section className="mt-4">
 
                                 <h2 className="text-[13px] font-medium text-[#222] mb-2">
@@ -282,6 +311,13 @@ export default function BlogTwo() {
                                     <div>
                                         <textarea
                                             placeholder="Type your comment here *"
+                                            value={commentForm.comment}
+                                            onChange={(e) =>
+                                                setCommentForm({
+                                                    ...commentForm,
+                                                    comment: e.target.value,
+                                                })
+                                            }
                                             className="
                                                 w-full
                                                 h-[195px]
@@ -323,6 +359,13 @@ export default function BlogTwo() {
 
                                         <input
                                             type="text"
+                                            value={commentForm.name}
+                                            onChange={(e) =>
+                                                setCommentForm({
+                                                    ...commentForm,
+                                                    name: e.target.value,
+                                                })
+                                            }
                                             placeholder="Enter Name"
                                             className="
                                                 w-full
@@ -348,6 +391,13 @@ export default function BlogTwo() {
                                         </label>
 
                                         <input
+                                            value={commentForm.email}
+                                            onChange={(e) =>
+                                                setCommentForm({
+                                                    ...commentForm,
+                                                    email: e.target.value,
+                                                })
+                                            }
                                             type="email"
                                             placeholder="Enter Your Email"
                                             className="
@@ -384,6 +434,7 @@ export default function BlogTwo() {
                                         {/* Submit */}
                                         <button
                                             type="button"
+                                            onClick={handleSubmitComment}
                                             className="
                                                 w-full
                                                 h-[30px]
