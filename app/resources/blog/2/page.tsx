@@ -1,17 +1,24 @@
 "use client";
 
 import { BLOGS } from "@/src/data/blog.data";
-import BlogImg from "@/public/blogs/blog-2-img.png";
+
 import HeaderComponent from "@/src/components/HeaderComponent/HeaderComponent";
 import FooterComponent from "@/src/components/FooterComponent/FooterComponent";
+
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+
+import BackIcon from "@/public/common/back-arrow-icon.svg";
+import LinkedinIcon from "@/public/blogs/linkedin-icon.svg";
+import TwitterIcon from "@/public/blogs/twitter-icon.svg";
+import FacebookIcon from "@/public/blogs/facebook-icon.svg";
+import BlogImg from "@/public/blogs/blog-2-img.png";
 
 export default function BlogTwo() {
-
     const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
     const blog = BLOGS.find((b) => b.id === 2);
+
     const categories = useMemo(() => {
         const allCategories = BLOGS.flatMap((blog) => blog.categories);
         return [...Array.from(new Set(allCategories))];
@@ -19,97 +26,161 @@ export default function BlogTwo() {
 
     if (!blog) return null;
 
-    const blogUrl = `https://yourdomain.com/blogs/2`;
-    const encodedUrl = encodeURIComponent(blogUrl);
-    const encodedTitle = encodeURIComponent(blog.title);
+    const [comments, setComments] = useState<any[]>([]);
+
+    const [commentForm, setCommentForm] = useState({
+        name: "",
+        email: "",
+        comment: "",
+    });
+
+    useEffect(() => {
+        fetchComments();
+    }, []);
+
+    const fetchComments = async () => {
+        const response = await fetch("/api/blogs/2/comments");
+
+        const data = await response.json();
+
+        setComments(data);
+    };
+
+    const handleShare = (
+        platform: "x" | "facebook" | "linkedin"
+    ) => {
+        const url = window.location.href;
+        const title = blog.title;
+
+        let shareUrl = "";
+
+        switch (platform) {
+            case "x":
+                shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(
+                    url
+                )}&text=${encodeURIComponent(title)}`;
+                break;
+
+            case "facebook":
+                shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+                    url
+                )}`;
+                break;
+
+            case "linkedin":
+                shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+                    url
+                )}`;
+                break;
+        }
+
+        window.open(
+            shareUrl,
+            "_blank",
+            "width=600,height=500,noopener,noreferrer"
+        );
+    };
+
+    const handleSubmitComment = async () => {
+        const response = await fetch(
+            "/api/blogs/2/comments",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(commentForm),
+            }
+        );
+
+        if (!response.ok) {
+            return;
+        }
+
+        setCommentForm({
+            name: "",
+            email: "",
+            comment: "",
+        });
+
+        fetchComments();
+    };
 
     return (
-        <div className="flex min-h-screen bg-zinc-50">
+        <div className="min-h-screen bg-[#f5f5f5]">
             <main className="w-full pt-24 bg-white">
                 <HeaderComponent active="BLOG" />
 
-                <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-12 py-20">
+                <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
 
-                    {/* LEFT COLUMN */}
-                    <div className="lg:col-span-2 space-y-8">
+                    <article className="w-full">
 
-                        {/* Title */}
-                        <h1 className="text-3xl font-bold text-[#322986] uppercase">
-                            {blog.title}
-                        </h1>
+                        {/* Back + Title */}
+                        <div className="flex items-center gap-2 mb-5">
 
-                        {/* Image */}
-                        <div className="relative w-full h-106 rounded-xl overflow-hidden">
+                            <button
+                                onClick={() => window.history.back()}
+                                className="relative flex h-8 w-8 shrink-0 items-center justify-center text-[#222] hover:text-[#E34334] transition-colors hover:cursor-pointer"
+                                aria-label="Go back"
+                            >
+                                <Image
+                                    src={BackIcon}
+                                    alt="Back"
+                                    fill
+                                    priority
+                                    className="object-contain"
+                                />
+                            </button>
+
+                            <h1 className="text-[17px] sm:text-[20px] lg:text-[22px] font-bold text-[#111] uppercase leading-tight">
+                                {blog.title}
+                            </h1>
+
+                        </div>
+
+                        {/* =====================================================
+                            HERO IMAGE
+                        ===================================================== */}
+
+                        <div className="relative w-full h-[220px] sm:h-[300px] lg:h-[360px] overflow-hidden rounded-lg">
                             <Image
                                 src={blog.image}
                                 alt={blog.title}
                                 fill
+                                priority
                                 className="object-cover"
                             />
                         </div>
 
-                        {/* Share */}
-                        <div className="flex items-center gap-4">
-                            <span className="font-semibold text-gray-700">Share:</span>
+                        <div
+                            className="
+                                mt-5
+                                text-[12px]
+                                sm:text-[13px]
+                                text-[#222]
+                                leading-[1.55]
+                            "
+                        >
 
-                            {[
-                                {
-                                    name: "LinkedIn",
-                                    url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
-                                    icon: (
-                                        <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0V8zm7.5 0h4.8v2.2h.07c.67-1.26 2.3-2.6 4.73-2.6 5.06 0 6 3.33 6 7.66V24h-5v-7.5c0-1.79-.03-4.1-2.5-4.1-2.5 0-2.88 1.95-2.88 3.97V24h-5V8z" />
-                                    ),
-                                },
-                                {
-                                    name: "Facebook",
-                                    url: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
-                                    icon: (
-                                        <path d="M22 12a10 10 0 10-11.5 9.87v-6.99H8v-2.88h2.5V9.5c0-2.47 1.47-3.83 3.72-3.83 1.08 0 2.22.19 2.22.19v2.44h-1.25c-1.23 0-1.61.76-1.61 1.54v1.85H17l-.4 2.88h-2.47v6.99A10 10 0 0022 12z" />
-                                    ),
-                                },
-                                {
-                                    name: "Twitter",
-                                    url: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
-                                    icon: (
-                                        <path d="M24 4.56a9.93 9.93 0 01-2.82.77 4.93 4.93 0 002.17-2.72 9.86 9.86 0 01-3.13 1.2 4.92 4.92 0 00-8.38 4.48A13.98 13.98 0 011.67 3.15a4.92 4.92 0 001.52 6.57 4.9 4.9 0 01-2.23-.62v.06a4.93 4.93 0 003.95 4.83 4.9 4.9 0 01-2.22.08 4.93 4.93 0 004.6 3.42A9.87 9.87 0 010 19.54 13.94 13.94 0 007.55 22c9.06 0 14.01-7.5 14.01-14v-.64A9.94 9.94 0 0024 4.56z" />
-                                    ),
-                                },
-                            ].map((platform) => (
-                                <a
-                                    key={platform.name}
-                                    href={platform.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="w-8 h-8 flex items-center justify-center rounded-full border-2 border-[#322986] text-[#322986] hover:bg-[#322986] hover:text-white transition"
-                                >
-                                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-                                        {platform.icon}
-                                    </svg>
-                                </a>
-                            ))}
-                        </div>
-
-                        {/* Content */}
-                        <div className="space-y-6 text-gray-700 leading-relaxed">
-
-                            <p>
+                            {/* Intro */}
+                            <p className="mb-5">
                                 Developing fire panels is a challenging task due to their multiple interfaces and real-time requirements to comply with regulations, such as alarm notification and output activation. Consequently, the software development cycle for fire panels is lengthy, with a significant portion dedicated to testing and bug fixing.
                             </p>
 
-                            <p>
+                            <p className="mb-5">
                                 Traditionally, most development was carried out on physical hardware setups, which often suffered from limitations and were unable to replicate real-world scenarios. As a result, software testing cycles were frequently incomplete, leading to poor software quality and substantial rework costs.
                             </p>
 
-                            <p>
+                            <p className="mb-5">
                                 However, recent advancements in electronics, off-the-shelf modules, components, and partnerships with companies like EMCUS Technologies have brought about new possibilities in the market. These developments allow for the rapid and reliable creation of custom simulators and testing equipment.
                             </p>
 
-                            <p>
+                            <p className="mb-5">
                                 Incorporating this equipment into the software development process can help ensure software quality from the early stages. For example, protocol simulators can be utilized to test various fire alarm and loop loading conditions. Some of the tests that can be performed using loop/SLC circuit simulators include:
                             </p>
 
                             {/* Bullet Points */}
-                            <ul className="list-disc pl-6 space-y-2">
+                            <ul className="list-disc pl-6 space-y-2 mb-5">
                                 <li>Alarms reporting</li>
                                 <li>Prioritization of alarms</li>
                                 <li>SLC loop loading conditions</li>
@@ -120,16 +191,19 @@ export default function BlogTwo() {
                                 <li>OEM protocol testing</li>
                             </ul>
 
-                            <p>
+                            <p className="mb-5">
                                 Moreover, these protocol simulators can also serve commissioning teams by enabling viability tests of fire panels before actual installation in a building. This approach significantly reduces labor costs by resolving issues that would typically require troubleshooting post installation.
                             </p>
 
-                            <p>
+                            <p className="mb-5">
                                 Furthermore, these simulators can facilitate long-term test automation of fire alarm software and hardware verification. They offer a general architecture for a protocol simulator, as depicted below.
                             </p>
 
-                            {/* Placeholder Image */}
-                            <div className="relative w-180 h-82 rounded-lg overflow-hidden">
+                            {/* =================================================
+                                PROTOCOL SIMULATOR IMAGE
+                            ================================================= */}
+
+                            <div className="relative w-full max-w-[720px] h-[300px] sm:h-[340px] lg:h-[380px] rounded-lg overflow-hidden">
                                 <Image
                                     src={BlogImg}
                                     alt={blog.title}
@@ -138,134 +212,250 @@ export default function BlogTwo() {
                                 />
                             </div>
 
-                            <span className="italic">General architecture for protocol simulator</span>
+                            <span className="italic block mt-2">
+                                General architecture for protocol simulator
+                            </span>
 
-                            {/* Tags */}
-                            <div className="flex flex-wrap gap-3 pt-6">
-                                <span className="font-semibold text-gray-700">Tags: </span>
-                                {blog.tags.map((tag) => (
-                                    <span
-                                        key={tag}
-                                        className="px-4 py-1 text-sm border border-[#322986] text-[#322986] rounded-full"
-                                    >
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
+                            {/* =================================================
+                                TAGS + SHARE
+                            ================================================= */}
 
-                            <div className="flex items-center gap-4">
-                                <span className="font-semibold text-gray-700">Share:</span>
+                            <div className="pt-6">
 
-                                {[
-                                    {
-                                        name: "LinkedIn",
-                                        url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
-                                        icon: (
-                                            <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0V8zm7.5 0h4.8v2.2h.07c.67-1.26 2.3-2.6 4.73-2.6 5.06 0 6 3.33 6 7.66V24h-5v-7.5c0-1.79-.03-4.1-2.5-4.1-2.5 0-2.88 1.95-2.88 3.97V24h-5V8z" />
-                                        ),
-                                    },
-                                    {
-                                        name: "Facebook",
-                                        url: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
-                                        icon: (
-                                            <path d="M22 12a10 10 0 10-11.5 9.87v-6.99H8v-2.88h2.5V9.5c0-2.47 1.47-3.83 3.72-3.83 1.08 0 2.22.19 2.22.19v2.44h-1.25c-1.23 0-1.61.76-1.61 1.54v1.85H17l-.4 2.88h-2.47v6.99A10 10 0 0022 12z" />
-                                        ),
-                                    },
-                                    {
-                                        name: "Twitter",
-                                        url: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
-                                        icon: (
-                                            <path d="M24 4.56a9.93 9.93 0 01-2.82.77 4.93 4.93 0 002.17-2.72 9.86 9.86 0 01-3.13 1.2 4.92 4.92 0 00-8.38 4.48A13.98 13.98 0 011.67 3.15a4.92 4.92 0 001.52 6.57 4.9 4.9 0 01-2.23-.62v.06a4.93 4.93 0 003.95 4.83 4.9 4.9 0 01-2.22.08 4.93 4.93 0 004.6 3.42A9.87 9.87 0 010 19.54 13.94 13.94 0 007.55 22c9.06 0 14.01-7.5 14.01-14v-.64A9.94 9.94 0 0024 4.56z" />
-                                        ),
-                                    },
-                                ].map((platform) => (
-                                    <a
-                                        key={platform.name}
-                                        href={platform.url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="w-8 h-8 flex items-center justify-center rounded-full border-2 border-[#322986] text-[#322986] hover:bg-[#322986] hover:text-white transition"
-                                    >
-                                        <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-                                            {platform.icon}
-                                        </svg>
-                                    </a>
-                                ))}
-                            </div>
+                                <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[10px]">
 
-                        </div>
-                    </div>
+                                    {/* Tags */}
+                                    <div className="flex flex-wrap items-center gap-1.5">
 
-                    {/* RIGHT COLUMN SAME AS BLOG 1 */}
-                    <div>
-                        <div className="bg-white p-6">
-                            <h3 className="text-lg font-bold text-[#322986] mb-4">
-                                Search
-                            </h3>
-                            <input
-                                type="text"
-                                placeholder="Search blogs..."
-                                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#322986]"
-                            />
-                        </div>
+                                        <span className="text-black font-bold text-[16px]">
+                                            Tags :
+                                        </span>
 
-                        {/* Featured Posts */}
-                        <div className="bg-white p-4">
-                            <h3 className="text-lg font-bold text-[#322986] mb-4">
-                                Featured Posts
-                            </h3>
+                                        {blog.tags.map((tag) => (
+                                            <span
+                                                key={tag}
+                                                className="px-2 py-1 rounded-[3px] border border-[#E34334] text-[#E34334] bg-[#FFF2F2] text-[16px] leading-none"
+                                            >
+                                                {tag.charAt(0).toUpperCase() +
+                                                    tag.slice(1)}
+                                            </span>
+                                        ))}
 
-                            <div className="space-y-4">
-                                {BLOGS.filter((blog) => [2, 3, 4].includes(blog.id)).map((blog) => (
-                                    <div
-                                        key={blog.id}
-                                        className="flex gap-4 items-center cursor-pointer group"
-                                    >
-                                        {/* Square Image */}
-                                        <div className="w-20 h-20 relative flex-shrink-0">
-                                            <Image
-                                                src={blog.image}
-                                                alt={blog.title}
-                                                fill
-                                                className="object-cover rounded-md"
-                                            />
-                                        </div>
-
-                                        {/* Title */}
-                                        <h4 className="text-md font-semibold text-gray-800 group-hover:text-[#322986] transition">
-                                            {blog.title}
-                                        </h4>
                                     </div>
-                                ))}
+
+                                    {/* Share */}
+                                    <div className="flex items-center gap-1.5">
+
+                                        <span className="text-black font-bold text-[16px]">
+                                            Share :
+                                        </span>
+
+                                        {/* LinkedIn */}
+                                        <button
+                                            type="button"
+                                            onClick={() =>
+                                                handleShare("linkedin")
+                                            }
+                                            aria-label="Share on LinkedIn"
+                                            className="w-[20px] h-[20px] flex items-center justify-center bg-[#2867B2] text-white rounded-[2px]"
+                                        >
+                                            <Image
+                                                src={LinkedinIcon}
+                                                alt="linkedin"
+                                            />
+                                        </button>
+
+                                        {/* Facebook */}
+                                        <button
+                                            type="button"
+                                            onClick={() =>
+                                                handleShare("facebook")
+                                            }
+                                            aria-label="Share on Facebook"
+                                            className="w-[20px] h-[20px] flex items-center justify-center bg-[#1877F2] text-white rounded-[2px]"
+                                        >
+                                            <Image
+                                                src={FacebookIcon}
+                                                alt="facebook"
+                                            />
+                                        </button>
+
+                                        {/* Twitter */}
+                                        <button
+                                            type="button"
+                                            onClick={() =>
+                                                handleShare("x")
+                                            }
+                                            aria-label="Share on Twitter"
+                                            className="w-[20px] h-[20px] flex items-center justify-center bg-[#1DA1F2] text-white rounded-[2px]"
+                                        >
+                                            <Image
+                                                src={TwitterIcon}
+                                                alt="twitter"
+                                            />
+                                        </button>
+
+                                    </div>
+                                </div>
                             </div>
+
+                            <section className="mt-4">
+
+                                <h2 className="text-[13px] font-medium text-[#222] mb-2">
+                                    Leave a Reply
+                                </h2>
+
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+
+                                    {/* Comment */}
+                                    <div>
+                                        <textarea
+                                            placeholder="Type your comment here *"
+                                            value={commentForm.comment}
+                                            onChange={(e) =>
+                                                setCommentForm({
+                                                    ...commentForm,
+                                                    comment: e.target.value,
+                                                })
+                                            }
+                                            className="
+                                                w-full
+                                                h-[195px]
+                                                resize-none
+                                                rounded-[3px]
+                                                border
+                                                border-[#64748B]
+                                                bg-[#F7F8F9]
+                                                px-2
+                                                py-2
+                                                text-[12px]
+                                                text-[#64748B]
+                                                placeholder:text-[#6B7280]
+                                                focus:outline-none
+                                                focus:border-[#322986]
+                                            "
+                                        />
+                                    </div>
+
+                                    {/* User Details */}
+                                    <div className="flex flex-col">
+
+                                        <p className="text-[12px] text-[#222] font-bold leading-[1.25] mb-1">
+                                            Your email address will not be
+                                            published. Required fields are
+                                            marked
+                                            <span className="text-[#E34334]">
+                                                {" "}*
+                                            </span>
+                                        </p>
+
+                                        {/* Name */}
+                                        <label className="text-[14px] mb-[2px]">
+                                            Name{" "}
+                                            <span className="text-[#E34334]">
+                                                *
+                                            </span>
+                                        </label>
+
+                                        <input
+                                            type="text"
+                                            value={commentForm.name}
+                                            onChange={(e) =>
+                                                setCommentForm({
+                                                    ...commentForm,
+                                                    name: e.target.value,
+                                                })
+                                            }
+                                            placeholder="Enter Name"
+                                            className="
+                                                w-full
+                                                h-[30px]
+                                                rounded-[2px]
+                                                bg-[#F7F8F9]
+                                                border
+                                                border-[#64748B]
+                                                px-2
+                                                text-[14px]
+                                                mb-2
+                                                focus:outline-none
+                                                focus:border-[#322986]
+                                            "
+                                        />
+
+                                        {/* Email */}
+                                        <label className="text-[14px] text-[#222] mb-[2px]">
+                                            Email{" "}
+                                            <span className="text-[#E34334]">
+                                                *
+                                            </span>
+                                        </label>
+
+                                        <input
+                                            value={commentForm.email}
+                                            onChange={(e) =>
+                                                setCommentForm({
+                                                    ...commentForm,
+                                                    email: e.target.value,
+                                                })
+                                            }
+                                            type="email"
+                                            placeholder="Enter Your Email"
+                                            className="
+                                                w-full
+                                                h-[30px]
+                                                rounded-[2px]
+                                                bg-[#F7F8F9]
+                                                border
+                                                border-[#64748B]
+                                                px-2
+                                                text-[14px]
+                                                mb-2
+                                                focus:outline-none
+                                                focus:border-[#322986]
+                                            "
+                                        />
+
+                                        {/* Checkbox */}
+                                        <label className="flex items-start gap-1 text-[12px] text-[#555] leading-tight mb-2">
+
+                                            <input
+                                                type="checkbox"
+                                                className="mt-[1px] w-[12px] h-[12px]"
+                                            />
+
+                                            <span>
+                                                Save my name, email, and
+                                                website in this browser for
+                                                the next time I comment.
+                                            </span>
+
+                                        </label>
+
+                                        {/* Submit */}
+                                        <button
+                                            type="button"
+                                            onClick={handleSubmitComment}
+                                            className="
+                                                w-full
+                                                h-[30px]
+                                                rounded-[8px]
+                                                bg-[#322986]
+                                                text-white
+                                                text-[16px]
+                                                font-medium
+                                                hover:bg-[#292270]
+                                                transition-colors
+                                            "
+                                        >
+                                            Post a Comment
+                                        </button>
+
+                                    </div>
+                                </div>
+                            </section>
+
                         </div>
-
-                        {/* Categories */}
-                        <div className="bg-white p-6">
-                            <h3 className="text-lg font-bold text-[#322986] mb-4">
-                                Categories
-                            </h3>
-
-                            <ul className="space-y-2">
-                                {categories.map((category) => (
-                                    <li
-                                        key={category}
-                                        onClick={() => setSelectedCategory(category)}
-                                        className={`cursor-pointer ${selectedCategory === category
-                                            ? "text-[#322986] font-semibold"
-                                            : "text-gray-700"
-                                            } hover:text-[#322986]`}
-                                    >
-                                        • {category}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                    </div>
-
-
-
+                    </article>
                 </div>
 
                 <FooterComponent />

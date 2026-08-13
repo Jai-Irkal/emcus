@@ -15,16 +15,6 @@ export const BLOGS = [
     tags:["Fire panel", "zoning"]
   },
   {
-    id: 2,
-    title: "Test Tools in Fire Panel Development",
-    date: "July 7, 2023",
-    description:
-      "Developing fire panels is a challenging task due to their multiple interfaces and real-time requirements to comply with regulations, such as alarm notification and output",
-    image: Blog2,
-    categories:["Fire Panels", "Protocol Simulator", "Test Tools"],
-    tags:["Fire panel", "test tools", "testing tools"]
-  },
-  {
     id: 3,
     title: "Meeting Standards in Fire Panel Development",
     date: "July 7, 2023 ",
@@ -43,5 +33,15 @@ export const BLOGS = [
     image: Blog4,
     categories:["Fire System Calculators", "Fire Systems", "Test Tools"],
     tags:["calculators", "fire safety", "fire system", "Loop Calculators", "web calculators"]
+  },
+  {
+    id: 2,
+    title: "Test Tools in Fire Panel Development",
+    date: "July 7, 2023",
+    description:
+      "Developing fire panels is a challenging task due to their multiple interfaces and real-time requirements to comply with regulations, such as alarm notification and output",
+    image: Blog2,
+    categories:["Fire Panels", "Protocol Simulator", "Test Tools"],
+    tags:["Fire panel", "test tools", "testing tools"]
   },
 ];

@@ -12,6 +12,6 @@ export const WHY_EMCUS = [
     {
         id:3,
         title:"DOMAIN EXPERTISE",
-        description:"EMCUS is made up of a team of highly experienced professionals specializing in software and firmware development within the fire and safety domain. We possess the distinct advantage in delivering top-notch, cost-effective, and pragmatically transformational products in the field of fire and safety."
+        description:"EMCUS is a team of experts in software and firmware for fire and safety, delivering high-quality, cost-effective, and practical solutions. Empowering businesses with reliable technology that never sleeps, so your environments stay safe."
     }
 ]
