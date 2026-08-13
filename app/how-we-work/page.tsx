@@ -25,8 +25,8 @@ export default function HowWeWork() {
   );
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full flex-col bg-white dark:bg-black pt-[80px] md:pt-[90px]">
+    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans">
+      <main className="flex min-h-screen w-full flex-col bg-white pt-[80px] md:pt-[90px]">
         <HeaderComponent active="HOW WE WORK" />
         <div className="relative w-full h-[300px] lg:h-[600px] 2xl:h-[600px] 2xl:bottom-0">
           <Image
