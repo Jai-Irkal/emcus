@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${jakartaSans.variable} ${jakartaSans.variable} antialiased xl:max-w-7xl xl:mx-auto px-4`}
+        className={`${jakartaSans.variable} ${jakartaSans.variable} antialiased xl:max-w-7xl xl:mx-auto xl:px-4 px-0`}
       >
         {children}
       </body>
