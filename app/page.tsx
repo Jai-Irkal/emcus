@@ -68,7 +68,6 @@ export default function Home() {
           </div>
 
           {/* Right Column - Fixed */}
-          {/* Right Column - Fixed */}
           <div
             className="
     hidden lg:flex lg:justify-end h-full
@@ -86,7 +85,7 @@ export default function Home() {
 
         </div>
 
-        <div className="lg:mt-10 mt-10 2xl:mt-110">
+        <div className="lg:mt-10 mt-10 2xl:mt-10">
           <h1 className="text-[30px] text-[#d94536] font-bold text-center w-full">WHY EMCUS?</h1>
           <div className="flex flex-col md:flex-row justify-center gap-0 mt-10">
 

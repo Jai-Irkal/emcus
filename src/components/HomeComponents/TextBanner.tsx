@@ -11,7 +11,7 @@ const TextBanner = (props: TextBannerProps) => {
              bg-gradient-to-r from-[#9B1915] to-[#E20E17] mt-30 lg:mt-0 2xl:mt-40"
         >
             <div className="w-full">
-                <h2 className="text-center text-white text-[14px] lg:text-[20px] lg:px-[170px] xl:text-[20px] 2xl:px-100">
+                <h2 className="text-center text-white text-[14px] lg:text-[20px] lg:px-[170px] xl:text-[20px] 2xl:px-50">
                     {props.text}
                 </h2>
             </div>
