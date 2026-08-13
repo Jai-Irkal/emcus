@@ -34,7 +34,7 @@ export default function Home() {
         email: "",
         subject: "",
         message: "",
-        phone:""
+        phone: ""
     });
 
     const [loading, setLoading] = useState(false);
@@ -63,7 +63,7 @@ export default function Home() {
                     firstName: formData.firstName,
                     lastName: "",
                     email: formData.email,
-                    phone:phone,
+                    phone: phone,
                     subject: formData.subject,
                     message: `${formData.message}`,
                 }),
@@ -82,7 +82,7 @@ export default function Home() {
                 email: "",
                 subject: "",
                 message: "",
-                phone:""
+                phone: ""
             });
 
             setPhone("");
@@ -669,15 +669,7 @@ export default function Home() {
 
                         </div>
 
-                        <div className="
-                            w-full
-                            rounded-2xl
-                            bg-white
-                            p-0
-                            sm:p-2
-                            lg:p-6
-                            xl:p-8
-                        ">
+                        <div className="contact-form-card w-full p-5 sm:p-6 lg:p-6 xl:p-8">
                             <form className="space-y-5" onSubmit={handleSubmit}>
 
                                 {/* Name */}
