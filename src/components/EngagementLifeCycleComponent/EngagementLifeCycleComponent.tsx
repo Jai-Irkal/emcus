@@ -11,9 +11,9 @@ const EngagementLifeCycleCard = ({
 }) => {
   return (
     <div className="w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-[0_8px_24px_rgba(0,0,0,0.08)] -mt-4">
-      <div className="grid grid-cols-1 lg:grid-cols-[170px_1fr]">
+      <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr]">
         {/* Left Section */}
-        <div className="bg-[#E24434] flex flex-col items-center justify-center text-center px-6 py-8">
+        <div className="bg-[#E24434] flex flex-col items-center justify-center text-center px-6 py-15">
           <Image
             src={item.img}
             alt={item.title}

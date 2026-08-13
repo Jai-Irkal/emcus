@@ -144,7 +144,7 @@ export default function HowWeWork() {
           </div>
         </div>
         <h1 className="text-[25px] text-[#d94536] font-bold text-center w-full mt-10">ENGAGEMENT LIFECYCLE</h1>
-        <div className="2xl:py-30 lg:py-15 py-10 lg:px-20 px-4 flex flex-col gap-0">
+        <div className="2xl:py-10 lg:py-15 py-10 lg:px-20 px-4 flex flex-col gap-0">
           {
             EngagementLifeCycle.map((item, index) => {
               return (
@@ -154,7 +154,7 @@ export default function HowWeWork() {
                     <Image
                       src={LifeCycleArrow}
                       alt=""
-                      className="block mx-auto z-10 lg:-mt-2 lg:ml-11 lg:mx-0"
+                      className="relative z-10 block mx-auto -mb-5 lg:-mt-0 lg:ml-22 lg:mx-0"
                     />
                   )}
                 </div>
