@@ -48,9 +48,9 @@ export default function RootLayout({
         className={`
           ${jakartaSans.className}
           antialiased
-          xl:max-w-7xl
-          xl:mx-auto
-          xl:px-4
+          2xl:max-w-7xl
+          2xl:mx-auto
+          2xl:px-4
           px-0
         `}
       >
