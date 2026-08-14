@@ -258,7 +258,7 @@ const DesktopDropdown = ({
                 <div
                     className={`flex items-center gap-1 px-8 lg:px-[12px] h-[40px] rounded-md ${isParentActive
                             ? "bg-[#d94536] text-white"
-                            : "text-[#322986] group-hover:bg-[#d94536] group-hover:text-white"
+                            : "text-black group-hover:bg-[#d94536] group-hover:text-white"
                         }
                     `}
                 >
