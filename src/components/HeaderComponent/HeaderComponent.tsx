@@ -241,28 +241,29 @@ const DesktopDropdown = ({
 }) => {
 
     const pathname = usePathname();
-    
+
     const isParentActive =
-    title === active ||
-    items.some(
-        (item) =>
-            item.label === active ||
-            item.path === pathname
-    );
+        title === active ||
+        items.some(
+            (item) =>
+                item.label === active ||
+                item.path === pathname
+        );
 
     return (
         <div className="relative group h-full">
             <button
                 className={`h-full flex items-center text-[12px] transition-colors`}
             >
-                <div className={`flex items-center gap-1 px-8 lg:px-[12px] h-[40px] rounded-md
-                ${isParentActive
-                        ? "bg-[#d94536] text-[#ffffff]"
-                        : "text-[#000000] group-hover:bg-[#d94536] group-hover:text-white"
-                    }
-                    `}>
+                <div
+                    className={`flex items-center gap-1 px-8 lg:px-[12px] h-[40px] rounded-md ${isParentActive
+                            ? "bg-[#d94536] text-white"
+                            : "text-[#322986] group-hover:bg-[#d94536] group-hover:text-white"
+                        }
+                    `}
+                >
                     <p>{title}</p>
-                    <Chevron active={isParentActive}/>
+                    <Chevron active={isParentActive} />
                 </div>
             </button>
 
@@ -291,85 +292,81 @@ const DesktopDropdown = ({
 /* ---------------- Mobile Components ---------------- */
 
 const MobileItem = ({
-  title,
-  path,
-  active,
-  onNavigate,
+    title,
+    path,
+    active,
+    onNavigate,
 }: {
-  title: string;
-  path: string;
-  active: string;
-  onNavigate: (path: string) => void;
+    title: string;
+    path: string;
+    active: string;
+    onNavigate: (path: string) => void;
 }) => (
-  <button
-    onClick={() => onNavigate(path)}
-    className={`block w-full text-left px-6 py-3 font-bold text-[14px]
-      ${
-        active === title
-          ? "bg-[#d94536] text-white"
-          : "text-black hover:bg-[#d94536] hover:text-white"
-      }`}
-  >
-    {title}
-  </button>
+    <button
+        onClick={() => onNavigate(path)}
+        className={`block w-full text-left px-6 py-3 font-bold text-[14px]
+      ${active === title
+                ? "bg-[#d94536] text-white"
+                : "text-black hover:bg-[#d94536] hover:text-white"
+            }`}
+    >
+        {title}
+    </button>
 );
 
 
 const MobileDropdown = ({
-  title,
-  items,
-  isOpen,
-  toggle,
-  active,
-  onNavigate,
+    title,
+    items,
+    isOpen,
+    toggle,
+    active,
+    onNavigate,
 }: {
-  title: string;
-  items: NavItem[];
-  isOpen: boolean;
-  toggle: () => void;
-  active: string;
-  onNavigate: (path: string) => void;
+    title: string;
+    items: NavItem[];
+    isOpen: boolean;
+    toggle: () => void;
+    active: string;
+    onNavigate: (path: string) => void;
 }) => {
-  const isParentActive =
-    title === active || items.some((item) => item.label === active);
+    const isParentActive =
+        title === active || items.some((item) => item.label === active);
 
-  return (
-    <div>
-      <button
-        onClick={toggle}
-        className={`w-full flex justify-between items-center px-6 py-3 font-bold text-[14px]
-          ${
-            isParentActive
-              ? "bg-[#d94536] text-white"
-              : "text-black hover:bg-[#d94536] hover:text-white"
-          }`}
-      >
-        {title}
-        <Chevron rotate={isOpen} />
-      </button>
+    return (
+        <div>
+            <button
+                onClick={toggle}
+                className={`w-full flex justify-between items-center px-6 py-3 font-bold text-[14px]
+          ${isParentActive
+                        ? "bg-[#d94536] text-white"
+                        : "text-black hover:bg-[#d94536] hover:text-white"
+                    }`}
+            >
+                {title}
+                <Chevron rotate={isOpen} />
+            </button>
 
-      <div
-        className={`overflow-hidden transition-all duration-300 ${
-          isOpen ? "max-h-60" : "max-h-0"
-        }`}
-      >
-        {items.map((item) => (
-          <button
-            key={item.label}
-            onClick={() => onNavigate(item.path!)}
-            className={`block w-full text-left pl-10 pr-6 py-2 text-[14px]
-              ${
-                active === item.label
-                  ? "bg-[#d94536] text-white"
-                  : "text-black font-semibold hover:bg-[#d94536] hover:text-white"
-              }`}
-          >
-            {item.label}
-          </button>
-        ))}
-      </div>
-    </div>
-  );
+            <div
+                className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-60" : "max-h-0"
+                    }`}
+            >
+                {items.map((item) => (
+                    <button
+                        key={item.label}
+                        onClick={() => onNavigate(item.path!)}
+                        className={`block w-full text-left pl-10 pr-6 py-2 text-[14px]
+              ${active === item.label
+                                ? "bg-[#d94536] text-white"
+                                : "text-black font-semibold hover:bg-[#d94536] hover:text-white"
+                            }`}
+                    >
+                        {item.label}
+                    </button>
+                ))}
+            </div>
+        </div>
+    );
 };
 
 
@@ -383,11 +380,10 @@ const Chevron = ({
     active?: boolean;
 }) => (
     <svg
-        className={`w-3 h-3 transition-transform duration-200 ${
-            rotate ? "rotate-180" : ""
-        }`}
+        className={`w-3 h-3 transition-transform duration-200 ${rotate ? "rotate-180" : ""
+            }`}
         viewBox="0 0 20 20"
-        fill={active ? "#ffffff" : "#322986"}
+        fill="currentColor"
     >
         <path d="M5 7l5 6 5-6H5z" />
     </svg>
