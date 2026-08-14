@@ -53,7 +53,7 @@ export default function Home() {
             animate-fade-in-from-left
         "
           >
-            <div className="w-full overflow-y-auto max-h-[620px] pr-2 hide-scrollbar py-0 xl:-mt-4">
+            <div className="w-full overflow-y-auto max-h-[540px] pr-2 hide-scrollbar py-4 xl:-mt-4">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {CORE_SERVICES.map((item) => (
                   <div
