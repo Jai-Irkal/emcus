@@ -38,17 +38,23 @@ export default function HowWeWork() {
             className="object-cover"
           />
 
-          <div className="absolute inset-0 bg-black/30"></div>
+          <div className="absolute inset-0 bg-black/30" />
 
           {/* Overlay Content */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
-            <h1 className="text-white text-xl xl:text-4xl lg:text-4xl lg:font-medium font-normal xl:font-bold xl:px-0 px-4 lg:-mt-20 lg:px-20">
-              CLIENT<span className="font-bold"> FOCUS</span> AND TECHNICAL<span className="font-bold"> EXCELLENCE</span>
-            </h1>
+          <div className="absolute inset-0 z-10 flex items-center justify-center px-4 sm:px-6">
+            <div className="flex max-w-5xl flex-col items-center text-center">
+              <h1 className="px-2 text-lg font-normal leading-tight text-white sm:text-2xl lg:text-4xl">
+                <span className="font-bold">CLIENT FOCUS AND TECHNICAL EXCELLENCE</span>
+              </h1>
 
-            <span className="text-white lg:text-[18px] lg:mt-6 lg:px-10 mt-4 max-w-3xl xl:px-0 px-6 text-[12px]">
-              We adapt our processes to match yours, ensuring a seamless project experience. We execute projects using Agile, Waterfall, V-Model, and SAFe methodologies.
-            </span>
+              <div className="my-4 h-px w-32 bg-white sm:w-48 lg:my-6 lg:w-206 xl:w-200" />
+
+              <span className="max-w-3xl px-2 text-[12px] leading-relaxed text-white sm:px-4 sm:text-[14px] lg:px-0 lg:text-[18px]">
+                We adapt our processes to match yours, ensuring a seamless project
+                experience. We execute projects using Agile, Waterfall, V-Model, and
+                SAFe methodologies.
+              </span>
+            </div>
           </div>
         </div>
         <h1 className="text-[25px] text-[#d94536] font-bold text-center w-full mt-10">OUR POSITIONING</h1>
