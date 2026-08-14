@@ -780,6 +780,7 @@ export default function Home() {
                                         text-white
                                         transition
                                         hover:opacity-90
+                                        hover:cursor-pointer
                                     "
                                 >
                                     <Image
