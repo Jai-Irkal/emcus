@@ -40,7 +40,7 @@ export default function Home() {
           ))}
         </div>
 
-        <h1 className="text-[30px] text-[#d94536] font-bold text-center w-full mt-10">CORE SERVICE</h1>
+        <h1 className="text-[30px] text-[#d94536] font-bold text-center w-full mt-10">CORE SERVICES</h1>
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-6 lg:mt-10 lg:px-4 lg:min-h-[720px]">
 
           {/* Left Column - Scrollable */}
