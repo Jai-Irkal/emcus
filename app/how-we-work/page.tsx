@@ -164,7 +164,7 @@ export default function HowWeWork() {
           }
         </div>
         <h1 className="text-[25px] text-[#d94536] font-bold text-center w-full py-10">OUR PRODUCT DEVELOPMENT LIFECYCLE</h1>
-        <div className="relative grid w-full grid-cols-1 lg:grid-cols-[150px_1fr]">
+        <div className="relative grid w-full grid-cols-1 [--sidebar:150px] lg:grid-cols-[var(--sidebar)_1fr]">
           <div
             aria-hidden
             className="
@@ -172,8 +172,8 @@ export default function HowWeWork() {
               absolute
               z-[1]
               left-[36px]
-              lg:left-[calc(150px+38.125rem)]
-              lg:-translate-x-19
+              lg:left-[calc((100%+var(--sidebar))/2)]
+              -translate-x-1/2
               top-[calc(3rem+50px)]
               bottom-[calc(3rem+50px)]
               w-px
