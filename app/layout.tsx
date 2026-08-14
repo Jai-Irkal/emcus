@@ -48,13 +48,14 @@ export default function RootLayout({
         className={`
           ${jakartaSans.className}
           antialiased
-          2xl:max-w-7xl
-          2xl:mx-auto
-          2xl:px-4
-          px-0
         `}
       >
-        {children}
+        <div className="2xl:max-w-7xl
+          2xl:mx-auto
+          2xl:px-4
+          px-0">
+            {children}
+        </div>
       </body>
     </html>
   );

@@ -109,7 +109,7 @@ export default function Blogs() {
               {/* Left Arrow */}
               <button
                 onClick={scrollLeft}
-                className="shrink-0 flex items-center justify-center"
+                className="shrink-0 flex items-center justify-center cursor-pointer transition-all duration-200 ease-in-out hover:scale-110 active:scale-95"
                 aria-label="Previous categories"
               >
                 <Image
@@ -122,41 +122,18 @@ export default function Blogs() {
               {/* Category Slider */}
               <div
                 ref={scrollRef}
-                className="
-      flex
-      items-center
-      gap-3
-      overflow-x-auto
-      overflow-y-hidden
-      flex-1
-      min-w-0
-      hide-scrollbar
-      scroll-smooth
-    "
+                className="flex items-center gap-3 overflow-x-auto overflow-y-hidden flex-1 min-w-0 hide-scrollbar scroll-smooth"
               >
                 {categories.map((category) => (
                   <button
                     key={category}
                     onClick={() => setSelectedCategory(category)}
-                    className={`
-          shrink-0
-          whitespace-nowrap
-          rounded-2xl
-          border
-          px-4
-          sm:px-5
-          py-2
-          text-sm
-          sm:text-base
-          lg:text-lg
-          xl:text-xl
-          font-medium
-          transition-all
-          ${selectedCategory === category
+                    className={`shrink-0 whitespace-nowrap rounded-2xl border px-4 sm:px-5 py-2 text-sm sm:text-base lg:text-lg xl:text-xl font-medium transition-all
+                      ${selectedCategory === category
                         ? "bg-[#E34334] border-[#E34334] text-white"
                         : "border-[#A8B3D1] text-[#5F6F91] hover:border-[#322986] hover:text-[#322986]"
                       }
-        `}
+                    `}
                   >
                     {category}
                   </button>
@@ -166,7 +143,7 @@ export default function Blogs() {
               {/* Right Arrow */}
               <button
                 onClick={scrollRight}
-                className="shrink-0 flex items-center justify-center"
+                className="shrink-0 flex items-center justify-center cursor-pointer transition-all duration-200 ease-in-out hover:scale-110 active:scale-95"
                 aria-label="Next categories"
               >
                 <Image
@@ -234,7 +211,7 @@ export default function Blogs() {
                         {/* Blog Content */}
                         <div className="p-3 flex flex-col">
                           {/* Title */}
-                          <h2 className="text-[18px] font-bold text-[#322986] leading-[1.25] mb-2">
+                          <h2 className="lg:text-[21px] font-bold text-[#322986] leading-[1.25] mb-2">
                             {blog.title}
                           </h2>
 
@@ -289,6 +266,7 @@ export default function Blogs() {
                   items-center
                   justify-center
                   hover:bg-[#d4382b]
+                  hover:cursor-pointer
                   transition-colors
                 "
                           >
