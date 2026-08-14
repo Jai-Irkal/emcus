@@ -65,12 +65,18 @@ const FooterComponent = () => {
                                                 {item.children.map((child) => (
                                                     <li
                                                         key={child.label}
-                                                        onClick={() =>
-                                                            handleNavigation(child.path || "")
-                                                        }
-                                                        className="cursor-pointer hover:text-[#4590ca] transition-colors"
+                                                        onClick={() => handleNavigation(child.path || "")}
+                                                        className="flex items-center gap-2 cursor-pointer hover:text-[#4590ca] transition-colors"
                                                     >
-                                                        {child.label}
+                                                        <svg
+                                                            className="w-3 h-3 shrink-0"
+                                                            viewBox="0 0 20 20"
+                                                            fill="currentColor"
+                                                        >
+                                                            <path d="M7 5l6 5-6 5V5z" />
+                                                        </svg>
+
+                                                        <span>{child.label}</span>
                                                     </li>
                                                 ))}
                                             </ul>
