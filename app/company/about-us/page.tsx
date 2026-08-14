@@ -47,7 +47,7 @@ export default function AboutUs() {
                     className="w-8 h-10 object-contain"
                   />
                 </div>
-                <h1 className="text-center text-[28px] font-bold text-[#444444]">Our Vision</h1>
+                <h1 className="text-center text-[28px] font-bold text-black">Our Vision</h1>
               </div>
               <div className="mt-4 relative px-0 lg:pr-12 text-left lg:text-left">
                 <p>
@@ -65,7 +65,7 @@ export default function AboutUs() {
                     className="w-8 h-10 object-contain"
                   />
                 </div>
-                <h1 className="text-center text-[28px] font-bold text-[#444444]">Our Mission</h1>
+                <h1 className="text-center text-[28px] font-bold text-black">Our Mission</h1>
               </div>
               <div className="mt-4 relative px-0 lg:pr-12 text-left lg:text-left">
                 <p>Helping fire and safety businesses build safer, smarter, and more connected products through world-class engineering.</p>

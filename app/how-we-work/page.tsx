@@ -69,37 +69,37 @@ export default function HowWeWork() {
                     className="w-10 h-10 object-contain"
                   />
                 </div>
-                <h1 className="text-center text-[24px] lg:text-[28px] font-bold text-[#444444]">Client Focus</h1>
+                <h1 className="text-center text-[24px] lg:text-[28px] font-bold text-black">Client Focus</h1>
               </div>
               <div className="mt-4 relative">
                 <ul className=" space-y-2 text-[18px]">
                   <div className="flex">
                     <div>
                       <Image
-                        src={BlueArrowBullet} alt={""} />
+                        src={BlueArrowBullet} alt={""} className="h-5 w-5"/>
                     </div>
-                    <li className="-mt-1 lg:mt-0 text-[15px] lg:text-[18px]">Embed seamlessly into your customer's ecosystem and toolchain.</li>
+                    <li className="-mt-1 lg:mt-0 text-[15px] lg:text-[14px]">Embed seamlessly into your customer's ecosystem and toolchain.</li>
                   </div>
                   <div className="flex">
                     <div>
                       <Image
-                        src={BlueArrowBullet} alt={""} />
+                        src={BlueArrowBullet} alt={""} className="h-5 w-5"/>
                     </div>
-                    <li className="-mt-1 text-[15px] lg:mt-0">Lean team structure with a single-thread of accountability.</li>
+                    <li className="-mt-1 text-[15px] lg:mt-0 lg:text-[14px]">Lean team structure with a single-thread of accountability.</li>
                   </div>
                   <div className="flex">
                     <div>
                       <Image
-                        src={BlueArrowBullet} alt={""} />
+                        src={BlueArrowBullet} alt={""} className="h-5 w-5"/>
                     </div>
-                    <li className="-mt-1 text-[15px] lg:mt-0">Deep domain literacy in fire & safety, IoT and regulated industries.</li>
+                    <li className="-mt-1 text-[15px] lg:mt-0 lg:text-[14px]">Deep domain literacy in fire & safety, IoT and regulated industries.</li>
                   </div>
                   <div className="flex">
                     <div>
                       <Image
-                        src={BlueArrowBullet} alt={""} />
+                        src={BlueArrowBullet} alt={""} className="h-5 w-5"/>
                     </div>
-                    <li className="-mt-1 text-[15px] lg:mt-0">Hassle-free engagement — predictable cadence, fewer surprises.</li>
+                    <li className="-mt-1 text-[15px] lg:mt-0 lg:text-[14px]">Hassle-free engagement — predictable cadence, fewer surprises.</li>
                   </div>
                 </ul>
               </div>
@@ -113,37 +113,37 @@ export default function HowWeWork() {
                     className="w-10 h-10 object-contain"
                   />
                 </div>
-                <h1 className="text-center text-[22px] lg:text-[28px] font-bold text-[#444444]">Technical Excellence</h1>
+                <h1 className="text-center text-[22px] lg:text-[28px] font-bold text-black">Technical Excellence</h1>
               </div>
               <div className="mt-4 relative">
                 <ul className=" space-y-2 text-[18px]">
                   <div className="flex">
                     <div>
                       <Image
-                        src={RedArrow} alt={""} />
+                        src={RedArrow} alt={""} className="h-5 w-5"/>
                     </div>
-                    <li className="-mt-1 text-[15px] lg:mt-0">Cross-disciplinary expertise: firmware, cloud, mobile and QA.</li>
+                    <li className="-mt-1 text-[15px] lg:mt-0 lg:text-[14px]">Cross-disciplinary expertise: firmware, cloud, mobile and QA.</li>
                   </div>
                   <div className="flex">
                     <div>
                       <Image
-                        src={RedArrow} alt={""} />
+                        src={RedArrow} alt={""} className="h-5 w-5"/>
                     </div>
-                    <li className="-mt-1 text-[15px] lg:mt-0">Disciplined processes paired with modern tooling.</li>
+                    <li className="-mt-1 text-[15px] lg:mt-0 lg:text-[14px]">Disciplined processes paired with modern tooling.</li>
                   </div>
                   <div className="flex">
                     <div>
                       <Image
-                        src={RedArrow} alt={""} />
+                        src={RedArrow} alt={""} className="h-5 w-5"/>
                     </div>
-                    <li className="-mt-1 text-[15px] lg:mt-0">Attention to the small details that make systems robust.</li>
+                    <li className="-mt-1 text-[15px] lg:mt-0 lg:text-[14px]">Attention to the small details that make systems robust.</li>
                   </div>
                   <div className="flex">
                     <div>
                       <Image
-                        src={RedArrow} alt={""} />
+                        src={RedArrow} alt={""} className="h-5 w-5"/>
                     </div>
-                    <li className="-mt-1 text-[15px] lg:mt-0">Continuous improvement as a first-class engineering habit.</li>
+                    <li className="-mt-1 text-[15px] lg:mt-0 lg:text-[14px]">Continuous improvement as a first-class engineering habit.</li>
                   </div>
                 </ul>
               </div>
