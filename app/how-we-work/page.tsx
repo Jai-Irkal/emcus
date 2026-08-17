@@ -57,7 +57,7 @@ export default function HowWeWork() {
             </div>
           </div>
         </div>
-        <h1 className="text-[25px] text-[#d94536] font-bold text-center w-full mt-10">OUR POSITIONING</h1>
+        <h1 className="text-[25px] text-[#E4312D] font-bold text-center w-full mt-10">OUR POSITIONING</h1>
         <div className="py-8 lg:py-8 lg:px-20">
           <div className="flex flex-col md:flex-row justify-center items-stretch gap-6 px-4 lg:px-0">
             <div className="w-full rounded-2xl border-[#E2E2E2] bg-[#D8E0F7] border-1 py-6 px-6 shadow-l">
@@ -150,7 +150,7 @@ export default function HowWeWork() {
             </div>
           </div>
         </div>
-        <h1 className="text-[25px] text-[#d94536] font-bold text-center w-full mt-10">ENGAGEMENT LIFECYCLE</h1>
+        <h1 className="text-[25px] text-[#E4312D] font-bold text-center w-full mt-10">ENGAGEMENT LIFECYCLE</h1>
         <div className="2xl:py-10 lg:py-15 py-10 lg:px-20 px-4 flex flex-col gap-0">
           {
             EngagementLifeCycle.map((item, index) => {
@@ -169,7 +169,7 @@ export default function HowWeWork() {
             })
           }
         </div>
-        <h1 className="text-[25px] text-[#d94536] font-bold text-center w-full py-10">OUR PRODUCT DEVELOPMENT LIFECYCLE</h1>
+        <h1 className="text-[25px] text-[#E4312D] font-bold text-center w-full py-10">OUR PRODUCT DEVELOPMENT LIFECYCLE</h1>
         <div className="relative grid w-full grid-cols-1 [--sidebar:150px] lg:grid-cols-[var(--sidebar)_1fr]">
           <div
             aria-hidden

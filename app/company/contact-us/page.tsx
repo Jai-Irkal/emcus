@@ -242,7 +242,7 @@ export default function Home() {
                             text-2xl
                             sm:text-3xl
                             font-bold
-                            text-[#1A1A1A]
+                            text-black
                         ">
                             Reach Us Directly
                         </h2>
@@ -275,7 +275,7 @@ export default function Home() {
                                 className="flex min-h-[90px] items-center justify-start gap-3 rounded-[24px] bg-white px-4 py-4 shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-1"
                             >
                                 <div
-                                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border-2 border-[#E4312D] bg-[#FFF5F5]"
+                                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border-2 border-[#E4312D] bg-[#FFE3E2]"
                                 >
                                     <Image
                                         src={TelephoneIcon}
@@ -285,7 +285,7 @@ export default function Home() {
                                 </div>
 
                                 <span
-                                    className="break-all text-sm font-medium text-[#1A1A1A]"
+                                    className="break-all text-sm font-medium text-[#000000]"
                                 >
                                     +91 70226 16214
                                 </span>
@@ -307,7 +307,7 @@ export default function Home() {
                                 </div>
 
                                 <span
-                                    className="break-all text-sm font-medium text-[#1A1A1A]"
+                                    className="break-all text-sm font-medium text-[#000000]"
                                 >
                                     info@emcus.co.in
                                 </span>
@@ -331,7 +331,7 @@ export default function Home() {
                                 </div>
 
                                 <span
-                                    className="text-sm font-medium leading-5 text-[#1A1A1A]"
+                                    className="text-sm font-medium leading-5 text-[#000000]"
                                 >
                                     Novel MSR Park, 93/9, Varthur Main Road,
                                     Munnekolalu, Marathalli, Bengaluru 560037,
@@ -402,7 +402,7 @@ export default function Home() {
                             text-2xl
                             sm:text-3xl
                             font-bold
-                            text-[#1A1A1A]
+                            text-[#000000]
                         ">
                             Tell Us About Your Project
                         </h2>
@@ -496,7 +496,7 @@ export default function Home() {
                                             text-sm
                                             sm:text-base
                                             leading-6
-                                            text-[#667085]
+                                            text-[#64748B]
                                         ">
                                             Novel MSR Park, 93/9, Varthur Main
                                             Road, Munnekolalu, Marathalli,
@@ -520,7 +520,7 @@ export default function Home() {
                                                 break-all
                                                 text-sm
                                                 sm:text-base
-                                                text-[#667085]
+                                                text-[#64748B]
                                                 hover:text-[#2D3188]
                                             "
                                         >
@@ -544,7 +544,7 @@ export default function Home() {
                                                 break-all
                                                 text-sm
                                                 sm:text-base
-                                                text-[#667085]
+                                                text-[#64748B]
                                                 hover:text-[#2D3188]
                                             "
                                         >
@@ -567,7 +567,7 @@ export default function Home() {
                                         justify-center
                                         gap-2
                                         rounded-lg
-                                        border-2
+                                        border-1
                                         border-[#2D3188]
                                         px-3
                                         py-2
@@ -598,10 +598,10 @@ export default function Home() {
                                 <div className="flex flex-col gap-1">
                                     <label
                                         htmlFor="firstName"
-                                        className="text-sm sm:text-base font-bold text-gray-700"
+                                        className="text-sm sm:text-base font-bold text-black"
                                     >
                                         Name{" "}
-                                        <span className="text-[#d94536]">
+                                        <span className="text-[#E4312D]">
                                             *
                                         </span>
                                     </label>
@@ -634,10 +634,10 @@ export default function Home() {
                                 <div className="flex flex-col gap-1">
                                     <label
                                         htmlFor="email"
-                                        className="text-sm sm:text-base font-bold text-gray-700"
+                                        className="text-sm sm:text-base font-bold text-black"
                                     >
                                         Work Email{" "}
-                                        <span className="text-[#d94536]">
+                                        <span className="text-[#E4312D]">
                                             *
                                         </span>
                                     </label>
@@ -670,10 +670,10 @@ export default function Home() {
                                 <div className="flex flex-col gap-1">
                                     <label
                                         htmlFor="phone"
-                                        className="text-sm sm:text-base font-bold text-gray-700"
+                                        className="text-sm sm:text-base font-bold text-black"
                                     >
                                         Phone{" "}
-                                        <span className="text-[#d94536]">
+                                        <span className="text-[#E4312D]">
                                             *
                                         </span>
                                     </label>
@@ -692,10 +692,10 @@ export default function Home() {
                                 <div className="flex flex-col gap-1">
                                     <label
                                         htmlFor="subject"
-                                        className="text-sm sm:text-base font-bold text-gray-700"
+                                        className="text-sm sm:text-base font-bold text-black"
                                     >
                                         Subject{" "}
-                                        <span className="text-[#d94536]">
+                                        <span className="text-[#E4312D]">
                                             *
                                         </span>
                                     </label>
@@ -715,10 +715,10 @@ export default function Home() {
                                 <div className="flex flex-col gap-1">
                                     <label
                                         htmlFor="message"
-                                        className="text-sm sm:text-base font-bold text-gray-700"
+                                        className="text-sm sm:text-base font-bold text-black"
                                     >
                                         Message{" "}
-                                        <span className="text-[#d94536]">
+                                        <span className="text-[#E4312D]">
                                             *
                                         </span>
                                     </label>
@@ -741,6 +741,7 @@ export default function Home() {
                                             py-3
                                             text-sm
                                             sm:text-base
+                                            placeholder:text-[#64748B]
                                             focus:outline-none
                                             focus:ring-2
                                             focus:ring-[#322986]
@@ -755,7 +756,7 @@ export default function Home() {
                                     text-[#64748B]
                                 ">
                                     Fields marked
-                                    <span className="text-[#d94536]">
+                                    <span className="text-[#E4312D]">
                                         {" "}*{" "}
                                     </span>
                                     are required. Submitting will open your
@@ -772,7 +773,7 @@ export default function Home() {
                                         gap-2
                                         w-full
                                         rounded-md
-                                        bg-[#322986]
+                                        bg-[#2D3188]
                                         py-3
                                         text-sm
                                         sm:text-base

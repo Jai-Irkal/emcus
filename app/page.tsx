@@ -21,7 +21,7 @@ export default function Home() {
           <CarouselComponent />
         </div>
         <TextBanner text="EMCUS Technology Solutions is a specialized fire safety engineering partner for OEMs, delivering end-to-end design and development of fire & safety systems." />
-        <h1 className="text-[25px] xl:text-[30px] text-[#d94536] font-bold text-center w-full mt-10 lg:-mt-10 leading-none">FIRE & SAFETY PORTFOLIO</h1>
+        <h1 className="text-[25px] xl:text-[30px] text-[#E4312D] font-bold text-center w-full mt-10 lg:-mt-10 leading-none">FIRE & SAFETY PORTFOLIO</h1>
         <h1 className="text-[25px] xl:text-[30px] text-[#000000] font-bold text-center w-full leading-none lg:mt-2">Design & Development</h1>
         {/* Portfolio Grid */}
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:mt-10 lg:px-4 py-6 px-4">

@@ -3,7 +3,7 @@ import React from 'react'
 const HegxagonComponent = ({ num }: { num: number }) => {
     return (
         <div
-            className="w-10 h-10 bg-red-500 rotate-90 flex items-center justify-center
+            className="w-10 h-10 bg-[#E4312D] rotate-90 flex items-center justify-center
   [clip-path:polygon(25%_0%,75%_0%,100%_50%,75%_100%,25%_100%,0%_50%)]"
         >
             <p className="-rotate-90 font-bold text-white">
