@@ -18,9 +18,9 @@ const PortfolioComponent = ({ portfolioItem }: { portfolioItem: PortfolioItem })
                 <ul>
                     {portfolioItem.data.map((item, index) => (
                         
-                        <li key={index} className="text-[16px] font-normal text-black text-left">
+                        <li key={index} className="text-[16px] font-normal text-black text-left flex items-center">
                             <Image src={ArrowBullet} alt="Arrow" className="inline-block mr-1 h-4" />
-                            {item}
+                            <span className=''>{item}</span>
                         </li>
                     ))}
                 </ul>
