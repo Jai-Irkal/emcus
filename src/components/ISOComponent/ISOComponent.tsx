@@ -6,10 +6,10 @@ const ISOComponent = () => {
   return (
     <section className="pointer-events-none relative z-0 mr-2 flex shrink-0 items-center justify-end gap-3 xl:mr-4 xl:justify-start">
       {/* Vertical Line - Desktop only */}
-      <div className="hidden h-10 w-[1px] bg-[#000000] xl:block" />
+      <div className="hidden h-10 w-[1px] bg-[#000000] lg:block" />
 
       {/* Text - Desktop only */}
-      <div className="hidden items-center xl:flex">
+      <div className="hidden items-center lg:flex">
         <p className="text-[8px] text-[#000000]">
           AN ISO9001:2015 CERTIFIED COMPANY
         </p>
