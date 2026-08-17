@@ -76,7 +76,7 @@ export default function CarouselComponent() {
                 {/* Text */}
                 <div
                     key={item.id}
-                    className="w-full max-w-6xl px-6 sm:px-8 md:px-12 lg:px-20 text-center animate-carouselText"
+                    className="w-full max-w-6xl px-6 sm:px-8 md:px-32 lg:px-20 text-center animate-carouselText"
                 >
                     <h1 className="text-white font-bold uppercase leading-tight text-2xl sm:text-3xl md:text-4xl lg:text-[44px]">
                         {item.title}
