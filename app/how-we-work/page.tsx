@@ -76,28 +76,28 @@ export default function HowWeWork() {
                   <div className="flex">
                     <div>
                       <Image
-                        src={BlueArrowBullet} alt={""} className="h-5 w-5"/>
+                        src={BlueArrowBullet} alt={""} className="h-5 w-5" />
                     </div>
                     <li className="-mt-1 lg:mt-0 text-[15px] lg:text-[14px]">Embed seamlessly into your customer's ecosystem and toolchain.</li>
                   </div>
                   <div className="flex">
                     <div>
                       <Image
-                        src={BlueArrowBullet} alt={""} className="h-5 w-5"/>
+                        src={BlueArrowBullet} alt={""} className="h-5 w-5" />
                     </div>
                     <li className="-mt-1 text-[15px] lg:mt-0 lg:text-[14px]">Lean team structure with a single-thread of accountability.</li>
                   </div>
                   <div className="flex">
                     <div>
                       <Image
-                        src={BlueArrowBullet} alt={""} className="h-5 w-5"/>
+                        src={BlueArrowBullet} alt={""} className="h-5 w-5" />
                     </div>
                     <li className="-mt-1 text-[15px] lg:mt-0 lg:text-[14px]">Deep domain literacy in fire & safety, IoT and regulated industries.</li>
                   </div>
                   <div className="flex">
                     <div>
                       <Image
-                        src={BlueArrowBullet} alt={""} className="h-5 w-5"/>
+                        src={BlueArrowBullet} alt={""} className="h-5 w-5" />
                     </div>
                     <li className="-mt-1 text-[15px] lg:mt-0 lg:text-[14px]">Hassle-free engagement — predictable cadence, fewer surprises.</li>
                   </div>
@@ -120,28 +120,28 @@ export default function HowWeWork() {
                   <div className="flex">
                     <div>
                       <Image
-                        src={RedArrow} alt={""} className="h-5 w-5"/>
+                        src={RedArrow} alt={""} className="h-5 w-5" />
                     </div>
                     <li className="-mt-1 text-[15px] lg:mt-0 lg:text-[14px]">Cross-disciplinary expertise: firmware, cloud, mobile and QA.</li>
                   </div>
                   <div className="flex">
                     <div>
                       <Image
-                        src={RedArrow} alt={""} className="h-5 w-5"/>
+                        src={RedArrow} alt={""} className="h-5 w-5" />
                     </div>
                     <li className="-mt-1 text-[15px] lg:mt-0 lg:text-[14px]">Disciplined processes paired with modern tooling.</li>
                   </div>
                   <div className="flex">
                     <div>
                       <Image
-                        src={RedArrow} alt={""} className="h-5 w-5"/>
+                        src={RedArrow} alt={""} className="h-5 w-5" />
                     </div>
                     <li className="-mt-1 text-[15px] lg:mt-0 lg:text-[14px]">Attention to the small details that make systems robust.</li>
                   </div>
                   <div className="flex">
                     <div>
                       <Image
-                        src={RedArrow} alt={""} className="h-5 w-5"/>
+                        src={RedArrow} alt={""} className="h-5 w-5" />
                     </div>
                     <li className="-mt-1 text-[15px] lg:mt-0 lg:text-[14px]">Continuous improvement as a first-class engineering habit.</li>
                   </div>
@@ -170,7 +170,7 @@ export default function HowWeWork() {
           }
         </div>
         <h1 className="text-[25px] text-[#d94536] font-bold text-center w-full py-10">OUR PRODUCT DEVELOPMENT LIFECYCLE</h1>
-        <div className="relative grid w-full grid-cols-1 lg:grid-cols-[150px_1fr]">
+        <div className="relative grid w-full grid-cols-1 [--sidebar:150px] lg:grid-cols-[var(--sidebar)_1fr]">
           <div
             aria-hidden
             className="
@@ -178,8 +178,8 @@ export default function HowWeWork() {
               absolute
               z-[1]
               left-[36px]
-              lg:left-[calc(150px+38.125rem)]
-              lg:-translate-x-19
+              lg:left-[calc((100%+var(--sidebar))/2)]
+              -translate-x-1/2
               top-[calc(3rem+50px)]
               bottom-[calc(3rem+50px)]
               w-px
