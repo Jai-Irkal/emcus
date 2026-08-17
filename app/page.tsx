@@ -41,24 +41,23 @@ export default function Home() {
         </div>
 
         <h1 className="text-[30px] text-[#d94536] font-bold text-center w-full mt-10">CORE SERVICES</h1>
-        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-6 lg:mt-10 lg:px-4 lg:min-h-[720px]">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] items-center gap-6 lg:px-4 lg:min-h-[720px]">
 
           {/* Left Column - Scrollable */}
           <div
             className="
-            flex items-center w-full ml-3 px-2
-            lg:ml-8
-            order-2 lg:order-1
-            opacity-0
-            animate-fade-in-from-left
-        "
+    order-2 lg:order-1
+    flex items-center justify-center
+    opacity-0
+    animate-fade-in-from-left px-4 lg:px-0
+  "
           >
-            <div className="w-full overflow-y-auto max-h-[540px] pr-2 hide-scrollbar py-4 xl:-mt-4">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="w-full py-4 lg:max-h-[440px] lg:overflow-y-auto lg:pr-2 hide-scrollbar">
+              <div className="grid grid-cols-1 gap-6 place-items-center lg:grid-cols-2 lg:place-items-stretch">
                 {CORE_SERVICES.map((item) => (
                   <div
                     key={item.id}
-                    className="min-h-[220px] bg-gray-100 rounded-lg overflow-hidden shadow-lg transition duration-300"
+                    className="w-full max-w-[420px] min-h-[220px] overflow-hidden rounded-lg bg-gray-100 shadow-lg transition duration-300 lg:max-w-none"
                   >
                     <CoreServicesCard coreServiceItem={item} />
                   </div>
@@ -70,8 +69,9 @@ export default function Home() {
           {/* Right Column - Fixed */}
           <div
             className="
-    hidden lg:flex lg:justify-end h-full
     order-1 lg:order-2
+    hidden h-full lg:flex
+    items-center justify-center
     opacity-0
     animate-fade-in-from-right
   "
@@ -79,7 +79,7 @@ export default function Home() {
             <Image
               src={CoreServiceBanner}
               alt="Core Service Banner"
-              className="w-[90%] h-[90%] object-right rounded-2xl lg:rounded-lg ml-auto"
+              className="h-auto w-[90%] rounded-2xl lg:rounded-lg"
             />
           </div>
 
