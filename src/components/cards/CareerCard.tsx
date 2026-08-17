@@ -8,15 +8,15 @@ export const CareerCard = ({ item }: any) => {
 
                 {/* Left Section (2/3) */}
                 <div className="sm:col-span-2">
-                    <h2 className="text-xl font-bold text-[#322986]">
+                    <h2 className="text-xl font-bold text-[#2D3188]">
                         {item.role}
                     </h2>
                     <div className="flex gap-2 items-center mt-1">
-                        <p className="text-gray-600 ">
+                        <p className="text-[#64748B]">
                             {item.location}
                         </p>
                         <div className="bg-[#64748B] h-2 w-2 rounded-full" />
-                        <p className="text-gray-600 ">
+                        <p className="text-[#64748B]">
                             {item.role_type}
                         </p>
                     </div>
@@ -26,7 +26,7 @@ export const CareerCard = ({ item }: any) => {
                 <div className="flex gap-3 sm:justify-start lg:justify-end">
                     {/* <button className="px-4 py-2 border border-[#322986] text-[#322986] rounded-md hover:bg-[#322986] hover:text-white transition"> */}
                     <Link href={`/company/careers/${item.id}`}>
-                        <button className="px-4 py-2 bg-[#322986] text-white font-semibold rounded-md hover:opacity-90 transition cursor-pointer">
+                        <button className="px-4 py-2 bg-[#2D3188] text-white font-semibold rounded-md hover:opacity-90 transition cursor-pointer">
                             Details
                         </button>
                     </Link>

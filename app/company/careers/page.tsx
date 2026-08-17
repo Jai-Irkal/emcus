@@ -42,31 +42,31 @@ export default function Careers() {
             </div>
           </div>
         </div>
-        <h1 className="text-[25px] text-[#d94536] font-bold text-center w-full mt-10">JOIN US</h1>
-        <h2 className="px-8 font-bold">Open Positions ({OPEN_ROLES.length})</h2>
-        <h2 className="px-8 font-bold lg:mt-4 lg:text-[22px]">Engineering</h2>
+        <h1 className="text-[25px] text-[#E4312D] font-bold text-center w-full mt-10">JOIN US</h1>
+        <h2 className="px-8 text-[22px] text-[#000000] font-bold">Open Positions ({OPEN_ROLES.length})</h2>
+        <h2 className="px-8 font-bold lg:mt-4 lg:text-[22px] text-[#000000]">Engineering</h2>
         <div className="w-full flex flex-col gap-0 py-5 px-6">
           {OPEN_ROLES.map((item, index) => (
             <div key={item.id}>
               <CareerCard item={item} />
               {
                 index < OPEN_ROLES.length - 1 && (
-                  <hr />
+                  <hr className="border-[#64748B]" />
                 )
               }
             </div>
           ))}
         </div>
         <div className="py-5 text-center px-4">
-          <p className="font-bold italic text-base sm:text-lg">
+          <p className="font-bold text-[#64748B] sm:text-lg">
             Click the APPLY button to upload your resume.
           </p>
 
-          <p className="font-bold italic text-base sm:text-lg">
+          <p className="font-bold text-[#64748B] sm:text-lg">
             Alternatively, you can email your resume to{" "}
             <a
               href="mailto:career@emcus.co.in"
-              className="text-[#d94536] break-all"
+              className="text-[#E4312D] break-all"
             >
               career@emcus.co.in
             </a>
