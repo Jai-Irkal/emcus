@@ -30,7 +30,7 @@ export default function AboutUs() {
             </h1>
           </div>
         </div>
-        <h1 className="text-[25px] text-[#d94536] font-bold text-left w-full mt-8 px-10">ABOUT EMCUS</h1>
+        <h1 className="text-[25px] text-[#E4312D] font-bold text-left w-full mt-8 px-10">ABOUT EMCUS</h1>
         <div className="w-full flex justify-center py-5">
           <span className="px-10 text-justify lg:text-[18px] text-[#64748B]">
             EMCUS Technology Solutions is a specialized fire safety engineering partner for OEMs, delivering end-to-end design and development of fire & safety systems. With certification-aware engineering and expertise in UL and EN-54 readiness, we support customers throughout the product development and certification journey, accelerating the delivery of reliable, standards-ready fire safety products.
@@ -73,7 +73,7 @@ export default function AboutUs() {
             </div>
           </div>
         </div>
-        <h1 className="text-[25px] text-[#d94536] font-bold text-center lg:text-left w-full mt-8 px-10">WHAT MAKES EMCUS DIFFERENT</h1>
+        <h1 className="text-[25px] text-[#E4312D] font-bold text-center lg:text-left w-full mt-8 px-10">WHAT MAKES EMCUS DIFFERENT</h1>
         <div className="w-full flex flex-wrap justify-center items-center gap-3 py-6">
           {WHAT_MAKES_EMCUS_DIFFERENT.map((item) => (
             <DifferenceCard
