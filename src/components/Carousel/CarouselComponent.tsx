@@ -88,7 +88,7 @@ export default function CarouselComponent() {
                         className={`mx-auto text-white font-normal leading-snug
           text-base sm:text-lg md:text-2xl lg:text-[34px]
           ${item.id === 1
-                                ? "max-w-xs sm:max-w-lg md:max-w-3xl lg:max-w-4xl"
+                                ? "max-w-xs sm:max-w-lg md:max-w-3xl lg:max-w-6xl"
                                 : "max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl"
                             }`}
                     >
