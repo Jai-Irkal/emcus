@@ -186,7 +186,7 @@ export default function Blogs() {
             <section className="lg:col-span-8 lg:h-[420px]">
               {filteredBlogs.length === 0 ? (
                 <div className="flex items-center justify-center py-16">
-                  <p className="text-gray-500 text-base">
+                  <p className="text-[#64748B] text-base">
                     No blogs found.
                   </p>
                 </div>

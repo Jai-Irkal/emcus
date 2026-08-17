@@ -253,7 +253,7 @@ export default function JobDetails() {
 
               <div className="mb-2">
                 <h3 className="font-bold text-lg">Location</h3>
-                <p className="text-gray-500">{job.location}</p>
+                <p className="text-[#64748B]">{job.location}</p>
               </div>
 
               <div className="mb-2">
@@ -261,7 +261,7 @@ export default function JobDetails() {
                   Preferred Domain
                 </h3>
 
-                <p className="text-gray-500">
+                <p className="text-[#64748B]">
                   {job.preferredDomain}
                 </p>
               </div>
@@ -271,7 +271,7 @@ export default function JobDetails() {
                   Reports To
                 </h3>
 
-                <p className="text-gray-500">
+                <p className="text-[#64748B]">
                   {job.reportsTo}
                 </p>
               </div>
@@ -281,7 +281,7 @@ export default function JobDetails() {
                   Experience
                 </h3>
 
-                <p className="text-gray-500">
+                <p className="text-[#64748B]">
                   {job.experienceRequired} Years
                 </p>
               </div>
@@ -291,7 +291,7 @@ export default function JobDetails() {
                   Education
                 </h3>
 
-                <p className="text-gray-500">
+                <p className="text-[#64748B]">
                   {job.eduacation}
                 </p>
               </div>
