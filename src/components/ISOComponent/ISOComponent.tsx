@@ -21,7 +21,7 @@ const ISOComponent = () => {
         alt="ISO Certification"
         width={38}
         height={10}
-        className="object-contain"
+        className="object-contain ml-26 md:ml-116 lg:ml-0 xl:ml-0"
       />
     </section>
   );
