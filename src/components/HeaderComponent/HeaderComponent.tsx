@@ -220,7 +220,7 @@ const NavButton = ({
         ${active === label
                 ? "bg-[#d94536] text-white"
                 : "text-[#000000] hover:bg-[#d94536] hover:text-white"
-            }`}
+            } cursor-pointer`}
     >
         {label}
     </button>
@@ -253,7 +253,7 @@ const DesktopDropdown = ({
     return (
         <div className="relative group h-full">
             <button
-                className={`h-full flex items-center text-[12px] transition-colors`}
+                className={`h-full flex items-center text-[12px] transition-colors cursor-pointer`}
             >
                 <div
                     className={`flex items-center gap-1 px-8 lg:px-[12px] h-[40px] rounded-md ${isParentActive
@@ -278,7 +278,7 @@ const DesktopDropdown = ({
                         ${active === item.label || item.path === pathname
                                 ? "bg-[#d94536] text-white"
                                 : "text-black hover:bg-[#d94536] hover:text-white"
-                            }`}
+                            } cursor-pointer`}
                     >
                         {item.label}
                     </button>
