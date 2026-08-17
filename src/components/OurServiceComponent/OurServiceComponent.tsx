@@ -77,7 +77,7 @@ const OurServiceComponent = ({
                     </div>
 
                     {/* Right Items */}
-                    <div className="space-y-3">
+                    <div className="space-y-3 -mt-4 lg:mt-0 xl:mt-0 2xl:mt-0">
                         {serviceItem.rightItems.map((item, index) => (
                             <div
                                 key={`right-${index}`}
