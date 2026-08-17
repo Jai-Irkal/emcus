@@ -63,12 +63,12 @@ export default function Careers() {
           JOIN US
         </h1>
 
-        <h2 className="px-8 font-bold">
+        <h2 className="px-8 text-[22px] text-[#000000] font-bold">
           Open Positions ({filteredJobs.length})
         </h2>
 
         <div className="flex items-center justify-between px-8">
-          <h2 className="font-bold lg:mt-4 lg:text-[22px]">Engineering</h2>
+          <h2 className="font-bold lg:mt-4 lg:text-[22px] text-[#000000]">Engineering</h2>
 
           <div className="flex h-12 w-[400px] items-center rounded-xl border border-[#64748B] px-4">
             <Image

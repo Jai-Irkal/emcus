@@ -30,7 +30,7 @@ const StepCard = ({ item }: { item: Steps }) => (
 
         <div className="min-w-0">
             <h3 className="
-                text-[#D94536]
+                text-[#E4312D]
                 text-lg
                 sm:text-xl
                 lg:text-2xl

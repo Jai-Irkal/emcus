@@ -13,7 +13,7 @@ const EngagementLifeCycleCard = ({
     <div className="w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-[0_8px_24px_rgba(0,0,0,0.08)] -mt-4">
       <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr]">
         {/* Left Section */}
-        <div className="bg-[#E24434] flex flex-col items-center justify-center text-center px-6 py-15">
+        <div className="bg-[#E4312D] flex flex-col items-center justify-center text-center px-6 py-15">
           <Image
             src={item.img}
             alt={item.title}
@@ -33,7 +33,7 @@ const EngagementLifeCycleCard = ({
         <div className="grid grid-cols-1 md:grid-cols-2">
           {/* Column One */}
           <div className="px-8 py-8">
-            <h3 className="text-[#E24434] text-[28px] font-semibold mb-5">
+            <h3 className="text-[#E4312D] text-[28px] font-semibold mb-5">
               {item.one.title}
             </h3>
 
@@ -59,7 +59,7 @@ const EngagementLifeCycleCard = ({
           <div className="relative px-8 py-8">
             <div className="hidden md:block absolute left-0 top-6 bottom-6 w-px bg-gray-200" />
 
-            <h3 className="text-[#E24434] text-[28px] font-semibold mb-5">
+            <h3 className="text-[#E4312D] text-[28px] font-semibold mb-5">
               {item.two.title}
             </h3>
 
