@@ -62,7 +62,7 @@ export default function HowWeWork() {
           <div className="flex flex-col md:flex-row justify-center items-stretch gap-6 px-4 lg:px-0">
             <div className="w-full rounded-2xl border-[#E2E2E2] bg-[#D8E0F7] border-1 py-6 px-6 shadow-l">
               <div className="flex items-center gap-4">
-                <div className="lg:w-[70px] lg:h-[58px] bg-[#243481] rounded-xl flex items-center justify-center">
+                <div className="lg:w-[70px] lg:h-[58px] bg-[#243481] rounded-xl flex items-center justify-center p-2">
                   <Image
                     src={ClientFocus}
                     alt="Client Focus"
@@ -106,10 +106,10 @@ export default function HowWeWork() {
             </div>
             <div className="w-full rounded-2xl border-[#E2E2E2] bg-[#FFE7E3] border-1 py-6 px-6 shadow-l">
               <div className="flex items-center gap-4">
-                <div className="lg:w-[70px] lg:h-[58px] bg-[#E4312D] rounded-xl flex items-center justify-center">
+                <div className="lg:w-[70px] lg:h-[58px] bg-[#E4312D] rounded-xl flex items-center justify-center p-2">
                   <Image
                     src={Star}
-                    alt="Client Focus"
+                    alt="Technical Excellence"
                     className="w-10 h-10 object-contain"
                   />
                 </div>
