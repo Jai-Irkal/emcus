@@ -76,7 +76,7 @@ export default function CarouselComponent() {
                 {/* Text */}
                 <div
                     key={item.id}
-                    className="w-full max-w-6xl px-6 sm:px-8 md:px-12 lg:px-20 text-center animate-carouselText"
+                    className="w-full max-w-6xl px-6 sm:px-8 md:px-32 lg:px-20 text-center animate-carouselText"
                 >
                     <h1 className="text-white font-bold uppercase leading-tight text-2xl sm:text-3xl md:text-4xl lg:text-[44px]">
                         {item.title}
@@ -88,7 +88,7 @@ export default function CarouselComponent() {
                         className={`mx-auto text-white font-normal leading-snug
           text-base sm:text-lg md:text-2xl lg:text-[34px]
           ${item.id === 1
-                                ? "max-w-xs sm:max-w-lg md:max-w-3xl lg:max-w-4xl"
+                                ? "max-w-xs sm:max-w-lg md:max-w-3xl lg:max-w-6xl"
                                 : "max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl"
                             }`}
                     >
