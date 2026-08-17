@@ -64,7 +64,7 @@ export default function CarouselComponent() {
                w-12 h-12 lg:w-16 lg:h-16 
                rounded-full bg-[#b33020] hover:bg-[#962516] 
                transition items-center justify-center 
-               border border-white/50"
+               border border-white/50 cursor-pointer"
                 >
                     <Image
                         src={LeftArrow}
@@ -103,7 +103,7 @@ export default function CarouselComponent() {
                w-12 h-12 lg:w-16 lg:h-16 
                rounded-full bg-[#b33020] hover:bg-[#962516] 
                transition items-center justify-center 
-               border border-white/50"
+               border border-white/50 cursor-pointer"
                 >
                     <Image
                         src={RightArrow}
