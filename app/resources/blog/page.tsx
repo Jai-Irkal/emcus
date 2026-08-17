@@ -131,7 +131,7 @@ export default function Blogs() {
                     className={`shrink-0 whitespace-nowrap rounded-2xl border px-4 sm:px-5 py-2 text-sm sm:text-base lg:text-lg xl:text-xl font-medium transition-all
                       ${selectedCategory === category
                         ? "bg-[#E34334] border-[#E34334] text-white"
-                        : "border-[#A8B3D1] text-[#5F6F91] hover:border-[#322986] hover:text-[#322986]"
+                        : "border-[#64748B] text-[#64748B] hover:border-[#322986] hover:text-[#322986]"
                       }
                     `}
                   >
@@ -156,7 +156,7 @@ export default function Blogs() {
 
             {/* RIGHT - Search */}
             <div className="lg:col-span-4">
-              <div className="flex h-12 w-full items-center rounded-xl border border-[#A8B3D1] px-4">
+              <div className="flex h-12 w-full items-center rounded-xl border border-[#64748B] px-4">
                 <Image
                   src={SearchIcon}
                   alt="Search"
@@ -168,7 +168,7 @@ export default function Blogs() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search for Blogs"
-                  className="w-full bg-transparent text-base sm:text-lg text-[#5F6F91] outline-none placeholder:text-[#5F6F91]"
+                  className="w-full bg-transparent text-base sm:text-lg text-[#64748B] outline-none placeholder:text-[#64748B]"
                 />
               </div>
             </div>
@@ -247,7 +247,7 @@ export default function Blogs() {
                           </div>
 
                           {/* Description */}
-                          <p className="text-[12px] text-[#5F6F91] leading-[1.35] line-clamp-3 mb-4">
+                          <p className="text-[12px] text-[#64748B] leading-[1.35] line-clamp-3 mb-4">
                             {blog.description}
                           </p>
 
