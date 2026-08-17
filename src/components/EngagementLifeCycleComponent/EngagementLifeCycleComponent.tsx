@@ -20,11 +20,11 @@ const EngagementLifeCycleCard = ({
             className="w-14 h-14 object-contain"
           />
 
-          <h2 className="text-white text-[30px] font-semibold mt-6">
+          <h2 className="text-white text-[30px] font-semibold mt-0">
             {item.title}
           </h2>
 
-          <p className="text-white/95 text-[15px] leading-6 mt-3 lg:max-w-[140px]">
+          <p className="text-white/95 text-[15px] leading-6 mt-3 lg:max-w-[240px]">
             {item.description}
           </p>
         </div>
