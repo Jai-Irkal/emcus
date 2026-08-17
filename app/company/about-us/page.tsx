@@ -12,14 +12,16 @@ export default function AboutUs() {
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans">
       <main className="flex min-h-screen w-full flex-col bg-white pt-[80px] md:pt-[90px]">
         <HeaderComponent active="ABOUT US" />
-        <div className="relative w-full h-[300px] lg:h-[600px] 2xl:h-[600px] 2xl:bottom-0">
-          <Image
-            src={GlobalPresence}
-            alt="Home Banner"
-            fill
-            priority
-            className="object-cover"
-          />
+        <div className="relative w-full h-[300px] lg:h-[600px] 2xl:h-[600px] 2xl:bottom-0 overflow-hidden">
+          <div className="relative h-full w-full origin-[72%_48%] animate-ken-burns-zoom-out">
+            <Image
+              src={GlobalPresence}
+              alt="Home Banner"
+              fill
+              priority
+              className="object-cover"
+            />
+          </div>
 
           <div className="absolute inset-0 bg-black/30"></div>
 
