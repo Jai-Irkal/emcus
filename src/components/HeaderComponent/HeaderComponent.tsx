@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import icon from "@/public/header/emcus-icon.png";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
@@ -53,7 +53,7 @@ const HeaderComponent = ({ active }: HeaderProps) => {
         <>
             {/* HEADER */}
             <div
-                className={`bg-white w-full fixed top-0 left-0 right-0 z-50 
+                className={`bg-white w-full fixed top-0 left-0 right-0 z-50 overflow-visible
   flex items-center justify-between px-4 md:px-6 lg:px-10 shadow-sm
   transition-all duration-300
   ${isScrolled ? "h-[60px] md:h-[70px]" : "h-[80px] md:h-[90px]"}`}
@@ -71,8 +71,8 @@ ${isScrolled
                     priority
                 />
 
-                {/* Desktop / Tablet Menu */}
-                <div className="hidden gap-1 lg:flex items-center h-full lg:ml-22">
+                {/* Desktop Menu */}
+                <div className="relative z-20 hidden h-full items-center gap-1 lg:flex">
                     {NAVIGATION.map((group) => {
                         if (group.title === "MAIN") {
                             return group.items.map((item) => {
@@ -116,7 +116,7 @@ ${isScrolled
                 {/* Hamburger */}
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="lg:hidden flex flex-col justify-center items-center w-8 h-8 relative"
+                    className="relative z-20 flex h-8 w-8 flex-col items-center justify-center lg:hidden"
                 >
                     <span className={`absolute w-6 h-[2px] bg-black transition-all duration-300 
             ${isOpen ? "rotate-45" : "-translate-y-2"}`} />
@@ -191,7 +191,7 @@ ${isScrolled
             </div>
             {isOpen && (
                 <div
-                    className="fixed inset-0 bg-black/20 z-30 lg:hidden"
+                    className="fixed inset-0 z-30 bg-black/20 lg:hidden"
                     onClick={() => setIsOpen(false)}
                 />
             )}
@@ -228,6 +228,10 @@ const NavButton = ({
 
 
 
+const isFinePointer = () =>
+    typeof window !== "undefined" &&
+    window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
 const DesktopDropdown = ({
     title,
     items,
@@ -241,6 +245,8 @@ const DesktopDropdown = ({
 }) => {
 
     const pathname = usePathname();
+    const rootRef = useRef<HTMLDivElement>(null);
+    const [open, setOpen] = useState(false);
 
     const isParentActive =
         title === active ||
@@ -250,35 +256,65 @@ const DesktopDropdown = ({
                 item.path === pathname
         );
 
+    useEffect(() => {
+        if (!open) return;
+
+        const onPointerDown = (event: PointerEvent) => {
+            if (rootRef.current && !rootRef.current.contains(event.target as Node)) {
+                setOpen(false);
+            }
+        };
+
+        document.addEventListener("pointerdown", onPointerDown);
+        return () => document.removeEventListener("pointerdown", onPointerDown);
+    }, [open]);
+
     return (
-        <div className="relative group h-full">
+        <div
+            ref={rootRef}
+            className="group relative h-full"
+            onMouseLeave={() => {
+                if (isFinePointer()) setOpen(false);
+            }}
+        >
             <button
-                className={`h-full flex items-center text-[12px] transition-colors cursor-pointer`}
+                type="button"
+                aria-expanded={open}
+                aria-haspopup="menu"
+                onClick={() => setOpen((value) => !value)}
+                className="relative z-20 flex h-full cursor-pointer touch-manipulation items-center text-[12px] transition-colors"
             >
                 <div
-                    className={`flex items-center gap-1 px-8 lg:px-[12px] h-[40px] rounded-md ${isParentActive
+                    className={`flex h-[40px] items-center gap-1 rounded-md px-3 lg:px-[12px] ${isParentActive || open
                             ? "bg-[#d94536] text-white"
-                            : "text-black group-hover:bg-[#d94536] group-hover:text-white"
+                            : "text-black [@media(hover:hover)_and_(pointer:fine)]:group-hover:bg-[#d94536] [@media(hover:hover)_and_(pointer:fine)]:group-hover:text-white"
                         }
                     `}
                 >
                     <p>{title}</p>
-                    <Chevron active={isParentActive} />
+                    <Chevron rotate={open} active={isParentActive} />
                 </div>
             </button>
 
-            <div className="absolute left-0 top-full w-38 bg-white shadow-lg opacity-0 invisible 
-                group-hover:opacity-100 group-hover:visible 
-                transition-all duration-200 z-50 rounded-lg">
+            <div
+                className={`absolute left-0 top-full z-[100] min-w-38 flex-col rounded-lg bg-white pt-1 shadow-lg ${open
+                        ? "flex"
+                        : "hidden [@media(hover:hover)_and_(pointer:fine)]:group-hover:flex"
+                    }`}
+            >
                 {items.map((item) => (
                     <button
                         key={item.label}
-                        onClick={() => onNavigate(item.path!)}
-                        className={`w-full text-left px-4 py-2 text-[14px] transition-colors rounded-lg
+                        type="button"
+                        onClick={() => {
+                            setOpen(false);
+                            onNavigate(item.path!);
+                        }}
+                        className={`w-full cursor-pointer rounded-lg px-4 py-2 text-left text-[14px] transition-colors
                         ${active === item.label || item.path === pathname
                                 ? "bg-[#d94536] text-white"
                                 : "text-black hover:bg-[#d94536] hover:text-white"
-                            } cursor-pointer`}
+                            }`}
                     >
                         {item.label}
                     </button>
