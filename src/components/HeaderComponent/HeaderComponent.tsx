@@ -45,9 +45,23 @@ const HeaderComponent = ({ active }: HeaderProps) => {
             setIsScrolled(window.scrollY > 50);
         };
 
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    React.useEffect(() => {
+        if (!isOpen) return;
+
+        const closeMenu = () => setIsOpen(false);
+
+        window.addEventListener("wheel", closeMenu, { passive: true });
+        window.addEventListener("touchmove", closeMenu, { passive: true });
+
+        return () => {
+            window.removeEventListener("wheel", closeMenu);
+            window.removeEventListener("touchmove", closeMenu);
+        };
+    }, [isOpen]);
 
     return (
         <>
@@ -56,7 +70,7 @@ const HeaderComponent = ({ active }: HeaderProps) => {
                 className={`bg-white w-full fixed top-0 left-0 right-0 z-50 overflow-visible
   flex items-center justify-between px-4 md:px-6 lg:px-10 shadow-sm
   transition-all duration-300
-  ${isScrolled ? "h-[60px] md:h-[70px]" : "h-[80px] md:h-[90px]"}`}
+  ${isScrolled && !isOpen ? "h-[60px] md:h-[70px]" : "h-[80px] md:h-[90px]"}`}
             >
 
                 {/* Logo */}
@@ -64,7 +78,7 @@ const HeaderComponent = ({ active }: HeaderProps) => {
                     src={icon}
                     alt="Emcus Logo"
                     className={`transition-all duration-300 
-${isScrolled
+${isScrolled && !isOpen
                             ? "w-[100px] md:w-[120px] lg:w-[140px]"
                             : "w-[130px] md:w-[160px] lg:w-[180px]"
                         }`}
@@ -129,7 +143,7 @@ ${isScrolled
 
             {/* Mobile Menu */}
             <div
-                className={`lg:hidden fixed top-[80px] left-1/2 -translate-x-1/2
+                className={`lg:hidden fixed top-[80px] md:top-[90px] left-1/2 -translate-x-1/2
   w-full bg-white z-40 shadow-xl
   transition-all duration-300 ease-in-out
   ${isOpen
@@ -193,6 +207,8 @@ ${isScrolled
                 <div
                     className="fixed inset-0 z-30 bg-black/20 lg:hidden"
                     onClick={() => setIsOpen(false)}
+                    onWheel={() => setIsOpen(false)}
+                    onTouchMove={() => setIsOpen(false)}
                 />
             )}
         </>
