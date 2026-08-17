@@ -97,7 +97,7 @@ export default function Careers() {
           ))}
 
           {filteredJobs.length === 0 && (
-            <p className="py-10 text-center text-gray-500">
+            <p className="py-10 text-center text-[#64748B]">
               No jobs found.
             </p>
           )}
