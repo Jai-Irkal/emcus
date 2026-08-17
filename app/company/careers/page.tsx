@@ -67,14 +67,14 @@ export default function Careers() {
           Open Positions ({filteredJobs.length})
         </h2>
 
-        <div className="flex items-center justify-between px-8">
+        <div className="flex flex-col md:flex-row md:items-center justify-between px-8">
           <h2 className="font-bold lg:mt-4 lg:text-[22px] text-[#000000]">Engineering</h2>
 
-          <div className="flex h-12 w-[400px] items-center rounded-xl border border-[#64748B] px-4">
+          <div className="flex h-8 md:h-12 w-full md:w-[400px] items-center rounded-xl border border-[#64748B] px-4 mt-4 md:mt-0">
             <Image
               src={SearchIcon}
               alt="Search"
-              className="mr-3 h-5 w-5 shrink-0"
+              className="mr-3 h-4 w-4 md:h-5 md:w-5 shrink-0"
             />
 
             <input
@@ -82,7 +82,7 @@ export default function Careers() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search Jobs"
-              className="w-full bg-transparent text-base text-[#64748B] outline-none placeholder:text-[#64748B] sm:text-lg"
+              className="w-full bg-transparent text-base text-[#64748B] outline-none placeholder:text-[#64748B] text-[14px] md:text-lg"
             />
           </div>
         </div>
