@@ -297,7 +297,7 @@ const DesktopDropdown = ({
             </button>
 
             <div
-                className={`absolute left-0 top-full z-[100] min-w-38 flex-col rounded-lg bg-white pt-1 shadow-lg ${open
+                className={`absolute left-0 top-full z-[100] min-w-38 flex-col rounded-lg bg-white shadow-lg ${open
                         ? "flex"
                         : "hidden [@media(hover:hover)_and_(pointer:fine)]:group-hover:flex"
                     }`}
