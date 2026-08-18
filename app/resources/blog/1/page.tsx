@@ -23,7 +23,23 @@ export default function BlogOne() {
 
   useEffect(() => {
     fetchComments();
+
+    const savedCommentUser = localStorage.getItem("blogCommentUser");
+
+    if (savedCommentUser) {
+      const { name, email } = JSON.parse(savedCommentUser);
+
+      setCommentForm((prev) => ({
+        ...prev,
+        name,
+        email,
+      }));
+
+      setSaveDetails(true);
+    }
   }, []);
+
+  const [saveDetails, setSaveDetails] = useState(false);
 
   const fetchComments = async () => {
     const response = await fetch("/api/blogs/1/comments");
@@ -76,26 +92,34 @@ export default function BlogOne() {
   };
 
   const handleSubmitComment = async () => {
-    const response = await fetch(
-      "/api/blogs/1/comments",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(commentForm),
-      }
-    );
+    const response = await fetch("/api/blogs/1/comments", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(commentForm),
+    });
 
     if (!response.ok) {
       return;
     }
 
-    setCommentForm({
-      name: "",
-      email: "",
+    if (saveDetails) {
+      localStorage.setItem(
+        "blogCommentUser",
+        JSON.stringify({
+          name: commentForm.name,
+          email: commentForm.email,
+        })
+      );
+    } else {
+      localStorage.removeItem("blogCommentUser");
+    }
+
+    setCommentForm((prev) => ({
+      ...prev,
       comment: "",
-    });
+    }));
 
     fetchComments();
   };
@@ -381,7 +405,7 @@ export default function BlogOne() {
                         })
                       }
                       placeholder="Type your comment here *"
-                      className="w-full h-[195px] resize-none rounded-[3px] border border-[#64748B] bg-[#F7F8F9] px-2 py-2 text-[12px] text-[#64748B] placeholder:text-[#6B7280] focus:outline-none focus:border-[#322986]"
+                      className="w-full h-[205px] resize-none rounded-[3px] border border-[#64748B] bg-[#F7F8F9] px-2 py-2 text-[12px] text-[#64748B] placeholder:text-[#6B7280] focus:outline-none focus:border-[#322986]"
                     />
                   </div>
 
@@ -432,6 +456,8 @@ export default function BlogOne() {
                     <label className="flex items-start gap-1 text-[12px] text-[#555] leading-tight mb-2">
                       <input
                         type="checkbox"
+                        checked={saveDetails}
+                        onChange={(e) => setSaveDetails(e.target.checked)}
                         className="mt-[1px] w-[12px] h-[12px]"
                       />
 
@@ -445,7 +471,7 @@ export default function BlogOne() {
                     <button
                       type="button"
                       onClick={handleSubmitComment}
-                      className="w-full h-[30px] rounded-[8px] bg-[#322986] text-white text-[16px] font-medium hover:bg-[#292270] transition-colors"
+                      className="cursor-pointer w-full h-[40px] rounded-[8px] bg-[#322986] text-white text-[16px] font-medium hover:bg-[#292270] transition-colors"
                     >
                       Post a Comment
                     </button>
