@@ -462,10 +462,9 @@ export default function BlogTwo() {
                                                 focus:outline-none
                                                 disabled:opacity-50
                                                 disabled:cursor-not-allowed
-                                                ${
-                                                    commentForm.email.trim() !== "" && !isEmailValid
-                                                        ? "border-[#E34334] focus:border-[#E34334]"
-                                                        : "border-[#64748B] focus:border-[#322986]"
+                                                ${commentForm.email.trim() !== "" && !isEmailValid
+                                                    ? "border-[#E34334] focus:border-[#E34334]"
+                                                    : "border-[#64748B] focus:border-[#322986]"
                                                 }
                                             `}
                                         />
@@ -530,31 +529,84 @@ export default function BlogTwo() {
 
                                     </div>
                                 </div>
-                                <div className="mt-8 space-y-4">
-                                    <h3 className="text-xl font-bold">
-                                        Comments ({comments.length})
-                                    </h3>
+                                <div className="mt-10">
+                                    <div className="flex items-center justify-between mb-6">
+                                        <h3 className="text-xl sm:text-2xl font-bold text-[#111827]">
+                                            Comments ({comments.length})
+                                        </h3>
+                                    </div>
 
-                                    {comments.map((comment) => (
-                                        <div
-                                            key={comment.id}
-                                            className="rounded-lg border p-4"
-                                        >
-                                            <h4 className="font-semibold">
-                                                {comment.name}
-                                            </h4>
-
-                                            <p className="text-sm text-gray-500">
-                                                {new Date(
-                                                    comment.created_at
-                                                ).toLocaleDateString()}
-                                            </p>
-
-                                            <p className="mt-2">
-                                                {comment.comment}
+                                    {comments.length === 0 ? (
+                                        <div className="rounded-2xl border border-dashed border-gray-300 p-8 text-center">
+                                            <p className="text-gray-500">
+                                                No comments yet. Be the first to comment.
                                             </p>
                                         </div>
-                                    ))}
+                                    ) : (
+                                        <div className="space-y-4">
+                                            {comments.map((comment) => (
+                                                <div
+                                                    key={comment.id}
+                                                    className="
+                        rounded-2xl
+                        border
+                        border-gray-200
+                        bg-white
+                        p-5
+                        shadow-sm
+                        transition-all
+                        duration-300
+                        hover:shadow-md
+                    "
+                                                >
+                                                    <div className="flex items-start gap-4">
+                                                        <div
+                                                            className="
+                                flex
+                                h-12
+                                w-12
+                                shrink-0
+                                items-center
+                                justify-center
+                                rounded-full
+                                bg-[#322986]
+                                text-lg
+                                font-bold
+                                text-white
+                            "
+                                                        >
+                                                            {comment.name.charAt(0).toUpperCase()}
+                                                        </div>
+
+                                                        <div className="flex-1">
+                                                            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                                                                <h4 className="text-base font-semibold text-[#111827]">
+                                                                    {comment.name}
+                                                                </h4>
+
+                                                                <p className="text-xs text-gray-500">
+                                                                    {new Date(
+                                                                        comment.created_at
+                                                                    ).toLocaleString("en-IN", {
+                                                                        day: "2-digit",
+                                                                        month: "short",
+                                                                        year: "numeric",
+                                                                        hour: "2-digit",
+                                                                        minute: "2-digit",
+                                                                        hour12: true,
+                                                                    })}
+                                                                </p>
+                                                            </div>
+
+                                                            <p className="mt-3 text-sm sm:text-base leading-7 text-gray-700">
+                                                                {comment.comment}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
                                 </div>
                             </section>
 
