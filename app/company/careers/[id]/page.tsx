@@ -614,6 +614,7 @@ export default function JobDetails() {
                     {/* SUBMIT */}
                     <button
                       type="button"
+                      onClick={handleSubmit}
                       className="cursor-pointer w-full bg-[#322986] text-white py-3 rounded-md font-semibold flex gap-1 items-center justify-center"
                     >
                       <Image
