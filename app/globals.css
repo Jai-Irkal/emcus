@@ -64,7 +64,7 @@ h6 {
   display: flex;
   align-items: center;
   height: 48px;
-  border: 1px solid #d1d5db;
+  border: 1px solid #C1C1C1;
   border-radius: 8px;
   overflow: hidden;
   background: white;
@@ -74,7 +74,7 @@ h6 {
   display: flex;
   align-items: center;
   padding: 0 12px;
-  border-right: 1px solid #e5e7eb;
+  border-right: 1px solid #C1C1C1;
   margin: 0;
 }
 

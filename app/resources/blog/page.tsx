@@ -295,10 +295,11 @@ export default function Blogs() {
                   {featuredBlogs.map((blog, index) => (
                     <article
                       key={blog.id}
+                      onClick={() => router.push(`/resources/blog/${blog.id}`)}
                       className={`
-            flex items-center gap-3 py-4
-            cursor-pointer group
-            ${index !== featuredBlogs.length - 1
+                      flex items-center gap-3 py-4
+                      cursor-pointer group
+                      ${index !== featuredBlogs.length - 1
                           ? "border-b border-[#C9CEDA]"
                           : ""
                         }
