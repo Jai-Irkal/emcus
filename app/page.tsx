@@ -24,7 +24,7 @@ export default function Home() {
         <h1 className="text-[25px] xl:text-[30px] text-[#E4312D] font-bold text-center w-full mt-10 lg:-mt-10 leading-none">FIRE & SAFETY PORTFOLIO</h1>
         <h1 className="text-[25px] xl:text-[30px] text-[#000000] font-bold text-center w-full leading-none lg:mt-2">Design & Development</h1>
         {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:mt-10 lg:px-4 py-6 px-4">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:mt-10 lg:px-4 py-6 px-4">
           {FIRE_SAFETY_DEVELOPMENT_PORTFOLIO.map((item, index) => (
             <div
               key={item.id}
@@ -53,7 +53,7 @@ export default function Home() {
   "
           >
             <div className="w-full py-4 lg:max-h-[440px] lg:overflow-y-auto lg:pr-2 hide-scrollbar">
-              <div className="grid grid-cols-1 gap-6 place-items-center lg:grid-cols-2 lg:place-items-stretch">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 place-items-center lg:grid-cols-2 lg:place-items-stretch">
                 {CORE_SERVICES.map((item) => (
                   <div
                     key={item.id}

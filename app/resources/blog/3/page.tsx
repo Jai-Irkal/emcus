@@ -343,23 +343,21 @@ export default function BlogThree() {
                                     </span>
                                 </h2>
 
-                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-
-                                    {/* Comment */}
-                                    <div>
-                                        <textarea
-                                            value={commentForm.comment}
-                                            onChange={(e) =>
-                                                setCommentForm({
-                                                    ...commentForm,
-                                                    comment: e.target.value,
-                                                })
-                                            }
-                                            placeholder="Type your comment here"
-                                            disabled={isSubmitting}
-                                            className="w-full h-[205px] resize-none rounded-[3px] border border-[#64748B] bg-[#F7F8F9] px-2 py-2 text-[12px] text-[#64748B] placeholder:text-[#6B7280] focus:outline-none focus:border-[#322986] disabled:opacity-50 disabled:cursor-not-allowed"
-                                        />
-                                    </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3">
+                  <div>
+                    <textarea
+                      value={commentForm.comment}
+                      onChange={(e) =>
+                        setCommentForm({
+                          ...commentForm,
+                          comment: e.target.value,
+                        })
+                      }
+                      placeholder="Type your comment here"
+                      disabled={isSubmitting}
+                      className="w-full h-[205px] md:h-[230px] lg:h-[205px] resize-none rounded-[3px] border border-[#64748B] bg-[#F7F8F9] px-2 py-2 text-[12px] text-[#64748B] placeholder:text-[#6B7280] focus:outline-none focus:border-[#322986] disabled:opacity-50 disabled:cursor-not-allowed"
+                    />
+                  </div>
 
                                     {/* Reply Form */}
                                     <div className="flex flex-col">
