@@ -11,31 +11,33 @@ const OurServiceComponent = ({
     return (
         <div
             className={`
-                flex flex-col lg:flex-row
+                flex w-full flex-col items-center
+                lg:flex-row lg:items-stretch
                 ${serviceItem.id % 2 === 0 ? 'lg:flex-row-reverse' : ''}
                 gap-6 lg:gap-10
-                px-4 lg:px-0
             `}
         >
             {/* Image - First on mobile */}
-            <div className="order-1 lg:order-2 flex-1">
-                {/* Mobile Image */}
-                <Image
-                    src={serviceItem.mobileImage}
-                    alt={serviceItem.title}
-                    className="block lg:hidden w-full h-auto rounded-xl mx-auto ml-2"
-                />
+            <div className="order-1 w-full lg:order-2 lg:flex-1">
+                <div className="mx-auto w-full max-w-3xl overflow-hidden lg:max-w-none lg:overflow-visible">
+                    {/* Mobile Image */}
+                    <Image
+                        src={serviceItem.mobileImage}
+                        alt={serviceItem.title}
+                        className="block h-auto w-full translate-x-[3.5%] rounded-xl lg:hidden lg:translate-x-0"
+                    />
 
-                {/* Desktop Image */}
-                <Image
-                    src={serviceItem.image}
-                    alt={serviceItem.title}
-                    className="hidden lg:block w-full h-auto rounded-xl"
-                />
+                    {/* Desktop Image */}
+                    <Image
+                        src={serviceItem.image}
+                        alt={serviceItem.title}
+                        className="hidden h-auto w-full rounded-xl lg:block"
+                    />
+                </div>
             </div>
 
             {/* Data - Below image on mobile */}
-            <div className="order-2 lg:order-1 flex-1">
+            <div className="order-2 w-full lg:order-1 lg:flex-1">
                 <h2
                     className={
                         `hidden lg:block text-2xl lg:text-3xl font-bold text-[#E4312D] ${serviceItem.id % 2 === 0 ? '' : 'lg:pl-4'}`
@@ -46,16 +48,17 @@ const OurServiceComponent = ({
 
                 <div
                     className={`
-                        grid grid-cols-1 lg:grid-cols-2
+                        grid grid-cols-1
+                        md:grid-cols-2
+                        lg:grid-cols-2
                         gap-6
                         lg:mt-4
                         -mt-6
-                        px-2
                         ${serviceItem.id % 2 === 0 ? 'lg:relative lg:right-3' : ''}
                     `}
                 >
                     {/* Left Items */}
-                    <div className="space-y-3">
+                    <div className="space-y-3 md:-mt-10">
                         {serviceItem.leftItems.map((item, index) => (
                             <div
                                 key={`left-${index}`}
@@ -77,7 +80,7 @@ const OurServiceComponent = ({
                     </div>
 
                     {/* Right Items */}
-                    <div className="space-y-3 -mt-4 lg:mt-0 xl:mt-0 2xl:mt-0">
+                    <div className="space-y-3 -mt-4 lg:mt-0 xl:mt-0 2xl:mt-0 md:-mt-10">
                         {serviceItem.rightItems.map((item, index) => (
                             <div
                                 key={`right-${index}`}
