@@ -354,9 +354,7 @@ export default function BlogFour() {
                                     </span>
                                 </h2>
 
-                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-
-                                    {/* Comment */}
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3">
                                     <div>
                                         <textarea
                                             value={commentForm.comment}
@@ -368,7 +366,7 @@ export default function BlogFour() {
                                             }
                                             placeholder="Type your comment here"
                                             disabled={isSubmitting}
-                                            className="w-full h-[205px] resize-none rounded-[3px] border border-[#64748B] bg-[#F7F8F9] px-2 py-2 text-[12px] text-[#64748B] placeholder:text-[#6B7280] focus:outline-none focus:border-[#322986] disabled:opacity-50 disabled:cursor-not-allowed"
+                                            className="w-full h-[205px] md:h-[230px] lg:h-[205px] resize-none rounded-[3px] border border-[#64748B] bg-[#F7F8F9] px-2 py-2 text-[12px] text-[#64748B] placeholder:text-[#6B7280] focus:outline-none focus:border-[#322986] disabled:opacity-50 disabled:cursor-not-allowed"
                                         />
                                     </div>
 
@@ -426,8 +424,8 @@ export default function BlogFour() {
                                             }
                                             disabled={isSubmitting}
                                             className={`w-full h-[30px] rounded-[2px] bg-[#F7F8F9] border px-2 text-[14px] mb-1 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed ${commentForm.email.trim() !== "" && !isEmailValid
-                                                    ? "border-[#E34334] focus:border-[#E34334]"
-                                                    : "border-[#64748B] focus:border-[#322986]"
+                                                ? "border-[#E34334] focus:border-[#E34334]"
+                                                : "border-[#64748B] focus:border-[#322986]"
                                                 }`}
                                         />
                                         {commentForm.email.trim() !== "" && !isEmailValid && (
