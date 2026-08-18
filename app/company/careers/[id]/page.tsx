@@ -7,7 +7,9 @@ import { OPEN_ROLES } from "@/src/data/careers.data";
 import BackIcon from "@/public/careers/back-icon.svg";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import PhoneInputWithCountrySelect from "react-phone-number-input";
+import PhoneInputWithCountrySelect, {
+  isValidPhoneNumber,
+} from "react-phone-number-input";
 import MagicWandIcon from "@/public/common/magic-wand.svg";
 import UploadIcon from "@/public/common/upload-icon.svg";
 import SendIcon from "@/public/contact-us/send.svg";
@@ -68,6 +70,25 @@ export default function JobDetails() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState<string | undefined>("");
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const resumeFile = autofillFile || file;
+
+  const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+  const isPhoneValid = phone ? isValidPhoneNumber(phone) : false;
+
+  const isFormValid =
+    name.trim() !== "" &&
+    isEmailValid &&
+    isPhoneValid &&
+    !!resumeFile;
+
+  const isFormDisabled = isSubmitting || isSuccess || isAutofilling;
+
+  const clearSubmitError = () => setSubmitError(null);
+
   // --------------------------------------------------
   // Bottom Resume Upload
   // --------------------------------------------------
@@ -84,6 +105,7 @@ export default function JobDetails() {
       return;
     }
 
+    clearSubmitError();
     setFile(selectedFile);
   };
 
@@ -103,6 +125,8 @@ export default function JobDetails() {
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     setIsDragging(false);
+
+    if (isFormDisabled) return;
 
     const droppedFile = e.dataTransfer.files?.[0];
 
@@ -128,6 +152,7 @@ export default function JobDetails() {
       return;
     }
 
+    clearSubmitError();
     setAutofillFile(selectedFile);
     setIsAutofilling(true);
 
@@ -174,18 +199,17 @@ export default function JobDetails() {
   };
 
   const handleSubmit = async () => {
-    const resumeFile = autofillFile || file;
-
-    if (!name || !email || !phone || !resumeFile) {
-      alert("Please fill in all required fields.");
-      return;
-    }
+    if (!isFormValid || isSubmitting || isSuccess) return;
 
     try {
+      setIsSubmitting(true);
+      setSubmitError(null);
+
       const formData = new FormData();
 
       formData.append("name", name);
       formData.append("email", email);
+      formData.append("phone", phone ?? "");
       formData.append("role", job.role);
       formData.append("resume", resumeFile);
 
@@ -202,8 +226,6 @@ export default function JobDetails() {
         );
       }
 
-      alert("Application submitted successfully.");
-
       setName("");
       setEmail("");
       setPhone("");
@@ -218,12 +240,22 @@ export default function JobDetails() {
       if (autofillInputRef.current) {
         autofillInputRef.current.value = "";
       }
-    } catch (error: any) {
+
+      setIsSuccess(true);
+
+      setTimeout(() => {
+        setIsSuccess(false);
+      }, 2000);
+    } catch (error: unknown) {
       console.error("Application submission failed:", error);
 
-      alert(
-        error.message || "Failed to submit application."
-      );
+      const message =
+        error instanceof Error
+          ? error.message
+          : "Failed to submit application.";
+      setSubmitError(message);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -445,7 +477,7 @@ export default function JobDetails() {
 
                       <button
                         type="button"
-                        disabled={isAutofilling}
+                        disabled={isFormDisabled}
                         onClick={() =>
                           autofillInputRef.current?.click()
                         }
@@ -478,10 +510,12 @@ export default function JobDetails() {
 
                       <input
                         value={name}
-                        onChange={(e) =>
-                          setName(e.target.value)
-                        }
-                        className="mt-2 w-full border rounded-md px-4 py-3 bg-[#FBFBFB] border-[#C1C1C1]"
+                        onChange={(e) => {
+                          clearSubmitError();
+                          setName(e.target.value);
+                        }}
+                        disabled={isFormDisabled}
+                        className="mt-2 w-full border rounded-md px-4 py-3 bg-[#FBFBFB] border-[#C1C1C1] disabled:opacity-50 disabled:cursor-not-allowed"
                         placeholder="Enter Name"
                       />
 
@@ -498,12 +532,23 @@ export default function JobDetails() {
                       <input
                         type="email"
                         value={email}
-                        onChange={(e) =>
-                          setEmail(e.target.value)
-                        }
-                        className="mt-2 w-full border rounded-md px-4 py-3 bg-[#FBFBFB] border-[#C1C1C1]"
+                        onChange={(e) => {
+                          clearSubmitError();
+                          setEmail(e.target.value);
+                        }}
+                        disabled={isFormDisabled}
+                        className={`mt-2 w-full border rounded-md px-4 py-3 bg-[#FBFBFB] disabled:opacity-50 disabled:cursor-not-allowed ${
+                          email.trim() !== "" && !isEmailValid
+                            ? "border-[#E4312D]"
+                            : "border-[#C1C1C1]"
+                        }`}
                         placeholder="Enter Your Email"
                       />
+                      {email.trim() !== "" && !isEmailValid && (
+                        <p className="mt-1 text-[11px] text-[#E4312D]">
+                          Please enter a valid email address.
+                        </p>
+                      )}
 
                     </div>
 
@@ -519,10 +564,25 @@ export default function JobDetails() {
                         international
                         defaultCountry="IN"
                         value={phone}
-                        onChange={setPhone}
+                        onChange={(value) => {
+                          clearSubmitError();
+                          setPhone(value);
+                        }}
                         placeholder="00000 00000"
-                        className="phone-input bg-[#FBFBFB]"
+                        disabled={isFormDisabled}
+                        className={`phone-input bg-[#FBFBFB] ${
+                          isFormDisabled
+                            ? "opacity-50 pointer-events-none"
+                            : ""
+                        } ${
+                          phone && !isPhoneValid ? "!border-[#E4312D]" : ""
+                        }`}
                       />
+                      {phone && !isPhoneValid && (
+                        <p className="mt-1 text-[11px] text-[#E4312D]">
+                          Please enter a valid phone number.
+                        </p>
+                      )}
 
                     </div>
 
@@ -539,25 +599,26 @@ export default function JobDetails() {
 
                       <div
                         onClick={() => {
-                          if (!autofillFile) {
-                            resumeInputRef.current?.click();
-                          }
+                          if (isFormDisabled || autofillFile) return;
+                          resumeInputRef.current?.click();
                         }}
                         onDragOver={(e) => {
-                          if (autofillFile) return;
+                          if (isFormDisabled || autofillFile) return;
 
                           e.preventDefault();
                           setIsDragging(true);
                         }}
                         onDragLeave={() => setIsDragging(false)}
                         onDrop={handleDrop}
-                        className={`bg-[#FBFBFB] mt-2 rounded-lg h-48 flex items-center justify-center text-gray-500 flex-col gap-1 transition ${autofillFile
-                          ? "opacity-50 cursor-not-allowed bg-gray-100"
-                          : "cursor-pointer"
-                          } ${isDragging && !autofillFile
+                        className={`bg-[#FBFBFB] mt-2 rounded-lg h-48 flex items-center justify-center text-gray-500 flex-col gap-1 transition ${
+                          autofillFile || isFormDisabled
+                            ? "opacity-50 cursor-not-allowed bg-gray-100"
+                            : "cursor-pointer"
+                        } ${
+                          isDragging && !autofillFile && !isFormDisabled
                             ? "bg-gray-50"
                             : ""
-                          }`}
+                        }`}
                         style={{
                           backgroundImage:
                             "linear-gradient(to right, #C1C1C1 60%, transparent 60%), linear-gradient(to right, #C1C1C1 60%, transparent 60%), linear-gradient(to bottom, #C1C1C1 60%, transparent 60%), linear-gradient(to bottom, #C1C1C1 60%, transparent 60%)",
@@ -615,15 +676,69 @@ export default function JobDetails() {
                     <button
                       type="button"
                       onClick={handleSubmit}
-                      className="cursor-pointer w-full bg-[#322986] text-white py-3 rounded-md font-semibold flex gap-1 items-center justify-center"
+                      disabled={
+                        !isFormValid || isSubmitting || isSuccess
+                      }
+                      className={`
+                        w-full
+                        py-3
+                        rounded-md
+                        font-semibold
+                        flex
+                        gap-2
+                        items-center
+                        justify-center
+                        text-white
+                        transition-all
+                        duration-300
+                        disabled:cursor-not-allowed
+                        disabled:opacity-50
+                        ${
+                          isSuccess
+                            ? "bg-green-600 hover:bg-green-600 cursor-default"
+                            : "bg-[#322986] hover:opacity-90 cursor-pointer disabled:hover:opacity-50"
+                        }
+                      `}
                     >
-                      <Image
-                        src={SendIcon}
-                        alt="Send Icon"
-                        className="h-5 w-5"
-                      />
-                      <span>Submit Application</span>
+                      {isSuccess ? (
+                        <>
+                          <svg
+                            className="h-5 w-5"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            aria-hidden="true"
+                          >
+                            <path d="M20 6L9 17l-5-5" />
+                          </svg>
+                          <span>Submitted!</span>
+                        </>
+                      ) : isSubmitting ? (
+                        <>
+                          <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                          <span>Submitting...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Image
+                            src={SendIcon}
+                            alt=""
+                            aria-hidden="true"
+                            className="h-5 w-5"
+                          />
+                          <span>Submit Application</span>
+                        </>
+                      )}
                     </button>
+
+                    {submitError && (
+                      <p className="text-center text-sm text-[#E4312D]">
+                        {submitError}
+                      </p>
+                    )}
 
                   </div>
 
