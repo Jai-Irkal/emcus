@@ -445,7 +445,7 @@ export default function JobDetails() {
                         onClick={() =>
                           autofillInputRef.current?.click()
                         }
-                        className="border-2 border-[#322986] text-[#322986] px-5 py-2 rounded-md hover:bg-[#322986] hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="cursor-pointer border-2 border-[#322986] text-[#322986] px-5 py-2 rounded-md hover:bg-[#322986] hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         {isAutofilling
                           ? "Reading..."
@@ -610,7 +610,7 @@ export default function JobDetails() {
                     {/* SUBMIT */}
                     <button
                       type="button"
-                      className="w-full bg-[#322986] text-white py-3 rounded-md font-semibold flex gap-1 items-center justify-center"
+                      className="cursor-pointer w-full bg-[#322986] text-white py-3 rounded-md font-semibold flex gap-1 items-center justify-center"
                     >
                       <Image
                         src={SendIcon}

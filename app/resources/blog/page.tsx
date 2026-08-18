@@ -128,7 +128,7 @@ export default function Blogs() {
                   <button
                     key={category}
                     onClick={() => setSelectedCategory(category)}
-                    className={`shrink-0 whitespace-nowrap rounded-2xl border px-4 sm:px-5 py-2 text-sm sm:text-base lg:text-lg xl:text-xl font-medium transition-all
+                    className={`cursor-pointer shrink-0 whitespace-nowrap rounded-2xl border px-4 sm:px-5 py-2 text-sm sm:text-base lg:text-lg xl:text-xl font-medium transition-all
                       ${selectedCategory === category
                         ? "bg-[#E34334] border-[#E34334] text-white"
                         : "border-[#64748B] text-[#64748B] hover:border-[#322986] hover:text-[#322986]"
