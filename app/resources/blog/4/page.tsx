@@ -95,7 +95,7 @@ export default function BlogFour() {
     };
 
     const handleSubmitComment = async () => {
-        const response = await fetch("/api/blogs/3/comments", {
+        const response = await fetch("/api/blogs/4/comments", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -425,12 +425,38 @@ export default function BlogFour() {
                                         <button
                                             type="button"
                                             onClick={handleSubmitComment}
-                                            className="w-full h-[40px] rounded-[8px] bg-[#322986] text-white text-[16px] font-medium hover:bg-[#292270] transition-colors"
+                                            className="cursor-pointer w-full h-[40px] rounded-[8px] bg-[#322986] text-white text-[16px] font-medium hover:bg-[#292270] transition-colors"
                                         >
                                             Post a Comment
                                         </button>
 
                                     </div>
+                                </div>
+                                <div className="mt-8 space-y-4">
+                                    <h3 className="text-xl font-bold">
+                                        Comments ({comments.length})
+                                    </h3>
+
+                                    {comments.map((comment) => (
+                                        <div
+                                            key={comment.id}
+                                            className="rounded-lg border p-4"
+                                        >
+                                            <h4 className="font-semibold">
+                                                {comment.name}
+                                            </h4>
+
+                                            <p className="text-sm text-gray-500">
+                                                {new Date(
+                                                    comment.created_at
+                                                ).toLocaleDateString()}
+                                            </p>
+
+                                            <p className="mt-2">
+                                                {comment.comment}
+                                            </p>
+                                        </div>
+                                    ))}
                                 </div>
                             </section>
 
