@@ -421,6 +421,32 @@ export default function BlogThree() {
 
                                     </div>
                                 </div>
+                                <div className="mt-8 space-y-4">
+                                    <h3 className="text-xl font-bold">
+                                        Comments ({comments.length})
+                                    </h3>
+
+                                    {comments.map((comment) => (
+                                        <div
+                                            key={comment.id}
+                                            className="rounded-lg border p-4"
+                                        >
+                                            <h4 className="font-semibold">
+                                                {comment.name}
+                                            </h4>
+
+                                            <p className="text-sm text-gray-500">
+                                                {new Date(
+                                                    comment.created_at
+                                                ).toLocaleDateString()}
+                                            </p>
+
+                                            <p className="mt-2">
+                                                {comment.comment}
+                                            </p>
+                                        </div>
+                                    ))}
+                                </div>
                             </section>
 
                         </div>
