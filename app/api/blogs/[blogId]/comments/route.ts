@@ -35,20 +35,22 @@ export async function POST(
         }
 
         const [newComment] = await sql`
-            INSERT INTO comments (
-                blog_id,
-                name,
-                email,
-                comment
-            )
-            VALUES (
-                ${Number(blogId)},
-                ${name},
-                ${email},
-                ${comment}
-            )
-            RETURNING *
-        `;
+    INSERT INTO comments (
+        blog_id,
+        name,
+        email,
+        comment,
+        created_at
+    )
+    VALUES (
+        ${Number(blogId)},
+        ${name},
+        ${email},
+        ${comment},
+        NOW()
+    )
+    RETURNING *
+`;
 
         return Response.json(newComment);
     } catch (error: any) {
