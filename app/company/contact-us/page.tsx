@@ -15,7 +15,17 @@ import PurplePin from "@/public/contact-us/purple-pin-icon.svg";
 import PurpleTelephone from "@/public/contact-us/purple-phone-icon.svg";
 
 import { useRef, useState } from "react";
-import PhoneInputWithCountrySelect from "react-phone-number-input";
+import PhoneInputWithCountrySelect, {
+    isValidPhoneNumber,
+} from "react-phone-number-input";
+
+const emptyFormData = {
+    firstName: "",
+    email: "",
+    subject: "",
+    message: "",
+    phone: "",
+};
 
 export default function Home() {
     const [phone, setPhone] = useState<string | undefined>("");
@@ -29,30 +39,49 @@ export default function Home() {
         });
     };
 
-    const [formData, setFormData] = useState({
-        firstName: "",
-        email: "",
-        subject: "",
-        message: "",
-        phone: ""
-    });
+    const [formData, setFormData] = useState(emptyFormData);
 
-    const [loading, setLoading] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(false);
+    const [submitError, setSubmitError] = useState<string | null>(null);
+
+    const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+        formData.email.trim()
+    );
+    const isPhoneValid = phone ? isValidPhoneNumber(phone) : false;
+
+    const isFormValid =
+        formData.firstName.trim() !== "" &&
+        isEmailValid &&
+        isPhoneValid &&
+        formData.subject.trim() !== "" &&
+        formData.message.trim() !== "";
+
+    const isFormDisabled = isSubmitting || isSuccess;
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
     ) => {
+        setSubmitError(null);
         setFormData((prev) => ({
             ...prev,
             [e.target.id]: e.target.value,
         }));
     };
 
+    const handlePhoneChange = (value: string | undefined) => {
+        setSubmitError(null);
+        setPhone(value);
+    };
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
+        if (!isFormValid || isSubmitting || isSuccess) return;
+
         try {
-            setLoading(true);
+            setIsSubmitting(true);
+            setSubmitError(null);
 
             const response = await fetch("/api/contact", {
                 method: "POST",
@@ -75,21 +104,21 @@ export default function Home() {
                 throw new Error(data.error || "Something went wrong");
             }
 
-            alert("Message sent successfully.");
-
-            setFormData({
-                firstName: "",
-                email: "",
-                subject: "",
-                message: "",
-                phone: ""
-            });
-
+            setFormData(emptyFormData);
             setPhone("");
-        } catch (error: any) {
-            alert(error.message || "Failed to send message.");
+            setIsSuccess(true);
+
+            setTimeout(() => {
+                setIsSuccess(false);
+            }, 2000);
+        } catch (error: unknown) {
+            const message =
+                error instanceof Error
+                    ? error.message
+                    : "Failed to send message.";
+            setSubmitError(message);
         } finally {
-            setLoading(false);
+            setIsSubmitting(false);
         }
     };
 
@@ -613,7 +642,7 @@ export default function Home() {
                                         placeholder="Enter Name"
                                         value={formData.firstName}
                                         onChange={handleChange}
-                                        required
+                                        disabled={isFormDisabled}
                                         className="
                                             w-full
                                             rounded-md
@@ -627,6 +656,8 @@ export default function Home() {
                                             focus:outline-none
                                             focus:ring-2
                                             focus:ring-[#322986]
+                                            disabled:opacity-50
+                                            disabled:cursor-not-allowed
                                         "
                                     />
                                 </div>
@@ -649,12 +680,11 @@ export default function Home() {
                                         placeholder="Enter Your Email"
                                         value={formData.email}
                                         onChange={handleChange}
-                                        required
-                                        className="
+                                        disabled={isFormDisabled}
+                                        className={`
                                             w-full
                                             rounded-md
                                             border
-                                            border-gray-300
                                             bg-[#FBFBFB]
                                             px-4
                                             py-3
@@ -662,9 +692,20 @@ export default function Home() {
                                             sm:text-base
                                             focus:outline-none
                                             focus:ring-2
-                                            focus:ring-[#322986]
-                                        "
+                                            disabled:opacity-50
+                                            disabled:cursor-not-allowed
+                                            ${formData.email.trim() !== "" &&
+                                                !isEmailValid
+                                                ? "border-[#E4312D] focus:ring-[#E4312D]"
+                                                : "border-gray-300 focus:ring-[#322986]"
+                                            }
+                                        `}
                                     />
+                                    {formData.email.trim() !== "" && !isEmailValid && (
+                                        <p className="text-[11px] text-[#E4312D]">
+                                            Please enter a valid email address.
+                                        </p>
+                                    )}
                                 </div>
 
                                 {/* Phone */}
@@ -683,10 +724,22 @@ export default function Home() {
                                         international
                                         defaultCountry="IN"
                                         value={phone}
-                                        onChange={setPhone}
+                                        onChange={handlePhoneChange}
                                         placeholder="00000 00000"
-                                        className="phone-input bg-[#FBFBFB]"
+                                        disabled={isFormDisabled}
+                                        className={`phone-input bg-[#FBFBFB] ${isFormDisabled
+                                                ? "opacity-50 pointer-events-none"
+                                                : ""
+                                            } ${phone && !isPhoneValid
+                                                ? "!border-[#E4312D]"
+                                                : ""
+                                            }`}
                                     />
+                                    {phone && !isPhoneValid && (
+                                        <p className="text-[11px] text-[#E4312D]">
+                                            Please enter a valid phone number.
+                                        </p>
+                                    )}
                                 </div>
 
                                 {/* Subject */}
@@ -707,8 +760,8 @@ export default function Home() {
                                         placeholder="How can we help?"
                                         value={formData.subject}
                                         onChange={handleChange}
-                                        required
-                                        className="w-full rounded-md border border-gray-300 bg-[#FBFBFB] px-4 py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#322986]"
+                                        disabled={isFormDisabled}
+                                        className="w-full rounded-md border border-gray-300 bg-[#FBFBFB] px-4 py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#322986] disabled:opacity-50 disabled:cursor-not-allowed"
                                     />
                                 </div>
 
@@ -726,11 +779,11 @@ export default function Home() {
 
                                     <textarea
                                         id="message"
-                                        required
                                         placeholder="Tell us about your Project, Timeline, and Requirement."
                                         rows={5}
                                         value={formData.message}
                                         onChange={handleChange}
+                                        disabled={isFormDisabled}
                                         className="
                                             w-full
                                             resize-y
@@ -746,6 +799,8 @@ export default function Home() {
                                             focus:outline-none
                                             focus:ring-2
                                             focus:ring-[#322986]
+                                            disabled:opacity-50
+                                            disabled:cursor-not-allowed
                                         "
                                     />
                                 </div>
@@ -760,38 +815,77 @@ export default function Home() {
                                     <span className="text-[#E4312D]">
                                         {" "}*{" "}
                                     </span>
-                                    are required. Submitting will open your
-                                    email client with a pre-filled message.
+                                    are required.
                                 </p>
 
                                 {/* Submit */}
                                 <button
                                     type="submit"
-                                    className="
+                                    disabled={
+                                        !isFormValid || isSubmitting || isSuccess
+                                    }
+                                    className={`
                                         items-center
                                         justify-center
                                         flex
                                         gap-2
                                         w-full
                                         rounded-md
-                                        bg-[#2D3188]
                                         py-3
                                         text-sm
                                         sm:text-base
                                         font-semibold
                                         text-white
-                                        transition
-                                        hover:opacity-90
+                                        transition-all
+                                        duration-300
                                         hover:cursor-pointer
-                                    "
+                                        disabled:cursor-not-allowed
+                                        disabled:opacity-50
+                                        ${isSuccess
+                                            ? "bg-green-800 hover:bg-green-900"
+                                            : "bg-[#2D3188] hover:opacity-90 disabled:hover:opacity-50"
+                                        }
+                                    `}
                                 >
-                                    <Image
-                                        src={SendIcon}
-                                        alt="Send Icon"
-                                        className="h-5 w-5"
-                                    />
-                                    <span>Submit Application</span>
+                                    {isSuccess ? (
+                                        <>
+                                            <svg
+                                                className="h-5 w-5"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                strokeWidth="2.5"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                aria-hidden="true"
+                                            >
+                                                <path d="M20 6L9 17l-5-5" />
+                                            </svg>
+                                            <span>Submitted!</span>
+                                        </>
+                                    ) : isSubmitting ? (
+                                        <>
+                                            <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                                            <span>Submitting...</span>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <Image
+                                                src={SendIcon}
+                                                alt=""
+                                                aria-hidden="true"
+                                                className="h-5 w-5"
+                                            />
+                                            <span>Submit Application</span>
+                                        </>
+                                    )}
                                 </button>
+
+                                {submitError && (
+                                    <p className="text-center text-sm text-[#E4312D]">
+                                        {submitError}
+                                    </p>
+                                )}
 
                             </form>
                         </div>
