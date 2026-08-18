@@ -186,7 +186,6 @@ export default function JobDetails() {
 
       formData.append("name", name);
       formData.append("email", email);
-      formData.append("phone", phone);
       formData.append("role", job.role);
       formData.append("resume", resumeFile);
 
@@ -195,10 +194,12 @@ export default function JobDetails() {
         body: formData,
       });
 
-      const data = await response.json();
+      const result = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || "Failed to submit application.");
+        throw new Error(
+          result.error || "Failed to submit application."
+        );
       }
 
       alert("Application submitted successfully.");
@@ -217,9 +218,12 @@ export default function JobDetails() {
       if (autofillInputRef.current) {
         autofillInputRef.current.value = "";
       }
-    } catch (error) {
-      console.error(error);
-      alert("Failed to submit application.");
+    } catch (error: any) {
+      console.error("Application submission failed:", error);
+
+      alert(
+        error.message || "Failed to submit application."
+      );
     }
   };
 
