@@ -27,6 +27,7 @@ export default function BlogTwo() {
     if (!blog) return null;
 
     const [comments, setComments] = useState<any[]>([]);
+    const [saveDetails, setSaveDetails] = useState(false);
 
     const [commentForm, setCommentForm] = useState({
         name: "",
@@ -36,6 +37,20 @@ export default function BlogTwo() {
 
     useEffect(() => {
         fetchComments();
+
+        const savedCommentUser = localStorage.getItem("blogCommentUser");
+
+        if (savedCommentUser) {
+            const { name, email } = JSON.parse(savedCommentUser);
+
+            setCommentForm((prev) => ({
+                ...prev,
+                name,
+                email,
+            }));
+
+            setSaveDetails(true);
+        }
     }, []);
 
     const fetchComments = async () => {
@@ -82,26 +97,34 @@ export default function BlogTwo() {
     };
 
     const handleSubmitComment = async () => {
-        const response = await fetch(
-            "/api/blogs/2/comments",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(commentForm),
-            }
-        );
+        const response = await fetch("/api/blogs/2/comments", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(commentForm),
+        });
 
         if (!response.ok) {
             return;
         }
 
-        setCommentForm({
-            name: "",
-            email: "",
+        if (saveDetails) {
+            localStorage.setItem(
+                "blogCommentUser",
+                JSON.stringify({
+                    name: commentForm.name,
+                    email: commentForm.email,
+                })
+            );
+        } else {
+            localStorage.removeItem("blogCommentUser");
+        }
+
+        setCommentForm((prev) => ({
+            ...prev,
             comment: "",
-        });
+        }));
 
         fetchComments();
     };
@@ -320,7 +343,7 @@ export default function BlogTwo() {
                                             }
                                             className="
                                                 w-full
-                                                h-[195px]
+                                                h-[205px]
                                                 resize-none
                                                 rounded-[3px]
                                                 border
@@ -420,6 +443,8 @@ export default function BlogTwo() {
 
                                             <input
                                                 type="checkbox"
+                                                checked={saveDetails}
+                                                onChange={(e) => setSaveDetails(e.target.checked)}
                                                 className="mt-[1px] w-[12px] h-[12px]"
                                             />
 
@@ -436,8 +461,9 @@ export default function BlogTwo() {
                                             type="button"
                                             onClick={handleSubmitComment}
                                             className="
+                                                cursor-pointer
                                                 w-full
-                                                h-[30px]
+                                                h-[40px]
                                                 rounded-[8px]
                                                 bg-[#322986]
                                                 text-white
