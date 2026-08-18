@@ -347,7 +347,7 @@ export default function Home() {
                                 href="https://maps.app.goo.gl/E2YRgug32vX9vqeM7"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex min-h-[90px] items-center justify-start gap-3 rounded-[24px] bg-white px-4 py-4 shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-1 sm:col-span-2 lg:col-span-1"
+                                className="flex min-h-[90px] items-center justify-start gap-3 rounded-[24px] bg-white px-4 py-4 shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-1 md:col-span-1"
                             >
                                 <div
                                     className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border-2 border-[#077A3D] bg-[#E1FAE4]"
