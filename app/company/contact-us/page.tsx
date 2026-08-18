@@ -578,6 +578,7 @@ export default function Home() {
                                         text-[#2D3188]
                                         transition-all
                                         duration-300
+                                        hover:bg-[#E2E5FF]
                                     "
                                 >
                                     <Image
