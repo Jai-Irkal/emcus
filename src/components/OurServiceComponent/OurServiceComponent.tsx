@@ -47,6 +47,7 @@ const OurServiceComponent = ({
                 <div
                     className={`
                         grid grid-cols-1 lg:grid-cols-2
+                        md:grid-cols-2
                         gap-6
                         lg:mt-4
                         -mt-6
@@ -55,7 +56,7 @@ const OurServiceComponent = ({
                     `}
                 >
                     {/* Left Items */}
-                    <div className="space-y-3">
+                    <div className="space-y-3 md:-mt-10">
                         {serviceItem.leftItems.map((item, index) => (
                             <div
                                 key={`left-${index}`}
@@ -77,7 +78,7 @@ const OurServiceComponent = ({
                     </div>
 
                     {/* Right Items */}
-                    <div className="space-y-3 -mt-4 lg:mt-0 xl:mt-0 2xl:mt-0">
+                    <div className="space-y-3 -mt-4 lg:mt-0 xl:mt-0 2xl:mt-0 md:-mt-10">
                         {serviceItem.rightItems.map((item, index) => (
                             <div
                                 key={`right-${index}`}
