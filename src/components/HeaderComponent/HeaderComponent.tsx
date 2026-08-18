@@ -151,7 +151,7 @@ ${isScrolled && !isOpen
                         : "opacity-0 -translate-y-4 pointer-events-none"
                     }`}
             >
-                <div className="flex flex-col py-4">
+                <div className="flex flex-col pt-4">
                     {NAVIGATION.map((group) => {
                         if (group.title === "MAIN") {
                             return group.items.map((item) => {
