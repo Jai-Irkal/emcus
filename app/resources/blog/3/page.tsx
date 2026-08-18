@@ -32,6 +32,15 @@ export default function BlogThree() {
         comment: "",
     });
 
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(commentForm.email.trim());
+
+    const isCommentFormValid =
+        commentForm.comment.trim() !== "" &&
+        commentForm.name.trim() !== "" &&
+        isEmailValid;
+
     useEffect(() => {
         fetchComments();
 
@@ -94,36 +103,44 @@ export default function BlogThree() {
     };
 
     const handleSubmitComment = async () => {
-        const response = await fetch("/api/blogs/3/comments", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(commentForm),
-        });
+        if (!isCommentFormValid || isSubmitting) return;
 
-        if (!response.ok) {
-            return;
+        try {
+            setIsSubmitting(true);
+
+            const response = await fetch("/api/blogs/3/comments", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(commentForm),
+            });
+
+            if (!response.ok) {
+                return;
+            }
+
+            if (saveDetails) {
+                localStorage.setItem(
+                    "blogCommentUser",
+                    JSON.stringify({
+                        name: commentForm.name,
+                        email: commentForm.email,
+                    })
+                );
+            } else {
+                localStorage.removeItem("blogCommentUser");
+            }
+
+            setCommentForm((prev) => ({
+                ...prev,
+                comment: "",
+            }));
+
+            await fetchComments();
+        } finally {
+            setIsSubmitting(false);
         }
-
-        if (saveDetails) {
-            localStorage.setItem(
-                "blogCommentUser",
-                JSON.stringify({
-                    name: commentForm.name,
-                    email: commentForm.email,
-                })
-            );
-        } else {
-            localStorage.removeItem("blogCommentUser");
-        }
-
-        setCommentForm((prev) => ({
-            ...prev,
-            comment: "",
-        }));
-
-        fetchComments();
     };
 
     return (
@@ -320,7 +337,10 @@ export default function BlogThree() {
 
                             <section className="mt-4">
                                 <h2 className="text-[13px] font-medium text-[#222] mb-2">
-                                    Leave a Reply
+                                    Leave a Reply{" "}
+                                    <span className="text-[14px] font-normal text-[#E34334] [font-family:var(--font-jakarta-sans)]">
+                                        *
+                                    </span>
                                 </h2>
 
                                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
@@ -335,8 +355,9 @@ export default function BlogThree() {
                                                     comment: e.target.value,
                                                 })
                                             }
-                                            placeholder="Type your comment here *"
-                                            className="w-full h-[205px] resize-none rounded-[3px] border border-[#64748B] bg-[#F7F8F9] px-2 py-2 text-[12px] text-[#64748B] placeholder:text-[#6B7280] focus:outline-none focus:border-[#322986]"
+                                            placeholder="Type your comment here"
+                                            disabled={isSubmitting}
+                                            className="w-full h-[205px] resize-none rounded-[3px] border border-[#64748B] bg-[#F7F8F9] px-2 py-2 text-[12px] text-[#64748B] placeholder:text-[#6B7280] focus:outline-none focus:border-[#322986] disabled:opacity-50 disabled:cursor-not-allowed"
                                         />
                                     </div>
 
@@ -370,7 +391,8 @@ export default function BlogThree() {
                                                     name: e.target.value,
                                                 })
                                             }
-                                            className="w-full h-[30px] rounded-[2px] bg-[#F7F8F9] border border-[#64748B] px-2 text-[14px] mb-2 focus:outline-none focus:border-[#322986]"
+                                            disabled={isSubmitting}
+                                            className="w-full h-[30px] rounded-[2px] bg-[#F7F8F9] border border-[#64748B] px-2 text-[14px] mb-2 focus:outline-none focus:border-[#322986] disabled:opacity-50 disabled:cursor-not-allowed"
                                         />
 
                                         {/* Email */}
@@ -391,8 +413,18 @@ export default function BlogThree() {
                                                     email: e.target.value,
                                                 })
                                             }
-                                            className="w-full h-[30px] rounded-[2px] bg-[#F7F8F9] border border-[#64748B] px-2 text-[14px] mb-2 focus:outline-none focus:border-[#322986]"
+                                            disabled={isSubmitting}
+                                            className={`w-full h-[30px] rounded-[2px] bg-[#F7F8F9] border px-2 text-[14px] mb-1 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed ${
+                                                commentForm.email.trim() !== "" && !isEmailValid
+                                                    ? "border-[#E34334] focus:border-[#E34334]"
+                                                    : "border-[#64748B] focus:border-[#322986]"
+                                            }`}
                                         />
+                                        {commentForm.email.trim() !== "" && !isEmailValid && (
+                                            <p className="text-[11px] text-[#E34334] mb-2">
+                                                Please enter a valid email address.
+                                            </p>
+                                        )}
 
                                         {/* Checkbox */}
                                         <label className="flex items-start gap-1 text-[12px] text-[#555] leading-tight mb-2">
@@ -414,9 +446,17 @@ export default function BlogThree() {
                                         <button
                                             type="button"
                                             onClick={handleSubmitComment}
-                                            className="cursor-pointer w-full h-[40px] rounded-[8px] bg-[#322986] text-white text-[16px] font-medium hover:bg-[#292270] transition-colors"
+                                            disabled={!isCommentFormValid || isSubmitting}
+                                            className="cursor-pointer w-full h-[40px] rounded-[8px] bg-[#322986] text-white text-[16px] font-medium hover:bg-[#292270] transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#322986] flex items-center justify-center gap-2"
                                         >
-                                            Post a Comment
+                                            {isSubmitting ? (
+                                                <>
+                                                    <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                                                    Posting...
+                                                </>
+                                            ) : (
+                                                "Post a Comment"
+                                            )}
                                         </button>
 
                                     </div>
