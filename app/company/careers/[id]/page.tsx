@@ -342,7 +342,7 @@ export default function JobDetails() {
 
                 <button
                   onClick={() => setActiveTab("overview")}
-                  className={`pb-3 text-[15px] font-semibold transition ${activeTab === "overview"
+                  className={`cursor-pointer pb-3 text-[15px] font-semibold transition ${activeTab === "overview"
                     ? "text-[#322986] border-b-2 border-[#322986]"
                     : "text-gray-500 hover:text-[#322986]"
                     }`}
@@ -352,7 +352,7 @@ export default function JobDetails() {
 
                 <button
                   onClick={() => setActiveTab("applications")}
-                  className={`pb-3 text-[15px] font-semibold transition ${activeTab === "applications"
+                  className={`cursor-pointer pb-3 text-[15px] font-semibold transition ${activeTab === "applications"
                     ? "text-[#322986] border-b-2 border-[#322986]"
                     : "text-gray-500 hover:text-[#322986]"
                     }`}
@@ -412,11 +412,11 @@ export default function JobDetails() {
                     Apply Now
                   </button>
 
-                  <p className="text-sm text-gray-500 mt-4">
+                  <p className="text-sm text-[#64748B] mt-4 font-bold">
                     Click the APPLY button to upload your resume.
                     <br />
                     Alternatively, email your resume to{" "}
-                    <span className="text-red-500 font-semibold">
+                    <span className="text-[#E4312D] font-bold">
                       career@emcus.co.in
                     </span>
                   </p>

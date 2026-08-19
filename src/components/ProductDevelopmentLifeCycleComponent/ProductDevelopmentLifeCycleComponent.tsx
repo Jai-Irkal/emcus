@@ -40,7 +40,7 @@ const StepCard = ({ item }: { item: Steps }) => (
             </h3>
 
             <p className="
-                text-gray-600
+                text-[#444444]
                 text-sm
                 sm:text-base
                 lg:text-lg

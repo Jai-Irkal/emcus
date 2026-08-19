@@ -143,13 +143,20 @@ const FooterComponent = () => {
                     <ul className="space-y-4">
 
                         {/* Phone */}
+                        {/* Phone */}
                         <li className="flex items-center gap-3">
                             <Image
                                 src={phoneIcon}
                                 alt="Phone"
-                                className="w-8 h-6 object-contain"
+                                className="h-6 w-8 object-contain"
                             />
-                            <span>+91 70226 16214</span>
+
+                            <a
+                                href="tel:+917022616214"
+                                className="hover:underline"
+                            >
+                                +91 70226 16214
+                            </a>
                         </li>
 
                         {/* Email */}
@@ -157,9 +164,15 @@ const FooterComponent = () => {
                             <Image
                                 src={mailIcon}
                                 alt="Email"
-                                className="w-8 h-6 object-contain"
+                                className="h-6 w-8 object-contain"
                             />
-                            <span>info@emcus.com</span>
+
+                            <a
+                                href="mailto:info@emcus.com"
+                                className="hover:underline"
+                            >
+                                info@emcus.com
+                            </a>
                         </li>
 
                         {/* LinkedIn */}
@@ -167,11 +180,17 @@ const FooterComponent = () => {
                             <Image
                                 src={linkedinIcon}
                                 alt="LinkedIn"
-                                className="w-8 h-8 object-contain"
+                                className="h-8 w-8 object-contain"
                             />
-                            <span className="hover:underline cursor-pointer">
+
+                            <a
+                                href="https://www.linkedin.com/company/emcustechnologysolutions/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="cursor-pointer hover:underline"
+                            >
                                 LinkedIn
-                            </span>
+                            </a>
                         </li>
 
                     </ul>

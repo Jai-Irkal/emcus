@@ -29,7 +29,7 @@ export default function BlogThree() {
     const [commentForm, setCommentForm] = useState({
         name: "",
         email: "",
-        comment: "",
+        comment: ""
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -113,7 +113,12 @@ export default function BlogThree() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(commentForm),
+                body: JSON.stringify({
+                    name: commentForm.name,
+                    email: commentForm.email,
+                    comment:commentForm.comment,
+                    localDateTime: new Date().toISOString(),
+                }),
             });
 
             if (!response.ok) {
@@ -272,7 +277,7 @@ export default function BlogThree() {
                                         {blog.tags.map((tag) => (
                                             <span
                                                 key={tag}
-                                                className="px-2 py-1 rounded-[3px] border border-[#E34334] text-[#E34334] bg-[#FFF2F2] text-[16px] leading-none"
+                                                className="px-2 font-semibold py-1 rounded-[3px] border border-[#E34334] text-[#E34334] bg-[#FFF2F2] text-[16px] leading-none"
                                             >
                                                 {tag.charAt(0).toUpperCase() +
                                                     tag.slice(1)}
@@ -292,7 +297,7 @@ export default function BlogThree() {
                                                 handleShare("linkedin")
                                             }
                                             aria-label="Share on LinkedIn"
-                                            className="w-[20px] h-[20px] flex items-center justify-center bg-[#2867B2] text-white rounded-[2px] cursor-pointer"
+                                            className="cursor-pointer w-[20px] h-[20px] flex items-center justify-center bg-[#2867B2] text-white rounded-[2px] cursor-pointer"
                                         >
                                             <Image
                                                 src={LinkedinIcon}
@@ -306,7 +311,7 @@ export default function BlogThree() {
                                                 handleShare("facebook")
                                             }
                                             aria-label="Share on Facebook"
-                                            className="w-[20px] h-[20px] flex items-center justify-center bg-[#1877F2] text-white rounded-[2px] cursor-pointer"
+                                            className=" cursor-pointer w-[20px] h-[20px] flex items-center justify-center bg-[#1877F2] text-white rounded-[2px] cursor-pointer"
                                         >
                                             <Image
                                                 src={FacebookIcon}
@@ -320,7 +325,7 @@ export default function BlogThree() {
                                                 handleShare("x")
                                             }
                                             aria-label="Share on Twitter"
-                                            className="w-[20px] h-[20px] flex items-center justify-center bg-[#1DA1F2] text-white rounded-[2px] cursor-pointer"
+                                            className="cursor-pointer w-[20px] h-[20px] flex items-center justify-center bg-[#1DA1F2] text-white rounded-[2px] cursor-pointer"
                                         >
                                             <Image
                                                 src={TwitterIcon}
@@ -336,7 +341,7 @@ export default function BlogThree() {
                             =================================================== */}
 
                             <section className="mt-4">
-                                <h2 className="text-[13px] font-medium text-[#222] mb-2">
+                                <h2 className="text-[18px] font-semibold text-[#222] mb-2">
                                     Leave a Reply{" "}
                                     <span className="text-[14px] font-normal text-[#E34334] [font-family:var(--font-jakarta-sans)]">
                                         *
@@ -344,20 +349,20 @@ export default function BlogThree() {
                                 </h2>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3">
-                  <div>
-                    <textarea
-                      value={commentForm.comment}
-                      onChange={(e) =>
-                        setCommentForm({
-                          ...commentForm,
-                          comment: e.target.value,
-                        })
-                      }
-                      placeholder="Type your comment here"
-                      disabled={isSubmitting}
-                      className="w-full h-[205px] md:h-[230px] lg:h-[205px] resize-none rounded-[3px] border border-[#64748B] bg-[#F7F8F9] px-2 py-2 text-[12px] text-[#64748B] placeholder:text-[#6B7280] focus:outline-none focus:border-[#322986] disabled:opacity-50 disabled:cursor-not-allowed"
-                    />
-                  </div>
+                                    <div>
+                                        <textarea
+                                            value={commentForm.comment}
+                                            onChange={(e) =>
+                                                setCommentForm({
+                                                    ...commentForm,
+                                                    comment: e.target.value,
+                                                })
+                                            }
+                                            placeholder="Type your comment here"
+                                            disabled={isSubmitting}
+                                            className="w-full h-[205px] md:h-[230px] lg:h-[218px] resize-none rounded-[3px] border border-[#64748B] bg-[#F7F8F9] px-2 py-2 text-[16px] text-[#64748B] placeholder:text-[#6B7280] focus:outline-none focus:border-[#322986] disabled:opacity-50 disabled:cursor-not-allowed"
+                                        />
+                                    </div>
 
                                     {/* Reply Form */}
                                     <div className="flex flex-col">
@@ -372,7 +377,7 @@ export default function BlogThree() {
                                         </p>
 
                                         {/* Name */}
-                                        <label className="text-[14px] mb-[2px]">
+                                        <label className="text-[14px] mb-[2px] font-semibold">
                                             Name{" "}
                                             <span className="text-[#E34334]">
                                                 *
@@ -394,7 +399,7 @@ export default function BlogThree() {
                                         />
 
                                         {/* Email */}
-                                        <label className="text-[14px] text-[#222] mb-[2px]">
+                                        <label className="text-[14px] text-[#222] mb-[2px] font-semibold">
                                             Email{" "}
                                             <span className="text-[#E34334]">
                                                 *
@@ -413,8 +418,8 @@ export default function BlogThree() {
                                             }
                                             disabled={isSubmitting}
                                             className={`w-full h-[30px] rounded-[2px] bg-[#F7F8F9] border px-2 text-[14px] mb-1 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed ${commentForm.email.trim() !== "" && !isEmailValid
-                                                    ? "border-[#E34334] focus:border-[#E34334]"
-                                                    : "border-[#64748B] focus:border-[#322986]"
+                                                ? "border-[#E34334] focus:border-[#E34334]"
+                                                : "border-[#64748B] focus:border-[#322986]"
                                                 }`}
                                         />
                                         {commentForm.email.trim() !== "" && !isEmailValid && (
@@ -424,7 +429,7 @@ export default function BlogThree() {
                                         )}
 
                                         {/* Checkbox */}
-                                        <label className="flex items-start gap-1 text-[12px] text-[#555] leading-tight mb-2">
+                                        <label className="flex items-start gap-1 text-[12px] text-[#555] leading-tight mb-2 py-2">
                                             <input
                                                 type="checkbox"
                                                 checked={saveDetails}

@@ -45,7 +45,7 @@ export default function WhatWeDo() {
 
 
         <div className="py-10 2xl:py-30 lg:pt-16 lg:pb-0">
-          <div className="mx-auto flex w-full max-w-7xl flex-col gap-10 px-6 sm:px-8 lg:px-10">
+          <div className="mx-auto flex w-full max-w-7xl flex-col gap-10 px-6 sm:px-8 lg:px-0">
 
             {OUR_SERVICES.map((item) => {
               return (

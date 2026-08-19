@@ -102,6 +102,14 @@ export default function Careers() {
             </p>
           )}
         </div>
+        <p className="text-[12px] md:text-[18px] text-[#64748B] text-center pb-8 font-semibold">
+          Click the APPLY button to upload your resume.
+          <br />
+          Alternatively, email your resume to{" "}
+          <span className="text-[#E4312D] font-semibold">
+            career@emcus.co.in
+          </span>
+        </p>
 
         <FooterComponent />
       </main>

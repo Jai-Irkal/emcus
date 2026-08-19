@@ -20,54 +20,54 @@ export const Carousel = [
         id:2,
         image:Two,
         title:"EMBEDDED HARDWARE",
-        description:"For Design And Development of Fire Safety Systems"
+        description:"For Design And Development of Fire & Safety Systems"
     },
     {
         id:3,
         image:Three,
         title:"FIRMWARE",
-        description:"For Design And Development of Fire Safety Systems"
+        description:"For Design And Development of Fire & Safety Systems"
     },
     {
         id:4,
         image:Four,
         title:"MOBILE APP DEVELOPMENT",
-        description:"For Design And Development of Fire Safety Systems"
+        description:"For Design And Development of Fire & Safety Systems"
     },
     {
         id:5,
         image:Five,
         title:"CLOUD SOLUTIONS",
-        description:"For Design And Development of Fire Safety Systems"
+        description:"For Design And Development of Fire & Safety Systems"
     },
     {
         id:6,
         image:Six,
         title:"IOT SOLUTIONS",
-        description:"For Design And Development of Fire Safety Systems"
+        description:"For Design And Development of Fire & Safety Systems"
     },
     {
         id:7,
         image:Seven,
         title:"MECHANICAL DESIGNS",
-        description:"For Design And Development of Fire Safety Systems"
+        description:"For Design And Development of Fire & Safety Systems"
     },
     {
         id:8,
         image:Eight,
         title:"STANDARDS COMPLIANCE TESTING",
-        description:"For Design And Development of Fire Safety Systems"
+        description:"For Design And Development of Fire & Safety Systems"
     },
     {
         id:9,
         image:Nine,
         title:"MECHANICAL ID TESTING",
-        description:"For Design And Development of Fire Safety Systems"
+        description:"For Design And Development of Fire & Safety Systems"
     },
     {
         id:10,
         image:Ten,
         title:"UI/UX Design",
-        description:"For Design And Development of Fire Safety Systems"
+        description:"For Design And Development of Fire & Safety Systems"
     }
 ]

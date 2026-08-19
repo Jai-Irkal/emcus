@@ -19,7 +19,7 @@ const CoreServicesCard = ({ coreServiceItem }: { coreServiceItem: CoreService })
                 <ul>
                     {coreServiceItem.data.map((item, index) => (
                         
-                        <li key={index} className="text-[14px] font-normal text-black text-left py-1.5 flex">
+                        <li key={index} className="text-[14px] font-normal text-black text-left py-1.5 flex items-center">
                             <Image src={ArrowBullet} alt="Arrow" className="inline-block h-4" />
                             <span>{item}</span>
                         </li>
