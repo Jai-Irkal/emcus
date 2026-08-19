@@ -224,7 +224,7 @@ export default function Blogs() {
                                   alt=""
                                   className="h-3.5 w-3.5"
                                 />
-                                <span>{blog.date}</span>
+                                <span className="text-black">{blog.date}</span>
                               </div>
                             </div>
 
@@ -235,7 +235,7 @@ export default function Blogs() {
                                   alt=""
                                   className="h-3.5 w-3.5"
                                 />
-                                <span>
+                                <span className="text-black">
                                   {commentCounts[blog.id] || 0}{" "}
                                   {(commentCounts[blog.id] || 0) === 1
                                     ? "comment"

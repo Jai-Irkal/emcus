@@ -17,50 +17,54 @@ export async function GET(
 }
 
 export async function POST(
-    request: Request,
-    { params }: { params: Promise<{ blogId: string }> }
+  request: Request,
+  { params }: { params: Promise<{ blogId: string }> }
 ) {
-    try {
-        const { blogId } = await params;
+  try {
+    const { blogId } = await params;
 
-        const body = await request.json();
+    const body = await request.json();
 
-        const { name, email, comment } = body;
+    const { name, email, comment, localDateTime } = body;
 
-        if (!name || !email || !comment) {
-            return Response.json(
-                { error: "All fields are required" },
-                { status: 400 }
-            );
+    if (!name || !email || !comment || !localDateTime) {
+      return Response.json(
+        {
+          error: "Name, email, comment, and localDateTime are required",
+        },
+        {
+          status: 400,
         }
+      );
+    }
 
-        const [newComment] = await sql`
-    INSERT INTO comments (
+    const [newComment] = await sql`
+      INSERT INTO comments (
         blog_id,
         name,
         email,
         comment,
         created_at
-    )
-    VALUES (
+      )
+      VALUES (
         ${Number(blogId)},
         ${name},
         ${email},
         ${comment},
-        NOW()
-    )
-    RETURNING *
-`;
+        ${new Date(localDateTime)}
+      )
+      RETURNING *;
+    `;
 
-        return Response.json(newComment);
-    } catch (error: any) {
-        return Response.json(
-            {
-                error: error.message,
-            },
-            {
-                status: 500,
-            }
-        );
-    }
+    return Response.json(newComment);
+  } catch (error: any) {
+    return Response.json(
+      {
+        error: error.message,
+      },
+      {
+        status: 500,
+      }
+    );
+  }
 }

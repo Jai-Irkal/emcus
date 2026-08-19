@@ -30,7 +30,7 @@ const EngagementLifeCycleCard = ({
         </div>
 
         {/* Right Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 items-center">
           {/* Column One */}
           <div className="px-8 py-8">
             <h3 className="text-[#E4312D] text-[28px] font-semibold mb-5">
@@ -49,7 +49,7 @@ const EngagementLifeCycleCard = ({
                     className="w-4 h-4 mt-1 shrink-0"
                   />
 
-                  <span>{value}</span>
+                  <span className='font-medium text-black'>{value}</span>
                 </li>
               ))}
             </ul>
@@ -75,7 +75,7 @@ const EngagementLifeCycleCard = ({
                     className="w-4 h-4 mt-1 shrink-0"
                   />
 
-                  <span>{value}</span>
+                  <span className='font-medium text-black'>{value}</span>
                 </li>
               ))}
             </ul>

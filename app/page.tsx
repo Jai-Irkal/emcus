@@ -10,6 +10,7 @@ import CoreServiceBanner from "@/public/core-services/core-services-img.svg"
 import CoreServicesCard from "@/src/components/cards/CoreServicesCard";
 import CarouselComponent from "@/src/components/Carousel/CarouselComponent";
 import ScrollFadeIn from "@/src/animated-components/ScrollFadeIn/ScrollFadeIn";
+import CoreServicesScrollSection from "@/src/components/CoreServiceScrollSection/CoreServicesScrollSection";
 
 export default function Home() {
   return (
@@ -24,7 +25,7 @@ export default function Home() {
         <h1 className="text-[25px] xl:text-[30px] text-[#E4312D] font-bold text-center w-full mt-10 lg:-mt-10 leading-none">FIRE & SAFETY PORTFOLIO</h1>
         <h1 className="text-[25px] xl:text-[30px] text-[#000000] font-bold text-center w-full leading-none lg:mt-2">Design & Development</h1>
         {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:mt-10 lg:px-4 py-6 px-4">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:mt-0 lg:px-4 py-6 px-4">
           {FIRE_SAFETY_DEVELOPMENT_PORTFOLIO.map((item, index) => (
             <div
               key={item.id}
@@ -40,52 +41,10 @@ export default function Home() {
           ))}
         </div>
 
-        <h1 className="text-[30px] text-[#d94536] font-bold text-center w-full mt-10">CORE SERVICES</h1>
-        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] items-center gap-6 lg:px-4 lg:min-h-[720px]">
+        {/* Pin / Sticky Section Container */}
+        <CoreServicesScrollSection/>
 
-          {/* Left Column - Scrollable */}
-          <div
-            className="
-    order-2 lg:order-1
-    flex items-center justify-center
-    opacity-0
-    animate-fade-in-from-left px-4 lg:px-0
-  "
-          >
-            <div className="w-full py-4 lg:max-h-[440px] lg:overflow-y-auto lg:pr-2 hide-scrollbar">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 place-items-center lg:grid-cols-2 lg:place-items-stretch">
-                {CORE_SERVICES.map((item) => (
-                  <div
-                    key={item.id}
-                    className="w-full max-w-[420px] min-h-[220px] overflow-hidden rounded-lg bg-gray-100 shadow-lg transition duration-300 lg:max-w-none"
-                  >
-                    <CoreServicesCard coreServiceItem={item} />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column - Fixed */}
-          <div
-            className="
-    order-1 lg:order-2
-    hidden h-full lg:flex
-    items-center justify-center
-    opacity-0
-    animate-fade-in-from-right
-  "
-          >
-            <Image
-              src={CoreServiceBanner}
-              alt="Core Service Banner"
-              className="h-auto w-[90%] rounded-2xl lg:rounded-lg"
-            />
-          </div>
-
-        </div>
-
-        <div className="lg:mt-10 mt-10 2xl:mt-10">
+        <div className="mt-10 2xl:mt-10">
           <h1 className="text-[30px] text-[#d94536] font-bold text-center w-full">WHY EMCUS?</h1>
           <div className="flex flex-col md:flex-row justify-center gap-0 mt-10">
 

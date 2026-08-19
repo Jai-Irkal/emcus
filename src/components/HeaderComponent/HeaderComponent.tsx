@@ -67,10 +67,7 @@ const HeaderComponent = ({ active }: HeaderProps) => {
         <>
             {/* HEADER */}
             <div
-                className={`bg-white w-full fixed top-0 left-0 right-0 z-50 overflow-visible
-  flex items-center justify-between px-4 md:px-6 lg:px-10 shadow-sm
-  transition-all duration-300
-  ${isScrolled && !isOpen ? "h-[60px] md:h-[70px]" : "h-[80px] md:h-[90px]"}`}
+                className={`bg-white w-full fixed top-0 left-0 right-0 z-50 overflow-visible flex items-center justify-between px-4 md:px-6 lg:px-10 shadow-sm xl:px-88 transition-all duration-300 ${isScrolled && !isOpen ? "h-[60px] md:h-[70px]" : "h-[80px] md:h-[90px]"}`}
             >
 
                 {/* Logo */}
@@ -78,7 +75,7 @@ const HeaderComponent = ({ active }: HeaderProps) => {
                     src={icon}
                     alt="Emcus Logo"
                     className={`transition-all duration-300 
-${isScrolled && !isOpen
+                        ${isScrolled && !isOpen
                             ? "w-[100px] md:w-[120px] lg:w-[140px]"
                             : "w-[130px] md:w-[160px] lg:w-[180px]"
                         }`}
@@ -232,7 +229,7 @@ const NavButton = ({
 }) => (
     <button
         onClick={() => onNavigate(path)}
-        className={`h-[40px] rounded-md px-8 lg:px-[12px] 2xl:px-4 flex items-center text-[12px] transition-colors
+        className={`h-[40px] rounded-md px-8 lg:px-[12px] 2xl:px-4 flex items-center text-[12px] transition-colors font-semibold
         ${active === label
                 ? "bg-[#d94536] text-white"
                 : "text-[#000000] hover:bg-[#d94536] hover:text-white"
@@ -301,21 +298,28 @@ const DesktopDropdown = ({
                 className="relative z-20 flex h-full cursor-pointer touch-manipulation items-center text-[12px] transition-colors"
             >
                 <div
-                    className={`flex h-[40px] items-center gap-1 rounded-md px-3 lg:px-[12px] ${isParentActive || open
+                    className={`group flex h-[40px] items-center gap-1 rounded-md px-3 lg:px-[12px] font-semibold
+      ${isParentActive || open
                             ? "bg-[#d94536] text-white"
-                            : "text-black [@media(hover:hover)_and_(pointer:fine)]:group-hover:bg-[#d94536] [@media(hover:hover)_and_(pointer:fine)]:group-hover:text-white"
-                        }
-                    `}
+                            : "text-black [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#d94536] [@media(hover:hover)_and_(pointer:fine)]:hover:text-white"
+                        }`}
                 >
                     <p>{title}</p>
-                    <Chevron rotate={open} active={isParentActive} />
+
+                    <svg
+                        className="h-3 w-3 transition-transform duration-200 group-hover:rotate-180"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                    >
+                        <path d="M5 7l5 6 5-6H5z" />
+                    </svg>
                 </div>
             </button>
 
             <div
-                className={`absolute left-0 top-full z-[100] min-w-38 flex-col rounded-lg bg-white shadow-lg ${open
-                        ? "flex"
-                        : "hidden [@media(hover:hover)_and_(pointer:fine)]:group-hover:flex"
+                className={`absolute left-0 top-full z-[100] min-w-38 flex-col rounded-lg bg-white shadow-lg p-2 ${open
+                    ? "flex"
+                    : "hidden [@media(hover:hover)_and_(pointer:fine)]:group-hover:flex"
                     }`}
             >
                 {items.map((item) => (
@@ -326,7 +330,7 @@ const DesktopDropdown = ({
                             setOpen(false);
                             onNavigate(item.path!);
                         }}
-                        className={`w-full cursor-pointer rounded-lg px-4 py-2 text-left text-[14px] transition-colors
+                        className={`w-full cursor-pointer rounded-lg px-4 py-2 text-left text-[14px] transition-colors font-semibold
                         ${active === item.label || item.path === pathname
                                 ? "bg-[#d94536] text-white"
                                 : "text-black hover:bg-[#d94536] hover:text-white"

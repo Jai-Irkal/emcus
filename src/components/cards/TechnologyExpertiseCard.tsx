@@ -29,7 +29,7 @@ const TechnologyExpertiseCard = ({
       {technologyExpertiseItem.data.map((item, index) => (
         <li
           key={index}
-          className="flex items-start gap-2 text-[14px] text-[#333]"
+          className="flex items-start gap-2 text-[14px] text-black font-medium"
         >
           <Image
             src={ArrowBullet}
