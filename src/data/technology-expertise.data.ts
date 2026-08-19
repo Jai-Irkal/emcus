@@ -28,7 +28,7 @@ export const TECHNOLOGY_EXPERTISE: TechnologyExpertise[] = [
     },
     {
         id:2,
-        title:"Mechnaical Design Services",
+        title:"Mechanical Design Services",
         image:MechanicalDesign,
         data:[
             "SolidWorks / Creo / Pro-E",

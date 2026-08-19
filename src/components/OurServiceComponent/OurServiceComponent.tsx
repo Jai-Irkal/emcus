@@ -31,7 +31,7 @@ const OurServiceComponent = ({
                     <Image
                         src={serviceItem.image}
                         alt={serviceItem.title}
-                        className="hidden h-auto w-full rounded-xl lg:block"
+                        className="hidden h-auto w-full lg:block"
                     />
                 </div>
             </div>
