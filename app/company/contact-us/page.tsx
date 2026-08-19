@@ -223,7 +223,7 @@ export default function Home() {
                                             alt="Send Icon"
                                             className="h-5 w-5"
                                         />
-                                        <span>Send Message</span>
+                                        <span className="font-bold">Send Message</span>
                                     </button>
 
                                     <a
@@ -235,7 +235,7 @@ export default function Home() {
                                             alt="Call Icon"
                                             className="h-5 w-5"
                                         />
-                                        <span>Call Now</span>
+                                        <span className="font-bold">Call Now</span>
                                     </a>
                                 </div>
 
@@ -791,6 +791,7 @@ export default function Home() {
                                             border
                                             border-gray-300
                                             bg-[#FBFBFB]
+                                            h-[180px]
                                             px-4
                                             py-3
                                             text-sm

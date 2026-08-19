@@ -14,7 +14,11 @@ const DifferenceCard = ({ item }: { item: Difference }) => {
                     />
                 </div>
 
-                <p className="font-bold">{item.title}</p>
+                <p
+                    className={`font-bold ${item.id === 7 || item.id === 8 ? "pr-13" : "pr-4"}`}
+                >
+                    {item.title}
+                </p>
             </div>
 
             <p className="text-[#64748B] mt-2 text-[14px] pr-5">

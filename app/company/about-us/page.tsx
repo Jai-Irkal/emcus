@@ -28,7 +28,7 @@ export default function AboutUs() {
           {/* Overlay Content */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
             <h1 className="text-white text-xl xl:text-4xl lg:text-4xl lg:font-medium font-normal xl:font-bold xl:px-0 px-4 lg:-mt-15 lg:px-20">
-              <span className="font-medium">Global Client Presence</span>
+              <span className="font-bold">Global Client Presence</span>
             </h1>
           </div>
         </div>

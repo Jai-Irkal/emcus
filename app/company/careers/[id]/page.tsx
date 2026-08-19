@@ -407,7 +407,7 @@ export default function JobDetails() {
 
                   <button
                     onClick={() => setActiveTab("applications")}
-                    className="bg-[#322986] text-white px-8 py-3 rounded-md font-semibold"
+                    className="cursor-pointer bg-[#322986] text-white px-8 py-3 rounded-md font-semibold"
                   >
                     Apply Now
                   </button>
@@ -481,7 +481,7 @@ export default function JobDetails() {
                         onClick={() =>
                           autofillInputRef.current?.click()
                         }
-                        className="cursor-pointer border-2 border-[#322986] text-[#322986] px-5 py-2 rounded-md hover:bg-[#322986] hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="font-bold cursor-pointer border-2 border-[#322986] text-[#322986] px-5 py-2 rounded-md hover:bg-[#322986] hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         {isAutofilling
                           ? "Reading..."
