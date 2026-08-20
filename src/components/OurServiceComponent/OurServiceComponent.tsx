@@ -39,11 +39,55 @@ const OurServiceComponent = ({
             {/* Data - Below image on mobile */}
             <div className={`order-2 w-full lg:order-1 lg:flex-1 ${serviceItem.id % 2 === 0 ? 'lg:-ml-5' : 'lg:pl-4'}`}>
                 <h2
-                    className={
-                        `hidden lg:block text-2xl lg:text-3xl font-bold text-[#E4312D] ${serviceItem.id % 2 === 0 ? '' : 'lg:pl-4'}`
-                    }
+                    className={`
+        hidden
+        lg:block
+        text-2xl
+        lg:text-3xl
+        font-bold
+        text-[#E4312D]
+        ${serviceItem.id % 2 === 0 ? '' : 'lg:pl-4'}
+    `}
                 >
-                    {serviceItem.title}
+                    {serviceItem.title ===
+                        "UI/UX DESIGN SERVICES (MOBILE/WEB/DESKTOP/EMBEDDED UI)" ? (
+                        <>
+                            UI/UX DESIGN SERVICES (MOBILE/<br />WEB/DESKTOP/
+                            EMBEDDED UI)
+                        </>
+                    ) : serviceItem.title ===
+                        "VERIFICATION & VALIDATION SERVICES (V&V)" ? (
+                        <>
+                            VERIFICATION & VALIDATION
+                            <br />
+                            SERVICES (V&V)
+                        </>
+                    ) : serviceItem.title ===
+                        "SOFTWARE DEVELOPMENT SERVICES (MOBILE/WEB/DESKTOP/CLOUD)" ? (
+                        <>
+                            SOFTWARE DEVELOPMENT
+                            <br />
+                            SERVICES (MOBILE/WEB/
+                            <br />
+                            DESKTOP/CLOUD)
+                        </>
+                    ) : serviceItem.title ===
+                        "CERTIFICATION SUPPORT/ STANDARDS EXPERTISE" ? (
+                        <>
+                            CERTIFICATION SUPPORT/
+                            <br />
+                            STANDARDS EXPERTISE
+                        </>
+                    ) : serviceItem.title ===
+                        "MECHANICAL INDUSTRIAL DESIGN (ID) SERVICES" ? (
+                        <>
+                            MECHANICAL INDUSTRIAL
+                            <br />
+                            DESIGN (ID) SERVICES
+                        </>
+                    ) : (
+                        serviceItem.title
+                    )}
                 </h2>
 
                 <div
