@@ -191,7 +191,7 @@ export default function Blogs() {
                   </p>
                 </div>
               ) : (
-                <div className="lg:h-full lg:overflow-y-auto lg:pr-3 lg:py-3 hide-scrollbar">
+                <div className="lg:h-full lg:overflow-y-auto lg:pr-3 lg:py-3 hide-scrollbar lg:px-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                     {filteredBlogs.map((blog) => (
                       <article
