@@ -223,7 +223,7 @@ export default function Home() {
                                             alt="Send Icon"
                                             className="h-5 w-5"
                                         />
-                                        <span className="font-bold">Send Message</span>
+                                        <span className="font-bold cursor-pointer">Send Message</span>
                                     </button>
 
                                     <a
@@ -301,7 +301,7 @@ export default function Home() {
                             {/* Phone */}
                             <a
                                 href="tel:+917022616214"
-                                className="flex min-h-[90px] items-center justify-start gap-3 rounded-[24px] bg-white px-4 py-4 shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-1"
+                                className="flex justify-center items-center min-h-[90px] items-center justify-start gap-3 rounded-[24px] bg-white px-4 py-4 shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-1"
                             >
                                 <div
                                     className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border-2 border-[#E4312D] bg-[#FFE3E2]"

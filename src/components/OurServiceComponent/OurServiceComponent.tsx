@@ -37,7 +37,7 @@ const OurServiceComponent = ({
             </div>
 
             {/* Data - Below image on mobile */}
-            <div className={`order-2 w-full lg:order-1 lg:flex-1 ${serviceItem.id % 2 === 0 ? '' : 'lg:pl-4'}`}>
+            <div className={`order-2 w-full lg:order-1 lg:flex-1 ${serviceItem.id % 2 === 0 ? 'lg:-ml-5' : 'lg:pl-4'}`}>
                 <h2
                     className={
                         `hidden lg:block text-2xl lg:text-3xl font-bold text-[#E4312D] ${serviceItem.id % 2 === 0 ? '' : 'lg:pl-4'}`
