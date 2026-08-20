@@ -94,7 +94,7 @@ const CustomPhoneInput = ({
                         disabled:cursor-not-allowed
                     "
                 >
-                    {React.createElement(flags[country])}
+                    {flags[country] && React.createElement(flags[country])}
 
                     <span className="text-sm font-semibold text-black">
                         +{getCountryCallingCode(country)}
@@ -189,9 +189,7 @@ const CustomPhoneInput = ({
                                         >
                                             {/* Flag */}
                                             <span className="flex h-5 w-7 shrink-0 items-center justify-center">
-                                                {React.createElement(
-                                                    Flag
-                                                )}
+                                                {flags[country] && React.createElement(flags[country])}
                                             </span>
 
                                             {/* Country Name */}
