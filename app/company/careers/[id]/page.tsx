@@ -416,9 +416,12 @@ export default function JobDetails() {
                     Click the APPLY button to upload your resume.
                     <br />
                     Alternatively, email your resume to{" "}
-                    <span className="text-[#E4312D] font-bold">
+                    <a
+                      href="mailto:career@emcus.co.in"
+                      className="text-[#E4312D] font-semibold hover:underline cursor-pointer"
+                    >
                       career@emcus.co.in
-                    </span>
+                    </a>
                   </p>
                 </>
               )}
@@ -537,11 +540,10 @@ export default function JobDetails() {
                           setEmail(e.target.value);
                         }}
                         disabled={isFormDisabled}
-                        className={`mt-2 w-full border rounded-md px-4 py-3 bg-[#FBFBFB] disabled:opacity-50 disabled:cursor-not-allowed ${
-                          email.trim() !== "" && !isEmailValid
+                        className={`mt-2 w-full border rounded-md px-4 py-3 bg-[#FBFBFB] disabled:opacity-50 disabled:cursor-not-allowed ${email.trim() !== "" && !isEmailValid
                             ? "border-[#E4312D]"
                             : "border-[#C1C1C1]"
-                        }`}
+                          }`}
                         placeholder="Enter Your Email"
                       />
                       {email.trim() !== "" && !isEmailValid && (
@@ -570,13 +572,11 @@ export default function JobDetails() {
                         }}
                         placeholder="00000 00000"
                         disabled={isFormDisabled}
-                        className={`phone-input bg-[#FBFBFB] ${
-                          isFormDisabled
+                        className={`phone-input bg-[#FBFBFB] ${isFormDisabled
                             ? "opacity-50 pointer-events-none"
                             : ""
-                        } ${
-                          phone && !isPhoneValid ? "!border-[#E4312D]" : ""
-                        }`}
+                          } ${phone && !isPhoneValid ? "!border-[#E4312D]" : ""
+                          }`}
                       />
                       {phone && !isPhoneValid && (
                         <p className="mt-1 text-[11px] text-[#E4312D]">
@@ -610,15 +610,13 @@ export default function JobDetails() {
                         }}
                         onDragLeave={() => setIsDragging(false)}
                         onDrop={handleDrop}
-                        className={`bg-[#FBFBFB] mt-2 rounded-lg h-48 flex items-center justify-center text-gray-500 flex-col gap-1 transition ${
-                          autofillFile || isFormDisabled
+                        className={`bg-[#FBFBFB] mt-2 rounded-lg h-48 flex items-center justify-center text-gray-500 flex-col gap-1 transition ${autofillFile || isFormDisabled
                             ? "opacity-50 cursor-not-allowed bg-gray-100"
                             : "cursor-pointer"
-                        } ${
-                          isDragging && !autofillFile && !isFormDisabled
+                          } ${isDragging && !autofillFile && !isFormDisabled
                             ? "bg-gray-50"
                             : ""
-                        }`}
+                          }`}
                         style={{
                           backgroundImage:
                             "linear-gradient(to right, #C1C1C1 60%, transparent 60%), linear-gradient(to right, #C1C1C1 60%, transparent 60%), linear-gradient(to bottom, #C1C1C1 60%, transparent 60%), linear-gradient(to bottom, #C1C1C1 60%, transparent 60%)",
@@ -693,10 +691,9 @@ export default function JobDetails() {
                         duration-300
                         disabled:cursor-not-allowed
                         disabled:opacity-50
-                        ${
-                          isSuccess
-                            ? "bg-green-600 hover:bg-green-600 cursor-default"
-                            : "bg-[#322986] hover:opacity-90 cursor-pointer disabled:hover:opacity-50"
+                        ${isSuccess
+                          ? "bg-green-600 hover:bg-green-600 cursor-default"
+                          : "bg-[#322986] hover:opacity-90 cursor-pointer disabled:hover:opacity-50"
                         }
                       `}
                     >
