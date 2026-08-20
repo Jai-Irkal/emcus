@@ -106,9 +106,12 @@ export default function Careers() {
           Click the APPLY button to upload your resume.
           <br />
           Alternatively, email your resume to{" "}
-          <span className="text-[#E4312D] font-semibold">
+          <a
+            href="mailto:career@emcus.co.in"
+            className="text-[#E4312D] font-semibold hover:underline cursor-pointer"
+          >
             career@emcus.co.in
-          </span>
+          </a>
         </p>
 
         <FooterComponent />
