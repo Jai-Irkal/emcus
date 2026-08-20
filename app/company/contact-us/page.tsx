@@ -16,8 +16,9 @@ import PurpleTelephone from "@/public/contact-us/purple-phone-icon.svg";
 
 import { useRef, useState } from "react";
 import PhoneInputWithCountrySelect, {
-    isValidPhoneNumber,
+    isValidPhoneNumber, getCountries, getCountryCallingCode
 } from "react-phone-number-input";
+import CustomPhoneInput from "@/src/components/CustomPhoneInput/CustomPhoneInput";
 
 const emptyFormData = {
     firstName: "",
@@ -289,23 +290,36 @@ export default function Home() {
                         </p>
 
                         {/* Contact Cards */}
-                        <div className="
-                            mt-6
-                            grid
-                            grid-cols-1
-                            sm:grid-cols-2
-                            lg:grid-cols-4
-                            gap-4
-                        ">
-
+                        <div
+                            className="
+        mt-6
+        grid
+        grid-cols-1
+        sm:grid-cols-2
+        lg:grid-cols-4
+        gap-4
+    "
+                        >
                             {/* Phone */}
                             <a
                                 href="tel:+917022616214"
-                                className="flex justify-center items-center min-h-[90px] items-center justify-start gap-3 rounded-[24px] bg-white px-4 py-4 shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-1"
+                                className="
+            flex
+            min-h-[90px]
+            items-center
+            justify-center
+            gap-3
+            rounded-[24px]
+            bg-white
+            px-4
+            py-4
+            shadow-[0_8px_24px_rgba(0,0,0,0.12)]
+            transition-all
+            duration-300
+            hover:-translate-y-1
+        "
                             >
-                                <div
-                                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border-2 border-[#E4312D] bg-[#FFE3E2]"
-                                >
+                                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border-[1.5px] border-[#E4312D] bg-[#FFE3E2]">
                                     <Image
                                         src={TelephoneIcon}
                                         alt="Telephone"
@@ -313,9 +327,7 @@ export default function Home() {
                                     />
                                 </div>
 
-                                <span
-                                    className="break-all text-sm font-medium text-[#000000]"
-                                >
+                                <span className="break-all text-md font-semibold text-[#000000]">
                                     +91 70226 16214
                                 </span>
                             </a>
@@ -323,11 +335,23 @@ export default function Home() {
                             {/* Email */}
                             <a
                                 href="mailto:info@emcus.co.in"
-                                className="flex min-h-[90px] items-center justify-start gap-3 rounded-[24px] bg-white px-4 py-4 shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-1"
+                                className="
+            flex
+            min-h-[90px]
+            items-center
+            justify-center
+            gap-3
+            rounded-[24px]
+            bg-white
+            px-4
+            py-4
+            shadow-[0_8px_24px_rgba(0,0,0,0.12)]
+            transition-all
+            duration-300
+            hover:-translate-y-1
+        "
                             >
-                                <div
-                                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border-2 border-[#5C1BAB] bg-[#F6EEFF]"
-                                >
+                                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border-[1.5px] border-[#5C1BAB] bg-[#F6EEFF]">
                                     <Image
                                         src={MailIcon}
                                         alt="Email"
@@ -335,10 +359,8 @@ export default function Home() {
                                     />
                                 </div>
 
-                                <span
-                                    className="break-all text-sm font-medium text-[#000000]"
-                                >
-                                    info@emcus.co.in
+                                <span className="break-all text-md font-semibold text-[#000000]">
+                                    Info@emcus.co.in
                                 </span>
                             </a>
 
@@ -347,11 +369,23 @@ export default function Home() {
                                 href="https://maps.app.goo.gl/E2YRgug32vX9vqeM7"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex min-h-[90px] items-center justify-start gap-3 rounded-[24px] bg-white px-4 py-4 shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-1 md:col-span-1"
+                                className="
+            flex
+            min-h-[90px]
+            items-center
+            justify-center
+            gap-3
+            rounded-[24px]
+            bg-white
+            px-4
+            py-4
+            shadow-[0_8px_24px_rgba(0,0,0,0.12)]
+            transition-all
+            duration-300
+            hover:-translate-y-1
+        "
                             >
-                                <div
-                                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border-2 border-[#077A3D] bg-[#E1FAE4]"
-                                >
+                                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border-[1.5px] border-[#077A3D] bg-[#E1FAE4]">
                                     <Image
                                         src={PinIcon}
                                         alt="Location"
@@ -359,9 +393,7 @@ export default function Home() {
                                     />
                                 </div>
 
-                                <span
-                                    className="text-sm font-medium leading-5 text-[#000000]"
-                                >
+                                <span className="text-sm font-semibold leading-5 text-[#000000]">
                                     Novel MSR Park, 93/9, Varthur Main Road,
                                     Munnekolalu, Marathalli, Bengaluru 560037,
                                     India
@@ -373,12 +405,26 @@ export default function Home() {
                                 href="https://www.linkedin.com/company/emcustechnologysolutions/posts/?feedView=all"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex min-h-[90px] flex-col items-center justify-center gap-2 rounded-[24px] bg-white px-4 py-4 shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-1"
+                                className="
+            flex
+            min-h-[90px]
+            flex-col
+            items-center
+            justify-center
+            gap-2
+            rounded-[24px]
+            bg-white
+            px-4
+            py-4
+            text-center
+            shadow-[0_8px_24px_rgba(0,0,0,0.12)]
+            transition-all
+            duration-300
+            hover:-translate-y-1
+        "
                             >
-                                <div className="flex items-center gap-3">
-                                    <div
-                                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border-2 border-[#0093D5] bg-[#E1F5FE]"
-                                    >
+                                <div className="flex items-center justify-center gap-3">
+                                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border-[1.5px] border-[#0093D5] bg-[#E1F5FE]">
                                         <Image
                                             src={Linkedin}
                                             alt="LinkedIn"
@@ -386,18 +432,15 @@ export default function Home() {
                                         />
                                     </div>
 
-                                    <span
-                                        className="text-sm font-medium text-[#64748B]"
-                                    >
+                                    <span className="text-md font-semibold text-[#64748B]">
                                         Linkedin
                                     </span>
                                 </div>
 
-                                <p className="text-sm font-medium">
+                                <p className="text-md font-semibold">
                                     Connect With Us
                                 </p>
                             </a>
-
                         </div>
                     </div>
                 </section>
@@ -644,21 +687,22 @@ export default function Home() {
                                         onChange={handleChange}
                                         disabled={isFormDisabled}
                                         className="
-                                            w-full
-                                            rounded-md
-                                            border
-                                            border-gray-300
-                                            bg-[#FBFBFB]
-                                            px-4
-                                            py-3
-                                            text-sm
-                                            sm:text-base
-                                            focus:outline-none
-                                            focus:ring-2
-                                            focus:ring-[#322986]
-                                            disabled:opacity-50
-                                            disabled:cursor-not-allowed
-                                        "
+        w-full
+        rounded-md
+        border
+        border-gray-300
+        bg-[#FBFBFB]
+        px-4
+        py-3
+        text-sm
+        sm:text-base
+        placeholder:text-[#64748B]
+        focus:outline-none
+        focus:ring-2
+        focus:ring-[#322986]
+        disabled:opacity-50
+        disabled:cursor-not-allowed
+    "
                                     />
                                 </div>
 
@@ -682,24 +726,24 @@ export default function Home() {
                                         onChange={handleChange}
                                         disabled={isFormDisabled}
                                         className={`
-                                            w-full
-                                            rounded-md
-                                            border
-                                            bg-[#FBFBFB]
-                                            px-4
-                                            py-3
-                                            text-sm
-                                            sm:text-base
-                                            focus:outline-none
-                                            focus:ring-2
-                                            disabled:opacity-50
-                                            disabled:cursor-not-allowed
-                                            ${formData.email.trim() !== "" &&
-                                                !isEmailValid
+    w-full
+    rounded-md
+    border
+    bg-[#FBFBFB]
+    px-4
+    py-3
+    text-sm
+    sm:text-base
+    placeholder:text-[#64748B]
+    focus:outline-none
+    focus:ring-2
+    disabled:opacity-50
+    disabled:cursor-not-allowed
+    ${formData.email.trim() !== "" && !isEmailValid
                                                 ? "border-[#E4312D] focus:ring-[#E4312D]"
                                                 : "border-gray-300 focus:ring-[#322986]"
                                             }
-                                        `}
+`}
                                     />
                                     {formData.email.trim() !== "" && !isEmailValid && (
                                         <p className="text-[11px] text-[#E4312D]">
@@ -720,26 +764,14 @@ export default function Home() {
                                         </span>
                                     </label>
 
-                                    <PhoneInputWithCountrySelect
-                                        international
+                                    <CustomPhoneInput
                                         defaultCountry="IN"
                                         value={phone}
                                         onChange={handlePhoneChange}
                                         placeholder="00000 00000"
                                         disabled={isFormDisabled}
-                                        className={`phone-input bg-[#FBFBFB] ${isFormDisabled
-                                                ? "opacity-50 pointer-events-none"
-                                                : ""
-                                            } ${phone && !isPhoneValid
-                                                ? "!border-[#E4312D]"
-                                                : ""
-                                            }`}
+                                        className={`${isFormDisabled ? "opacity-50 pointer-events-none" : ""} ${phone && !isPhoneValid ? "!border-[#E4312D]" : ""}`}
                                     />
-                                    {phone && !isPhoneValid && (
-                                        <p className="text-[11px] text-[#E4312D]">
-                                            Please enter a valid phone number.
-                                        </p>
-                                    )}
                                 </div>
 
                                 {/* Subject */}
