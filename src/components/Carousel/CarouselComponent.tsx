@@ -42,7 +42,7 @@ export default function CarouselComponent() {
     const item = Carousel[active];
 
     return (
-        <section className="relative w-full h-[500px] md:h-[600px] lg:h-[650px] overflow-hidden">
+        <section className="relative w-full h-[500px] md:h-[600px] lg:h-[570px] overflow-hidden">
             {/* Background */}
             <Image
                 src={item.image}
@@ -55,7 +55,7 @@ export default function CarouselComponent() {
             <div className="absolute inset-0 bg-black/40" />
 
             {/* Content */}
-            <div className="absolute inset-0 flex items-center justify-center lg:-mt-12 -mt-32">
+            <div className="absolute inset-0 flex items-center justify-center lg:-mt-12 -mt-32 2xl:mt-16 lg:bottom-30">
 
                 {/* Left Button */}
                 <button
@@ -85,12 +85,12 @@ export default function CarouselComponent() {
                     <div className="w-full max-w-4xl mx-auto h-px bg-white/40 my-4 lg:my-5" />
 
                     <p
-                        className={`mx-auto text-white font-normal leading-snug
+                        className={`mx-auto text-white font-semibold leading-snug
           text-base sm:text-lg md:text-2xl lg:text-[34px]
           ${item.id === 1
-                                ? "max-w-xs sm:max-w-lg md:max-w-3xl lg:max-w-6xl"
+                                ? "max-w-xs sm:max-w-lg md:max-w-3xl lg:max-w-3xl"
                                 : "max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl"
-                            }`}
+                            } px-3`}
                     >
                         {item.description}
                     </p>

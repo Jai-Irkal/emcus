@@ -29,7 +29,7 @@ export default function Careers() {
       <main className="flex min-h-screen w-full flex-col bg-white pt-[80px] md:pt-[90px]">
         <HeaderComponent active="CAREERS" />
 
-        <div className="relative h-[300px] w-full lg:h-[600px] 2xl:h-[600px]">
+        <div className="relative h-[300px] w-full lg:h-[360px] 2xl:h-[600px]">
           <Image
             src={CareersBanner}
             alt="Careers Banner"
@@ -81,7 +81,7 @@ export default function Careers() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search Jobs"
+              placeholder="Search for Jobs"
               className="w-full bg-transparent text-base text-[#64748B] outline-none placeholder:text-[#64748B] text-[14px] md:text-lg"
             />
           </div>

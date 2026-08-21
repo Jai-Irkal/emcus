@@ -11,7 +11,7 @@ export default function WhatWeDo() {
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans">
       <main className="flex min-h-screen w-full flex-col bg-white pt-[80px] md:pt-[90px]">
         <HeaderComponent active="WHAT WE DO" />
-        <div className="relative w-full h-[300px] lg:h-[600px] 2xl:h-[600px] 2xl:bottom-0">
+        <div className="relative w-full h-[300px] lg:h-[480px] 2xl:h-[600px] 2xl:bottom-0">
           <Image
             src={Banner}
             alt="Banner"
@@ -45,7 +45,7 @@ export default function WhatWeDo() {
 
 
         <div className="py-10 2xl:py-30 lg:pt-16 lg:pb-0">
-          <div className="mx-auto flex w-full max-w-7xl flex-col px-6 sm:px-8 lg:px-0 md:gap-10">
+          <div className="mx-auto flex w-full max-w-7xl flex-col px-6 sm:px-8 lg:px-0 md:gap-10 lg:gap-0">
 
             {OUR_SERVICES.map((item) => {
               return (

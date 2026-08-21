@@ -71,7 +71,7 @@ export default function CoreServicesScrollSection() {
     <section
       ref={sectionRef}
       style={{ height: isDesktop ? `${pairs.length * 90}vh` : 'auto' }}
-      className="relative w-full"
+      className="relative w-full 2xl:z-200"
     >
       {/* Outer Wrapper */}
       <div
@@ -105,7 +105,7 @@ export default function CoreServicesScrollSection() {
           </div>
         ) : (
           /* --- DESKTOP VIEW (>= lg) --- */
-          <div className="w-full grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] items-center flex-grow max-h-[calc(100vh-160px)]">
+          <div className="w-full 2xl:-mt-30  grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] items-center flex-grow max-h-[calc(100vh-160px)]">
             
             {/* Left Column: Stacked 2-card pairs */}
             <div className="pl-10 pr-8 relative h-[400px] flex items-center justify-center">
