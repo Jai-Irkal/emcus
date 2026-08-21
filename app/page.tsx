@@ -44,18 +44,18 @@ export default function Home() {
         {/* Pin / Sticky Section Container */}
         <CoreServicesScrollSection/>
 
-        <div className="mt-10 2xl:-mt-0 2xl:z-200 2xl:-mt-25">
+        <div className="mt-6 2xl:-mt-0 2xl:z-200 2xl:-mt-25">
           <h1 className="text-[30px] text-[#d94536] font-bold text-center w-full">WHY EMCUS?</h1>
-          <div className="flex flex-col md:flex-row justify-center gap-0 mt-10">
+          <div className="flex flex-col md:flex-row justify-center gap-0 mt-3">
 
             {WHY_EMCUS.map((item) => {
               return (
                 <div key={item.id} className={`${item.id % 2 !== 0 ? 'bg-[#E4312D]' : 'bg-[#0B2C71]'} text-center md:text-left px-8 py-10 flex-1`}>
-                  <h2 className="text-[20px] font-bold text-center text-white">
+                  <h2 className="text-[24px] font-bold text-center text-white">
                     {item.title}
                   </h2>
 
-                  <p className="text-[18px] mt-6 text-white">
+                  <p className="text-[18px] mt-3 font-semibold text-white">
                     {item.description}
                   </p>
                 </div>

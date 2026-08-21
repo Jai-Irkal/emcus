@@ -19,7 +19,7 @@ const FooterComponent = () => {
     };
 
     return (
-        <footer className="bg-[#322986] text-white py-16 px-6">
+        <footer className="bg-[#322986] text-white py-8 px-6">
 
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-12 items-start">
 
