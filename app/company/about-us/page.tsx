@@ -33,12 +33,12 @@ export default function AboutUs() {
           </div>
         </div>
         <h1 className="text-[25px] text-[#E4312D] font-bold text-left w-full mt-8 px-10">ABOUT EMCUS</h1>
-        <div className="w-full flex justify-center py-5">
+        <div className="w-full flex justify-center mt-1">
           <span className="px-10 text-justify lg:text-[18px] text-[#64748B] font-medium">
             EMCUS Technology Solutions is a specialized fire safety engineering partner for OEMs, delivering end-to-end design and development of fire & safety systems. With certification-aware engineering and expertise in UL and EN-54 readiness, we support customers throughout the product development and certification journey, accelerating the delivery of reliable, standards-ready fire safety products.
           </span>
         </div>
-        <div className="lg:px-10 px-4">
+        <div className="lg:px-10 px-4 mt-6">
           <div className="flex flex-col md:flex-row justify-center items-stretch gap-6">
             <div className="w-full rounded-2xl border-[#E2E2E2] bg-[#D8E0F7] border-1 py-6 px-6 shadow-l">
               <div className="flex items-center gap-4">
