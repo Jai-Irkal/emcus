@@ -323,11 +323,17 @@ const DesktopDropdown = ({
                     <p>{title}</p>
 
                     <svg
-                        className="h-3 w-3 transition-transform duration-200 group-hover:rotate-180"
+                        className="h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180"
                         viewBox="0 0 20 20"
-                        fill="currentColor"
+                        fill="none"
                     >
-                        <path d="M5 7l5 6 5-6H5z" />
+                        <path
+                            d="M5 7.5L10 12.5L15 7.5"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        />
                     </svg>
                 </div>
             </button>
@@ -451,6 +457,12 @@ const Chevron = ({
         viewBox="0 0 20 20"
         fill="currentColor"
     >
-        <path d="M5 7l5 6 5-6H5z" />
+        <path
+            d="M5 7.5L10 12.5L15 7.5"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
     </svg>
 );
