@@ -168,10 +168,10 @@ const FooterComponent = () => {
                             />
 
                             <a
-                                href="mailto:info@emcus.com"
+                                href="mailto:info@emcus.co.in"
                                 className="hover:underline"
                             >
-                                info@emcus.com
+                                info@emcus.co.in
                             </a>
                         </li>
 
