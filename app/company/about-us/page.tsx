@@ -69,7 +69,7 @@ export default function AboutUs() {
                 </div>
                 <h1 className="text-center text-[28px] font-bold text-black">Our Mission</h1>
               </div>
-              <div className="mt-4 relative px-0 lg:pr-12 text-left lg:text-left font-semibold">
+              <div className="mt-4 relative px-0 lg:pr-16 text-left lg:text-left font-semibold">
                 <p>Helping fire and safety businesses build safer, smarter, and more connected products through world-class engineering.</p>
               </div>
             </div>
