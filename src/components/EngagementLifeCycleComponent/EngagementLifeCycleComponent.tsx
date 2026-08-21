@@ -20,7 +20,7 @@ const EngagementLifeCycleCard = ({
             className="w-14 h-14 object-contain"
           />
 
-          <h2 className="text-white text-[30px] font-semibold mt-0">
+          <h2 className="text-white text-[30px] font-bold mt-0">
             {item.title}
           </h2>
 
@@ -33,7 +33,7 @@ const EngagementLifeCycleCard = ({
         <div className="grid grid-cols-1 md:grid-cols-2 items-center">
           {/* Column One */}
           <div className="px-8 py-8">
-            <h3 className="text-[#E4312D] text-[28px] font-semibold mb-5">
+            <h3 className="text-[#E4312D] text-[28px] font-bold mb-5">
               {item.one.title}
             </h3>
 
@@ -59,7 +59,7 @@ const EngagementLifeCycleCard = ({
           <div className="relative px-8 py-8">
             <div className="hidden md:block absolute left-0 top-6 bottom-6 w-px bg-gray-200" />
 
-            <h3 className="text-[#E4312D] text-[28px] font-semibold mb-5">
+            <h3 className="text-[#E4312D] text-[28px] font-bold mb-5">
               {item.two.title}
             </h3>
 

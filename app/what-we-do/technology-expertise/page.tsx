@@ -13,7 +13,7 @@ const page = () => {
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans">
       <main className="flex min-h-screen w-full flex-col bg-white pt-[80px] md:pt-[90px]">
         <HeaderComponent active="WHAT WE DO" />
-        <div className="relative w-full h-[300px] lg:h-[600px] 2xl:h-[600px]">
+        <div className="relative w-full h-[300px] lg:h-[480px] 2xl:h-[600px]">
           <Image
             src={Banner}
             alt="Banner"

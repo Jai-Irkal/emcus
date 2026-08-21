@@ -434,7 +434,7 @@ export default function JobDetails() {
                       AUTOFILL FROM RESUME
                   ======================================== */}
 
-                  <div className="border rounded-xl p-5 flex justify-between items-center bg-[#FBFBFB]">
+                  <div className="border rounded-xl p-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between bg-[#FBFBFB]">
 
                     <div>
 
@@ -481,10 +481,24 @@ export default function JobDetails() {
                       <button
                         type="button"
                         disabled={isFormDisabled}
-                        onClick={() =>
-                          autofillInputRef.current?.click()
-                        }
-                        className="font-bold cursor-pointer border-[1.5px] border-[#322986] text-[#322986] px-5 py-2 rounded-md hover:bg-[#322986] hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                        onClick={() => autofillInputRef.current?.click()}
+                        className="
+        w-full
+        sm:w-auto
+        cursor-pointer
+        rounded-md
+        border-[1.5px]
+        border-[#322986]
+        px-5
+        py-2
+        font-bold
+        text-[#322986]
+        transition-colors
+        hover:bg-[#322986]
+        hover:text-white
+        disabled:cursor-not-allowed
+        disabled:opacity-50
+    "
                       >
                         {isAutofilling
                           ? "Reading..."
@@ -541,8 +555,8 @@ export default function JobDetails() {
                         }}
                         disabled={isFormDisabled}
                         className={`mt-2 w-full border rounded-md px-4 py-3 bg-[#FBFBFB] disabled:opacity-50 disabled:cursor-not-allowed ${email.trim() !== "" && !isEmailValid
-                            ? "border-[#E4312D]"
-                            : "border-[#C1C1C1]"
+                          ? "border-[#E4312D]"
+                          : "border-[#C1C1C1]"
                           }`}
                         placeholder="Enter Your Email"
                       />
@@ -573,8 +587,8 @@ export default function JobDetails() {
                         placeholder="00000 00000"
                         disabled={isFormDisabled}
                         className={`phone-input bg-[#FBFBFB] ${isFormDisabled
-                            ? "opacity-50 pointer-events-none"
-                            : ""
+                          ? "opacity-50 pointer-events-none"
+                          : ""
                           } ${phone && !isPhoneValid ? "!border-[#E4312D]" : ""
                           }`}
                       />
@@ -611,8 +625,8 @@ export default function JobDetails() {
                         onDragLeave={() => setIsDragging(false)}
                         onDrop={handleDrop}
                         className={`bg-[#FBFBFB] mt-2 rounded-lg h-48 flex items-center justify-center text-gray-500 flex-col gap-1 transition ${autofillFile || isFormDisabled
-                            ? "opacity-50 cursor-not-allowed bg-gray-100"
-                            : "cursor-pointer"
+                          ? "opacity-50 cursor-not-allowed bg-gray-100"
+                          : "cursor-pointer"
                           } ${isDragging && !autofillFile && !isFormDisabled
                             ? "bg-gray-50"
                             : ""

@@ -129,7 +129,7 @@ export default function Home() {
 
                 <HeaderComponent active="CONTACT US" />
 
-                <section className="relative w-full h-[520px] sm:h-[560px] md:h-[600px] lg:h-[650px] overflow-hidden">
+                <section className="relative w-full h-[520px] sm:h-[560px] md:h-[600px] lg:h-[480px] overflow-hidden">
                     <Image
                         src={ContactUsBanner}
                         alt="Contact Us Banner"

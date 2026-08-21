@@ -29,13 +29,13 @@ export default function HowWeWork() {
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans">
       <main className="flex min-h-screen w-full flex-col bg-white pt-[80px] md:pt-[90px]">
         <HeaderComponent active="HOW WE WORK" />
-        <div className="relative w-full h-[300px] lg:h-[600px] 2xl:h-[600px] 2xl:bottom-0">
+        <div className="relative w-full h-[300px] lg:h-[480px] 2xl:h-[600px] 2xl:bottom-0">
           <Image
             src={Banner}
             alt="Banner"
             fill
             priority
-            className="object-cover"
+            className="object-cover object-top"
           />
 
           <div className="absolute inset-0 bg-black/30" />
@@ -73,33 +73,39 @@ export default function HowWeWork() {
               </div>
               <div className="mt-4 relative">
                 <ul className=" space-y-2 text-[18px]">
-                  <div className="flex">
-                    <div>
+                  <div className="flex items-start gap-1">
+                    <div className="shrink-0 pt-0.5">
                       <Image
-                        src={BlueArrowBullet} alt={""} className="h-5 w-5" />
+                        src={BlueArrowBullet}
+                        alt=""
+                        className="h-5 w-5 scale-100"
+                      />
                     </div>
-                    <li className="-mt-1 lg:mt-0 text-[15px] lg:text-[16px] font-medium">Embed seamlessly into your customer's ecosystem and toolchain.</li>
+
+                    <li className="text-[15px] font-medium lg:text-[16px]">
+                      Embed seamlessly into your customer's ecosystem and toolchain.
+                    </li>
                   </div>
-                  <div className="flex pr-8">
-                    <div>
+                  <div className="flex items-start gap-1">
+                    <div className="shrink-0 pt-0.5">
                       <Image
                         src={BlueArrowBullet} alt={""} className="h-5 w-5" />
                     </div>
-                    <li className="-mt-1 text-[15px] lg:mt-0 lg:text-[16px] font-medium">Lean team structure with a single-thread of accountability.</li>
+                    <li className="text-[15px] lg:mt-0 lg:text-[16px] font-medium lg:pr-4">Lean team structure with a single-thread of accountability.</li>
                   </div>
-                  <div className="flex">
-                    <div>
+                  <div className="flex items-start gap-1">
+                    <div className="shrink-0 pt-0.5">
                       <Image
                         src={BlueArrowBullet} alt={""} className="h-5 w-5" />
                     </div>
-                    <li className="-mt-1 text-[15px] lg:mt-0 lg:text-[16px] font-medium">Deep domain literacy in fire & safety, IoT and regulated industries.</li>
+                    <li className="text-[15px] lg:mt-0 lg:text-[16px] font-medium">Deep domain literacy in fire & safety, IoT and regulated industries.</li>
                   </div>
-                  <div className="flex">
-                    <div>
+                  <div className="flex items-start gap-1">
+                    <div className="shrink-0 pt-0.5">
                       <Image
                         src={BlueArrowBullet} alt={""} className="h-5 w-5" />
                     </div>
-                    <li className="-mt-1 text-[15px] lg:mt-0 lg:text-[16px] font-medium">Hassle-free engagement — predictable cadence, fewer surprises.</li>
+                    <li className="text-[15px] lg:mt-0 lg:text-[16px] font-medium">Hassle-free engagement — predictable cadence, fewer surprises.</li>
                   </div>
                 </ul>
               </div>
@@ -117,29 +123,29 @@ export default function HowWeWork() {
               </div>
               <div className="mt-4 relative pr-10">
                 <ul className=" space-y-2 text-[18px]">
-                  <div className="flex">
-                    <div>
+                  <div className="flex items-start gap-1">
+                    <div className="shrink-0 pt-0.5">
                       <Image
                         src={RedArrow} alt={""} className="h-5 w-5" />
                     </div>
-                    <li className="-mt-1 text-[15px] lg:mt-0 lg:text-[16px] font-medium">Cross-disciplinary expertise: firmware, cloud, mobile and QA.</li>
+                    <li className="text-[15px] lg:mt-0 lg:text-[16px] font-medium">Cross-disciplinary expertise: firmware, cloud, mobile and QA.</li>
                   </div>
-                  <div className="flex">
-                    <div>
+                  <div className="flex items-start gap-1">
+                    <div className="shrink-0 pt-0.5">
                       <Image
                         src={RedArrow} alt={""} className="h-5 w-5" />
                     </div>
                     <li className="-mt-1 text-[15px] lg:mt-0 lg:text-[16px] font-medium">Disciplined processes paired with modern tooling.</li>
                   </div>
-                  <div className="flex">
-                    <div>
+                  <div className="flex items-start gap-1">
+                    <div className="shrink-0 pt-0.5">
                       <Image
                         src={RedArrow} alt={""} className="h-5 w-5" />
                     </div>
                     <li className="-mt-1 text-[15px] lg:mt-0 lg:text-[16px] font-medium">Attention to the small details that make systems robust.</li>
                   </div>
-                  <div className="flex">
-                    <div>
+                  <div className="flex items-start gap-1">
+                    <div className="shrink-0 pt-0.5">
                       <Image
                         src={RedArrow} alt={""} className="h-5 w-5" />
                     </div>

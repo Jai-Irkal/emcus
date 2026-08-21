@@ -235,6 +235,9 @@ export default HeaderComponent;
 
 /* ---------------- Desktop Components ---------------- */
 
+const NAV_ACTIVE_CLASS = "bg-[#E4312D] text-white";
+const NAV_INACTIVE_CLASS = "text-black hover:text-[#E4312D]";
+
 const NavButton = ({
     label,
     path,
@@ -248,11 +251,8 @@ const NavButton = ({
 }) => (
     <button
         onClick={() => onNavigate(path)}
-        className={`h-[40px] rounded-md px-8 lg:px-[12px] 2xl:px-4 flex items-center text-[12px] transition-colors font-semibold
-        ${active === label
-                ? "bg-[#d94536] text-white"
-                : "text-[#000000] hover:bg-[#d94536] hover:text-white"
-            } cursor-pointer`}
+        className={`h-[40px] rounded-md px-8 lg:px-[12px] 2xl:px-4 flex items-center text-[12px] transition-colors font-semibold cursor-pointer
+        ${active === label ? NAV_ACTIVE_CLASS : NAV_INACTIVE_CLASS}`}
     >
         {label}
     </button>
@@ -317,11 +317,8 @@ const DesktopDropdown = ({
                 className="relative z-20 flex h-full cursor-pointer touch-manipulation items-center text-[12px] transition-colors"
             >
                 <div
-                    className={`group flex h-[40px] items-center gap-1 rounded-md px-3 lg:px-[12px] font-semibold
-      ${isParentActive || open
-                            ? "bg-[#d94536] text-white"
-                            : "text-black [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#d94536] [@media(hover:hover)_and_(pointer:fine)]:hover:text-white"
-                        }`}
+                    className={`group flex h-[40px] items-center gap-1 rounded-md px-3 lg:px-[12px] font-semibold transition-colors
+      ${isParentActive || open ? NAV_ACTIVE_CLASS : NAV_INACTIVE_CLASS}`}
                 >
                     <p>{title}</p>
 
@@ -351,8 +348,8 @@ const DesktopDropdown = ({
                         }}
                         className={`w-full cursor-pointer rounded-lg px-4 py-2 text-left text-[14px] transition-colors font-semibold
                         ${active === item.label || item.path === pathname
-                                ? "bg-[#d94536] text-white"
-                                : "text-black hover:bg-[#d94536] hover:text-white"
+                                ? NAV_ACTIVE_CLASS
+                                : NAV_INACTIVE_CLASS
                             }`}
                     >
                         {item.label}
@@ -379,11 +376,8 @@ const MobileItem = ({
 }) => (
     <button
         onClick={() => onNavigate(path)}
-        className={`block w-full text-left px-6 py-3 font-bold text-[14px]
-      ${active === title
-                ? "bg-[#d94536] text-white"
-                : "text-black hover:bg-[#d94536] hover:text-white"
-            }`}
+        className={`block w-full text-left px-6 py-3 font-bold text-[14px] transition-colors
+      ${active === title ? NAV_ACTIVE_CLASS : NAV_INACTIVE_CLASS}`}
     >
         {title}
     </button>
@@ -412,11 +406,8 @@ const MobileDropdown = ({
         <div>
             <button
                 onClick={toggle}
-                className={`w-full flex justify-between items-center px-6 py-3 font-bold text-[14px]
-          ${isParentActive
-                        ? "bg-[#d94536] text-white"
-                        : "text-black hover:bg-[#d94536] hover:text-white"
-                    }`}
+                className={`w-full flex justify-between items-center px-6 py-3 font-bold text-[14px] transition-colors
+          ${isParentActive || isOpen ? NAV_ACTIVE_CLASS : NAV_INACTIVE_CLASS}`}
             >
                 {title}
                 <Chevron rotate={isOpen} />
@@ -430,10 +421,10 @@ const MobileDropdown = ({
                     <button
                         key={item.label}
                         onClick={() => onNavigate(item.path!)}
-                        className={`block w-full text-left pl-10 pr-6 py-2 text-[14px]
+                        className={`block w-full text-left pl-10 pr-6 py-2 text-[14px] transition-colors
               ${active === item.label
-                                ? "bg-[#d94536] text-white"
-                                : "text-black font-semibold hover:bg-[#d94536] hover:text-white"
+                                ? NAV_ACTIVE_CLASS
+                                : `${NAV_INACTIVE_CLASS} font-semibold`
                             }`}
                     >
                         {item.label}

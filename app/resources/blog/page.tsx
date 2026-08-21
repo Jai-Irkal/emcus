@@ -89,7 +89,7 @@ export default function Blogs() {
 
   // Featured posts
   const featuredBlogs = BLOGS.filter((blog) =>
-    [2, 3, 4].includes(blog.id)
+    [1, 2, 3, 4].includes(blog.id)
   );
 
   return (
@@ -183,7 +183,7 @@ export default function Blogs() {
             {/* =======================================================
                 LEFT COLUMN - BLOGS
                 ======================================================= */}
-            <section className="lg:col-span-8 lg:h-[420px]">
+            <section className="lg:col-span-8 lg:h-[460px]">
               {filteredBlogs.length === 0 ? (
                 <div className="flex items-center justify-center py-16">
                   <p className="text-[#64748B] text-base">

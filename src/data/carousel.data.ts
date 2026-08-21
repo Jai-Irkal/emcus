@@ -1,4 +1,4 @@
-import One from "@/public/carousel/one.svg";
+import One from "@/public/banners/home-banner.svg";
 import Two from "@/public/carousel/two.svg";
 import Three from "@/public/carousel/three.svg";
 import Four from "@/public/carousel/four.svg";
