@@ -25,9 +25,10 @@ export default function WhatWeDo() {
 
           {/* Overlay Content */}
           <div className="absolute inset-0 z-10 flex items-center justify-center px-4 sm:px-6">
-            <div className="flex max-w-5xl flex-col items-center text-center">
+            <div className="flex max-w-5xl flex-col items-center text-center animate-fade-in-up">
               <h1 className="px-2 text-lg font-medium leading-tight text-white sm:text-2xl lg:px-20 lg:text-4xl">
-                <span className='font-bold'>EFFICIENT</span> AND <span className='font-bold'>HIGH-QUALITY</span>
+                <span className="font-bold">EFFICIENT</span> AND{" "}
+                <span className="font-bold">HIGH-QUALITY</span>
                 <br className="hidden sm:block" />
                 FIRMWARE/SOFTWARE/TESTING SERVICES
               </h1>

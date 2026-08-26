@@ -6,6 +6,7 @@ import OurMission from "@/public/about-us/OurMission.svg";
 import OurVision from "@/public/about-us/OurVision.svg";
 import { WHAT_MAKES_EMCUS_DIFFERENT } from "@/src/data/emcus-different.data";
 import DifferenceCard from "@/src/components/cards/DifferenceCard";
+import VivekBanner from "@/public/vivek/AboutUs.webp"
 
 export default function AboutUs() {
   return (
@@ -13,9 +14,9 @@ export default function AboutUs() {
       <main className="flex min-h-screen w-full flex-col bg-white pt-[80px] md:pt-[90px]">
         <HeaderComponent active="ABOUT US" />
         <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[600px] 2xl:h-[600px] 2xl:bottom-0 overflow-hidden bg-[#011E62]">
-          <div className="relative h-full w-full origin-[72%_48%] animate-ken-burns-zoom-out">
+          <div className="relative h-full w-full origin-[72%_48%]">
             <Image
-              src={GlobalPresence}
+              src={VivekBanner}
               alt="Home Banner"
               fill
               priority
@@ -26,10 +27,25 @@ export default function AboutUs() {
           <div className="absolute inset-0 bg-black/30"></div>
 
           {/* Overlay Content */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
-            <h1 className="text-white text-xl xl:text-4xl lg:text-4xl lg:font-medium font-normal xl:font-bold xl:px-0 px-4 lg:-mt-15 lg:px-20">
-              <span className="font-bold">Global Client Presence</span>
-            </h1>
+          <div className="absolute inset-0 z-10 flex items-center justify-center px-4 sm:px-6">
+            <div className="flex max-w-5xl flex-col items-center text-center animate-fade-in-up">
+              <h1 className="px-2 text-lg font-medium leading-tight text-white sm:text-2xl lg:text-4xl">
+                WE ARE <span className="font-bold">EMCUS</span>
+              </h1>
+
+              <div className="my-4 h-px w-32 bg-white sm:w-48 lg:my-6 lg:w-206 xl:w-200" />
+
+              <span className="max-w-3xl px-2 text-[12px] leading-relaxed text-white sm:px-4 sm:text-[14px] lg:text-[18px]">
+                At EMCUS, we act as your dedicated support, collaborating closely with
+                your R&D teams, eliminating concerns about the next steps in the
+                development process. Consider us your reliable extended team, always
+                available to address questions and provide assistance.
+              </span>
+
+              <span className="max-w-3xl px-2 text-[12px] font-bold leading-relaxed text-white sm:px-4 sm:text-[14px] lg:text-[18px]">
+                We love what we do and are excited to work with you!
+              </span>
+            </div>
           </div>
         </div>
         <h1 className="text-[21px] text-[#e73331] font-bold text-center w-full mt-8 px-10">ABOUT EMCUS</h1>

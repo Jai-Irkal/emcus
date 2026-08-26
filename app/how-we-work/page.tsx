@@ -43,15 +43,20 @@ export default function HowWeWork() {
 
           {/* Overlay Content */}
           <div className="absolute inset-0 z-10 flex items-center justify-center px-4 sm:px-6">
-            <div className="flex max-w-5xl flex-col items-center text-center">
+            <div className="flex max-w-5xl flex-col items-center text-center animate-fade-in-up">
               <h1 className="px-2 text-lg font-normal leading-tight text-white sm:text-2xl lg:text-4xl">
-                <span className="font-medium">CLIENT <span className="font-bold">FOCUS</span> & TECHNICAL <span className="font-bold">EXCELLENCE</span></span>
+                <span className="font-medium">
+                  CLIENT <span className="font-bold">FOCUS</span> & TECHNICAL{" "}
+                  <span className="font-bold">EXCELLENCE</span>
+                </span>
               </h1>
 
               <div className="my-4 h-px w-32 bg-white sm:w-48 lg:my-6 lg:w-206 xl:w-200" />
 
               <span className="max-w-3xl px-2 text-[12px] leading-relaxed text-white sm:px-4 sm:text-[14px] lg:px-0 lg:text-[18px]">
-                We adapt our processes to match yours, ensuring a seamless project experience. We execute projects using Agile, Waterfall, V-Model, and SAFe methodologies.
+                We adapt our processes to match yours, ensuring a seamless project
+                experience. We execute projects using Agile, Waterfall, V-Model, and
+                SAFe methodologies.
               </span>
             </div>
           </div>

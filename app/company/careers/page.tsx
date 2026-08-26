@@ -42,15 +42,20 @@ export default function Careers() {
           <div className="absolute inset-0 bg-black/30" />
 
           <div className="absolute inset-0 z-10 flex items-center justify-center px-4 sm:px-6">
-            <div className="flex max-w-5xl flex-col items-center text-center">
+            <div className="flex max-w-5xl flex-col items-center text-center animate-fade-in-up">
               <h1 className="px-2 text-lg font-medium leading-tight text-white sm:text-2xl lg:text-4xl">
-                BE <span className="font-bold">PART</span> OF <span className="font-bold">SOMETHING BIG!</span>
+                BE <span className="font-bold">PART</span> OF{" "}
+                <span className="font-bold">SOMETHING BIG!</span>
               </h1>
 
               <div className="my-4 h-px w-32 bg-white sm:w-48 lg:my-6 lg:w-206 xl:w-200" />
 
               <span className="max-w-3xl px-2 text-[12px] leading-relaxed text-white sm:px-4 sm:text-[14px] lg:text-[18px]">
-                EMCUS Technology Solutions takes great pride in creating positive changes and stimulating dynamic growth to businesses. We are technology-agnostic and leverage our experience, expertise, and state-of-the-art infrastructure to provide high-quality, rapid time-to-market solutions.
+                EMCUS Technology Solutions takes great pride in creating positive
+                changes and stimulating dynamic growth to businesses. We are
+                technology-agnostic and leverage our experience, expertise, and
+                state-of-the-art infrastructure to provide high-quality, rapid
+                time-to-market solutions.
               </span>
             </div>
           </div>
@@ -63,8 +68,8 @@ export default function Careers() {
         <div className="flex flex-col md:flex-row md:items-center justify-between px-8 mt-3">
           {/* <h2 className="font-bold lg:mt-4 lg:text-[22px] text-[#000000]">Engineering</h2> */}
           <h2 className="text-[21px] text-[#333333] font-bold">
-          Open Positions ({filteredJobs.length})
-        </h2>
+            Open Positions ({filteredJobs.length})
+          </h2>
 
           <div className="flex h-8 md:h-12 w-full md:w-[400px] items-center rounded-xl border border-[#333333] px-4 mt-4 md:mt-0">
             <Image

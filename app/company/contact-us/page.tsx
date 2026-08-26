@@ -144,39 +144,41 @@ export default function Home() {
                     {/* Hero Content */}
                     <div className="absolute inset-0 z-10 flex items-center">
                         <div className="w-full px-5 sm:px-8 md:px-12 lg:px-20 xl:px-24">
-
-                            <div className="">
-
-                                <h2 className="
-                                    mt-3
-                                    text-2xl
-                                    sm:text-3xl
-                                    md:text-4xl
-                                    lg:text-[44px]
-                                    xl:text-[48px]
-                                    leading-tight
-                                    font-medium
-                                    text-white
-                                    text-center
-                                ">
+                            <div className="animate-fade-in-up">
+                                <h2
+                                    className="
+          mt-3
+          text-2xl
+          sm:text-3xl
+          md:text-4xl
+          lg:text-[44px]
+          xl:text-[48px]
+          leading-tight
+          font-medium
+          text-white
+          text-center
+        "
+                                >
                                     GET IN TOUCH WITH US{" "}
                                     <span className="font-bold">
                                         ANYWHERE, ANYTIME
                                     </span>
                                 </h2>
 
-                                <p className="
-                                    mt-4
-                                    sm:mt-5
-                                    lg:mt-6
-                                    text-sm
-                                    sm:text-base
-                                    md:text-lg
-                                    lg:text-xl
-                                    leading-relaxed
-                                    text-white
-                                    text-center
-                                ">
+                                <p
+                                    className="
+          mt-4
+          sm:mt-5
+          lg:mt-6
+          text-sm
+          sm:text-base
+          md:text-lg
+          lg:text-xl
+          leading-relaxed
+          text-white
+          text-center
+        "
+                                >
                                     Whether you are exploring a new product idea,
                                     scaling your engineering team or modernizing a
                                     legacy platform, we are ready to listen, advise
@@ -184,58 +186,80 @@ export default function Home() {
                                 </p>
 
                                 {/* Hero Buttons */}
-                                <div className="
-                                    mt-6
-                                    sm:mt-8
-                                    flex
-                                    xs:flex-row
-                                    sm:flex-row
-                                    gap-3
-                                    sm:gap-4
-                                    justify-center
-                                ">
+                                <div
+                                    className="
+          mt-6
+          sm:mt-8
+          flex
+          xs:flex-row
+          sm:flex-row
+          gap-3
+          sm:gap-4
+          justify-center
+        "
+                                >
                                     <button
                                         onClick={scrollToForm}
                                         className="
-                                            flex
-                                            w-full
-                                            sm:w-auto
-                                            items-center
-                                            justify-center
-                                            gap-2
-                                            rounded-lg
-                                            bg-[#E4312D]
-                                            px-4
-                                            py-3
-                                            text-sm
-                                            sm:text-base
-                                            text-white
-                                            transition-colors
-                                            duration-300
-                                            hover:bg-[#BE2C2A]
-                                        "
+            flex
+            w-full
+            sm:w-auto
+            items-center
+            justify-center
+            gap-2
+            rounded-lg
+            bg-[#E4312D]
+            px-4
+            py-3
+            text-sm
+            sm:text-base
+            text-white
+            transition-colors
+            duration-300
+            hover:bg-[#BE2C2A]
+          "
                                     >
                                         <Image
                                             src={SendIcon}
                                             alt="Send Icon"
                                             className="h-5 w-5"
                                         />
-                                        <span className="font-bold cursor-pointer">Send Message</span>
+                                        <span className="font-bold cursor-pointer">
+                                            Send Message
+                                        </span>
                                     </button>
 
                                     <a
                                         href="tel:+917022616214"
-                                        className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-[#2D3188] px-4 py-3 text-sm sm:text-base text-white transition-colors duration-300 hover:bg-[#1C2172]"
+                                        className="
+            flex
+            w-full
+            sm:w-auto
+            items-center
+            justify-center
+            gap-2
+            rounded-lg
+            bg-[#2D3188]
+            px-4
+            py-3
+            text-sm
+            sm:text-base
+            text-white
+            transition-colors
+            duration-300
+            hover:bg-[#1C2172]
+          "
                                     >
                                         <Image
                                             src={CallIcon}
                                             alt="Call Icon"
                                             className="h-5 w-5"
                                         />
-                                        <span className="font-bold">Call Now</span>
+                                        <span className="font-bold">
+                                            Call Now
+                                        </span>
                                     </a>
                                 </div>
-
                             </div>
                         </div>
                     </div>
