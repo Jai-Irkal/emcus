@@ -256,7 +256,7 @@ export default function Home() {
                                             className="h-5 w-5"
                                         />
                                         <span className="font-bold">
-                                            Call Now
+                                            Call
                                         </span>
                                     </a>
                                 </div>
