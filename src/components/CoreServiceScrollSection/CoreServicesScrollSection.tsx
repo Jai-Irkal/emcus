@@ -78,7 +78,7 @@ export default function CoreServicesScrollSection() {
         className={`w-full flex flex-col justify-between py-6 bg-white ${
           isDesktop
             ? pinState === 'pinned'
-              ? 'fixed top-[90px] left-0 right-0 h-[calc(100vh-90px)] z-10 overflow-hidden'
+              ? 'fixed top-[90px] left-0 right-0 h-[calc(100vh-90px)] z-10 overflow-hidden 2xl:max-w-7xl 2xl:mx-auto 2xl:px-4'
               : pinState === 'after'
               ? 'absolute bottom-0 left-0 right-0 h-[calc(100vh-90px)] overflow-hidden'
               : 'absolute top-0 left-0 right-0 h-[calc(100vh-90px)] overflow-hidden'
