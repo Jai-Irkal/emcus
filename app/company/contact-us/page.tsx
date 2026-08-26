@@ -145,11 +145,7 @@ export default function Home() {
                     <div className="absolute inset-0 z-10 flex items-center">
                         <div className="w-full px-5 sm:px-8 md:px-12 lg:px-20 xl:px-24">
 
-                            <div className="max-w-5xl">
-
-                                <h1 className="text-sm sm:text-base md:text-lg font-semibold text-white">
-                                    Contact Us
-                                </h1>
+                            <div className="">
 
                                 <h2 className="
                                     mt-3
@@ -159,28 +155,27 @@ export default function Home() {
                                     lg:text-[44px]
                                     xl:text-[48px]
                                     leading-tight
-                                    font-bold
+                                    font-medium
                                     text-white
+                                    text-center
                                 ">
-                                    Let's Build{" "}
-                                    <span className="text-[#E4312D]">
-                                        safer, smarter
+                                    GET IN TOUCH WITH US{" "}
+                                    <span className="font-bold">
+                                        ANYWHERE, ANYTIME
                                     </span>
-                                    <br className="hidden sm:block" />
-                                    {" "}solutions together.
                                 </h2>
 
                                 <p className="
                                     mt-4
                                     sm:mt-5
                                     lg:mt-6
-                                    max-w-4xl
                                     text-sm
                                     sm:text-base
                                     md:text-lg
                                     lg:text-xl
                                     leading-relaxed
                                     text-white
+                                    text-center
                                 ">
                                     Whether you are exploring a new product idea,
                                     scaling your engineering team or modernizing a
@@ -197,6 +192,7 @@ export default function Home() {
                                     sm:flex-row
                                     gap-3
                                     sm:gap-4
+                                    justify-center
                                 ">
                                     <button
                                         onClick={scrollToForm}
@@ -245,7 +241,7 @@ export default function Home() {
                     </div>
                 </section>
 
-                <section className="
+                {/* <section className="
                     w-full
                     bg-[#F2F3F8]
                     px-4
@@ -282,14 +278,13 @@ export default function Home() {
                             text-sm
                             sm:text-base
                             leading-relaxed
-                            text-[#64748B]
+                            text-[#333333]
                         ">
                             Choose the channel that works best for you.
                             We respond quickly and keep every conversation
                             focused on outcomes.
                         </p>
 
-                        {/* Contact Cards */}
                         <div
                             className="
         mt-6
@@ -300,7 +295,6 @@ export default function Home() {
         gap-4
     "
                         >
-                            {/* Phone */}
                             <a
                                 href="tel:+917022616214"
                                 className="
@@ -332,7 +326,6 @@ export default function Home() {
                                 </span>
                             </a>
 
-                            {/* Email */}
                             <a
                                 href="mailto:info@emcus.co.in"
                                 className="
@@ -364,7 +357,6 @@ export default function Home() {
                                 </span>
                             </a>
 
-                            {/* Address */}
                             <a
                                 href="https://maps.app.goo.gl/E2YRgug32vX9vqeM7"
                                 target="_blank"
@@ -400,7 +392,6 @@ export default function Home() {
                                 </span>
                             </a>
 
-                            {/* LinkedIn */}
                             <a
                                 href="https://www.linkedin.com/company/emcustechnologysolutions/posts/?feedView=all"
                                 target="_blank"
@@ -432,7 +423,7 @@ export default function Home() {
                                         />
                                     </div>
 
-                                    <span className="text-md font-semibold text-[#64748B]">
+                                    <span className="text-md font-semibold text-[#333333]">
                                         Linkedin
                                     </span>
                                 </div>
@@ -443,9 +434,9 @@ export default function Home() {
                             </a>
                         </div>
                     </div>
-                </section>
+                </section> */}
 
-                <section
+                {/* <section
                     ref={formRef}
                     className="
                     w-full
@@ -485,14 +476,14 @@ export default function Home() {
                             text-sm
                             sm:text-base
                             leading-relaxed
-                            text-[#64748B]
+                            text-[#333333]
                         ">
                             Share a few details and we will get back to you
                             within one business day.
                         </p>
 
                     </div>
-                </section>
+                </section> */}
 
                 <section className="w-full py-8 sm:py-10 lg:py-12">
                     <div className="
@@ -568,7 +559,7 @@ export default function Home() {
                                             text-sm
                                             sm:text-base
                                             leading-6
-                                            text-[#64748B]
+                                            text-[#333333]
                                         ">
                                             Novel MSR Park, 93/9, Varthur Main
                                             Road, Munnekolalu, Marathalli,
@@ -592,7 +583,7 @@ export default function Home() {
                                                 break-all
                                                 text-sm
                                                 sm:text-base
-                                                text-[#64748B]
+                                                text-[#333333]
                                                 hover:text-[#2D3188]
                                             "
                                         >
@@ -616,7 +607,7 @@ export default function Home() {
                                                 break-all
                                                 text-sm
                                                 sm:text-base
-                                                text-[#64748B]
+                                                text-[#333333]
                                                 hover:text-[#2D3188]
                                             "
                                         >
@@ -627,7 +618,7 @@ export default function Home() {
                                 </div>
 
                                 {/* Google Maps */}
-                                <a
+                                {/* <a
                                     href="https://maps.app.goo.gl/BpXtvsdcAPenqYEz9"
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -659,7 +650,7 @@ export default function Home() {
                                         className="h-5 w-5"
                                     />
                                     Open in Google Maps
-                                </a>
+                                </a> */}
                             </div>
 
                         </div>
@@ -696,7 +687,7 @@ export default function Home() {
         py-3
         text-sm
         sm:text-base
-        placeholder:text-[#64748B]
+        placeholder:text-[#333333]
         focus:outline-none
         focus:ring-2
         focus:ring-[#322986]
@@ -734,7 +725,7 @@ export default function Home() {
     py-3
     text-sm
     sm:text-base
-    placeholder:text-[#64748B]
+    placeholder:text-[#333333]
     focus:outline-none
     focus:ring-2
     disabled:opacity-50
@@ -793,7 +784,7 @@ export default function Home() {
                                         value={formData.subject}
                                         onChange={handleChange}
                                         disabled={isFormDisabled}
-                                        className="w-full rounded-md border border-gray-300 bg-[#FBFBFB] px-4 py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#322986] disabled:opacity-50 disabled:cursor-not-allowed"
+                                        className="w-full rounded-md border text-[#333333] placeholder:text-[#333333] border-gray-300 bg-[#FBFBFB] px-4 py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#322986] disabled:opacity-50 disabled:cursor-not-allowed"
                                     />
                                 </div>
 
@@ -823,12 +814,12 @@ export default function Home() {
                                             border
                                             border-gray-300
                                             bg-[#FBFBFB]
-                                            h-[180px]
+                                            h-[140px]
                                             px-4
                                             py-3
                                             text-sm
                                             sm:text-base
-                                            placeholder:text-[#64748B]
+                                            placeholder:text-[#333333]
                                             focus:outline-none
                                             focus:ring-2
                                             focus:ring-[#322986]
@@ -842,7 +833,7 @@ export default function Home() {
                                     text-[11px]
                                     sm:text-xs
                                     leading-5
-                                    text-[#64748B]
+                                    text-[#333333]
                                 ">
                                     Fields marked
                                     <span className="text-[#E4312D]">
@@ -876,7 +867,7 @@ export default function Home() {
                                         disabled:opacity-50
                                         ${isSuccess
                                             ? "bg-green-800 hover:bg-green-900"
-                                            : "bg-[#2D3188] hover:opacity-90 disabled:hover:opacity-50"
+                                            : "bg-[#e73331] hover:bg-[#C02C29] hover:opacity-90 disabled:hover:opacity-50"
                                         }
                                     `}
                                 >

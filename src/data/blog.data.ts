@@ -9,7 +9,7 @@ export const BLOGS = [
     title: "Cross Zoning Configuration in Fire Panel",
     date: "Feb 12, 2026",
     description:
-      "Cross zoning in a fire alarm panel is a strategy used to enhance reliability and reduce false alarms in fire detection systems. It involves dividing",
+      "Cross zoning in a fire alarm panel is a strategy used to enhance reliability & reduce false alarms in fire detection systems. It involves dividing",
     image: Blog1,
     categories:["Fire Panels", "Fire Systems"],
     tags:["Fire panel", "zoning"]
@@ -19,7 +19,7 @@ export const BLOGS = [
     title: "Meeting Standards in Fire Panel Development",
     date: "July 7, 2023 ",
     description:
-      "Fire panels are essential life safety products that adhere to specific standards in different countries, ensuring they meet stringent safety and performance requirements. Some of",
+      "Fire panels are essential life safety products that adhere to specific standards in different countries, ensuring they meet stringent safety & performance requirements. Some of",
     image: Blog3,
     categories:["Fire Panels", "Fire Systems"],
     tags:["fire safety", "standards"]
@@ -29,7 +29,7 @@ export const BLOGS = [
     title: "Web-Based Fire System Calculators",
     date: "July 7, 2023",
     description:
-      "Fire panels are renowned for their ability to safeguard people and buildings by providing early fire notifications. To ensure the system functions reliably and as",
+      "Fire panels are renowned for their ability to safeguard people & buildings by providing early fire notifications. To ensure the system functions reliably & as",
     image: Blog4,
     categories:["Fire System Calculators", "Fire Systems", "Test Tools"],
     tags:["calculators", "fire safety", "fire system", "Loop Calculators", "web calculators"]
@@ -39,7 +39,7 @@ export const BLOGS = [
     title: "Test Tools in Fire Panel Development",
     date: "July 7, 2023",
     description:
-      "Developing fire panels is a challenging task due to their multiple interfaces and real-time requirements to comply with regulations, such as alarm notification and output",
+      "Developing fire panels is a challenging task due to their multiple interfaces & real-time requirements to comply with regulations, such as alarm notification & output",
     image: Blog2,
     categories:["Fire Panels", "Protocol Simulator", "Test Tools"],
     tags:["Fire panel", "test tools", "testing tools"]

@@ -90,7 +90,7 @@ export const PRODUCT_DEVELOPMENT_LIFECYCLE: ProductDevelopmentSection[] = [
                 id: 8,
                 title: "Product Release",
                 image: ProductRelease,
-                description: "Handing off and launch."
+                description: "Handing off & launch."
             },
             {
                 id: 9,

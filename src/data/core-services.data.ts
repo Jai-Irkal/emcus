@@ -33,7 +33,7 @@ export const CORE_SERVICES: CoreService[] = [
         title:"Hardware Engineering",
         data:[
             'Electronic Hardware Design',
-            'PCB Desing & Layout',
+            'PCB Design & Layout',
             'Power Electronics',
             'Wireless Connectivity Design'
         ]
@@ -86,7 +86,7 @@ export const CORE_SERVICES: CoreService[] = [
     },
     {
         id:7,
-        imgSrc: VerificationValidationCertificationIcon,
+        imgSrc: ManufacturingSupportIcon,
         title:"Verification, Validation & Certification",
         data:[
             'Verification & Validation',
@@ -97,10 +97,10 @@ export const CORE_SERVICES: CoreService[] = [
     },
     {
         id:8,
-        imgSrc: ManufacturingSupportIcon,
+        imgSrc: VerificationValidationCertificationIcon,
         title:"Manufacturing Support",
         data:[
-            'DFM / DFT',
+            'DFM (Design for Manufacturing) /DFT (Design for Testability)',
             'Production Support',
             'Manufacturing Transfer'
         ]

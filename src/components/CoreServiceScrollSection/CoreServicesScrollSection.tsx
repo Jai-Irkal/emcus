@@ -85,7 +85,7 @@ export default function CoreServicesScrollSection() {
             : 'relative h-auto'
         }`}
       >
-        <h1 className="text-[28px] lg:text-[34px] text-[#d94536] font-bold text-center w-full flex-shrink-0 my-2">
+        <h1 className="text-[21px] lg:text-[21px] text-[#d94536] font-bold text-center w-full flex-shrink-0 my-2">
           CORE SERVICES
         </h1>
 

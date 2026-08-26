@@ -181,7 +181,7 @@ export default function BlogThree() {
                                 />
                             </button>
 
-                            <h1 className="text-[17px] sm:text-[20px] lg:text-[22px] font-bold text-[#111] uppercase leading-tight">
+                            <h1 className="text-[21px] font-bold text-[#111] uppercase leading-tight">
                                 {blog.title}
                             </h1>
                         </div>
@@ -207,8 +207,7 @@ export default function BlogThree() {
                         <div
                             className="
                                 mt-5
-                                text-[12px]
-                                sm:text-[13px]
+                                text-[16px]
                                 text-[#222]
                                 leading-[1.55]
                             "
@@ -221,7 +220,7 @@ export default function BlogThree() {
 
                             {/* Standards Bullet List */}
                             <section className="mb-6">
-                                <ul className="list-disc pl-6 space-y-2">
+                                <ul className="list-disc pl-6 space-y-2 text-[18px]">
                                     <li>NFPA 72</li>
                                     <li>EN 54</li>
                                     <li>UL 864</li>
@@ -246,7 +245,7 @@ export default function BlogThree() {
 
                             {/* Certification Bodies */}
                             <section className="mb-6">
-                                <ul className="list-disc pl-6 space-y-2">
+                                <ul className="list-disc pl-6 space-y-2 text-[18px]">
                                     <li>Underwriters Laboratories (UL)</li>
                                     <li>Intertek</li>
                                     <li>BAFE</li>
@@ -360,7 +359,7 @@ export default function BlogThree() {
                                             }
                                             placeholder="Type your comment here"
                                             disabled={isSubmitting}
-                                            className="w-full h-[205px] md:h-[230px] lg:h-[218px] resize-none rounded-[3px] border border-[#64748B] bg-[#F7F8F9] px-2 py-2 text-[16px] text-[#64748B] placeholder:text-[#6B7280] focus:outline-none focus:border-[#322986] disabled:opacity-50 disabled:cursor-not-allowed"
+                                            className="w-full h-[205px] md:h-[230px] lg:h-[218px] resize-none rounded-[3px] border border-[#64748B] bg-[#F7F8F9] px-2 py-2 text-[16px] text-[#333333] placeholder:text-[#333333] focus:outline-none focus:border-[#322986] disabled:opacity-50 disabled:cursor-not-allowed"
                                         />
                                     </div>
 
@@ -472,7 +471,7 @@ export default function BlogThree() {
 
                                     {comments.length === 0 ? (
                                         <div className="rounded-2xl border border-dashed border-gray-300 p-8 text-center">
-                                            <p className="text-gray-500">
+                                            <p className="text-[#333333]">
                                                 No comments yet. Be the first to comment.
                                             </p>
                                         </div>
@@ -518,7 +517,7 @@ export default function BlogThree() {
                                                                     {comment.name}
                                                                 </h4>
 
-                                                                <p className="text-xs text-gray-500">
+                                                                <p className="text-xs text-[#333333]">
                                                                     {new Date(
                                                                         comment.created_at
                                                                     ).toLocaleString("en-IN", {
@@ -532,7 +531,7 @@ export default function BlogThree() {
                                                                 </p>
                                                             </div>
 
-                                                            <p className="mt-3 text-sm sm:text-base leading-7 text-gray-700">
+                                                            <p className="mt-3 text-sm sm:text-base leading-7 text-[#333333]">
                                                                 {comment.comment}
                                                             </p>
                                                         </div>

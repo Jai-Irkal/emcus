@@ -99,7 +99,7 @@ export const FIRE_SAFETY_DEVELOPMENT_PORTFOLIO: PortfolioItem[] = [
             'CAN, EN 54 Series',
             'UL 268/UL 864/UL 2572',
             'NFPA 72 & NFPA 2001',
-            'AS 4271(Australia/NZ)',
+            'AS 4271 (Australia/NZ)',
             'Pre-Certification Audit Support',
             'Type Approval Documentation'
         ]

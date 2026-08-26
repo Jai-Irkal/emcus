@@ -89,7 +89,7 @@ export default function Blogs() {
 
   // Featured posts
   const featuredBlogs = BLOGS.filter((blog) =>
-    [1, 2, 3, 4].includes(blog.id)
+    [1, 3].includes(blog.id)
   );
 
   return (
@@ -128,10 +128,10 @@ export default function Blogs() {
                   <button
                     key={category}
                     onClick={() => setSelectedCategory(category)}
-                    className={`cursor-pointer shrink-0 whitespace-nowrap rounded-2xl border px-4 sm:px-5 py-2 text-sm sm:text-base lg:text-lg xl:text-xl font-medium transition-all
+                    className={`cursor-pointer shrink-0 whitespace-nowrap rounded-2xl border px-4 sm:px-5 py-2 text-sm sm:text-base lg:text-[14px] xl:text-xl font-medium transition-all
                       ${selectedCategory === category
                         ? "bg-[#E34334] border-[#E34334] text-white"
-                        : "border-[#64748B] text-[#64748B] hover:border-[#322986] hover:text-[#322986]"
+                        : "border-[#333333] text-[#333333] hover:border-[#322986] hover:text-[#322986]"
                       }
                     `}
                   >
@@ -168,7 +168,7 @@ export default function Blogs() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search for Blogs"
-                  className="w-full bg-transparent text-base sm:text-lg text-[#64748B] outline-none placeholder:text-[#64748B]"
+                  className="w-full bg-transparent text-base sm:text-lg text-[#333333] outline-none placeholder:text-[#333333]"
                 />
               </div>
             </div>
@@ -186,7 +186,7 @@ export default function Blogs() {
             <section className="lg:col-span-8 lg:h-[460px]">
               {filteredBlogs.length === 0 ? (
                 <div className="flex items-center justify-center py-16">
-                  <p className="text-[#64748B] text-base">
+                  <p className="text-[#333333] text-base">
                     No blogs found.
                   </p>
                 </div>
@@ -211,7 +211,7 @@ export default function Blogs() {
                         {/* Blog Content */}
                         <div className="p-3 flex flex-col">
                           {/* Title */}
-                          <h2 className="lg:text-[21px] font-bold text-[#322986] leading-[1.25] mb-2">
+                          <h2 className="lg:text-[21px] font-bold text-[#333333] leading-[1.25] mb-2">
                             {blog.title}
                           </h2>
 
@@ -247,7 +247,7 @@ export default function Blogs() {
                           </div>
 
                           {/* Description */}
-                          <p className="text-[12px] text-[#64748B] leading-[1.35] line-clamp-3 mb-4">
+                          <p className="text-[12px] text-[#333333] leading-[1.35] line-clamp-3 mb-4">
                             {blog.description}
                           </p>
 

@@ -13,6 +13,7 @@ import PhoneInputWithCountrySelect, {
 import MagicWandIcon from "@/public/common/magic-wand.svg";
 import UploadIcon from "@/public/common/upload-icon.svg";
 import SendIcon from "@/public/contact-us/send.svg";
+import CustomPhoneInput from "@/src/components/CustomPhoneInput/CustomPhoneInput";
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -289,7 +290,7 @@ export default function JobDetails() {
 
               <div className="mb-2">
                 <h3 className="font-bold text-lg">Location</h3>
-                <p className="text-[#64748B]">{job.location}</p>
+                <p className="text-[#333333]">{job.location}</p>
               </div>
 
               <div className="mb-2">
@@ -297,7 +298,7 @@ export default function JobDetails() {
                   Preferred Domain
                 </h3>
 
-                <p className="text-[#64748B]">
+                <p className="text-[#333333]">
                   {job.preferredDomain}
                 </p>
               </div>
@@ -307,7 +308,7 @@ export default function JobDetails() {
                   Reports To
                 </h3>
 
-                <p className="text-[#64748B]">
+                <p className="text-[#333333]">
                   {job.reportsTo}
                 </p>
               </div>
@@ -317,7 +318,7 @@ export default function JobDetails() {
                   Experience
                 </h3>
 
-                <p className="text-[#64748B]">
+                <p className="text-[#333333]">
                   {job.experienceRequired} Years
                 </p>
               </div>
@@ -327,7 +328,7 @@ export default function JobDetails() {
                   Education
                 </h3>
 
-                <p className="text-[#64748B]">
+                <p className="text-[#333333]">
                   {job.eduacation}
                 </p>
               </div>
@@ -338,13 +339,13 @@ export default function JobDetails() {
             <section>
 
               {/* Tabs */}
-              <div className="flex gap-8 border-b border-gray-200 mb-8">
+              <div className="flex gap-8 mb-8">
 
                 <button
                   onClick={() => setActiveTab("overview")}
-                  className={`cursor-pointer pb-3 text-[15px] font-semibold transition ${activeTab === "overview"
-                    ? "text-[#322986] border-b-2 border-[#322986]"
-                    : "text-gray-500 hover:text-[#322986]"
+                  className={`cursor-pointer pb-3 text-[16px] font-semibold transition ${activeTab === "overview"
+                    ? "text-[#d94536] border-b-2 border-[#d94536]"
+                    : "text-[#333333] hover:text-[#d94536]"
                     }`}
                 >
                   Overview
@@ -352,12 +353,12 @@ export default function JobDetails() {
 
                 <button
                   onClick={() => setActiveTab("applications")}
-                  className={`cursor-pointer pb-3 text-[15px] font-semibold transition ${activeTab === "applications"
-                    ? "text-[#322986] border-b-2 border-[#322986]"
-                    : "text-gray-500 hover:text-[#322986]"
+                  className={`cursor-pointer pb-3 text-[16px] font-semibold transition ${activeTab === "applications"
+                    ? "text-[#d94536] border-b-2 border-[#d94536]"
+                    : "text-[#333333] hover:text-[#d94536]"
                     }`}
                 >
-                  Applications
+                  Application
                 </button>
 
               </div>
@@ -372,7 +373,7 @@ export default function JobDetails() {
                       Responsibilities
                     </h2>
 
-                    <ul className="list-disc pl-6 space-y-3 text-gray-600">
+                    <ul className="list-disc pl-6 space-y-3 text-[#333333]">
                       {job.responsibilities.map((item, index) => (
                         <li key={index}>{item}</li>
                       ))}
@@ -387,7 +388,7 @@ export default function JobDetails() {
                       Skills
                     </h2>
 
-                    <ul className="list-disc pl-6 space-y-3 text-gray-600">
+                    <ul className="list-disc pl-6 space-y-3 text-[#333333]">
                       {job.skills.map((item, index) => (
                         <li key={index}>{item}</li>
                       ))}
@@ -395,7 +396,7 @@ export default function JobDetails() {
 
                   </div>
 
-                  <p className="text-[18px] text-gray-700 leading-7 mb-8 font-bold">
+                  <p className="text-[18px] text-[#333333] leading-7 mb-8 font-bold">
                     EMCUS is an Equal Employment Opportunity (EEO)
                     Employer. All qualified applicants will receive
                     consideration for employment without regard to race,
@@ -407,12 +408,12 @@ export default function JobDetails() {
 
                   <button
                     onClick={() => setActiveTab("applications")}
-                    className="cursor-pointer bg-[#322986] text-white px-8 py-3 rounded-md font-semibold"
+                    className="cursor-pointer bg-[#e73331] hover:bg-[#C52A28] text-white px-8 py-3 rounded-md font-semibold"
                   >
                     Apply Now
                   </button>
 
-                  <p className="text-sm text-[#64748B] mt-4 font-bold">
+                  <p className="text-sm text-[#333333] mt-4 font-bold">
                     Click the APPLY button to upload your resume.
                     <br />
                     Alternatively, email your resume to{" "}
@@ -446,13 +447,13 @@ export default function JobDetails() {
                           className="w-5 h-5"
                         />
 
-                        <h3 className="font-semibold text-[#322986]">
+                        <h3 className="font-semibold text-[#e73331]">
                           Autofill from Resume
                         </h3>
 
                       </div>
 
-                      <p className="text-sm text-gray-500 mt-1">
+                      <p className="text-sm text-[#333333] mt-1">
 
                         {isAutofilling
                           ? "Extracting information from your resume..."
@@ -488,13 +489,14 @@ export default function JobDetails() {
         cursor-pointer
         rounded-md
         border-[1.5px]
-        border-[#322986]
+        border-[#e73331]
         px-5
         py-2
         font-bold
-        text-[#322986]
+        text-[#e73331]
         transition-colors
-        hover:bg-[#322986]
+        hover:bg-[#e73331]
+        hover:border-[#e73331]
         hover:text-white
         disabled:cursor-not-allowed
         disabled:opacity-50
@@ -576,8 +578,7 @@ export default function JobDetails() {
                         <span className="text-red-500">*</span>
                       </label>
 
-                      <PhoneInputWithCountrySelect
-                        international
+                      <CustomPhoneInput
                         defaultCountry="IN"
                         value={phone}
                         onChange={(value) => {
@@ -586,12 +587,10 @@ export default function JobDetails() {
                         }}
                         placeholder="00000 00000"
                         disabled={isFormDisabled}
-                        className={`phone-input bg-[#FBFBFB] ${isFormDisabled
-                          ? "opacity-50 pointer-events-none"
-                          : ""
-                          } ${phone && !isPhoneValid ? "!border-[#E4312D]" : ""
+                        className={`${phone && !isPhoneValid ? "!border-[#E4312D]" : ""
                           }`}
                       />
+
                       {phone && !isPhoneValid && (
                         <p className="mt-1 text-[11px] text-[#E4312D]">
                           Please enter a valid phone number.
@@ -604,7 +603,7 @@ export default function JobDetails() {
                         ACTUAL RESUME UPLOAD
                     ======================================== */}
 
-                    <div>
+                    {/* <div>
 
                       <label className="font-medium">
                         Resume{" "}
@@ -624,7 +623,7 @@ export default function JobDetails() {
                         }}
                         onDragLeave={() => setIsDragging(false)}
                         onDrop={handleDrop}
-                        className={`bg-[#FBFBFB] mt-2 rounded-lg h-48 flex items-center justify-center text-gray-500 flex-col gap-1 transition ${autofillFile || isFormDisabled
+                        className={`bg-[#FBFBFB] mt-2 rounded-lg h-48 flex items-center justify-center text-[#333333] flex-col gap-1 transition ${autofillFile || isFormDisabled
                           ? "opacity-50 cursor-not-allowed bg-gray-100"
                           : "cursor-pointer"
                           } ${isDragging && !autofillFile && !isFormDisabled
@@ -639,11 +638,6 @@ export default function JobDetails() {
                           backgroundRepeat: "repeat-x, repeat-x, repeat-y, repeat-y",
                         }}
                       >
-
-                        {/* IMPORTANT:
-                            This input is ONLY for actual resume
-                        */}
-
                         <input
                           ref={resumeInputRef}
                           type="file"
@@ -664,7 +658,7 @@ export default function JobDetails() {
                               {file.name}
                             </span>
 
-                            <span className="text-sm text-gray-500">
+                            <span className="text-sm text-[#333333]">
                               Click or drag to replace file
                             </span>
                           </>
@@ -682,7 +676,7 @@ export default function JobDetails() {
 
                       </div>
 
-                    </div>
+                    </div> */}
 
                     {/* SUBMIT */}
                     <button
@@ -707,7 +701,7 @@ export default function JobDetails() {
                         disabled:opacity-50
                         ${isSuccess
                           ? "bg-green-600 hover:bg-green-600 cursor-default"
-                          : "bg-[#322986] hover:opacity-90 cursor-pointer disabled:hover:opacity-50"
+                          : "bg-[#e73331] hover:bg-[#B3382A] hover:opacity-90 cursor-pointer disabled:hover:opacity-50"
                         }
                       `}
                     >

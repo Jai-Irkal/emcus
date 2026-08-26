@@ -1,5 +1,6 @@
 import HeaderComponent from "@/src/components/HeaderComponent/HeaderComponent";
 import HomeBanner from "@/public/banners/home-banner.jpeg"
+import VivekBanner from "@/public/vivek/Hero_WhatWeDo_Services.webp"
 import Image from "next/image";
 import FooterComponent from "@/src/components/FooterComponent/FooterComponent";
 import { OUR_SERVICES } from "@/src/data/our-services.data";
@@ -13,11 +14,11 @@ export default function WhatWeDo() {
         <HeaderComponent active="WHAT WE DO" />
         <div className="relative w-full h-[300px] lg:h-[480px] 2xl:h-[600px] 2xl:bottom-0">
           <Image
-            src={Banner}
+            src={VivekBanner}
             alt="Banner"
             fill
             priority
-            className="object-cover blur-sm"
+            className="object-cover "
           />
 
           <div className="absolute inset-0 bg-black/30" />
@@ -25,8 +26,8 @@ export default function WhatWeDo() {
           {/* Overlay Content */}
           <div className="absolute inset-0 z-10 flex items-center justify-center px-4 sm:px-6">
             <div className="flex max-w-5xl flex-col items-center text-center">
-              <h1 className="px-2 text-lg font-bold leading-tight text-white sm:text-2xl lg:px-20 lg:text-4xl">
-                EFFICIENT AND HIGH-QUALITY
+              <h1 className="px-2 text-lg font-medium leading-tight text-white sm:text-2xl lg:px-20 lg:text-4xl">
+                <span className='font-bold'>EFFICIENT</span> AND <span className='font-bold'>HIGH-QUALITY</span>
                 <br className="hidden sm:block" />
                 FIRMWARE/SOFTWARE/TESTING SERVICES
               </h1>

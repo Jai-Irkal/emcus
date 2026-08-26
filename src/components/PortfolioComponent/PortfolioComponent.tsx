@@ -12,7 +12,7 @@ const PortfolioComponent = ({ portfolioItem }: { portfolioItem: PortfolioItem })
                     alt={portfolioItem.title}
                     className="h-[30px] w-auto"
                 />
-                <h2 className="text-white text-xl font-bold ml-4">{portfolioItem.title}</h2>
+                <h2 className="text-white text-[21px] font-semibold ml-4">{portfolioItem.title}</h2>
             </div>
             <div className="p-4 py-10">
                 <ul>

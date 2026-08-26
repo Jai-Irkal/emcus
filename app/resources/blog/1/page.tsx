@@ -177,7 +177,7 @@ export default function BlogOne() {
                 />
               </button>
 
-              <h1 className="text-[17px] sm:text-[20px] lg:text-[22px] font-bold text-[#111] uppercase leading-tight">
+              <h1 className="text-[21px] font-bold text-[#111] uppercase leading-tight">
                 {blog.title}
               </h1>
             </div>
@@ -201,8 +201,7 @@ export default function BlogOne() {
             <div
               className="
                 mt-5
-                text-[12px]
-                sm:text-[13px]
+                text-[16px]
                 text-[#222]
                 leading-[1.55]
               "
@@ -220,14 +219,14 @@ export default function BlogOne() {
                   HOW CROSS ZONING WORKS
               =================================================== */}
               <section className="mb-6">
-                <h2 className="text-[16px] sm:text-[18px] font-bold text-[#111] mb-4">
+                <h2 className="text-[21px] font-bold text-[#111] mb-4">
                   How Cross Zoning Typically Works
                 </h2>
 
                 <div className="space-y-4">
 
                   <div>
-                    <h3 className="font-bold text-[#222] mb-1">
+                    <h3 className="text-[18px] font-bold text-[#222] mb-1">
                       1. Zone Division
                     </h3>
 
@@ -240,7 +239,7 @@ export default function BlogOne() {
                   </div>
 
                   <div>
-                    <h3 className="font-bold text-[#222] mb-1">
+                    <h3 className="text-[18px] font-bold text-[#222] mb-1">
                       2. Detector Placement
                     </h3>
 
@@ -254,7 +253,7 @@ export default function BlogOne() {
                   </div>
 
                   <div>
-                    <h3 className="font-bold text-[#222] mb-1">
+                    <h3 className="text-[18px] font-bold text-[#222] mb-1">
                       3. Cross-Wiring
                     </h3>
 
@@ -268,7 +267,7 @@ export default function BlogOne() {
                   </div>
 
                   <div>
-                    <h3 className="font-bold text-[#222] mb-1">
+                    <h3 className="text-[18px] font-bold text-[#222] mb-1">
                       4. Verification
                     </h3>
 
@@ -289,14 +288,14 @@ export default function BlogOne() {
                   BENEFITS
               =================================================== */}
               <section className="mb-6">
-                <h2 className="text-[16px] sm:text-[18px] font-bold text-[#111] mb-4">
+                <h2 className="text-[21px] font-bold text-[#111] mb-4">
                   Benefits of Cross Zoning
                 </h2>
 
                 <div className="space-y-4">
 
                   <div>
-                    <h3 className="font-bold text-[#222] mb-1">
+                    <h3 className="text-[18px] font-bold text-[#222] mb-1">
                       1. Enhanced Reliability
                     </h3>
 
@@ -309,7 +308,7 @@ export default function BlogOne() {
                   </div>
 
                   <div>
-                    <h3 className="font-bold text-[#222] mb-1">
+                    <h3 className="text-[18px] font-bold text-[#222] mb-1">
                       2. Reduced False Alarms
                     </h3>
 
@@ -321,7 +320,7 @@ export default function BlogOne() {
                   </div>
 
                   <div>
-                    <h3 className="font-bold text-[#222] mb-1">
+                    <h3 className="text-[18px] font-bold text-[#222] mb-1">
                       3. Early Warning
                     </h3>
 
@@ -431,7 +430,7 @@ export default function BlogOne() {
                       }
                       placeholder="Type your comment here"
                       disabled={isSubmitting}
-                      className="w-full h-[205px] md:h-[230px] lg:h-[217px] resize-none rounded-[3px] border border-[#64748B] bg-[#F7F8F9] px-2 py-2 text-[16px] text-[#64748B] placeholder:text-[#6B7280] focus:outline-none focus:border-[#322986] disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full h-[205px] md:h-[230px] lg:h-[217px] resize-none rounded-[3px] border border-[#64748B] bg-[#F7F8F9] px-2 py-2 text-[16px] text-[#333333] placeholder:text-[#6B7280] focus:outline-none focus:border-[#322986] disabled:opacity-50 disabled:cursor-not-allowed"
                     />
                   </div>
 
@@ -530,7 +529,7 @@ export default function BlogOne() {
 
                   {comments.length === 0 ? (
                     <div className="rounded-2xl border border-dashed border-gray-300 p-8 text-center">
-                      <p className="text-gray-500">
+                      <p className="text-[#333333]">
                         No comments yet. Be the first to comment.
                       </p>
                     </div>
@@ -576,7 +575,7 @@ export default function BlogOne() {
                                   {comment.name}
                                 </h4>
 
-                                <p className="text-xs text-gray-500">
+                                <p className="text-xs text-[#333333]">
                                   {new Date(
                                     comment.created_at
                                   ).toLocaleString("en-IN", {
@@ -590,7 +589,7 @@ export default function BlogOne() {
                                 </p>
                               </div>
 
-                              <p className="mt-3 text-sm sm:text-base leading-7 text-gray-700">
+                              <p className="mt-3 text-sm sm:text-base leading-7 text-[#333333]">
                                 {comment.comment}
                               </p>
                             </div>

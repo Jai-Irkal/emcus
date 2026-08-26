@@ -42,8 +42,8 @@ const OurServiceComponent = ({
                     className={`
         hidden
         lg:block
-        text-2xl
-        lg:text-3xl
+        text-[21px]
+        lg:text-[21px]
         font-bold
         text-[#E4312D]
         ${serviceItem.id % 2 === 0 ? '' : 'lg:pl-4'}
@@ -116,7 +116,7 @@ const OurServiceComponent = ({
                                     className="mt-1 shrink-0"
                                 />
 
-                                <p className="text-black font-semibold">
+                                <p className="text-[#333333] text-[16px] font-regular">
                                     {item}
                                 </p>
                             </div>
@@ -138,7 +138,7 @@ const OurServiceComponent = ({
                                     className="mt-1 shrink-0"
                                 />
 
-                                <p className="text-black font-semibold">
+                                <p className="text-[#333333] text-[16px] font-regular">
                                     {item}
                                 </p>
                             </div>

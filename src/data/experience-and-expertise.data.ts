@@ -14,13 +14,13 @@ export const EXPERIENCE_AND_EXPERTISE = [
         icon:ControlPanelImg,
         title:"FIRE ALARM CONTROL PANEL",
         data:[
-            'Single Loop to Multi Loop Addressable and Conventional',
+            'Single Loop to Multi Loop Addressable & Conventional',
             'Network Cards',
             'Loop Protocols',
             'Wireless Panels (Mesh/Star Topology) Proprietary Protocols',
             'Remote Annunciators',
             'Emergency Communication Systems',
-            'Voice Alarm and Evacuation Systems',
+            'Voice Alarm & Evacuation Systems',
             'Gateway Communication Module'
         ]
     },
@@ -35,7 +35,7 @@ export const EXPERIENCE_AND_EXPERTISE = [
     {
         id:5,
         icon:TestingImg,
-        title:"FIRE SYSTEM TESTING AND COMISSIONING EQUIPMENT",
+        title:"FIRE SYSTEM TESTING & COMMISSIONING EQUIPMENT",
         data:[
             'Handheld Device Programmers',
             'Flame Detector Tester',
@@ -63,9 +63,9 @@ export const EXPERIENCE_AND_EXPERTISE = [
     {
         id:2,
         icon:DevicesImage,
-        title:"FIRE ALARM INITIATING DEVICES (WIRED AND WIRELESS)",
+        title:"FIRE ALARM INITIATING DEVICES (WIRED & WIRELESS)",
         data:[
-            'Smoke and Heat Detectors',
+            'Smoke & Heat Detectors',
             'Input/Output Modules',
             'Visual Alarm Indicators',
             'Audible Alarm Indicators',

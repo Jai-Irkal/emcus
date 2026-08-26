@@ -5,6 +5,7 @@ import React from 'react'
 import Image from 'next/image';
 import HeaderComponent from '@/src/components/HeaderComponent/HeaderComponent';
 import Banner from "@/public/banners/what-we-do-banner.svg"
+import VivekBanner from "@/public/vivek/Hero_WhatWeDo_TechnologyExpertise.webp";
 import { TECHNOLOGY_EXPERTISE } from '@/src/data/technology-expertise.data';
 import TechnologyExpertiseCard from '@/src/components/cards/TechnologyExpertiseCard';
 
@@ -15,11 +16,11 @@ const page = () => {
         <HeaderComponent active="WHAT WE DO" />
         <div className="relative w-full h-[300px] lg:h-[480px] 2xl:h-[600px]">
           <Image
-            src={Banner}
+            src={VivekBanner}
             alt="Banner"
             fill
             priority
-            className="object-cover blur-sm"
+            className="object-cover"
           />
 
           <div className="absolute inset-0 bg-black/30" />
@@ -27,8 +28,8 @@ const page = () => {
           {/* Overlay Content */}
           <div className="absolute inset-0 z-10 flex items-center justify-center px-4 sm:px-6">
             <div className="flex max-w-5xl flex-col items-center text-center">
-              <h1 className="px-2 text-lg font-bold leading-tight text-white sm:text-2xl lg:px-20 lg:text-4xl">
-                EFFICIENT AND HIGH-QUALITY
+              <h1 className="px-2 text-lg font-medium leading-tight text-white sm:text-2xl lg:px-20 lg:text-4xl">
+                <span className='font-bold'>EFFICIENT</span> AND <span className='font-bold'>HIGH-QUALITY</span>
                 <br className="hidden sm:block" />
                 FIRMWARE/SOFTWARE/TESTING SERVICES
               </h1>
@@ -36,10 +37,7 @@ const page = () => {
               <div className="my-4 h-px w-32 bg-white sm:w-48 lg:my-6 lg:w-206 xl:w-200" />
 
               <p className="max-w-3xl px-2 text-[12px] leading-relaxed text-white sm:px-4 sm:text-[14px] lg:px-0 lg:text-[18px]">
-                EMCUS is dedicated to offering efficient and reliable solutions to
-                projects of any scale, while ensuring the highest level of quality in
-                every deliverable. From silicon-level firmware to cloud-hosted monitoring
-                platforms — we own the outcome.
+                EMCUS prides itself in offering efficient and flexible solutions, catering to projects of any scale while ensuring timely delivery of unique solutions.
               </p>
             </div>
           </div>
