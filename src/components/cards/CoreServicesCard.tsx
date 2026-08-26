@@ -16,12 +16,18 @@ const CoreServicesCard = ({ coreServiceItem }: { coreServiceItem: CoreService })
                 <h2 className="text-[#E4312D] text-[17px] font-bold">{coreServiceItem.title}</h2>
             </div>
             <div className="px-6 py-0">
-                <ul>
+                <ul className="space-y-1">
                     {coreServiceItem.data.map((item, index) => (
-                        
-                        <li key={index} className="text-[16px] font-normal text-black text-left py-1.5 flex">
-                            <Image src={ArrowBullet} alt="Arrow" className="inline-block h-4" />
-                            <span className='text-[#333333] -mt-1'>{item}</span>
+                        <li
+                            key={index}
+                            className="flex items-start gap-2 text-[16px] font-normal text-black py-1.5"
+                        >
+                            <Image
+                                src={ArrowBullet}
+                                alt=""
+                                className="mt-1 h-4 w-4 shrink-0"
+                            />
+                            <span className="text-[#333333]">{item}</span>
                         </li>
                     ))}
                 </ul>
