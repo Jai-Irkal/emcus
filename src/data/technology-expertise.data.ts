@@ -73,7 +73,7 @@ export const TECHNOLOGY_EXPERTISE: TechnologyExpertise[] = [
     },
     {
         id:5,
-        title:"Verification, Validation and Automation, and Regulatory Certification Services",
+        title:"Verification, Validation and Automation",
         image:Verification,
         data:[
             "Selenium, Jenkins",

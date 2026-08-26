@@ -12,11 +12,11 @@ export const CareerCard = ({ item }: any) => {
                         {item.role}
                     </h2>
                     <div className="flex gap-2 items-center mt-1">
-                        <p className="text-[#64748B]">
+                        <p className="text-[#333333]">
                             {item.location}
                         </p>
                         <div className="bg-[#64748B] h-2 w-2 rounded-full" />
-                        <p className="text-[#64748B]">
+                        <p className="text-[#333333]">
                             {item.role_type}
                         </p>
                     </div>
@@ -31,7 +31,7 @@ export const CareerCard = ({ item }: any) => {
                         </button>
                     </Link>
                     <Link href={`/company/careers/${item.id}?tab=applications`}>
-                        <button className="px-4 py-2 bg-[#8AB23E] text-white font-semibold rounded-md hover:opacity-90 transition cursor-pointer">
+                        <button className="px-4 py-2 bg-[#e73331] text-white font-semibold rounded-md hover:bg-[#CA2C29] transition cursor-pointer">
                             APPLY
                         </button>
                     </Link>

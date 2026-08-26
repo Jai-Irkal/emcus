@@ -22,8 +22,8 @@ export default function Home() {
           <CarouselComponent />
         </div>
         <TextBanner text="EMCUS Technology Solutions is a specialized fire safety engineering partner for OEMs, delivering end-to-end design and development of fire & safety systems." />
-        <h1 className="text-[25px] xl:text-[30px] text-[#E4312D] font-bold text-center w-full mt-10 lg:-mt-35 leading-none">FIRE & SAFETY PORTFOLIO</h1>
-        <h1 className="text-[25px] xl:text-[30px] text-[#000000] font-bold text-center w-full leading-none lg:mt-2">Design & Development</h1>
+        <h1 className="text-[21px] xl:text-[21px] text-[#E4312D] font-bold text-center w-full mt-10 lg:-mt-35 leading-none">FIRE & SAFETY PORTFOLIO</h1>
+        <h1 className="text-[21px] xl:text-[21px] text-[#333333] font-bold text-center w-full leading-none lg:mt-2">Design & Development</h1>
         {/* Portfolio Grid */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:mt-0 lg:px-4 py-6 px-4">
           {FIRE_SAFETY_DEVELOPMENT_PORTFOLIO.map((item, index) => (
@@ -45,17 +45,17 @@ export default function Home() {
         <CoreServicesScrollSection/>
 
         <div className="mt-6 2xl:-mt-0 2xl:z-200 2xl:-mt-25">
-          <h1 className="text-[30px] text-[#d94536] font-bold text-center w-full">WHY EMCUS?</h1>
+          <h1 className="text-[21px] text-[#d94536] font-bold text-center w-full">WHY EMCUS?</h1>
           <div className="flex flex-col md:flex-row justify-center gap-0 mt-3">
 
             {WHY_EMCUS.map((item) => {
               return (
                 <div key={item.id} className={`${item.id % 2 !== 0 ? 'bg-[#E4312D]' : 'bg-[#0B2C71]'} text-center md:text-left px-8 py-10 flex-1`}>
-                  <h2 className="text-[24px] font-bold text-center text-white">
+                  <h2 className="text-[18px] font-bold text-center text-white">
                     {item.title}
                   </h2>
 
-                  <p className="text-[18px] mt-3 font-semibold text-white">
+                  <p className="text-[18px] mt-3 font-regular text-white">
                     {item.description}
                   </p>
                 </div>

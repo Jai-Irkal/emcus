@@ -91,19 +91,19 @@ export const EngagementLifeCycle:EngagementLifeCycleItem[] = [
         id:4,
         img:Support,
         title:"Support",
-        description:"Beyond launch, we listen and evolve.",
+        description:"Beyond launch, we listen & evolve.",
         one:{
             title:"Post-Release",
             data:[
                 "Monitor solution performance",
-                "Triage issues and gather feedback",
-                "Provide Tier-2 and Tier-3 support"
+                "Triage issues & gather feedback",
+                "Provide Tier-2 & Tier-3 support"
             ]
         },
         two:{
             title:"Evolution",
             data:[
-                "Project scope and key assumptions",
+                "Project scope & key assumptions",
                 "Risk tracking log",
                 "Design foundation"
             ]

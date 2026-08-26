@@ -70,7 +70,7 @@ export const OUR_SERVICES: ServiceItem[] = [
             "Middleware Integration",
             "Performance Optimization & Debugging",
             "Unit Testing & Integration Testing",
-            "Firmware Maintainence & Sustenance",
+            "Firmware Maintenance & Sustenance",
             "Functional Safety Implementation",
             "OTA/FOTA Solutions",
         ]
@@ -105,7 +105,7 @@ export const OUR_SERVICES: ServiceItem[] = [
         leftItems: [
             "Product Enclosure Design",
             "3D CAD Modeling",
-            "Sheet metal and plastic enclosure design",
+            "Sheet metal & plastic enclosure design",
             "Prototype Development",
             "Industrial Design (ID)",
             "Tooling Support",

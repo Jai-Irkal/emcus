@@ -33,17 +33,17 @@ const StepCard = ({ item }: { item: Steps }) => (
                 text-[#E4312D]
                 text-lg
                 sm:text-xl
-                lg:text-2xl
+                lg:text-[21px]
                 font-semibold
             ">
                 {item.title}
             </h3>
 
             <p className="
-                text-[#444444]
+                text-[#333333]
                 text-sm
                 sm:text-base
-                lg:text-lg
+                lg:text-[18px]
                 leading-6
                 lg:leading-7
                 mt-1

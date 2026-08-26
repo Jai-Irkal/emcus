@@ -32,9 +32,9 @@ export default function AboutUs() {
             </h1>
           </div>
         </div>
-        <h1 className="text-[25px] text-[#E4312D] font-bold text-left w-full mt-8 px-10">ABOUT EMCUS</h1>
+        <h1 className="text-[21px] text-[#e73331] font-bold text-center w-full mt-8 px-10">ABOUT EMCUS</h1>
         <div className="w-full flex justify-center mt-1">
-          <span className="px-10 text-justify lg:text-[18px] text-[#64748B] font-medium">
+          <span className="px-10 text-justify lg:text-[18px] text-[#333333] font-regular">
             EMCUS Technology Solutions is a specialized fire safety engineering partner for OEMs, delivering end-to-end design and development of fire & safety systems. With certification-aware engineering and expertise in UL and EN-54 readiness, we support customers throughout the product development and certification journey, accelerating the delivery of reliable, standards-ready fire safety products.
           </span>
         </div>
@@ -51,7 +51,7 @@ export default function AboutUs() {
                 </div>
                 <h1 className="text-center text-[28px] font-bold text-black">Our Vision</h1>
               </div>
-              <div className="mt-4 relative px-0 lg:pr-12 text-left lg:text-left font-semibold">
+              <div className="mt-4 relative px-0 lg:pr-12 text-left lg:text-left font-regular">
                 <p>
                   To be the technology partner fire and safety companies trust most—known
                   for engineering excellence, quality, compliance, and innovation.
@@ -69,13 +69,13 @@ export default function AboutUs() {
                 </div>
                 <h1 className="text-center text-[28px] font-bold text-black">Our Mission</h1>
               </div>
-              <div className="mt-4 relative px-0 lg:pr-16 text-left lg:text-left font-semibold">
+              <div className="mt-4 relative px-0 lg:pr-22 text-left lg:text-left font-regular">
                 <p>Helping fire and safety businesses build safer, smarter, and more connected products through world-class engineering.</p>
               </div>
             </div>
           </div>
         </div>
-        <h1 className="text-[25px] text-[#E4312D] font-bold text-center lg:text-left w-full mt-8 px-10">WHAT MAKES EMCUS DIFFERENT</h1>
+        <h1 className="text-[21px] text-[#e73331] font-bold text-center w-full mt-8 px-10">WHAT MAKES EMCUS DIFFERENT</h1>
         <div className="w-full flex flex-wrap justify-center items-center gap-3 py-6">
           {WHAT_MAKES_EMCUS_DIFFERENT.map((item) => (
             <DifferenceCard

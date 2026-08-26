@@ -32,7 +32,6 @@ const CustomPhoneInput = ({
     const [country, setCountry] = useState<Country>(defaultCountry);
     const [isOpen, setIsOpen] = useState(false);
     const [search, setSearch] = useState("");
-
     const dropdownRef = useRef<HTMLDivElement>(null);
 
     // Close dropdown when clicking outside
@@ -94,15 +93,17 @@ const CustomPhoneInput = ({
                         disabled:cursor-not-allowed
                     "
                 >
-                    {flags[country] && React.createElement(flags[country])}
+                    {flags[country] &&
+                        React.createElement(flags[country])}
 
                     <span className="text-sm font-semibold text-black">
                         +{getCountryCallingCode(country)}
                     </span>
 
                     <svg
-                        className={`h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""
-                            }`}
+                        className={`h-4 w-4 transition-transform ${
+                            isOpen ? "rotate-180" : ""
+                        }`}
                         viewBox="0 0 20 20"
                         fill="currentColor"
                     >
@@ -163,7 +164,7 @@ const CustomPhoneInput = ({
 
                                     const countryName =
                                         countryNames[
-                                        countryCode as keyof typeof countryNames
+                                            countryCode as keyof typeof countryNames
                                         ];
 
                                     return (
@@ -189,16 +190,17 @@ const CustomPhoneInput = ({
                                         >
                                             {/* Flag */}
                                             <span className="flex h-5 w-7 shrink-0 items-center justify-center">
-                                                {flags[country] && React.createElement(flags[country])}
+                                                {Flag &&
+                                                    React.createElement(Flag)}
                                             </span>
 
                                             {/* Country Name */}
-                                            <span className="flex-1 text-[#374151]">
+                                            <span className="flex-1 text-[#333333]">
                                                 {countryName}
                                             </span>
 
                                             {/* Calling Code */}
-                                            <span className="text-[#64748B]">
+                                            <span className="text-[#333333]">
                                                 +
                                                 {getCountryCallingCode(
                                                     countryCode
@@ -208,7 +210,7 @@ const CustomPhoneInput = ({
                                     );
                                 })
                             ) : (
-                                <p className="px-3 py-4 text-center text-sm text-[#64748B]">
+                                <p className="px-3 py-4 text-center text-sm text-[#333333]">
                                     No countries found
                                 </p>
                             )}
@@ -234,9 +236,9 @@ const CustomPhoneInput = ({
                     bg-[#FBFBFB]
                     px-4
                     text-base
-                    text-[#64748B]
+                    text-[#333333]
                     outline-none
-                    placeholder:text-[#64748B]
+                    placeholder:text-[#333333]
                     disabled:cursor-not-allowed
                 "
             />

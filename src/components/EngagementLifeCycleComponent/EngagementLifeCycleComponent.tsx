@@ -20,20 +20,20 @@ const EngagementLifeCycleCard = ({
             className="w-14 h-14 object-contain"
           />
 
-          <h2 className="text-white text-[30px] font-bold mt-0">
+          <h2 className="text-white text-[21px] font-bold mt-0">
             {item.title}
           </h2>
 
-          <p className="text-white/95 text-[15px] leading-6 mt-3 lg:max-w-[240px]">
+          <p className="text-white/95 text-[16px] leading-6 mt-3 lg:max-w-[240px]">
             {item.description}
           </p>
         </div>
 
         {/* Right Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2">
           {/* Column One */}
           <div className="px-8 py-8">
-            <h3 className="text-[#E4312D] text-[28px] font-bold mb-5">
+            <h3 className="text-[#E4312D] text-[21px] font-bold mb-5">
               {item.one.title}
             </h3>
 
@@ -49,7 +49,7 @@ const EngagementLifeCycleCard = ({
                     className="w-4 h-4 mt-1 shrink-0"
                   />
 
-                  <span className='font-medium text-black'>{value}</span>
+                  <span className='font-medium text-[16px] text-[#333333]'>{value}</span>
                 </li>
               ))}
             </ul>
@@ -59,7 +59,7 @@ const EngagementLifeCycleCard = ({
           <div className="relative px-8 py-8">
             <div className="hidden md:block absolute left-0 top-6 bottom-6 w-px bg-gray-200" />
 
-            <h3 className="text-[#E4312D] text-[28px] font-bold mb-5">
+            <h3 className="text-[#E4312D] text-[21px] font-bold mb-5">
               {item.two.title}
             </h3>
 
@@ -67,7 +67,7 @@ const EngagementLifeCycleCard = ({
               {item.two.data.map((value, index) => (
                 <li
                   key={index}
-                  className="flex items-start gap-2 text-[16px] text-[#222]"
+                  className="flex items-start gap-2 text-[16px]"
                 >
                   <Image
                     src={TickBullet}
@@ -75,7 +75,7 @@ const EngagementLifeCycleCard = ({
                     className="w-4 h-4 mt-1 shrink-0"
                   />
 
-                  <span className='font-medium text-black'>{value}</span>
+                  <span className='font-medium text-[16px] text-[#333333]'>{value}</span>
                 </li>
               ))}
             </ul>
