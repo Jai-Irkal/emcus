@@ -143,7 +143,7 @@ export default function Home() {
 
                     {/* Hero Content */}
                     <div className="absolute inset-0 z-10 flex items-center">
-                        <div className="w-full px-5 sm:px-8 md:px-12 lg:px-20 xl:px-24">
+                        <div className="w-full px-5 sm:px-8 md:px-12 lg:px-66 xl:px-24">
                             <div className="animate-fade-in-up">
                                 <h2
                                     className="
@@ -159,10 +159,11 @@ export default function Home() {
           text-center
         "
                                 >
-                                    GET IN TOUCH WITH US{" "}
+                                    Let's build{" "}
                                     <span className="font-bold">
-                                        ANYWHERE, ANYTIME
+                                        safer & smarter{" "}
                                     </span>
+                                    solutions together.
                                 </h2>
 
                                 <p
