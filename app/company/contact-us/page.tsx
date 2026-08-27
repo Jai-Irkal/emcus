@@ -186,7 +186,7 @@ export default function Home() {
                                 </p>
 
                                 {/* Hero Buttons */}
-                                <div
+                                {/* <div
                                     className="
           mt-6
           sm:mt-8
@@ -259,7 +259,7 @@ export default function Home() {
                                             Call
                                         </span>
                                     </a>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>
@@ -554,7 +554,7 @@ export default function Home() {
                             <div className="
                                 w-full
                                 rounded-2xl
-                                bg-[#F5F6FF]
+                                bg-[#FFF5F5]
                                 p-5
                                 sm:p-6
                             ">
@@ -562,7 +562,7 @@ export default function Home() {
                                     text-lg
                                     sm:text-xl
                                     font-semibold
-                                    text-[#2D3188]
+                                    text-[#E4312D]
                                 ">
                                     EMCUS Technology Solutions
                                 </h3>
@@ -636,6 +636,29 @@ export default function Home() {
                                             "
                                         >
                                             Info@emcus.co.in
+                                        </a>
+                                    </div>
+
+                                    <div className="flex items-center gap-3 sm:gap-4">
+                                        <div className="shrink-0">
+                                            <Image
+                                                src={Linkedin}
+                                                alt="Linkedin"
+                                                className="h-5 w-5"
+                                            />
+                                        </div>
+
+                                        <a
+                                            href="https://www.linkedin.com/company/emcustechnologysolutions"
+                                            className="
+                                                break-all
+                                                text-sm
+                                                sm:text-base
+                                                text-[#333333]
+                                                hover:text-[#2D3188]
+                                            "
+                                        >
+                                            Linkedin
                                         </a>
                                     </div>
 
@@ -838,7 +861,7 @@ export default function Home() {
                                             border
                                             border-gray-300
                                             bg-[#FBFBFB]
-                                            h-[140px]
+                                            h-[175px]
                                             px-4
                                             py-3
                                             text-sm

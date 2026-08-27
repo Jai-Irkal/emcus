@@ -13,7 +13,7 @@ const CoreServicesCard = ({ coreServiceItem }: { coreServiceItem: CoreService })
                     alt={coreServiceItem.title}
                     className="h-[42px] w-auto"
                 />
-                <h2 className="text-[#E4312D] text-[17px] font-bold">{coreServiceItem.title}</h2>
+                <h2 className="text-[#E4312D] text-[21px] font-semibold">{coreServiceItem.title}</h2>
             </div>
             <div className="px-6 py-0">
                 <ul className="space-y-1">
