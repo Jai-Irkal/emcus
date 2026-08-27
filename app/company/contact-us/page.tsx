@@ -555,7 +555,7 @@ export default function Home() {
                             <div className="
                                 w-full
                                 rounded-2xl
-                                bg-[#FFF5F5]
+                                bg-[#ffffff]
                                 p-5
                                 sm:p-6
                             ">
