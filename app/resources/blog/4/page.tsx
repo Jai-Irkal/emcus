@@ -158,7 +158,7 @@ export default function BlogFour() {
                     BLOG PAGE
                 ========================================================= */}
 
-                <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+                <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-6">
 
                     {/* =======================================================
                         BLOG ARTICLE

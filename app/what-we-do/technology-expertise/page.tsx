@@ -44,7 +44,7 @@ const page = () => {
         </div>
 
 
-        <div className="2xl:py-30 lg:pt-8 lg:pb-0 py-10">
+        <div className="2xl:py-15 lg:pt-8 lg:pb-0 py-10">
           <h1 className='text-[#E4312D] font-bold text-[24px] text-center'>TECHNOLOGY EXPERTISE</h1>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-6 py-6 px-4">
             {TECHNOLOGY_EXPERTISE.map((item) => (

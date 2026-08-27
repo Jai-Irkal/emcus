@@ -156,7 +156,7 @@ export default function BlogTwo() {
             <main className="w-full pt-24 bg-white">
                 <HeaderComponent active="BLOG" />
 
-                <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+                <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-6">
 
                     <article className="w-full">
 
