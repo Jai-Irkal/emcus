@@ -628,7 +628,7 @@ export default function Home() {
                                         </div>
 
                                         <a
-                                            href="mailto:Info@emcus.co.in"
+                                            href="https://www.linkedin.com/company/emcustechnologysolutions"
                                             className="
                                                 break-all
                                                 text-sm
