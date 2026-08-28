@@ -13,6 +13,7 @@ import PinIcon from "@/public/contact-us/pin-icon.svg";
 import Linkedin from "@/public/contact-us/linkedin.svg";
 import PurplePin from "@/public/contact-us/purple-pin-icon.svg";
 import PurpleTelephone from "@/public/contact-us/purple-phone-icon.svg";
+import LinkedinFooter from "@/public/contact-us/linkedin-footer.svg";
 
 import { useRef, useState } from "react";
 import PhoneInputWithCountrySelect, {
@@ -586,6 +587,7 @@ export default function Home() {
                                                 sm:text-base
                                                 text-[#333333]
                                                 hover:text-[#2D3188]
+                                                hover:underline
                                             "
                                         >
                                             +91 70226 16214
@@ -610,9 +612,33 @@ export default function Home() {
                                                 sm:text-base
                                                 text-[#333333]
                                                 hover:text-[#2D3188]
+                                                hover:underline
                                             "
                                         >
                                             Info@emcus.co.in
+                                        </a>
+                                    </div>
+                                    <div className="flex items-center gap-3 sm:gap-4">
+                                        <div className="shrink-0">
+                                            <Image
+                                                src={Linkedin}
+                                                alt="Email"
+                                                className="h-5 w-5"
+                                            />
+                                        </div>
+
+                                        <a
+                                            href="mailto:Info@emcus.co.in"
+                                            className="
+                                                break-all
+                                                text-sm
+                                                sm:text-base
+                                                text-[#333333]
+                                                hover:text-[#2D3188]
+                                                hover:underline
+                                            "
+                                        >
+                                            Linkedin
                                         </a>
                                     </div>
 
@@ -815,7 +841,7 @@ export default function Home() {
                                             border
                                             border-gray-300
                                             bg-[#FBFBFB]
-                                            h-[140px]
+                                            h-[174px]
                                             px-4
                                             py-3
                                             text-sm
