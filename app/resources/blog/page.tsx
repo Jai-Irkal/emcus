@@ -211,7 +211,7 @@ export default function Blogs() {
                         {/* Blog Content */}
                         <div className="p-3 flex flex-col">
                           {/* Title */}
-                          <h2 className="lg:text-[21px] font-bold text-[#333333] leading-[1.25] mb-2">
+                          <h2 className="lg:text-[21px] md:pr-4 font-bold text-[#333333] leading-[1.25] mb-2">
                             {blog.title}
                           </h2>
 

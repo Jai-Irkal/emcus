@@ -29,7 +29,7 @@ const page = () => {
           <div className="absolute inset-0 z-10 flex items-center justify-center px-4 sm:px-6">
             <div className="flex max-w-5xl flex-col items-center text-center">
               <h1 className="px-2 text-lg font-medium leading-tight text-white sm:text-2xl lg:px-20 lg:text-4xl">
-                <span className='font-bold'>EFFICIENT</span> AND <span className='font-bold'>HIGH-QUALITY</span>
+                <span className='font-bold'>EFFICIENT</span> AND <span className='font-bold'>HIGH-QUALITY{" "}</span>
                 <br className="hidden sm:block" />
                 FIRMWARE/SOFTWARE/TESTING SERVICES
               </h1>
@@ -44,7 +44,7 @@ const page = () => {
         </div>
 
 
-        <div className="2xl:py-15 lg:pt-8 lg:pb-0 py-10">
+        <div className="2xl:py-10 lg:pt-8 lg:pb-0 py-10">
           <h1 className='text-[#E4312D] font-bold text-[24px] text-center'>TECHNOLOGY EXPERTISE</h1>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-6 py-6 px-4">
             {TECHNOLOGY_EXPERTISE.map((item) => (

@@ -405,37 +405,55 @@ const MobileDropdown = ({
     active: string;
     onNavigate: (path: string) => void;
 }) => {
+    const pathname = usePathname();
+
     const isParentActive =
-        title === active || items.some((item) => item.label === active);
+        title === active ||
+        items.some(
+            (item) =>
+                item.label === active ||
+                item.path === pathname
+        );
 
     return (
         <div>
             <button
                 onClick={toggle}
                 className={`w-full flex justify-between items-center px-6 py-3 font-bold text-[14px] transition-colors
-          ${isParentActive || isOpen ? NAV_ACTIVE_CLASS : NAV_INACTIVE_CLASS}`}
+                    ${isParentActive || isOpen
+                        ? NAV_ACTIVE_CLASS
+                        : NAV_INACTIVE_CLASS
+                    }`}
             >
                 {title}
                 <Chevron rotate={isOpen} />
             </button>
 
             <div
-                className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-60" : "max-h-0"
-                    }`}
+                className={`overflow-hidden transition-all duration-300 ${
+                    isOpen ? "max-h-60" : "max-h-0"
+                }`}
             >
-                {items.map((item) => (
-                    <button
-                        key={item.label}
-                        onClick={() => onNavigate(item.path!)}
-                        className={`block w-full text-left pl-10 pr-6 py-2 text-[14px] transition-colors
-              ${active === item.label
-                                ? NAV_ACTIVE_CLASS
-                                : `${NAV_INACTIVE_CLASS} font-semibold`
-                            }`}
-                    >
-                        {item.label}
-                    </button>
-                ))}
+                {items.map((item) => {
+                    const isChildActive =
+                        active === item.label ||
+                        item.path === pathname;
+
+                    return (
+                        <button
+                            key={item.label}
+                            onClick={() => onNavigate(item.path!)}
+                            className={`block w-full text-left pl-10 pr-6 py-2 text-[14px] transition-colors
+                                ${
+                                    isChildActive
+                                        ? NAV_ACTIVE_CLASS
+                                        : `${NAV_INACTIVE_CLASS} font-semibold`
+                                }`}
+                        >
+                            {item.label}
+                        </button>
+                    );
+                })}
             </div>
         </div>
     );

@@ -15,6 +15,8 @@ const OurServiceComponent = ({
                 lg:flex-row lg:items-stretch
                 ${serviceItem.id % 2 === 0 ? 'lg:flex-row-reverse' : ''}
                 gap-6 lg:gap-10
+                my-4
+                md:my-0
             `}
         >
             {/* Image - First on mobile */}
@@ -128,7 +130,7 @@ const OurServiceComponent = ({
                         {serviceItem.rightItems.map((item, index) => (
                             <div
                                 key={`right-${index}`}
-                                className="flex items-start gap-2"
+                                className="flex items-start gap-2 ml-3 md:ml-0"
                             >
                                 <Image
                                     src={ArrowBullet}
