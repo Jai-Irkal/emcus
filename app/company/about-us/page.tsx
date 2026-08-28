@@ -76,7 +76,7 @@ export default function AboutUs() {
           </div>
         </div>
         <h1 className="text-[21px] text-[#e73331] font-bold text-center w-full mt-8 px-10">WHAT MAKES EMCUS DIFFERENT</h1>
-        <div className="w-full flex flex-wrap justify-center items-center gap-3 md:gap-10 py-6">
+        <div className="w-full flex flex-wrap justify-center items-center gap-3 py-6">
           {WHAT_MAKES_EMCUS_DIFFERENT.map((item) => (
             <DifferenceCard
               item={item}
