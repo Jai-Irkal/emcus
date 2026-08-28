@@ -28,7 +28,7 @@ export default function WhatWeDo() {
             <div className="flex max-w-5xl flex-col items-center text-center">
               <h1 className="px-2 text-lg font-medium leading-tight text-white sm:text-2xl lg:px-20 lg:text-4xl">
                 <span className='font-bold'>EFFICIENT</span> AND <span className='font-bold'>HIGH-QUALITY</span>
-                <br className="hidden sm:block" />
+                <br className="" />
                 FIRMWARE/SOFTWARE/TESTING SERVICES
               </h1>
 
