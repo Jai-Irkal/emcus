@@ -159,10 +159,11 @@ export default function Home() {
                                     text-white
                                     text-center
                                 ">
-                                    GET IN TOUCH WITH US{" "}
+                                    Let's build{" "}
                                     <span className="font-bold">
-                                        ANYWHERE, ANYTIME
+                                        safer, smarter{" "}
                                     </span>
+                                    solutions together.
                                 </h2>
 
                                 <p className="
