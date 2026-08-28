@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import icon from "@/public/footer-assets/footer-logo.png";
 import pin from "@/public/footer-assets/pin-icon.svg";
 import phoneIcon from "@/public/footer-assets/phone.svg";
@@ -11,7 +11,6 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 const FooterComponent = () => {
-
     const router = useRouter();
 
     const handleNavigation = (path: string) => {
@@ -20,14 +19,13 @@ const FooterComponent = () => {
 
     return (
         <footer className="bg-[#322986] text-white py-8 px-6">
-
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-12 items-start">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr_1fr_1.5fr] gap-8 md:gap-8 lg:gap-12 items-start">
 
                 {/* LEFT — ADDRESS */}
                 <div>
                     <Image
                         src={icon}
-                        alt="Location Pin"
+                        alt="Company Logo"
                         className="w-40 object-contain"
                         priority
                     />
@@ -35,17 +33,18 @@ const FooterComponent = () => {
                         <Image
                             src={pin}
                             alt="Location Pin"
-                            className="w-5 object-contain mt-1"
+                            className="w-5 object-contain mt-1 shrink-0"
                             priority
                         />
-                        <p className="text-[14px] leading-relaxed max-w-sm w-50">
+                        <p className="text-[14px] leading-relaxed max-w-sm">
                             Novel MSR Park, 93/9, Varthur Main Road, Munnekolalu, Marathalli,
                             Bengaluru 560037. INDIA
                         </p>
                     </div>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-6 text-sm">
+                {/* 2-COLUMN GRID ON MOBILE (Quick Links + Resources, Company + Contact) / 4 SEPARATE COLUMNS ON MD+ */}
+                <div className="grid grid-cols-2 gap-6 text-sm md:contents">
 
                     {/* Quick Links (MAIN) */}
                     <div>
@@ -115,7 +114,7 @@ const FooterComponent = () => {
                     </div>
 
                     {/* Company */}
-                    <div className="col-span-2 md:col-span-1">
+                    <div>
                         <h3 className="font-bold mb-4 text-[16px] text-[#4590ca]">
                             Company
                         </h3>
@@ -132,73 +131,67 @@ const FooterComponent = () => {
                         </ul>
                     </div>
 
+                    {/* RIGHT — CONTACT (Beside Company on mobile, rightmost column on md+) */}
+                    <div className="text-sm md:text-base">
+                        <h3 className="font-bold mb-4 text-[16px] text-[#4590ca]">
+                            Contact
+                        </h3>
+
+                        <ul className="space-y-4">
+                            {/* Phone */}
+                            <li className="flex items-center gap-3">
+                                <Image
+                                    src={phoneIcon}
+                                    alt="Phone"
+                                    className="h-6 w-8 object-contain shrink-0"
+                                />
+                                <a
+                                    href="tel:+917022616214"
+                                    className="hover:underline text-sm md:text-base"
+                                >
+                                    +91 70226 16214
+                                </a>
+                            </li>
+
+                            {/* Email */}
+                            <li className="flex items-center gap-3">
+                                <Image
+                                    src={mailIcon}
+                                    alt="Email"
+                                    className="h-6 w-8 object-contain shrink-0"
+                                />
+                                <a
+                                    href="mailto:info@emcus.co.in"
+                                    className="hover:underline break-all text-sm md:text-base"
+                                >
+                                    info@emcus.co.in
+                                </a>
+                            </li>
+
+                            {/* LinkedIn */}
+                            <li className="flex items-center gap-3">
+                                <Image
+                                    src={linkedinIcon}
+                                    alt="LinkedIn"
+                                    className="h-8 w-8 object-contain shrink-0"
+                                />
+                                <a
+                                    href="https://www.linkedin.com/company/emcustechnologysolutions/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="cursor-pointer hover:underline text-sm md:text-base"
+                                >
+                                    LinkedIn
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
 
-                {/* RIGHT — CONTACT */}
-                <div className="text-md">
-                    <h3 className="font-bold mb-4 text-[16px] text-[#4590ca]">
-                        Contact
-                    </h3>
-
-                    <ul className="space-y-4">
-
-                        {/* Phone */}
-                        {/* Phone */}
-                        <li className="flex items-center gap-3">
-                            <Image
-                                src={phoneIcon}
-                                alt="Phone"
-                                className="h-6 w-8 object-contain"
-                            />
-
-                            <a
-                                href="tel:+917022616214"
-                                className="hover:underline"
-                            >
-                                +91 70226 16214
-                            </a>
-                        </li>
-
-                        {/* Email */}
-                        <li className="flex items-center gap-3">
-                            <Image
-                                src={mailIcon}
-                                alt="Email"
-                                className="h-6 w-8 object-contain"
-                            />
-
-                            <a
-                                href="mailto:info@emcus.co.in"
-                                className="hover:underline"
-                            >
-                                info@emcus.co.in
-                            </a>
-                        </li>
-
-                        {/* LinkedIn */}
-                        <li className="flex items-center gap-3">
-                            <Image
-                                src={linkedinIcon}
-                                alt="LinkedIn"
-                                className="h-8 w-8 object-contain"
-                            />
-
-                            <a
-                                href="https://www.linkedin.com/company/emcustechnologysolutions/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="cursor-pointer hover:underline"
-                            >
-                                LinkedIn
-                            </a>
-                        </li>
-
-                    </ul>
-                </div>
             </div>
-
         </footer>
-    )
-}
+    );
+};
 
 export default FooterComponent;

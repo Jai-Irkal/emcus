@@ -175,29 +175,29 @@ export default function HowWeWork() {
           }
         </div>
         <h1 className="text-[21px] text-[#E4312D] font-bold text-center w-full py-5">OUR PRODUCT DEVELOPMENT LIFECYCLE</h1>
-        <div className="relative grid w-full grid-cols-1 [--sidebar:150px] lg:grid-cols-[var(--sidebar)_1fr]">
+        <div className="relative grid w-full grid-cols-1 [--sidebar:110px] xl:[--sidebar:150px] lg:grid-cols-[var(--sidebar)_1fr]">
           <div
             aria-hidden
             className="
-              pointer-events-none
-              absolute
-              z-[1]
-              left-[36px]
-              lg:left-[calc((100%+var(--sidebar))/2)]
-              -translate-x-1/2
-              top-[calc(3rem+50px)]
-              bottom-[calc(3rem+50px)]
-              w-px
-              border-l-2
-              border-dashed
-              border-[#666666]
-            "
+      pointer-events-none
+      absolute
+      z-[1]
+      left-[36px]
+      lg:left-[calc((100%+var(--sidebar))/2)]
+      -translate-x-1/2
+      top-[calc(3rem+50px)]
+      bottom-[calc(3rem+50px)]
+      w-px
+      border-l-2
+      border-dashed
+      border-[#666666]
+    "
           />
 
           {PRODUCT_DEVELOPMENT_LIFECYCLE.map((item) => (
             <Fragment key={item.id}>
               <div className="hidden items-center justify-center bg-[#E4312D] px-1 lg:flex">
-                <span className="-rotate-90 translate-x-8 whitespace-nowrap text-[21px] font-bold tracking-wider text-white uppercase lg:text-xl">
+                <span className="-rotate-90 translate-x-8 whitespace-nowrap text-[18px] xl:text-[21px] font-bold tracking-wider text-white uppercase">
                   {item.section}
                 </span>
               </div>
