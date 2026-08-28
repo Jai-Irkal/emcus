@@ -29,18 +29,15 @@ const page = () => {
           <div className="absolute inset-0 z-10 flex items-center justify-center px-4 sm:px-6">
             <div className="flex max-w-5xl flex-col items-center text-center animate-fade-in-up">
               <h1 className="px-2 text-lg font-medium leading-tight text-white sm:text-2xl lg:px-20 lg:text-4xl">
-                <span className="font-bold">EFFICIENT</span> AND{" "}
-                <span className="font-bold">HIGH-QUALITY</span>
+                FROM<span className="font-bold">ENGINEERING CHALLENGES</span>
                 <br className="hidden sm:block" />
-                FIRMWARE/SOFTWARE/TESTING SERVICES
+                TO <span className="font-bold">MARKET-READY SOLUTIONS</span>
               </h1>
 
               <div className="my-4 h-px w-32 bg-white sm:w-48 lg:my-6 lg:w-206 xl:w-200" />
 
               <p className="max-w-3xl px-2 text-[12px] leading-relaxed text-white sm:px-4 sm:text-[14px] lg:px-0 lg:text-[18px]">
-                EMCUS prides itself in offering efficient and flexible solutions,
-                catering to projects of any scale while ensuring timely delivery of
-                unique solutions.
+                EMCUS brings together hardware, embedded, software, mechanical, IoT and validation expertise to engineer reliable, scalable and market-ready technology solutions
               </p>
             </div>
           </div>
