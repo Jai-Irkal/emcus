@@ -143,7 +143,7 @@ const FooterComponent = () => {
                                 <Image
                                     src={phoneIcon}
                                     alt="Phone"
-                                    className="h-6 w-8 object-contain shrink-0"
+                                    className="hidden md:block md:h-6 md:w-8 object-contain shrink-0"
                                 />
                                 <a
                                     href="tel:+917022616214"
@@ -158,7 +158,7 @@ const FooterComponent = () => {
                                 <Image
                                     src={mailIcon}
                                     alt="Email"
-                                    className="h-6 w-8 object-contain shrink-0"
+                                    className="hidden md:block md:h-6 md:w-8 object-contain shrink-0"
                                 />
                                 <a
                                     href="mailto:info@emcus.co.in"
@@ -173,7 +173,7 @@ const FooterComponent = () => {
                                 <Image
                                     src={linkedinIcon}
                                     alt="LinkedIn"
-                                    className="h-8 w-8 object-contain shrink-0"
+                                    className="hidden md:block md:h-8 md:w-8 object-contain shrink-0"
                                 />
                                 <a
                                     href="https://www.linkedin.com/company/emcustechnologysolutions/"
