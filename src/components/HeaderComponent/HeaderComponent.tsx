@@ -102,6 +102,7 @@ const HeaderComponent = ({ active }: HeaderProps) => {
                 />
 
                 {/* Desktop Menu */}
+                {/* Desktop Navigation */}
                 <div className="relative z-20 hidden h-full items-center gap-1 lg:flex">
                     {NAVIGATION.map((group) => {
                         if (group.title === "MAIN") {
@@ -141,14 +142,15 @@ const HeaderComponent = ({ active }: HeaderProps) => {
                         );
                     })}
                 </div>
-                {/* Mobile right side */}
-                <div className="flex items-center gap-2 lg:hidden">
+
+                {/* Right side */}
+                <div className="flex items-center gap-2 md:gap-3 lg:gap-0">
                     <ISOComponent />
 
-                    {/* Hamburger */}
+                    {/* Hamburger - Mobile + Tablet */}
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="relative z-20 flex h-8 w-8 shrink-0 flex-col items-center justify-center"
+                        className="relative z-20 flex h-8 w-8 shrink-0 flex-col items-center justify-center lg:hidden"
                     >
                         <span
                             className={`absolute w-6 h-[2px] bg-black transition-all duration-300 ${isOpen ? "rotate-45" : "-translate-y-2"
