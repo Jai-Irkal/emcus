@@ -71,7 +71,7 @@ export default function CoreServicesScrollSection() {
     <section
       ref={sectionRef}
       style={{ height: isDesktop ? `${pairs.length * 90}vh` : 'auto' }}
-      className="relative w-full 2xl:z-200"
+      className="relative w-full 2xl:z-10"
     >
       {/* Outer Wrapper */}
       <div
