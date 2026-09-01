@@ -459,7 +459,25 @@ export default function BlogFour() {
                                             type="button"
                                             onClick={handleSubmitComment}
                                             disabled={!isCommentFormValid || isSubmitting}
-                                            className="cursor-pointer w-full h-[40px] rounded-[8px] bg-[#322986] text-white text-[16px] font-medium hover:bg-[#292270] transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#322986] flex items-center justify-center gap-2"
+                                            className="
+                                                cursor-pointer
+                                                w-full
+                                                h-[40px]
+                                                rounded-[8px]
+                                                bg-[#E34334]
+                                                text-white
+                                                text-[16px]
+                                                font-medium
+                                                hover:bg-[#BE392D]
+                                                transition-colors
+                                                disabled:opacity-50
+                                                disabled:cursor-not-allowed
+                                                disabled:hover:bg-[#E34334]
+                                                flex
+                                                items-center
+                                                justify-center
+                                                gap-2
+                                            "
                                         >
                                             {isSubmitting ? (
                                                 <>

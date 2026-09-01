@@ -487,15 +487,15 @@ export default function BlogTwo() {
                                                 w-full
                                                 h-[40px]
                                                 rounded-[8px]
-                                                bg-[#322986]
+                                                bg-[#E34334]
                                                 text-white
                                                 text-[16px]
                                                 font-medium
-                                                hover:bg-[#292270]
+                                                hover:bg-[#BE392D]
                                                 transition-colors
                                                 disabled:opacity-50
                                                 disabled:cursor-not-allowed
-                                                disabled:hover:bg-[#322986]
+                                                disabled:hover:bg-[#E34334]
                                                 flex
                                                 items-center
                                                 justify-center
