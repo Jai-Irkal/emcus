@@ -49,12 +49,12 @@ export default function Home() {
     const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
         formData.email.trim()
     );
-    const isPhoneValid = phone ? isValidPhoneNumber(phone) : false;
+    // const isPhoneValid = phone ? isValidPhoneNumber(phone) : false;
 
     const isFormValid =
         formData.firstName.trim() !== "" &&
         isEmailValid &&
-        isPhoneValid &&
+        // isPhoneValid &&
         formData.subject.trim() !== "" &&
         formData.message.trim() !== "";
 
@@ -70,10 +70,10 @@ export default function Home() {
         }));
     };
 
-    const handlePhoneChange = (value: string | undefined) => {
-        setSubmitError(null);
-        setPhone(value);
-    };
+    // const handlePhoneChange = (value: string | undefined) => {
+    //     setSubmitError(null);
+    //     setPhone(value);
+    // };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -93,7 +93,7 @@ export default function Home() {
                     firstName: formData.firstName,
                     lastName: "",
                     email: formData.email,
-                    phone: phone,
+                    // phone: phone,
                     subject: formData.subject,
                     message: `${formData.message}`,
                 }),
@@ -792,7 +792,7 @@ export default function Home() {
                                 </div>
 
                                 {/* Phone */}
-                                <div className="flex flex-col gap-1">
+                                {/* <div className="flex flex-col gap-1">
                                     <label
                                         htmlFor="phone"
                                         className="text-sm sm:text-base font-bold text-black"
@@ -811,7 +811,7 @@ export default function Home() {
                                         disabled={isFormDisabled}
                                         className={`${isFormDisabled ? "opacity-50 pointer-events-none" : ""} ${phone && !isPhoneValid ? "!border-[#E4312D]" : ""}`}
                                     />
-                                </div>
+                                </div> */}
 
                                 {/* Subject */}
                                 <div className="flex flex-col gap-1">
@@ -862,7 +862,7 @@ export default function Home() {
                                             border
                                             border-gray-300
                                             bg-[#FBFBFB]
-                                            h-[175px]
+                                            h-[260px]
                                             px-4
                                             py-3
                                             text-sm

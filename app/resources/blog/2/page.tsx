@@ -466,7 +466,7 @@ export default function BlogTwo() {
                                                 type="checkbox"
                                                 checked={saveDetails}
                                                 onChange={(e) => setSaveDetails(e.target.checked)}
-                                                className="mt-[1px] w-[12px] h-[12px]"
+                                                className="mt-[1px] w-[12px] h-[12px] accent-[#E34334]"
                                             />
 
                                             <span>

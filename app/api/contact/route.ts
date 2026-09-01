@@ -6,7 +6,7 @@ export async function POST(req: Request) {
 
     const resend = new Resend(process.env.RESEND_API_KEY);
     const body = await req.json();
-    const { firstName, lastName, email, number, subject, message } = body;
+    const { firstName, lastName, email, subject, message } = body;
 
     if (!firstName || !email || !subject || !message) {
       return Response.json({ error: "Missing fields" }, { status: 400 });

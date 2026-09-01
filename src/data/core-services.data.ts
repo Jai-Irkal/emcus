@@ -4,7 +4,7 @@ import FirmwareEngineeringIcon from '@/public/core-services/firmware-engineering
 import CyberSecurityEngineeringIcon from '@/public/core-services/cyber-security-engineering.svg'
 import SoftwareEngineeringIcon from '@/public/core-services/software-engineering-icon.svg'
 import MechanicalEngineeringIcon from '@/public/core-services/mechanical-engineering-icon.svg'
-import VerificationValidationCertificationIcon from '@/public/core-services/certification-icon.svg'
+import CertificationIcon from '@/public/core-services/certification-icon.svg'
 import ManufacturingSupportIcon from '@/public/core-services/manufacturing-icon.svg'
 
 export type CoreService = {
@@ -86,7 +86,7 @@ export const CORE_SERVICES: CoreService[] = [
     },
     {
         id:7,
-        imgSrc: ManufacturingSupportIcon,
+        imgSrc: CertificationIcon,
         title:"Verification, Validation & Certification",
         data:[
             'Verification & Validation',
@@ -97,7 +97,7 @@ export const CORE_SERVICES: CoreService[] = [
     },
     {
         id:8,
-        imgSrc: VerificationValidationCertificationIcon,
+        imgSrc: ManufacturingSupportIcon,
         title:"Manufacturing Support",
         data:[
             'DFM (Design for Manufacturing) /DFT (Design for Testability)',
