@@ -435,7 +435,7 @@ export default function JobDetails() {
                       AUTOFILL FROM RESUME
                   ======================================== */}
 
-                  <div className="border rounded-xl p-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between bg-[#FBFBFB]">
+                  <div className="border border-[#C1C1C1] rounded-xl p-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between bg-[#FBFBFB]">
 
                     <div>
 
@@ -534,7 +534,22 @@ export default function JobDetails() {
                           setName(e.target.value);
                         }}
                         disabled={isFormDisabled}
-                        className="mt-2 w-full border rounded-md px-4 py-3 bg-[#FBFBFB] border-[#C1C1C1] disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="
+    mt-2
+    w-full
+    rounded-md
+    border
+    px-4
+    py-3
+    bg-[#FBFBFB]
+    border-[#C1C1C1]
+    outline-none
+    focus:border-[#E4312D]
+    focus:ring-1
+    focus:ring-[#E4312D]
+    disabled:opacity-50
+    disabled:cursor-not-allowed
+  "
                         placeholder="Enter Name"
                       />
 
@@ -556,9 +571,15 @@ export default function JobDetails() {
                           setEmail(e.target.value);
                         }}
                         disabled={isFormDisabled}
-                        className={`mt-2 w-full border rounded-md px-4 py-3 bg-[#FBFBFB] disabled:opacity-50 disabled:cursor-not-allowed ${email.trim() !== "" && !isEmailValid
-                          ? "border-[#E4312D]"
-                          : "border-[#C1C1C1]"
+                        className={`mt-2 w-full rounded-md border px-4 py-3 bg-[#FBFBFB]
+    outline-none
+    focus:border-[#E4312D]
+    focus:ring-1 focus:ring-[#E4312D]
+    disabled:opacity-50
+    disabled:cursor-not-allowed
+    ${email.trim() !== "" && !isEmailValid
+                            ? "border-[#E4312D]"
+                            : "border-[#C1C1C1]"
                           }`}
                         placeholder="Enter Your Email"
                       />
@@ -591,7 +612,7 @@ export default function JobDetails() {
                           }`}
                       />
 
-                      {phone && !isPhoneValid && (
+                      {!phone && (
                         <p className="mt-1 text-[11px] text-[#E4312D]">
                           Please enter a valid phone number.
                         </p>

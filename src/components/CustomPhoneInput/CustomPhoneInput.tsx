@@ -73,7 +73,16 @@ const CustomPhoneInput = ({
     return (
         <div
             ref={dropdownRef}
-            className={`relative flex h-12 w-full items-center rounded-lg border border-[#C1C1C1] bg-[#FBFBFB] ${className}`}
+            className={`
+    relative flex h-12 w-full items-center
+    rounded-lg
+    border border-[#C1C1C1]
+    bg-[#FBFBFB]
+    focus-within:border-[#E4312D]
+    focus-within:ring-1
+    focus-within:ring-[#E4312D]
+    ${className}
+  `}
         >
             {/* Country Selector */}
             <div className="relative h-full">
@@ -93,23 +102,28 @@ const CustomPhoneInput = ({
                         disabled:cursor-not-allowed
                     "
                 >
-                    {flags[country] &&
-                        React.createElement(flags[country])}
+                    {flags[country] && (
+                        <span className="flex h-6 w-8 shrink-0 items-center justify-center [&>svg]:h-6 [&>svg]:w-8">
+                            {React.createElement(flags[country])}
+                        </span>
+                    )}
 
                     <span className="text-sm font-semibold text-black">
                         +{getCountryCallingCode(country)}
                     </span>
 
                     <svg
-                        className={`h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""
+                        className={`h-4 w-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""
                             }`}
                         viewBox="0 0 20 20"
-                        fill="currentColor"
+                        fill="none"
                     >
                         <path
-                            fillRule="evenodd"
-                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.51a.75.75 0 111.08 1.04l-4.25-4.51a.75.75 0 01.02-1.06z"
-                            clipRule="evenodd"
+                            d="M5 7.5L10 12.5L15 7.5"
+                            stroke="currentColor"
+                            strokeWidth="1.8"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                         />
                     </svg>
                 </button>
@@ -230,19 +244,18 @@ const CustomPhoneInput = ({
                     onChange(input as Value);
                 }}
                 className="
-                    h-full
-                    min-w-0
-                    flex-1
-                    bg-[#FBFBFB]
-                    px-4
-                    text-base
-                    text-[#333333]
-                    outline-none
-                    rounded-lg
-                    placeholder:text-[#333333]
-                    disabled:cursor-not-allowed
-                    focus:ring-2 focus:ring-[#e73331]
-                "
+    h-full
+    min-w-0
+    flex-1
+    rounded-r-lg
+    bg-[#FBFBFB]
+    px-4
+    text-base
+    text-[#333333]
+    outline-none
+    placeholder:text-[#333333]
+    disabled:cursor-not-allowed
+  "
             />
         </div>
     );
