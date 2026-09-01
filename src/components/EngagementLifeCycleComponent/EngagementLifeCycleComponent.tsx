@@ -57,7 +57,9 @@ const EngagementLifeCycleCard = ({
 
           {/* Divider */}
           <div className="relative px-8 py-8">
-            <div className="hidden md:block absolute left-0 top-6 bottom-6 w-px bg-gray-200" />
+            <div
+              className="absolute left-6 right-6 top-0 h-px bg-gray-200 md:left-0 md:right-auto md:top-6 md:bottom-6 md:h-auto md:w-px"
+            />
 
             <h3 className="text-[#E4312D] text-[21px] font-bold mb-5">
               {item.two.title}
