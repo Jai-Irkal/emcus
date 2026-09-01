@@ -141,20 +141,29 @@ const HeaderComponent = ({ active }: HeaderProps) => {
                         );
                     })}
                 </div>
-                <ISOComponent />
+                {/* Mobile right side */}
+                <div className="flex items-center gap-2 lg:hidden">
+                    <ISOComponent />
 
-                {/* Hamburger */}
-                <button
-                    onClick={() => setIsOpen(!isOpen)}
-                    className="relative z-20 flex h-8 w-8 flex-col items-center justify-center lg:hidden"
-                >
-                    <span className={`absolute w-6 h-[2px] bg-black transition-all duration-300 
-            ${isOpen ? "rotate-45" : "-translate-y-2"}`} />
-                    <span className={`absolute w-6 h-[2px] bg-black transition-all duration-300 
-            ${isOpen ? "opacity-0" : ""}`} />
-                    <span className={`absolute w-6 h-[2px] bg-black transition-all duration-300 
-            ${isOpen ? "-rotate-45" : "translate-y-2"}`} />
-                </button>
+                    {/* Hamburger */}
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="relative z-20 flex h-8 w-8 shrink-0 flex-col items-center justify-center"
+                    >
+                        <span
+                            className={`absolute w-6 h-[2px] bg-black transition-all duration-300 ${isOpen ? "rotate-45" : "-translate-y-2"
+                                }`}
+                        />
+                        <span
+                            className={`absolute w-6 h-[2px] bg-black transition-all duration-300 ${isOpen ? "opacity-0" : ""
+                                }`}
+                        />
+                        <span
+                            className={`absolute w-6 h-[2px] bg-black transition-all duration-300 ${isOpen ? "-rotate-45" : "translate-y-2"
+                                }`}
+                        />
+                    </button>
+                </div>
             </div>
 
             {/* Mobile Menu */}
@@ -430,9 +439,8 @@ const MobileDropdown = ({
             </button>
 
             <div
-                className={`overflow-hidden transition-all duration-300 ${
-                    isOpen ? "max-h-60" : "max-h-0"
-                }`}
+                className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-60" : "max-h-0"
+                    }`}
             >
                 {items.map((item) => {
                     const isChildActive =
@@ -444,10 +452,9 @@ const MobileDropdown = ({
                             key={item.label}
                             onClick={() => onNavigate(item.path!)}
                             className={`block w-full text-left pl-10 pr-6 py-2 text-[14px] transition-colors
-                                ${
-                                    isChildActive
-                                        ? NAV_ACTIVE_CLASS
-                                        : `${NAV_INACTIVE_CLASS} font-semibold`
+                                ${isChildActive
+                                    ? NAV_ACTIVE_CLASS
+                                    : `${NAV_INACTIVE_CLASS} font-semibold`
                                 }`}
                         >
                             {item.label}

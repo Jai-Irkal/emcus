@@ -1,10 +1,11 @@
 import Image from "next/image";
 import React from "react";
+
 import icon from "@/public/iso-icon/ISO.svg";
 
 const ISOComponent = () => {
   return (
-    <section className="pointer-events-none relative right-4 md:right-0 z-0 mr-2 flex shrink-0 items-center justify-end gap-3 xl:mr-4 xl:justify-start">
+    <section className="pointer-events-none relative z-0 flex shrink-0 items-center justify-end gap-3 lg:mr-0 xl:mr-4 xl:justify-start">
       {/* Vertical Line - Desktop only */}
       <div className="hidden h-10 w-[1px] bg-[#000000] lg:block" />
 
@@ -21,7 +22,7 @@ const ISOComponent = () => {
         alt="ISO Certification"
         width={38}
         height={10}
-        className="object-contain ml-26 md:ml-116 lg:ml-0 xl:ml-0"
+        className="object-contain ml-0 lg:ml-0"
       />
     </section>
   );

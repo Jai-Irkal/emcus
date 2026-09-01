@@ -738,7 +738,7 @@ export default function Home() {
         placeholder:text-[#333333]
         focus:outline-none
         focus:ring-2
-        focus:ring-[#322986]
+        focus:ring-[#e73331]
         disabled:opacity-50
         disabled:cursor-not-allowed
     "
@@ -780,7 +780,7 @@ export default function Home() {
     disabled:cursor-not-allowed
     ${formData.email.trim() !== "" && !isEmailValid
                                                 ? "border-[#E4312D] focus:ring-[#E4312D]"
-                                                : "border-gray-300 focus:ring-[#322986]"
+                                                : "border-gray-300 focus:ring-[#e73331]"
                                             }
 `}
                                     />
@@ -832,7 +832,7 @@ export default function Home() {
                                         value={formData.subject}
                                         onChange={handleChange}
                                         disabled={isFormDisabled}
-                                        className="w-full rounded-md border text-[#333333] placeholder:text-[#333333] border-gray-300 bg-[#FBFBFB] px-4 py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#322986] disabled:opacity-50 disabled:cursor-not-allowed"
+                                        className="w-full rounded-md border text-[#333333] placeholder:text-[#333333] border-gray-300 bg-[#FBFBFB] px-4 py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#e73331] disabled:opacity-50 disabled:cursor-not-allowed"
                                     />
                                 </div>
 
@@ -870,7 +870,7 @@ export default function Home() {
                                             placeholder:text-[#333333]
                                             focus:outline-none
                                             focus:ring-2
-                                            focus:ring-[#322986]
+                                            focus:ring-[#e73331]
                                             disabled:opacity-50
                                             disabled:cursor-not-allowed
                                         "
