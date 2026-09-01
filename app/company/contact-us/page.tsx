@@ -587,7 +587,7 @@ export default function Home() {
                                             text-[#333333]
                                         ">
                                             Novel MSR Park, 93/9, Varthur Main
-                                            Road, Munnekolalu, Marathalli,
+                                            Road, Munnekolalu, Marathahalli,
                                             Bengaluru 560037, India
                                         </p>
                                     </div>
