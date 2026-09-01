@@ -26,23 +26,27 @@ export default function Home() {
         <h1 className="text-[21px] xl:text-[21px] text-[#333333] font-bold text-center w-full leading-none lg:mt-2">Design & Development</h1>
         {/* Portfolio Grid */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:mt-0 lg:px-4 py-6 px-4">
-          {FIRE_SAFETY_DEVELOPMENT_PORTFOLIO.map((item, index) => (
-            <div
-              key={item.id}
-              className="bg-gray-100 rounded-lg overflow-hidden shadow-lg
-                       opacity-0 animate-fade-in-up-portfolio-component"
-              style={{
-                animationDelay: `${index * 250}ms`,
-                animationFillMode: "forwards",
-              }}
-            >
-              <PortfolioComponent portfolioItem={item} />
-            </div>
-          ))}
-        </div>
+  {FIRE_SAFETY_DEVELOPMENT_PORTFOLIO.map((item, index) => (
+    <div
+      key={item.id}
+      className={`
+        bg-gray-100 rounded-lg overflow-hidden shadow-lg
+        opacity-0 animate-fade-in-up-portfolio-component
+        md:max-lg:[&:nth-child(9)]:col-span-2
+        md:max-lg:[&:nth-child(9)]:justify-self-center
+      `}
+      style={{
+        animationDelay: `${index * 250}ms`,
+        animationFillMode: "forwards",
+      }}
+    >
+      <PortfolioComponent portfolioItem={item} />
+    </div>
+  ))}
+</div>
 
         {/* Pin / Sticky Section Container */}
-        <CoreServicesScrollSection/>
+        <CoreServicesScrollSection />
 
         <div className="mt-6 2xl:-mt-0 2xl:z-200 2xl:-mt-25">
           <h1 className="text-[21px] text-[#d94536] font-bold text-center w-full">WHY EMCUS?</h1>
