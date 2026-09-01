@@ -13,7 +13,7 @@ export default function AboutUs() {
       <main className="flex min-h-screen w-full flex-col bg-white pt-[80px] md:pt-[90px]">
         <HeaderComponent active="ABOUT US" />
         <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[600px] 2xl:h-[600px] 2xl:bottom-0 overflow-hidden bg-[#011E62]">
-          <div className="relative h-full w-full origin-[72%_48%] animate-ken-burns-zoom-out">
+          <div className="relative h-full w-full origin-[72%_48%]">
             <Image
               src={GlobalPresence}
               alt="Home Banner"
