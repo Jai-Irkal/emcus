@@ -38,7 +38,7 @@ const StepCard = ({ item }: { item: Steps }) => (
                 text-[#E4312D]
                 text-lg
                 sm:text-xl
-                lg:text-[17px]
+                lg:text-[21px]
                 xl:text-[21px]
                 font-semibold
             ">
@@ -49,7 +49,7 @@ const StepCard = ({ item }: { item: Steps }) => (
                 text-[#333333]
                 text-sm
                 sm:text-base
-                lg:text-[14px]
+                lg:text-[16px]
                 lg:leading-5
                 xl:text-[18px]
                 xl:leading-7
@@ -68,6 +68,12 @@ const ProductDevelopmentLifeCycleComponent = ({
 }) => {
     return (
         <div className="grid w-full grid-cols-[40px_1fr] items-center gap-x-3 gap-y-6 px-4 lg:grid-cols-[minmax(0,1fr)_40px_minmax(0,1fr)] lg:gap-x-0 lg:gap-y-4 lg:px-0">
+            {/* Section title - Mobile only */}
+            {/* <div className="relative lg:hidden">
+                <h2 className="absolute left-1/2 -translate-x-1/2 text-center text-[21px] font-bold uppercase whitespace-nowrap">
+                    {section.section}
+                </h2>
+            </div> */}
             {section.Steps.map((item) => {
                 const isEven = item.id % 2 === 0;
 

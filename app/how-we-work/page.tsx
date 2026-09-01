@@ -196,8 +196,8 @@ export default function HowWeWork() {
 
           {PRODUCT_DEVELOPMENT_LIFECYCLE.map((item) => (
             <Fragment key={item.id}>
-              <div className="hidden items-center justify-center bg-[#E4312D] px-1 lg:flex">
-                <span className="-rotate-90 translate-x-8 whitespace-nowrap text-[18px] xl:text-[21px] font-bold tracking-wider text-white uppercase">
+              <div className="hidden items-center  justify-center bg-[#E4312D] px-1 lg:flex">
+                <span className="-rotate-90 translate-x-8 whitespace-nowrap text-[18px] lg:text-[21px] xl:text-[21px] font-bold tracking-wider text-white uppercase">
                   {item.section}
                 </span>
               </div>
