@@ -10,6 +10,7 @@ import CoreServiceBanner from "@/public/core-services/core-services-img.svg"
 import CoreServicesCard from "@/src/components/cards/CoreServicesCard";
 import CarouselComponent from "@/src/components/Carousel/CarouselComponent";
 import ScrollFadeIn from "@/src/animated-components/ScrollFadeIn/ScrollFadeIn";
+import One from "@/public/carousel/one.svg";
 import CoreServicesScrollSection from "@/src/components/CoreServiceScrollSection/CoreServicesScrollSection";
 
 export default function Home() {
@@ -17,9 +18,31 @@ export default function Home() {
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans">
       <main className="flex min-h-screen w-full flex-col bg-white pt-[80px] md:pt-[90px]">
         <HeaderComponent active="HOME" />
-        <div className="relative w-full h-[300px] lg:h-[600px] 2xl:h-[600px] 2xl:bottom-0">
-          {/* Replace this Image component with Slider Component */}
-          <CarouselComponent />
+        <div className="relative w-full h-[300px] lg:h-[480px] 2xl:h-[600px] 2xl:bottom-0">
+          <Image
+            src={One}
+            alt="Banner"
+            fill
+            priority
+            className="object-cover "
+          />
+
+          <div className="absolute inset-0 bg-black/30" />
+
+          {/* Overlay Content */}
+          <div className="absolute inset-0 z-10 flex items-center justify-center px-4 sm:px-6">
+            <div className="flex max-w-5xl flex-col items-center text-center animate-fade-in-up">
+              <h1 className="px-2 text-lg font-medium leading-tight text-white sm:text-2xl lg:px-20 lg:text-4xl">
+                UNIQUE <span className='font-bold'>SOLUTIONS</span> FOR A UNIQUE <span className='font-bold'>YOU</span>
+              </h1>
+
+              <div className="my-4 h-px w-32 bg-white sm:w-48 lg:my-6 lg:w-206 xl:w-200" />
+
+              <span className="max-w-3xl px-2 text-[12px] leading-relaxed text-white sm:px-4 sm:text-[14px] lg:px-0 lg:text-[18px]">
+                We at EMCUS understand that every requirement is unique, and we tailor our solutions to your specific needs.
+              </span>
+            </div>
+          </div>
         </div>
         <TextBanner text="EMCUS Technology Solutions is a specialized fire safety engineering partner for OEMs, delivering end-to-end design and development of fire & safety systems." />
         <h1 className="text-[21px] xl:text-[21px] text-[#E4312D] font-bold text-center w-full mt-10 lg:-mt-35 leading-none">FIRE & SAFETY PORTFOLIO</h1>
