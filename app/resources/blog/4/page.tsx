@@ -103,11 +103,14 @@ export default function BlogFour() {
         setComments(data);
     };
 
+    const [submitError, setSubmitError] = useState("");
+
     const handleSubmitComment = async () => {
         if (!isCommentFormValid || isSubmitting) return;
 
         try {
             setIsSubmitting(true);
+            setSubmitError("");
 
             const response = await fetch("/api/blogs/4/comments", {
                 method: "POST",
@@ -115,14 +118,20 @@ export default function BlogFour() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    name: commentForm.name,
-                    email: commentForm.email,
-                    comment:commentForm.comment,
+                    name: commentForm.name.trim(),
+                    email: commentForm.email.trim(),
+                    comment: commentForm.comment.trim(),
                     localDateTime: new Date().toISOString(),
                 }),
             });
 
+            const data = await response.json();
+
             if (!response.ok) {
+                setSubmitError(
+                    data.error || "Unable to post your comment. Please try again."
+                );
+
                 return;
             }
 
@@ -144,6 +153,12 @@ export default function BlogFour() {
             }));
 
             await fetchComments();
+        } catch (error) {
+            console.error("Comment submission error:", error);
+
+            setSubmitError(
+                "Something went wrong while posting your comment. Please try again."
+            );
         } finally {
             setIsSubmitting(false);
         }
@@ -455,29 +470,17 @@ export default function BlogFour() {
                                         </label>
 
                                         {/* Submit */}
+                                        {submitError && (
+                                            <p className="mb-2 rounded-md bg-[#FFF2F2] border border-[#E34334] px-3 py-2 text-[12px] text-[#E34334]">
+                                                {submitError}
+                                            </p>
+                                        )}
+
                                         <button
                                             type="button"
                                             onClick={handleSubmitComment}
                                             disabled={!isCommentFormValid || isSubmitting}
-                                            className="
-                                                cursor-pointer
-                                                w-full
-                                                h-[40px]
-                                                rounded-[8px]
-                                                bg-[#E34334]
-                                                text-white
-                                                text-[16px]
-                                                font-medium
-                                                hover:bg-[#BE392D]
-                                                transition-colors
-                                                disabled:opacity-50
-                                                disabled:cursor-not-allowed
-                                                disabled:hover:bg-[#E34334]
-                                                flex
-                                                items-center
-                                                justify-center
-                                                gap-2
-                                            "
+                                            className="cursor-pointer w-full h-[40px] rounded-[8px] bg-[#E34334] text-white text-[16px] font-medium hover:bg-[#BE392D] transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#E34334] flex items-center justify-center gap-2"
                                         >
                                             {isSubmitting ? (
                                                 <>

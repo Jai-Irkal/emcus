@@ -102,11 +102,14 @@ export default function BlogThree() {
         );
     };
 
+    const [submitError, setSubmitError] = useState("");
+
     const handleSubmitComment = async () => {
         if (!isCommentFormValid || isSubmitting) return;
 
         try {
             setIsSubmitting(true);
+            setSubmitError("");
 
             const response = await fetch("/api/blogs/3/comments", {
                 method: "POST",
@@ -114,14 +117,20 @@ export default function BlogThree() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    name: commentForm.name,
-                    email: commentForm.email,
-                    comment:commentForm.comment,
+                    name: commentForm.name.trim(),
+                    email: commentForm.email.trim(),
+                    comment: commentForm.comment.trim(),
                     localDateTime: new Date().toISOString(),
                 }),
             });
 
+            const data = await response.json();
+
             if (!response.ok) {
+                setSubmitError(
+                    data.error || "Unable to post your comment. Please try again."
+                );
+
                 return;
             }
 
@@ -143,6 +152,12 @@ export default function BlogThree() {
             }));
 
             await fetchComments();
+        } catch (error) {
+            console.error("Comment submission error:", error);
+
+            setSubmitError(
+                "Something went wrong while posting your comment. Please try again."
+            );
         } finally {
             setIsSubmitting(false);
         }
@@ -444,6 +459,12 @@ export default function BlogThree() {
                                         </label>
 
                                         {/* Submit */}
+                                        {submitError && (
+                                            <p className="mb-2 rounded-md bg-[#FFF2F2] border border-[#E34334] px-3 py-2 text-[12px] text-[#E34334]">
+                                                {submitError}
+                                            </p>
+                                        )}
+
                                         <button
                                             type="button"
                                             onClick={handleSubmitComment}

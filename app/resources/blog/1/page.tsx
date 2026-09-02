@@ -100,11 +100,14 @@ export default function BlogOne() {
     );
   };
 
+  const [submitError, setSubmitError] = useState("");
+
   const handleSubmitComment = async () => {
     if (!isCommentFormValid || isSubmitting) return;
 
     try {
       setIsSubmitting(true);
+      setSubmitError("");
 
       const response = await fetch("/api/blogs/1/comments", {
         method: "POST",
@@ -112,14 +115,20 @@ export default function BlogOne() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-                    name: commentForm.name,
-                    email: commentForm.email,
-                    comment:commentForm.comment,
-                    localDateTime: new Date().toISOString(),
-                }),
+          name: commentForm.name.trim(),
+          email: commentForm.email.trim(),
+          comment: commentForm.comment.trim(),
+          localDateTime: new Date().toISOString(),
+        }),
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
+        setSubmitError(
+          data.error || "Unable to post your comment. Please try again."
+        );
+
         return;
       }
 
@@ -141,6 +150,12 @@ export default function BlogOne() {
       }));
 
       await fetchComments();
+    } catch (error) {
+      console.error("Comment submission error:", error);
+
+      setSubmitError(
+        "Something went wrong while posting your comment. Please try again."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -477,8 +492,8 @@ export default function BlogOne() {
                       placeholder="Enter Your Email"
                       disabled={isSubmitting}
                       className={`w-full h-[30px] rounded-[2px] bg-[#F7F8F9] border px-2 text-[14px] mb-1 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed ${commentForm.email.trim() !== "" && !isEmailValid
-                          ? "border-[#E34334] focus:border-[#E34334]"
-                          : "border-[#64748B] focus:border-[#322986]"
+                        ? "border-[#E34334] focus:border-[#E34334]"
+                        : "border-[#64748B] focus:border-[#322986]"
                         }`}
                     />
                     {commentForm.email.trim() !== "" && !isEmailValid && (
@@ -503,6 +518,12 @@ export default function BlogOne() {
                     </label>
 
                     {/* Submit */}
+                    {submitError && (
+                      <p className="mb-2 rounded-md bg-[#FFF2F2] border border-[#E34334] px-3 py-2 text-[12px] text-[#E34334]">
+                        {submitError}
+                      </p>
+                    )}
+
                     <button
                       type="button"
                       onClick={handleSubmitComment}
