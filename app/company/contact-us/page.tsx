@@ -165,7 +165,7 @@ export default function Home() {
                                     </span>
                                     SOLUTIONS <span className="font-bold">TOGETHER</span>
                                 </h2>
-                                <div className="my-4 h-px w-32 bg-white sm:w-48 lg:my-6 lg:w-185 xl:w-200" />
+                                <div className="my-4 h-px w-full bg-white lg:my-6" />
                                 <p
                                     className="
           mt-4
