@@ -34,7 +34,7 @@ export default function AboutUs() {
                 SMARTER <span className='font-bold'>FIRE & SAFETY PRODUCTS</span>
               </h1>
 
-              <div className="my-4 h-px w-32 bg-white sm:w-48 lg:my-6 lg:w-206 xl:w-200" />
+              <div className="my-4 h-px w-full bg-white lg:my-6" />
 
               <span className="max-w-3xl px-2 text-[12px] leading-relaxed text-white sm:px-4 sm:text-[14px] lg:px-0 lg:text-[18px]">
                 We work with customers around the world to turn complex fire & safety challenges into reliable, market-ready solutions.
