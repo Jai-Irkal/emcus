@@ -550,7 +550,7 @@ export default function JobDetails() {
     disabled:opacity-50
     disabled:cursor-not-allowed
   "
-                        placeholder="Enter Name"
+                        placeholder="Name"
                       />
 
                     </div>
@@ -581,7 +581,7 @@ export default function JobDetails() {
                             ? "border-[#E4312D]"
                             : "border-[#C1C1C1]"
                           }`}
-                        placeholder="Enter Your Email"
+                        placeholder="Enter Email"
                       />
                       {email.trim() !== "" && !isEmailValid && (
                         <p className="mt-1 text-[11px] text-[#E4312D]">

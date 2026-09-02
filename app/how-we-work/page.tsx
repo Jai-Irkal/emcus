@@ -42,7 +42,7 @@ export default function HowWeWork() {
           <div className="absolute inset-0 bg-black/30" />
 
           {/* Overlay Content */}
-          <div className="absolute inset-0 z-10 flex items-center justify-center px-4 sm:px-6">
+          <div className="absolute inset-0 z-10 flex items-center justify-center px-4 sm:px-6 animate-fade-in-up">
             <div className="flex max-w-5xl flex-col items-center text-center">
               <h1 className="px-2 text-lg font-normal leading-tight text-white sm:text-2xl lg:text-4xl">
                 <span className="font-medium">CLIENT <span className="font-bold">FOCUS</span> & TECHNICAL <span className="font-bold">EXCELLENCE</span></span>

@@ -142,7 +142,7 @@ export default function Home() {
                     <div className="absolute inset-0 bg-black/40" />
 
                     {/* Hero Content */}
-                    <div className="absolute inset-0 z-10 flex items-center">
+                    <div className="absolute inset-0 z-10 flex items-center animate-fade-in-up">
                         <div className="w-full px-5 sm:px-8 md:px-12 lg:px-66 xl:px-24">
                             <div className="animate-fade-in-up">
                                 <h2

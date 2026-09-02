@@ -37,7 +37,7 @@ const FooterComponent = () => {
                             priority
                         />
                         <p className="text-[14px] leading-relaxed max-w-sm">
-                            Novel MSR Park, 93/9, Varthur Main Road, Munnekolalu, Marathalli,
+                            Novel MSR Park, 93/9, Varthur Main Road, Munnekolalu, Marathahalli,
                             Bengaluru 560037. INDIA
                         </p>
                     </div>
