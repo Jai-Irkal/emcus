@@ -23,19 +23,29 @@ export default function AboutUs() {
             />
           </div>
 
-          <div className="absolute inset-0 bg-black/30"></div>
+          <div className="absolute inset-0 bg-black/50"></div>
 
           {/* Overlay Content */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
-            <h1 className="text-white text-xl xl:text-4xl lg:text-4xl lg:font-medium font-normal xl:font-bold xl:px-0 px-4 lg:-mt-15 lg:px-20">
-              <span className="font-bold">Global Client Presence</span>
-            </h1>
+          <div className="absolute inset-0 z-10 flex items-center justify-center px-4 sm:px-6">
+            <div className="flex max-w-5xl flex-col items-center text-center">
+              <h1 className="px-2 text-lg font-medium leading-tight text-white sm:text-2xl lg:px-20 lg:text-4xl">
+                YOUR <span className='font-bold'>GLOBAL PARTNER</span> FOR SAFER,
+                <br className="" />
+                SMARTER <span className='font-bold'>FIRE & SAFETY PRODUCTS</span>
+              </h1>
+
+              <div className="my-4 h-px w-32 bg-white sm:w-48 lg:my-6 lg:w-206 xl:w-200" />
+
+              <span className="max-w-3xl px-2 text-[12px] leading-relaxed text-white sm:px-4 sm:text-[14px] lg:px-0 lg:text-[18px]">
+                We work with customers around the world to turn complex fire & safety challenges into reliable, market-ready solutions.
+              </span>
+            </div>
           </div>
         </div>
         <h1 className="text-[21px] text-[#e73331] font-bold text-center w-full mt-8 px-10">ABOUT EMCUS</h1>
         <div className="w-full flex justify-center mt-1">
           <span className="px-10 text-justify lg:text-[18px] text-[#333333] font-regular">
-            EMCUS Technology Solutions is a specialized fire safety engineering partner for OEMs, delivering end-to-end design and development of fire & safety systems. With certification-aware engineering and expertise in UL and EN-54 readiness, we support customers throughout the product development and certification journey, accelerating the delivery of reliable, standards-ready fire safety products.
+            EMCUS Technology Solutions is a specialized fire & safety engineering partner for OEMs, delivering end-to-end design & development of fire & safety systems. With certification-aware engineering and expertise in UL & EN-54 readiness, we support customers throughout the product development & certification journey, accelerating the delivery of reliable, standards-ready fire & safety products.
           </span>
         </div>
         <div className="lg:px-10 px-4 mt-6">
@@ -53,8 +63,8 @@ export default function AboutUs() {
               </div>
               <div className="mt-4 relative px-0 lg:pr-12 text-left lg:text-left font-regular">
                 <p>
-                  To be the technology partner fire and safety companies trust most—known
-                  for engineering excellence, quality, compliance, and innovation.
+                  To be the technology partner fire & safety companies trust most—known
+                  for engineering excellence, quality, compliance, & innovation.
                 </p>
               </div>
             </div>
@@ -70,7 +80,7 @@ export default function AboutUs() {
                 <h1 className="text-center text-[28px] font-bold text-black">Our Mission</h1>
               </div>
               <div className="mt-4 relative px-0 lg:pr-22 text-left lg:text-left font-regular">
-                <p>Helping fire and safety businesses build safer, smarter, and more connected products through world-class engineering.</p>
+                <p>Helping fire & safety businesses build safer, smarter, and more connected products through world-class engineering.</p>
               </div>
             </div>
           </div>

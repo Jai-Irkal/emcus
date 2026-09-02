@@ -46,7 +46,7 @@ export const EngagementLifeCycle:EngagementLifeCycleItem[] = [
         id:2,
         img:Develop,
         title:"Develop",
-        description:"Build in small, demonstrable increments",
+        description:"Build in small, demonstrable increments.",
         one:{
             title:"Engineering",
             data:[

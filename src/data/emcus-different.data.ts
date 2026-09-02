@@ -60,7 +60,7 @@ export const WHAT_MAKES_EMCUS_DIFFERENT: Difference[] = [
     {
         id:8,
         image:QualityAsHabit,
-        title:"Quality As a Habit",
+        title:"Quality As A Habit",
         description:"Consistent quality, driven by smart processes & continuous improvement."
     },
 ]

@@ -151,7 +151,7 @@ export default function Home() {
           text-2xl
           sm:text-3xl
           md:text-4xl
-          lg:text-[44px]
+          lg:text-4xl
           xl:text-[48px]
           leading-tight
           font-medium
@@ -159,13 +159,13 @@ export default function Home() {
           text-center
         "
                                 >
-                                    Let's build{" "}
+                                    LET'S BUILD{" "}
                                     <span className="font-bold">
-                                        safer & smarter{" "}
+                                        SAFER & SMARTER{" "}
                                     </span>
-                                    solutions together.
+                                    SOLUTIONS <span className="font-bold">TOGETHER</span>
                                 </h2>
-
+                                <div className="my-4 h-px w-32 bg-white sm:w-48 lg:my-6 lg:w-185 xl:w-200" />
                                 <p
                                     className="
           mt-4
@@ -174,7 +174,7 @@ export default function Home() {
           text-sm
           sm:text-base
           md:text-lg
-          lg:text-xl
+          lg:text-[18px]
           leading-relaxed
           text-white
           text-center
@@ -632,8 +632,8 @@ export default function Home() {
                                                 break-all
                                                 text-sm
                                                 sm:text-base
-                                                text-[#333333]
-                                                hover:text-[#2D3188]
+                                                text-[#E4312D]
+                                                hover:text-[#C72B29]
                                             "
                                         >
                                             Info@emcus.co.in
@@ -655,8 +655,8 @@ export default function Home() {
                                                 break-all
                                                 text-sm
                                                 sm:text-base
-                                                text-[#333333]
-                                                hover:text-[#2D3188]
+                                                text-[#E4312D]
+                                                hover:text-[#C72B29]
                                             "
                                         >
                                             Linkedin
@@ -721,7 +721,7 @@ export default function Home() {
                                     <input
                                         id="firstName"
                                         type="text"
-                                        placeholder="Enter Name"
+                                        placeholder="Name"
                                         value={formData.firstName}
                                         onChange={handleChange}
                                         disabled={isFormDisabled}
@@ -735,7 +735,7 @@ export default function Home() {
         py-3
         text-sm
         sm:text-base
-        placeholder:text-[#333333]
+        placeholder:text-[#7C7C7C]
         focus:outline-none
         focus:ring-2
         focus:ring-[#e73331]
@@ -760,7 +760,7 @@ export default function Home() {
                                     <input
                                         id="email"
                                         type="email"
-                                        placeholder="Enter Your Email"
+                                        placeholder="Email Address"
                                         value={formData.email}
                                         onChange={handleChange}
                                         disabled={isFormDisabled}
@@ -773,7 +773,7 @@ export default function Home() {
     py-3
     text-sm
     sm:text-base
-    placeholder:text-[#333333]
+    placeholder:text-[#7C7C7C]
     focus:outline-none
     focus:ring-2
     disabled:opacity-50
@@ -828,11 +828,11 @@ export default function Home() {
                                     <input
                                         id="subject"
                                         type="text"
-                                        placeholder="How can we help?"
+                                        placeholder="Subject"
                                         value={formData.subject}
                                         onChange={handleChange}
                                         disabled={isFormDisabled}
-                                        className="w-full rounded-md border text-[#333333] placeholder:text-[#333333] border-gray-300 bg-[#FBFBFB] px-4 py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#e73331] disabled:opacity-50 disabled:cursor-not-allowed"
+                                        className="w-full rounded-md border text-[#333333] placeholder:text-[#7C7C7C] border-gray-300 bg-[#FBFBFB] px-4 py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#e73331] disabled:opacity-50 disabled:cursor-not-allowed"
                                     />
                                 </div>
 
@@ -850,7 +850,7 @@ export default function Home() {
 
                                     <textarea
                                         id="message"
-                                        placeholder="Tell us about your Project, Timeline, and Requirement."
+                                        placeholder="Type your message"
                                         rows={5}
                                         value={formData.message}
                                         onChange={handleChange}
@@ -867,7 +867,7 @@ export default function Home() {
                                             py-3
                                             text-sm
                                             sm:text-base
-                                            placeholder:text-[#333333]
+                                            placeholder:text-[#7C7C7C]
                                             focus:outline-none
                                             focus:ring-2
                                             focus:ring-[#e73331]

@@ -37,7 +37,7 @@ const page = () => {
               <div className="my-4 h-px w-32 bg-white sm:w-48 lg:my-6 lg:w-206 xl:w-200" />
 
               <p className="max-w-3xl px-2 text-[12px] leading-relaxed text-white sm:px-4 sm:text-[14px] lg:px-0 lg:text-[18px]">
-                EMCUS brings together hardware, embedded, software, mechanical, IoT and validation expertise to engineer reliable, scalable and market-ready technology solutions
+                EMCUS brings together hardware, embedded, software, mechanical, IoT and validation expertise to engineer reliable, scalable and market-ready technology solutions.
               </p>
             </div>
           </div>

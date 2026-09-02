@@ -37,8 +37,7 @@ export default function WhatWeDo() {
               <span className="max-w-3xl px-2 text-[12px] leading-relaxed text-white sm:px-4 sm:text-[14px] lg:px-0 lg:text-[18px]">
                 EMCUS is dedicated to offering efficient and reliable solutions to
                 projects of any scale, while ensuring the highest level of quality in
-                every deliverable. From silicon-level firmware to cloud-hosted
-                monitoring platforms — we own the outcome.
+                every deliverable.
               </span>
             </div>
           </div>
