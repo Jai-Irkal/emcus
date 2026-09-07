@@ -75,21 +75,19 @@ export default function CoreServicesScrollSection() {
     >
       {/* Outer Wrapper */}
       <div
-        className={`w-full flex flex-col justify-between py-6 bg-white ${
-          isDesktop
+        className={`w-full flex flex-col justify-between py-6 bg-white ${isDesktop
             ? pinState === 'pinned'
               ? 'fixed top-[90px] left-0 right-0 h-[calc(100vh-90px)] z-10 overflow-hidden 2xl:max-w-7xl 2xl:mx-auto 2xl:px-4'
               : pinState === 'after'
-              ? 'absolute bottom-0 left-0 right-0 h-[calc(100vh-90px)] overflow-hidden'
-              : 'absolute top-0 left-0 right-0 h-[calc(100vh-90px)] overflow-hidden'
+                ? 'absolute bottom-0 left-0 right-0 h-[calc(100vh-90px)] overflow-hidden'
+                : 'absolute top-0 left-0 right-0 h-[calc(100vh-90px)] overflow-hidden'
             : 'relative h-auto'
-        }`}
+          }`}
       >
-        <h1 className="text-[21px] lg:text-[21px] text-[#d94536] font-bold text-center w-full flex-shrink-0 my-2">
+        <h1 className="text-[21px] lg:text-[21px] text-[#d94536] font-bold text-center w-full flex-shrink-0 my-2 2xl:relative 2xl:top-20">
           CORE SERVICES
         </h1>
 
-        {/* --- MOBILE & TABLET VIEW (< lg) --- */}
         {!isDesktop ? (
           <div className="w-full px-4 sm:px-6 my-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -106,19 +104,18 @@ export default function CoreServicesScrollSection() {
         ) : (
           /* --- DESKTOP VIEW (>= lg) --- */
           <div className="w-full 2xl:-mt-46  grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] items-center flex-grow max-h-[calc(100vh-60px)]">
-            
+
             {/* Left Column: Stacked 2-card pairs */}
             <div className="pl-10 pr-8 relative h-[400px] flex items-center justify-center">
               {pairs.map((pair, pairIdx) => (
                 <div
                   key={pairIdx}
-                  className={`absolute inset-x-0 left-10 right-8 grid grid-cols-2 gap-6 transition-all duration-500 ease-out ${
-                    pairIdx === activeIndex
+                  className={`absolute inset-x-0 left-10 right-8 grid grid-cols-2 gap-6 transition-all duration-500 ease-out ${pairIdx === activeIndex
                       ? 'opacity-100 translate-y-0 pointer-events-auto scale-100'
                       : pairIdx < activeIndex
-                      ? 'opacity-0 -translate-y-6 pointer-events-none scale-95'
-                      : 'opacity-0 translate-y-6 pointer-events-none scale-95'
-                  }`}
+                        ? 'opacity-0 -translate-y-6 pointer-events-none scale-95'
+                        : 'opacity-0 translate-y-6 pointer-events-none scale-95'
+                    }`}
                 >
                   {pair.map((item) => (
                     <div
