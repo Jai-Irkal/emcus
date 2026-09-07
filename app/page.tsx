@@ -71,7 +71,7 @@ export default function Home() {
         {/* Pin / Sticky Section Container */}
         <CoreServicesScrollSection />
 
-        <div className="mt-6 2xl:-mt-0 2xl:z-200 2xl:-mt-25">
+        <div className="mt-6 2xl:-mt-60 2xl:z-200 2xl:-mt-25">
           <h1 className="text-[21px] text-[#d94536] font-bold text-center w-full">WHY EMCUS?</h1>
           <div className="flex flex-col md:flex-row justify-center gap-0 mt-3">
 
