@@ -6,7 +6,7 @@ export const OPEN_ROLES = [
         role_type:"Full Time",
         preferredDomain: "Fire Safety",
         reportsTo:"Engineering Manager",
-        experienceRequired:"4-5",
+        experienceRequired:"10+",
         eduacation:"Diploma/B.E (Electronics & Communication)",
         responsibilities:[
             'Work with developers to design & develop Test Plan & Test Suites for projects.',
@@ -36,7 +36,7 @@ export const OPEN_ROLES = [
         location: "Bengaluru, India",
         preferredDomain: "Fire Safety",
         reportsTo:"Engineering Manager",
-        experienceRequired:"4-5",
+        experienceRequired:"10+",
         eduacation:"Diploma/B.E (Electronics & Communication)",
         responsibilities:[
             'Work with developers to develop product firmware.',
@@ -66,7 +66,7 @@ export const OPEN_ROLES = [
         location: "Bengaluru, India",
         preferredDomain: "Fire Safety",
         reportsTo:"Engineering Manager",
-        experienceRequired:"3-5",
+        experienceRequired:"10+",
         eduacation:"Diploma/B.E (Electronics & Communication)",
         responsibilities:[
             'Work with developers to develop product firmware.',
