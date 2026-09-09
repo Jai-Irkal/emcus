@@ -79,7 +79,6 @@ const HeaderComponent = ({ active }: HeaderProps) => {
     shadow-b-sm
     transition-all
     duration-300
-    2xl:w-[65.8%] 2xl:mx-auto
     ${isScrolled && !isOpen
                         ? "h-[60px] md:h-[70px]"
                         : "h-[80px] md:h-[90px]"
