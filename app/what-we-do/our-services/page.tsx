@@ -6,6 +6,7 @@ import FooterComponent from "@/src/components/FooterComponent/FooterComponent";
 import { OUR_SERVICES } from "@/src/data/our-services.data";
 import OurServiceComponent from "@/src/components/OurServiceComponent/OurServiceComponent";
 import Banner from "@/public/banners/what-we-do-banner.svg";
+import NewServicesBanner from "@/public/banners/hero_WhatWeDo_Services.webp"
 
 export default function WhatWeDo() {
   return (
