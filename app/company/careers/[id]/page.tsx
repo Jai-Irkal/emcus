@@ -293,7 +293,7 @@ export default function JobDetails() {
                 <p className="text-[#333333]">{job.location}</p>
               </div>
 
-              <div className="mb-2">
+              {/* <div className="mb-2">
                 <h3 className="font-bold text-lg">
                   Preferred Domain
                 </h3>
@@ -301,7 +301,7 @@ export default function JobDetails() {
                 <p className="text-[#333333]">
                   {job.preferredDomain}
                 </p>
-              </div>
+              </div> */}
 
               <div className="mb-2">
                 <h3 className="font-bold text-lg">
@@ -367,6 +367,17 @@ export default function JobDetails() {
               {activeTab === "overview" && (
                 <>
                   {/* Responsibilities */}
+                  <div className="mb-4">
+
+                    <h2 className="font-bold text-xl mb-4">
+                      About the Role
+                    </h2>
+
+                    <p className="text-[#333333]">
+                      {job.roleSummary}
+                    </p>
+
+                  </div>
                   <div className="mb-10">
 
                     <h2 className="font-bold text-xl mb-4">
@@ -395,6 +406,42 @@ export default function JobDetails() {
                     </ul>
 
                   </div>
+
+                  {
+                    job.mustHave.length > 0 && (
+                      <div className="mb-10">
+
+                        <h2 className="font-bold text-xl mb-4">
+                          Must Have Skills
+                        </h2>
+
+                        <ul className="list-disc pl-6 space-y-3 text-[#333333]">
+                          {job.mustHave.map((item, index) => (
+                            <li key={index}>{item}</li>
+                          ))}
+                        </ul>
+
+                      </div>
+                    )
+                  }
+
+                  {
+                    job.goodToHave.length > 0 && (
+                      <div className="mb-10">
+
+                        <h2 className="font-bold text-xl mb-4">
+                          Good to Have Skills
+                        </h2>
+
+                        <ul className="list-disc pl-6 space-y-3 text-[#333333]">
+                          {job.goodToHave.map((item, index) => (
+                            <li key={index}>{item}</li>
+                          ))}
+                        </ul>
+
+                      </div>
+                    )
+                  }
 
                   <p className="text-[18px] text-[#333333] leading-7 mb-8 font-bold">
                     EMCUS is an Equal Employment Opportunity (EEO)

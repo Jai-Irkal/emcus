@@ -20,8 +20,8 @@ export async function POST(req: Request) {
     const buffer = Buffer.from(bytes);
 
     const { data, error } = await resend.emails.send({
-      from: "EMCUS Careers <careers@emcus.co.in>",
-      to: ["info@emcus.co.in"],
+      from: "EMCUS Careers <career@emcus.co.in>",
+      to: ["info@emcus.co.in", "Suman.B@emcus.co.in"],
       replyTo: email,
       subject: `New Job Application - ${role || "General"}`,
       react: CareerTemplate({ name, email, role }),
