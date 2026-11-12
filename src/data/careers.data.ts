@@ -116,7 +116,7 @@ export const OPEN_ROLES = [
         location: "Bengaluru, India",
         reportsTo: "Engineering Manager",
         experienceRequired: "10–12",
-        eduacation: "B.E. / B.Tech (CS / IT / ECE) or equivalent",
+        eduacation: "B.E./B.Tech (CS/IT/ECE) or equivalent",
         roleSummary:
             "You will own test automation hands-on, as an individual contributor, for an industrial IoT system, from sensors and edge gateways to the dashboards end users see. You will decide what to automate, build the framework and write the tests yourself.",
         responsibilities: [
@@ -137,7 +137,7 @@ export const OPEN_ROLES = [
             "Basics of telematics hardware and sensors, IoT edge and gateways, device management, two-way communication and OTA upgrades."
         ],
         goodToHave: [
-            "Hardware-in-the-loop (HIL) / dSPACE testing.",
+            "Hardware-in-the-loop (HIL)/dSPACE testing.",
             "GitHub Copilot or MS Copilot.",
             "Mining or heavy-industry domain knowledge."
         ]
