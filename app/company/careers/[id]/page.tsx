@@ -9,6 +9,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import PhoneInputWithCountrySelect, {
   isValidPhoneNumber,
+  Value,
 } from "react-phone-number-input";
 import MagicWandIcon from "@/public/common/magic-wand.svg";
 import UploadIcon from "@/public/common/upload-icon.svg";
