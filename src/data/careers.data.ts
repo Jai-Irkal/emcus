@@ -109,17 +109,18 @@ export const OPEN_ROLES = [
         ],
         mustHave: []
     },
+
     {
         id: 4,
         role: "Automation Test Engineer",
         location: "Bengaluru, India",
-        role_type: "Full Time",
         reportsTo: "Engineering Manager",
-        experienceRequired: "10-12",
+        experienceRequired: "10–12",
         eduacation: "B.E. / B.Tech (CS / IT / ECE) or equivalent",
-        roleSummary: "You will lead test automation for an industrial IoT system, from sensors and edge gateways to the dashboards end users see. You will set the test strategy, decide what to automate, and build the framework.",
+        roleSummary:
+            "You will own test automation hands-on, as an individual contributor, for an industrial IoT system, from sensors and edge gateways to the dashboards end users see. You will decide what to automate, build the framework and write the tests yourself.",
         responsibilities: [
-            "Lead and drive the test automation strategy and best practices.",
+            "Build and maintain the test automation framework, following best practices.",
             "Write test strategies, approaches and test plans for the product.",
             "Learn the product's components and how they integrate, from IoT device to user dashboard.",
             "Test each component in isolation (shift-left) and the full system end to end.",
@@ -127,7 +128,8 @@ export const OPEN_ROLES = [
             "Set up hardware, software and simulation test environments for end-to-end verification.",
             "Validate system behaviour against software requirements."
         ],
-        skills: [
+        skills: [],
+        mustHave: [
             "Manual and automation testing experience.",
             "C# (.NET) with Selenium and Playwright.",
             "MS Test, Page Object Model and data-driven testing.",
@@ -138,7 +140,6 @@ export const OPEN_ROLES = [
             "Hardware-in-the-loop (HIL) / dSPACE testing.",
             "GitHub Copilot or MS Copilot.",
             "Mining or heavy-industry domain knowledge."
-        ],
-        mustHave: []
-    }
+        ]
+    },
 ];

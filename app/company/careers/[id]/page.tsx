@@ -84,7 +84,7 @@ export default function JobDetails() {
     name.trim() !== "" &&
     isEmailValid &&
     isPhoneValid &&
-    !!resumeFile;
+    resumeFile !== null;
 
   const isFormDisabled = isSubmitting || isSuccess || isAutofilling;
 
@@ -184,6 +184,19 @@ export default function JobDetails() {
 
       if (data.phone) {
         setPhone(data.phone);
+      }
+
+      if (data.phone) {
+        const digits = String(data.phone).replace(/\D/g, "");
+
+        const formattedPhone =
+          digits.length === 10
+            ? `+91${digits}`
+            : digits.length === 12 && digits.startsWith("91")
+              ? `+${digits}`
+              : data.phone;
+
+        setPhone(formattedPhone as Value);
       }
     } catch (error) {
       console.error("Resume autofill failed:", error);

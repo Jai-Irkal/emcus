@@ -65,10 +65,33 @@ const CustomPhoneInput = ({
     });
 
     const handleCountryChange = (selectedCountry: Country) => {
+        const currentCallingCode = getCountryCallingCode(country);
+
+        const digits = (value || "").replace(/\D/g, "");
+
+        const currentNationalNumber = digits.startsWith(currentCallingCode)
+            ? digits.slice(currentCallingCode.length)
+            : digits;
+
         setCountry(selectedCountry);
         setIsOpen(false);
         setSearch("");
+
+        const newCallingCode = getCountryCallingCode(selectedCountry);
+
+        onChange(
+            currentNationalNumber
+                ? (`+${newCallingCode}${currentNationalNumber}` as Value)
+                : undefined
+        );
     };
+    const callingCode = getCountryCallingCode(country);
+
+    const phoneDigits = (value || "").replace(/\D/g, "");
+
+    const nationalNumber = phoneDigits.startsWith(callingCode)
+        ? phoneDigits.slice(callingCode.length)
+        : phoneDigits;
 
     return (
         <div
@@ -235,27 +258,34 @@ const CustomPhoneInput = ({
             {/* Phone Number */}
             <input
                 type="tel"
-                value={value || ""}
+                value={nationalNumber}
                 disabled={disabled}
                 placeholder={placeholder}
                 inputMode="numeric"
                 onChange={(e) => {
-                    const input = e.target.value.replace(/\D/g, "").slice(0, 10);
-                    onChange(input as Value);
+                    const input = e.target.value
+                        .replace(/\D/g, "")
+                        .slice(0, 10);
+
+                    onChange(
+                        input
+                            ? (`+${callingCode}${input}` as Value)
+                            : undefined
+                    );
                 }}
                 className="
-    h-full
-    min-w-0
-    flex-1
-    rounded-r-lg
-    bg-[#FBFBFB]
-    px-4
-    text-base
-    text-[#333333]
-    outline-none
-    placeholder:text-[#333333]
-    disabled:cursor-not-allowed
-  "
+        h-full
+        min-w-0
+        flex-1
+        rounded-r-lg
+        bg-[#FBFBFB]
+        px-4
+        text-base
+        text-[#333333]
+        outline-none
+        placeholder:text-[#333333]
+        disabled:cursor-not-allowed
+    "
             />
         </div>
     );
