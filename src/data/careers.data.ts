@@ -142,4 +142,82 @@ export const OPEN_ROLES = [
             "Mining or heavy-industry domain knowledge."
         ]
     },
+
+    {
+        id: 5,
+        role: "Hardware Design Engineer",
+        location: "Bengaluru, India (on-site)",
+        role_type: "Full Time",
+        reportsTo: "Engineering Manager",
+        experienceRequired: "5-8",
+        eduacation: "B.E. / B.Tech / Diploma (Electrical / Electronics)",
+        roleSummary: "You will own embedded hardware design end to end: schematics, component selection and libraries, then guiding PCB layout through fabrication with the PCB team. We are looking for a long-term professional who wants full ownership of product hardware, from concept to production.",
+        responsibilities: [
+            "Design analog and digital embedded hardware from concept to production.",
+            "Architect designs around MPUs/MCUs such as NXP i.MX, TI Sitara, STM32 and Renesas.",
+            "Develop robust schematics and select components for reliability, safety and compliance.",
+            "Integrate high-speed and industrial interfaces: DDR, Ethernet, USB, CAN, RS-485, SPI, I2C, UART.",
+            "Run circuit simulations and design validation in PSpice or LTSpice.",
+            "Guide PCB layout: define stack-up and routing constraints, ensure signal and power integrity (SI/PI), and review and approve layouts.",
+            "Lead board bring-up, debugging and root-cause analysis using oscilloscopes and logic analysers.",
+            "Ensure DFM/DFT compliance and take designs through prototype (PCBA), validation and production.",
+            "Work with firmware and mechanical teams on system integration, and take part in design reviews and risk analysis."
+        ],
+        skills: [
+            "5-8 years in embedded hardware design.",
+            "Strong analog design: power, filtering, protection and signal conditioning.",
+            "Digital design with MCU/MPU-based systems: NXP i.MX / TI Sitara (MPU preferred), STM32 / Renesas.",
+            "High-speed design: DDR memory, Ethernet, USB and other high-speed buses.",
+            "Signal integrity (SI) and power integrity (PI).",
+            "Guiding PCB design in KiCad, Mentor Graphics Xpedition, Cadence Allegro or Altium Designer.",
+            "Simulation with PSpice or LTSpice.",
+            "Hands-on debugging with oscilloscope, logic analyser and multimeter; board bring-up and validation.",
+            "DFM, DFT and EMI/EMC design practices.",
+            "Taking designs from schematic to PCB, PCBA, validation and production."
+        ],
+        mustHave: [],
+        goodToHave: [
+            "Strong understanding of hardware–firmware interaction and system integration.",
+            "Experience with fire safety, BMS or industrial IoT products."
+        ]
+    },
+    {
+        id: 6,
+        role: "PCB Design Engineer",
+        location: "Bengaluru, India (on-site)",
+        role_type: "Full Time",
+        reportsTo: "Engineering Manager",
+        experienceRequired: "2-3",
+        eduacation: "B.E. / B.Tech (Electronics / Electrical / ECE or related)",
+        roleSummary: "You will design PCB layouts in Altium Designer and/or Cadence Allegro, from component placement and routing to Gerber release, working closely with hardware, mechanical and manufacturing teams to build reliable boards.",
+        responsibilities: [
+            "Design PCB layouts in Altium Designer or Cadence Allegro.",
+            "Place components and route boards to schematic and design requirements.",
+            "Apply design constraints: clearance, trace width, spacing and routing rules.",
+            "Work on multilayer PCBs and layer stack-up.",
+            "Create and maintain footprints and component libraries.",
+            "Run Design Rule Checks (DRC) and resolve layout issues.",
+            "Generate Gerber files, drill files and manufacturing documentation.",
+            "Review schematics and optimise layouts with hardware engineers.",
+            "Support fabrication, assembly and prototypes, following DFM and DFT guidelines."
+        ],
+        skills: [
+            "2-3 years of hands-on PCB layout design.",
+            "Altium Designer and/or Cadence Allegro.",
+            "The full PCB design flow, from schematic to Gerber release.",
+            "PCB design constraints and design-rule management.",
+            "Multilayer PCB design and layer stack-up.",
+            "Component placement, routing and footprint/library creation.",
+            "PCB fabrication and assembly processes.",
+            "Good communication, problem-solving and teamwork."
+        ],
+        mustHave: [],
+        goodToHave: [
+            "Mentor Graphics Xpedition.",
+            "High-speed PCB design: DDR, Ethernet, USB and differential-pair routing.",
+            "Impedance-controlled routing and length matching.",
+            "Basics of signal integrity (SI) and power integrity (PI).",
+            "EMI/EMC design practices."
+        ]
+    },
 ];
